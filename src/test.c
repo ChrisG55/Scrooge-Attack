@@ -24,6 +24,7 @@ enum var
 	NVARS
 };
 
+clock_t cpu_clocks[NCLOCKS];
 struct timespec clocks[NCLOCKS];
 uint64_t vars[NVARS];
 int infinite = 0;
@@ -71,11 +72,17 @@ static int log_result(void)
 	int rv = 0;
 	FILE *csv;
 	struct timespec td;
+	double cpu_time = ((double)(cpu_clocks[STOP] - cpu_clocks[START])) / CLOCKS_PER_SEC;
+	double duration;
 
 	printf("start        = %ld.%09ld\n", (long)clocks[START].tv_sec, clocks[START].tv_nsec);
 	printf("stop         = %ld.%09ld\n", (long)clocks[STOP].tv_sec, clocks[STOP].tv_nsec);
 	clock_diff(&td);
-	printf("duration     = %ld.%09ld\n", (long)td.tv_sec, td.tv_nsec);
+	printf("duration     = %ld.%09ld s\n", (long)td.tv_sec, td.tv_nsec);
+	printf("cpu time     = %lf s\n", cpu_time);
+	duration = td.tv_sec;
+	duration += ((double)td.tv_nsec) / 1000000000L;
+	printf("cpu usage    = %lf\n", cpu_time / duration);
 	
 	if (vars[FLIPPED_BITS]) {
 		printf("multiplier   = 0x%016" PRIX64 "\n", vars[MULTIPLIER]);
@@ -94,11 +101,11 @@ static int log_result(void)
 	}
 	rv = fprintf(csv, "%ld.%09ld,%ld.%09ld,0x%016" PRIX64 ",0x%016" \
 		     PRIX64 ",0x%016" PRIX64 ",0x%016" PRIX64 ",0x%016" PRIX64 \
-		     ",%" PRIu64 "\n",
+		     ",%" PRIu64 ",%lf\n",
 		     (long)clocks[START].tv_sec, clocks[START].tv_nsec,
 		     (long)clocks[STOP].tv_sec, clocks[STOP].tv_nsec,
 		     vars[MULTIPLIER], vars[MULTIPLICANT], vars[PRODUCT],
-		     vars[P], vars[FLIPPED_BITS], vars[I]);
+		     vars[P], vars[FLIPPED_BITS], vars[I], cpu_time);
 	if (rv < 0)
 		perror("fprintf");
 	else
@@ -129,6 +136,7 @@ static void multiply(void)
 
 	init_clock(&clkid);
 
+	cpu_clocks[START] = clock();
 	clock_gettime(clkid, &clocks[START]);
 
 	for (vars[I] = 0; vars[I] < 1000000000L; vars[I]++) {
@@ -142,13 +150,15 @@ static void multiply(void)
 
 	vars[FLIPPED_BITS] = vars[P] ^ vars[PRODUCT];
 
+	cpu_clocks[STOP] = clock();
 	clock_gettime(clkid, &clocks[STOP]);
 }
 
 static void usage(const char *progname)
 {
-	printf("%s [-hl]\n", progname);
+	printf("%s [-hil]\n", progname);
 	puts("  -h  print help message");
+	puts("  -i  go into infinite loop (must be killed)");
 	puts("  -l  log results to CSV file");
 }
 
