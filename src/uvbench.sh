@@ -94,7 +94,7 @@ run_vcgencmd()
 
 get_config()
 {
-    for opt in arm_freq arm_freq_min core_freq core_freq_min gpu_freq gpu_freq_min h264_freq h264_freq_min isp_freq isp_freq_min v3d_freq v3d_freq_min over_voltage over_voltage_avs over_voltage_min
+    for opt in arm_freq arm_freq_min core_freq core_freq_min gpu_freq gpu_freq_min h264_freq h264_freq_min isp_freq isp_freq_min v3d_freq v3d_freq_min over_voltage over_voltage_min
     do
 	val=$(run_vcgencmd get_config $opt | sed -e 's/^[^=]\+=\([-[:digit:]]\+\)$/\1/')
 	printf "%i," $val >>"$CSV"
@@ -199,25 +199,33 @@ schedule()
 # Usage: run [-t <T>]
 run()
 {
+    printf "run: $(date)\n" | tee -a "$LOG"
+    # NOTE: the cpufreq governor is reset after a reboot
     if [ $# -eq 2 ]
     then
 	temp=$(run_vcgencmd measure_temp | sed -e 's/^[^=]\+=\([[:digit:]]\+\)\..\+$/\1/')
 	if [ $2 -le $temp ]
 	then
 	    cooldown $2
+        sudo cpupower frequency-set -g performance 2>&1 | tee -a "$LOG"
 	else
+        sudo cpupower frequency-set -g performance 2>&1 | tee -a "$LOG"
 	    heatup $2
 	fi
     fi
-    printf "run: $(date)\n" | tee -a "$LOG"
-    # NOTE: the cpufreq governor is reset after a reboot
-    sudo cpupower frequency-set -g performance 2>&1 | tee -a "$LOG"
     until [ "x$gov" = "xperformance" ]
     do
 	gov=$(cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor)
     done
     printf "run: cpufreq governor set to '$gov'\n" | tee -a "$LOG"
     get_config
+    # NOTE: configuration over_voltage_avs can be decimal or hexadecimal
+    val=$(vcgencmd get_config over_voltage_avs | sed -e 's/^[^=]\+=\([[:alnum:]]\+\)$/\1/')
+    case $val in
+	0x* ) val=$(printf "${val#0x}\n" | tr abcdef ABCDEF)
+	      val=$(printf "ibase=16; $val\n" | bc) ;;
+    esac
+    printf "%i," $val >>"$CSV"
     get_measure
     val=$(run_vcgencmd get_throttled | sed -e 's/^[^=]\+=\([[:alnum:]]\+\)$/\1/')
     printf "$val," >>"$CSV"
