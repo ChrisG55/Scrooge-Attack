@@ -6,6 +6,13 @@
 #include <stdlib.h>
 #include <time.h>
 
+enum clock
+{
+	START,
+	STOP,
+	NCLOCKS
+};
+
 enum var
 {
 	MULTIPLIER,
@@ -17,19 +24,58 @@ enum var
 	NVARS
 };
 
+struct timespec clocks[NCLOCKS];
 uint64_t vars[NVARS];
 int infinite = 0;
 int verbose = 0;
+
+static void clock_diff(struct timespec *tdiff)
+{
+	tdiff->tv_nsec = clocks[STOP].tv_nsec - clocks[START].tv_nsec;
+	if (tdiff->tv_nsec < 0)	{
+		tdiff->tv_sec = clocks[STOP].tv_sec - clocks[START].tv_sec - 1;
+		tdiff->tv_nsec = 1000000000L + tdiff->tv_nsec;
+	} else {
+		tdiff->tv_sec = clocks[STOP].tv_sec - clocks[START].tv_sec;
+	}
+}
+
+static void init_clock(clockid_t *clockid)
+{
+	/*
+	 * See paragraph on "Constants for Options and Option Groups" in the
+	 * unistd.h description
+	 */
+#if defined _POSIX_MONOTONIC_CLOCK
+	struct timespec tp;
+#endif /* _POSIX_MONOTONIC_CLOCK */
+
+#if !defined _POSIX_MONOTONIC_CLOCK || _POSIX_MONOTONIC_CLOCK < 0
+	*clockid = CLOCK_REALTIME;
+#elif _POSIX_MONOTONIC_CLOCK > 0
+	*clockid = CLOCK_MONOTONIC;
+#else
+	/* Mandatory runtime test */
+	if (clock_gettime((*clockid = CLOCK_MONOTONIC), &tp))
+		*clockid = CLOCK_REALTIME;
+#endif /* _POSIX_MONOTONIC_CLOCK */
+}
 
 /*
  * Log the result to STDOUT in case of a bit filp and write the results to a CSV
  * file.
  * Returns 0 on success and non-zero in case of an error.
  */
-int log_result(void)
+static int log_result(void)
 {
 	int rv = 0;
 	FILE *csv;
+	struct timespec td;
+
+	printf("start        = %ld.%09ld\n", (long)clocks[START].tv_sec, clocks[START].tv_nsec);
+	printf("stop         = %ld.%09ld\n", (long)clocks[STOP].tv_sec, clocks[STOP].tv_nsec);
+	clock_diff(&td);
+	printf("duration     = %ld.%09ld\n", (long)td.tv_sec, td.tv_nsec);
 	
 	if (vars[FLIPPED_BITS]) {
 		printf("multiplier   = 0x%016" PRIX64 "\n", vars[MULTIPLIER]);
@@ -46,8 +92,11 @@ int log_result(void)
 		rv = 1;
 		goto log_end;
 	}
-	rv = fprintf(csv, "0x%016" PRIX64 ",0x%016" PRIX64 ",0x%016" PRIX64 \
-		     ",0x%016" PRIX64 ",0x%016" PRIX64 ",%" PRIu64 "\n",
+	rv = fprintf(csv, "%ld.%09ld,%ld.%09ld,0x%016" PRIX64 ",0x%016" \
+		     PRIX64 ",0x%016" PRIX64 ",0x%016" PRIX64 ",0x%016" PRIX64 \
+		     ",%" PRIu64 "\n",
+		     (long)clocks[START].tv_sec, clocks[START].tv_nsec,
+		     (long)clocks[STOP].tv_sec, clocks[STOP].tv_nsec,
 		     vars[MULTIPLIER], vars[MULTIPLICANT], vars[PRODUCT],
 		     vars[P], vars[FLIPPED_BITS], vars[I]);
 	if (rv < 0)
@@ -62,7 +111,7 @@ log_end:
 	return rv;
 }
 
-void infinite_multiply(void)
+static void infinite_multiply(void)
 {
 	while (1) {
 		vars[P] = vars[MULTIPLIER] * vars[MULTIPLICANT];
@@ -74,8 +123,14 @@ void infinite_multiply(void)
 	}
 }
 
-void multiply(void)
+static void multiply(void)
 {
+	clockid_t clkid;
+
+	init_clock(&clkid);
+
+	clock_gettime(clkid, &clocks[START]);
+
 	for (vars[I] = 0; vars[I] < 1000000000L; vars[I]++) {
 		vars[P] = vars[MULTIPLIER] * vars[MULTIPLICANT];
 		if (vars[P] != vars[PRODUCT])
@@ -86,16 +141,18 @@ void multiply(void)
 	}
 
 	vars[FLIPPED_BITS] = vars[P] ^ vars[PRODUCT];
+
+	clock_gettime(clkid, &clocks[STOP]);
 }
 
-void usage(const char *progname)
+static void usage(const char *progname)
 {
 	printf("%s [-hl]\n", progname);
 	puts("  -h  print help message");
 	puts("  -l  log results to CSV file");
 }
 
-int parse_args(int argc, char *argv[])
+static int parse_args(int argc, char *argv[])
 {
 	int c;
 	int errflg = 0;
