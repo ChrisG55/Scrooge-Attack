@@ -141,6 +141,21 @@ heatup()
     until [ $temp -ge $1 ]
     do
 	sleep 1
+	# Check that none of the infinite loops have crashed
+	cpids="$(ps -o "ppid user group comm pid" | grep -e "$$[[:space:]]\+pi[[:space:]]\+pi[[:space:]]\+test" | sed -e 's/^.\+[[:space:]]\([[:digit:]]\+\)$/\1/' | sed ':a;N;$!ba;s/\n/ /g')"
+	if [ $(printf "$cpids\n" | wc -w) -lt $(nproc) ]
+	then
+	    for pid in $pids
+	    do
+		printf "$cpids\n" | grep -e $pid 2>&1 >/dev/null
+		if [ $? -eq 1 ]
+		then
+		    ./test -i &
+		    pids="$(printf "$pids\n" | sed -e "s/$pid/$!/")"
+		    printf "heatup: infinite multiplication loop $pid has crashed, starting $!\n" | tee -a "$LOG"
+		fi
+	    done
+	fi
 	temp=$(run_vcgencmd measure_temp | sed -e 's/^[^=]\+=\([[:digit:]]\+\)\..\+$/\1/')
     done
     kill -9 $pids
