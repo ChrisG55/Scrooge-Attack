@@ -1,0 +1,24 @@
+This directory contains the raw data recorded during the measurements.
+
+* guardband
+Contains temperature dependent dynamic voltage and frequency scaling (DVFS) measurements.
+The raw data is organized in an hierarchical directory structure:
+
+- ~<device>~: name of the device used for the measurement
+- ~f<frequency>~: ARM CPU frequency of measurement in MHz
+- ~dU<voltage>~: ARM CPU voltage adjustment in mV
+- ~T<temperature>~: temperature at the start of the measurement in °C
+- ~SL<temperature>~: soft limit temperature in °C (model 3B+ only)
+- ~failures~: measurements that could not be started or that failed
+- ~errors~: in case of a measurement error (/e.g./, power consumption not measured or system clock not synchronized with NTP)
+
+The measurement results can be found in the ~T<temperature>~ directory unless there was a failure, in which case the results are found in the corresponding ~failures~ subdirectory.
+The results are composed of the following log files:
+
+- ~benchmark_*.log~: benchmark log
+- ~benchmark_*.csv~: benchmark recorded values during measurement
+- ~kernel_*.log~: crash failure (only for failed measurements, /e.g./, freeze during reboot or kernel panic)
+- ~l2ping_*.log~: 32 pings are sent to measure the Bluetooth round trip time (RTT)
+- ~powerspy_*.log~: PowerSpy stream log
+
+* stability

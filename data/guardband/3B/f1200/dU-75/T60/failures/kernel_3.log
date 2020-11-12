@@ -1,0 +1,449 @@
+[    0.000000] Booting Linux on physical CPU 0x0000000000 [0x410fd034]
+[    0.000000] Linux version 4.19.118-v8+ (dom@buildbot) (gcc version 5.4.0 20160609 (Ubuntu/Linaro 5.4.0-6ubuntu1~16.04.9)) #1311 SMP PREEMPT Mon Apr 27 14:32:38 BST 2020
+[    0.000000] Machine model: Raspberry Pi 3 Model B Rev 1.2
+[    0.000000] efi: Getting EFI parameters from FDT:
+[    0.000000] efi: UEFI not found.
+[    0.000000] cma: Reserved 8 MiB at 0x000000003ac00000
+[    0.000000] random: get_random_bytes called from start_kernel+0xb8/0x47c with crng_init=0
+[    0.000000] percpu: Embedded 24 pages/cpu s58840 r8192 d31272 u98304
+[    0.000000] Detected VIPT I-cache on CPU0
+[    0.000000] CPU features: enabling workaround for ARM erratum 843419
+[    0.000000] CPU features: enabling workaround for ARM erratum 845719
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 238896
+[    0.000000] Kernel command line: coherent_pool=1M 8250.nr_uarts=1 snd_bcm2835.enable_compat_alsa=0 snd_bcm2835.enable_hdmi=1 snd_bcm2835.enable_headphones=1 bcm2708_fb.fbwidth
+=656 bcm2708_fb.fbheight=416 bcm2708_fb.fbswap=1 vc_mem.mem_base=0x3ec00000 vc_mem.mem_size=0x40000000  dwc_otg.lpm_enable=0 console=ttyAMA0,115200 console=tty1 root=PARTUUID=4c9
+99877-02 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait
+[    0.000000] Dentry cache hash table entries: 131072 (order: 8, 1048576 bytes)
+[    0.000000] Inode-cache hash table entries: 65536 (order: 7, 524288 bytes)
+[    0.000000] Memory: 929096K/970752K available (8700K kernel code, 1074K rwdata, 2760K rodata, 1024K init, 1126K bss, 33464K reserved, 8192K cma-reserved)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[    0.000000] ftrace: allocating 30496 entries in 120 pages
+[    0.000000] rcu: Preemptible hierarchical RCU implementation.
+[    0.000000] rcu:     RCU restricting CPUs from NR_CPUS=64 to nr_cpu_ids=4.
+[    0.000000]  Tasks RCU enabled.
+[    0.000000] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=4
+[    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+[    0.000000] arch_timer: cp15 timer(s) running at 19.20MHz (phys).
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x46d987e47, max_idle_ns: 440795202767 ns
+[    0.000007] sched_clock: 56 bits at 19MHz, resolution 52ns, wraps every 4398046511078ns
+[    0.000271] Console: colour dummy device 80x25
+[    0.000936] console [tty1] enabled
+[    0.001008] Calibrating delay loop (skipped), value calculated using timer frequency.. 38.40 BogoMIPS (lpj=76800)
+[    0.001060] pid_max: default: 32768 minimum: 301
+[    0.001486] Mount-cache hash table entries: 2048 (order: 2, 16384 bytes)
+[    0.001541] Mountpoint-cache hash table entries: 2048 (order: 2, 16384 bytes)
+[    0.024105] ASID allocator initialised with 32768 entries
+[    0.032102] rcu: Hierarchical SRCU implementation.
+[    0.040730] EFI services will not be available.
+[    0.048180] smp: Bringing up secondary CPUs ...
+[    0.080445] Detected VIPT I-cache on CPU1
+[    0.080514] CPU1: Booted secondary processor 0x0000000001 [0x410fd034]
+[    0.112570] Detected VIPT I-cache on CPU2
+[    0.112618] CPU2: Booted secondary processor 0x0000000002 [0x410fd034]
+[    0.144738] Detected VIPT I-cache on CPU3
+[    0.144784] CPU3: Booted secondary processor 0x0000000003 [0x410fd034]
+[    0.144968] smp: Brought up 1 node, 4 CPUs
+[    0.145122] SMP: Total of 4 processors activated.
+[    0.145157] CPU features: detected: 32-bit EL0 Support
+[    0.146131] CPU: All CPU(s) started at EL2
+[    0.146205] alternatives: patching kernel code
+[    0.147826] devtmpfs: initialized
+[    0.164007] Enabled cp15_barrier support
+[    0.164075] Enabled setend support
+[    0.164620] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+[    0.164681] futex hash table entries: 1024 (order: 4, 65536 bytes)
+[    0.165438] pinctrl core: initialized pinctrl subsystem
+[    0.166329] DMI not present or invalid.
+[    0.166895] NET: Registered protocol family 16
+[    0.173358] cpuidle: using governor menu
+[    0.173967] hw-breakpoint: found 6 breakpoint and 4 watchpoint registers.
+[    0.178515] DMA: preallocated 1024 KiB pool for atomic allocations
+[    0.178696] Serial: AMBA PL011 UART driver
+[    0.183275] bcm2835-mbox 3f00b880.mailbox: mailbox enabled
+[    0.192945] raspberrypi-firmware soc:firmware: Attached to firmware from 2020-04-15 11:43, variant start
+[    0.196964] raspberrypi-firmware soc:firmware: Firmware hash is 82f9bb929ce2186eb1824178c1ae82902ad6275c
+[    0.245823] bcm2835-dma 3f007000.dma: DMA legacy API manager at (____ptrval____), dmachans=0x1
+[    0.249130] vgaarb: loaded
+[    0.249719] SCSI subsystem initialized
+[    0.250016] usbcore: registered new interface driver usbfs
+[    0.250121] usbcore: registered new interface driver hub
+[    0.250284] usbcore: registered new device driver usb
+[    0.250461] pps_core: LinuxPPS API ver. 1 registered
+[    0.250495] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.250554] PTP clock support registered
+[    0.252374] clocksource: Switched to clocksource arch_sys_counter
+[    0.377463] VFS: Disk quotas dquot_6.6.0
+[    0.377603] VFS: Dquot-cache hash table entries: 512 (order 0, 4096 bytes)
+[    0.377884] FS-Cache: Loaded
+[    0.378168] CacheFiles: Loaded
+[    0.390205] NET: Registered protocol family 2
+[    0.391167] tcp_listen_portaddr_hash hash table entries: 512 (order: 1, 8192 bytes)
+[    0.391244] TCP established hash table entries: 8192 (order: 4, 65536 bytes)
+[    0.391387] TCP bind hash table entries: 8192 (order: 5, 131072 bytes)
+[    0.391614] TCP: Hash tables configured (established 8192 bind 8192)
+[    0.391893] UDP hash table entries: 512 (order: 2, 16384 bytes)
+[    0.391970] UDP-Lite hash table entries: 512 (order: 2, 16384 bytes)
+[    0.392318] NET: Registered protocol family 1
+[    0.393402] RPC: Registered named UNIX socket transport module.
+[    0.393438] RPC: Registered udp transport module.
+[    0.393469] RPC: Registered tcp transport module.
+[    0.393499] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    0.396094] hw perfevents: enabled with armv8_cortex_a53 PMU driver, 7 counters available
+[    0.396298] kvm [1]: 8-bit VMID
+[    0.397209] kvm [1]: Hyp mode initialized successfully
+[    0.402124] Initialise system trusted keyrings
+[    0.402472] workingset: timestamp_bits=46 max_order=18 bucket_order=0
+[    0.414818] FS-Cache: Netfs 'nfs' registered for caching
+[    0.415887] NFS: Registering the id_resolver key type
+[    0.415952] Key type id_resolver registered
+[    0.415983] Key type id_legacy registered
+[    0.416025] nfs4filelayout_init: NFSv4 File Layout Driver Registering...
+[    0.423802] Key type asymmetric registered
+[    0.423853] Asymmetric key parser 'x509' registered
+[    0.423952] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 248)
+[    0.424247] io scheduler noop registered
+[    0.424281] io scheduler deadline registered (default)
+[    0.424597] io scheduler cfq registered
+[    0.424631] io scheduler mq-deadline registered (default)
+[    0.424664] io scheduler kyber registered
+[    0.430992] bcm2708_fb soc:fb: FB found 1 display(s)
+[    0.440540] Console: switching to colour frame buffer device 82x26
+[    0.445435] bcm2708_fb soc:fb: Registered framebuffer for display 0, size 656x416
+[    0.452844] Serial: 8250/16550 driver, 1 ports, IRQ sharing enabled
+[    0.457332] bcm2835-rng 3f104000.rng: hwrng registered
+[    0.460275] vc-mem: phys_addr:0x00000000 mem_base=0x3ec00000 mem_size:0x40000000(1024 MiB)
+[    0.466044] gpiomem-bcm2835 3f200000.gpiomem: Initialised: Registers at 0x3f200000
+[    0.471574] cacheinfo: Unable to detect cache hierarchy for CPU 0
+[    0.489979] brd: module loaded
+[    0.507962] loop: module loaded
+[    0.511700] Loading iSCSI transport class v2.0-870.
+[    0.517122] libphy: Fixed MDIO Bus: probed
+[    0.520051] usbcore: registered new interface driver r8152
+[    0.522718] usbcore: registered new interface driver lan78xx
+[    0.525342] usbcore: registered new interface driver smsc95xx
+[    0.528196] dwc_otg: version 3.00a 10-AUG-2012 (platform bus)
+[    0.559476] dwc_otg 3f980000.usb: base=(____ptrval____)
+[    0.775498] Core Release: 2.80a
+[    0.778017] Setting default values for core params
+[    0.780558] Finished setting default values for core params
+[    0.996680] Using Buffer DMA mode
+[    0.999060] Periodic Transfer Interrupt Enhancement - disabled
+[    1.001501] Multiprocessor Interrupt Enhancement - disabled
+[    1.003910] OTG VER PARAM: 0, OTG VER FLAG: 0
+[    1.006270] Dedicated Tx FIFOs mode
+[    1.009431] WARN::dwc_otg_hcd_init:1074: FIQ DMA bounce buffers: virt = ffffff80090c1000 dma = 0x00000000fad04000 len=9024
+[    1.013954] FIQ FSM acceleration enabled for :
+[    1.013954] Non-periodic Split Transactions
+[    1.013954] Periodic Split Transactions
+[    1.013954] High-Speed Isochronous Endpoints
+[    1.013954] Interrupt/Control Split Transaction hack enabled
+[    1.024719] WARN::hcd_init_fiq:497: MPHI regs_base at ffffff8008065000
+[    1.026995] dwc_otg 3f980000.usb: DWC OTG Controller
+[    1.029332] dwc_otg 3f980000.usb: new USB bus registered, assigned bus number 1
+[    1.031786] dwc_otg 3f980000.usb: irq 9, io mem 0x00000000
+[    1.034214] Init: Port Power? op_state=1
+[    1.036566] Init: Power Port (0)
+[    1.039237] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 4.19
+[    1.043986] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    1.046544] usb usb1: Product: DWC OTG Controller
+[    1.049053] usb usb1: Manufacturer: Linux 4.19.118-v8+ dwc_otg_hcd
+[    1.051550] usb usb1: SerialNumber: 3f980000.usb
+[    1.054840] hub 1-0:1.0: USB hub found
+[    1.057379] hub 1-0:1.0: 1 port detected
+[    1.060972] usbcore: registered new interface driver uas
+[    1.063386] usbcore: registered new interface driver usb-storage
+[    1.065961] mousedev: PS/2 mouse device common for all mice
+[    1.069839] bcm2835-wdt bcm2835-wdt: Broadcom BCM2835 watchdog timer
+[    1.074426] sdhci: Secure Digital Host Controller Interface driver
+[    1.076903] sdhci: Copyright(c) Pierre Ossman
+[    1.079970] sdhost-bcm2835 3f202000.mmc: could not get clk, deferring probe
+[    1.082728] sdhci-pltfm: SDHCI platform and OF driver helper
+[    1.087387] ledtrig-cpu: registered to indicate activity on CPUs
+[    1.090131] hidraw: raw HID events driver (C) Jiri Kosina
+[    1.092843] usbcore: registered new interface driver usbhid
+[    1.095302] usbhid: USB HID core driver
+[    1.099105] vchiq: vchiq_init_state: slot_zero = (____ptrval____), is_master = 0
+[    1.107905] Initializing XFRM netlink socket
+[    1.110402] NET: Registered protocol family 17
+[    1.112940] Key type dns_resolver registered
+[    1.116760] registered taskstats version 1
+[    1.119075] Loading compiled-in X.509 certificates
+[    1.133375] uart-pl011 3f201000.serial: cts_event_workaround enabled
+[    1.135974] 3f201000.serial: ttyAMA0 at MMIO 0x3f201000 (irq = 66, base_baud = 0) is a PL011 rev2
+[    2.126553] console [ttyAMA0] enabled
+[    2.134723] bcm2835-power bcm2835-power: Broadcom BCM2835 power domains driver
+[    2.146560] sdhost: log_buf @ (____ptrval____) (fad07000)
+[    2.203942] mmc0: sdhost-bcm2835 loaded - DMA enabled (>1)
+[    2.215823] of_cfs_init
+[    2.220969] of_cfs_init: OK
+[    2.227217] Waiting for root device PARTUUID=4c999877-02...
+[    2.248571] Indeed it is in host mode hprt0 = 00021501
+[    2.310724] mmc0: host does not support reading read-only switch, assuming write-enable
+[    2.341966] mmc0: new high speed SDHC card at address aaaa
+[    2.352304] mmcblk0: mmc0:aaaa SC16G 14.8 GiB
+[    2.362137] random: fast init done
+[    2.368514]  mmcblk0: p1 p2
+[    2.385598] EXT4-fs (mmcblk0p2): INFO: recovery required on readonly filesystem
+[    2.395542] EXT4-fs (mmcblk0p2): write access will be enabled during recovery
+[    2.464471] usb 1-1: new high-speed USB device number 2 using dwc_otg
+[    2.473841] Indeed it is in host mode hprt0 = 00001101
+[    2.522598] EXT4-fs (mmcblk0p2): recovery complete
+[    2.532652] EXT4-fs (mmcblk0p2): mounted filesystem with ordered data mode. Opts: (null)
+[    2.545846] VFS: Mounted root (ext4 filesystem) readonly on device 179:2.
+[    2.567615] devtmpfs: mounted
+[    2.580288] Freeing unused kernel memory: 1024K
+[    2.587612] Run /sbin/init as init process
+[    2.692925] usb 1-1: New USB device found, idVendor=0424, idProduct=9514, bcdDevice= 2.00
+[    2.706490] usb 1-1: New USB device strings: Mfr=0, Product=0, SerialNumber=0
+[    2.717412] hub 1-1:1.0: USB hub found
+[    2.724209] hub 1-1:1.0: 5 ports detected
+[    3.020446] usb 1-1.1: new high-speed USB device number 3 using dwc_otg
+[    3.128963] usb 1-1.1: New USB device found, idVendor=0424, idProduct=ec00, bcdDevice= 2.00
+[    3.142772] usb 1-1.1: New USB device strings: Mfr=0, Product=0, SerialNumber=0
+[    3.156136] smsc95xx v1.0.6
+[    3.230962] smsc95xx 1-1.1:1.0 eth0: register 'smsc95xx' at usb-3f980000.usb-1.1, smsc95xx USB 2.0 Ethernet, b8:27:eb:6d:27:bc
+[    3.338747] systemd[1]: System time before build time, advancing clock.
+[    3.527515] NET: Registered protocol family 10
+[    3.536803] Segment Routing with IPv6
+[    3.607093] systemd[1]: systemd 241 running in system mode. (+PAM +AUDIT +SELINUX +IMA +APPARMOR +SMACK +SYSVINIT +UTMP +LIBCRYPTSETUP +GCRYPT +GNUTLS +ACL +XZ +LZ4 +SECCOMP +
+BLKID +ELFUTILS +KMOD -IDN2 +IDN -PCRE2 default-hierarchy=hybrid)
+[    3.638631] systemd[1]: Detected architecture arm64.
+[    3.668191] systemd[1]: Set hostname to <raspberrypi>.
+[    3.713349] random: crng init done
+[    3.832007] uart-pl011 3f201000.serial: no DMA platform data
+[    4.696120] systemd[1]: Created slice system-systemd\x2dfsck.slice.
+[    4.710050] systemd[1]: Started Forward Password Requests to Wall Directory Watch.
+[    4.727509] systemd[1]: Reached target Swap.
+[    4.739305] systemd[1]: Listening on Journal Socket (/dev/log).
+[    4.753919] systemd[1]: Created slice User and Session Slice.
+[    4.767359] systemd[1]: Listening on Journal Socket.
+[    4.778851] systemd[1]: Condition check resulted in Kernel Module supporting RPCSEC_GSS being skipped.
+
+Raspbian GNU/Linux 10 raspberrypi ttyAMA0
+
+raspberrypi login: pi
+Password: 
+Last login: Fri Jul 17 13:46:27 CEST 2020 on ttyAMA0
+Linux raspberrypi 4.19.118-v8+ #1311 SMP PREEMPT Mon Apr 27 14:32:38 BST 2020 aarch64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+
+SSH is enabled and the default password for the 'pi' user has not been changed.
+This is a security risk - please login as the 'pi' user and type 'passwd' to set a new password.
+
+pi@raspberrypi:~$  watch [   39.816350] ------------[ cut here ]------------
+[   39.821832] DEBUG_LOCKS_WARN_ON((val < PREEMPT_MASK) && !(preempt_count() & PREEMPT_MASK))
+[   39.821857] WARNING: CPU: 0 PID: 492 at kernel/sched/core.c:3266 preempt_count_sub+0xc4/0xd0
+[   39.842283] Modules linked in: cfg80211 rfkill 8021q garp stp llc binfmt_misc bcm2835_codec(C) raspberrypi_hwmon bcm2835_v4l2(C) v4l2_mem2mem hwmon bcm2835_mmal_vchiq(C) v4l2_
+common videobuf2_dma_contig videobuf2_vmalloc videobuf2_memops videobuf2_v4l2 videobuf2_common videodev media vc_sm_cma(C) uio_pdrv_genirq uio ip_tables x_tables ipv6
+[   39.878237] CPU: 0 PID: 492 Comm: test Tainted: G         C        4.19.118-v8+ #1311
+[   39.888616] Hardware name: Raspberry Pi 3 Model B Rev 1.2 (DT)
+[   39.895812] pstate: 60000085 (nZCv daIf -PAN -UAO)
+[   39.901983] pc : preempt_count_sub+0xc4/0xd0
+[   39.907644] lr : preempt_count_sub+0xc4/0xd0
+[   39.913272] sp : ffffff8008003e00
+[   39.917929] x29: ffffff8008003e00 x28: 0000000000000007 
+[   39.924604] x27: ffffff8008cac018 x26: 0000000000000080 
+[   39.931263] x25: ffffff8008cac018 x24: ffffff8008cc86d8 
+[   39.937901] x23: ffffff80081685d0 x22: ffffffc03ab7a780 
+[   39.944519] x21: ffffffc03ab7a780 x20: ffffffc03ab7a7c0 
+[   39.951084] x19: 0000000000000001 x18: ffffff8009909dd8 
+[   39.957601] x17: 0000000000000000 x16: 0000000000000000 
+[   39.964062] x15: 0000000000000a40 x14: 5f54504d45455250 
+[   39.970468] x13: 2026202928746e75 x12: 6f635f74706d6565 
+[   39.976835] x11: 7270282120262620 x10: 294b53414d5f5450 
+[   39.983160] x9 : 4d45455250203c20 x8 : 6c617628284e4f5f 
+[   39.989439] x7 : 4e5241575f534b43 x6 : ffffff8008dd6176 
+[   39.995678] x5 : 0000000000000015 x4 : 0000000000000000 
+[   40.001875] x3 : 0000000000000000 x2 : 0000004031ec6000 
+[   40.008031] x1 : 5c12174d01c22c00 x0 : 0000000000000000 
+[   40.014150] Call trace:
+[   40.017351]  preempt_count_sub+0xc4/0xd0
+[   40.022026]  _raw_spin_unlock_irqrestore+0x38/0x88
+[   40.027579]  hrtimer_interrupt+0xf8/0x258
+[   40.032376]  arch_timer_handler_phys+0x3c/0x50
+[   40.037613]  handle_percpu_devid_irq+0xa4/0x2a0
+[   40.042943]  generic_handle_irq+0x34/0x50
+[   40.047763]  __handle_domain_irq+0x8c/0x100
+[   40.052770]  bcm2836_arm_irqchip_handle_irq+0x68/0xd8
+[   40.058680]  el0_irq_naked+0x50/0x5c
+[   40.063120] ---[ end trace 9113e7ff2af3c7fd ]---
+[   40.068627] Unable to handle kernel paging request at virtual address ffffff8008cac018
+[   40.076536] Mem abort info:
+[   40.079321]   ESR = 0x96000047
+[   40.082368]   Exception class = DABT (current EL), IL = 32 bits
+[   40.088279]   SET = 0, FnV = 0
+[   40.091325]   EA = 0, S1PTW = 0
+[   40.094456] Data abort info:
+[   40.097328]   ISV = 0, ISS = 0x00000047
+[   40.101155]   CM = 0, WnR = 1
+[   40.104117] swapper pgtable: 4k pages, 39-bit VAs, pgdp = 00000000d0862546
+[   40.110984] [ffffff8008cac018] pgd=000000003abfe003, pud=000000003abfe003, pmd=000000003abfa003, pte=0000000000000000
+[   40.121591] Internal error: Oops: 96000047 [#1] PREEMPT SMP
+[   40.127156] Modules linked in: cfg80211 rfkill 8021q garp stp llc binfmt_misc bcm2835_codec(C) raspberrypi_hwmon bcm2835_v4l2(C) v4l2_mem2mem hwmon bcm2835_mmal_vchiq(C) v4l2_
+common videobuf2_dma_contig videobuf2_vmalloc videobuf2_memops videobuf2_v4l2 videobuf2_common videodev media vc_sm_cma(C) uio_pdrv_genirq uio ip_tables x_tables ipv6
+[   40.157239] Process test (pid: 492, stack limit = 0x000000008f6ca1d2)
+[   40.163673] CPU: 0 PID: 492 Comm: test Tainted: G        WC        4.19.118-v8+ #1311
+[   40.171494] Hardware name: Raspberry Pi 3 Model B Rev 1.2 (DT)
+[   40.177320] pstate: 20000085 (nzCv daIf -PAN -UAO)
+[   40.182106] pc : ktime_get_update_offsets_now+0xa0/0x108
+[   40.187411] lr : ktime_get_update_offsets_now+0x64/0x108
+[   40.192714] sp : ffffff8008003de0
+[   40.196020] x29: ffffff8008003de0 x28: 0000000937dbeaa8 
+[   40.201326] x27: 0000000000004cae x26: 00000009127414df 
+[   40.206632] x25: ffffff8008df98c0 x24: ffffffffc4653600 
+[   40.211938] x23: 0000000000000080 x22: ffffff8008cac018 
+[   40.217243] x21: ffffff8008cac018 x20: ffffff8008cc86d8 
+[   40.222549] x19: ffffffc03ab7a780 x18: ffffff8009909dd8 
+[   40.227855] x17: 0000000000000000 x16: 0000000000000000 
+[   40.233161] x15: 0000000000000a40 x14: 5f54504d45455250 
+[   40.238467] x13: 2026202928746e75 x12: 6f635f74706d6565 
+[   40.243773] x11: 7270282120262620 x10: 294b53414d5f5450 
+[   40.249079] x9 : 4d45455250203c20 x8 : 6c617628284e4f5f 
+[   40.254384] x7 : 4e5241575f534b43 x6 : 00321161f2b5a800 
+[   40.259690] x5 : 0000000000000018 x4 : 0000000000004cae 
+[   40.264995] x3 : ffffff8008cac018 x2 : 0000000000000004 
+[   40.270301] x1 : 162287e858de3521 x0 : 0000000954045d25 
+[   40.275606] Call trace:
+[   40.278046]  ktime_get_update_offsets_now+0xa0/0x108
+[   40.283005]  hrtimer_interrupt+0x154/0x258
+[   40.287095]  arch_timer_handler_phys+0x3c/0x50
+[   40.291533]  handle_percpu_devid_irq+0xa4/0x2a0
+[   40.296056]  generic_handle_irq+0x34/0x50
+[   40.300059]  __handle_domain_irq+0x8c/0x100
+[   40.304236]  bcm2836_arm_irqchip_handle_irq+0x68/0xd8
+[   40.309280]  el0_irq_naked+0x50/0x5c
+[   40.312850] Code: 6b02003f 54000100 b9000282 f9406f21 (f90002a1) 
+[   40.318938] ---[ end trace 9113e7ff2af3c7fe ]---
+[   40.323548] Kernel panic - not syncing: Fatal exception in interrupt
+[   40.329900] SMP: stopping secondary CPUs
+[   40.333818] Kernel Offset: disabled
+[   40.337300] CPU features: 0x0,24002004
+[   40.341040] Memory Limit: none
+[   40.344092] ---[ end Kernel panic - not syncing: Fatal exception in interrupt ]---
+[   40.351678] WARNING: CPU: 0 PID: 492 at kernel/sched/core.c:1164 set_task_cpu+0x1d8/0x200
+[   40.359848] Modules linked in: cfg80211 rfkill 8021q garp stp llc binfmt_misc bcm2835_codec(C) raspberrypi_hwmon bcm2835_v4l2(C) v4l2_mem2mem hwmon bcm2835_mmal_vchiq(C) v4l2_
+common videobuf2_dma_contig videobuf2_vmalloc videobuf2_memops videobuf2_v4l2 videobuf2_common videodev media vc_sm_cma(C) uio_pdrv_genirq uio ip_tables x_tables ipv6
+[   40.389931] CPU: 0 PID: 492 Comm: test Tainted: G      D WC        4.19.118-v8+ #1311
+[   40.397752] Hardware name: Raspberry Pi 3 Model B Rev 1.2 (DT)
+[   40.403579] pstate: 60000085 (nZCv daIf -PAN -UAO)
+[   40.408363] pc : set_task_cpu+0x1d8/0x200
+[   40.412366] lr : try_to_wake_up+0x160/0x498
+[   40.416540] sp : ffffff80080034d0
+[   40.419846] x29: ffffff80080034d0 x28: ffffffc039407c00 
+[   40.425152] x27: ffffffc038ec03a8 x26: 0000000000000000 
+[   40.430458] x25: ffffff8008cb9000 x24: ffffff8008cc9000 
+[   40.435764] x23: 0000000000000080 x22: ffffffc038ec079c 
+[   40.441069] x21: 0000000000000004 x20: 0000000000000000 
+[   40.446375] x19: ffffffc038ec0000 x18: ffffff8008cc8688 
+[   40.451680] x17: 0000000000000000 x16: 0000000000000000 
+[   40.456986] x15: ffffff8088dd664f x14: 2d5d207470757272 
+[   40.462291] x13: 65746e69206e6920 x12: 6e6f697470656378 
+[   40.467597] x11: 65206c6174614620 x10: 3a676e69636e7973 
+[   40.472903] x9 : 20746f6e202d2063 x8 : 0000000000000040 
+[   40.478208] x7 : 0000000000000000 x6 : ffffffc039000248 
+[   40.483514] x5 : 0000000000000000 x4 : ffffffffffffffff 
+[   40.488819] x3 : 0000000000000000 x2 : ffffff8008cc86d8 
+[   40.494125] x1 : ffffff8008cc8000 x0 : 0000000000000000 
+[   40.499430] Call trace:
+[   40.501871]  set_task_cpu+0x1d8/0x200
+[   40.505526]  try_to_wake_up+0x160/0x498
+[   40.509356]  default_wake_function+0x34/0x48
+[   40.513621]  __wake_up_common+0xa4/0x158
+[   40.517538]  __wake_up_locked+0x40/0x50
+systemc[   40.521366]  complete+0x50/0x70
+[   40.525104]  response_callback+0x20/0x30
+[   40.529023]  mbox_chan_received_data+0x30/0x40
+[   40.533460]  bcm2835_mbox_irq+0x60/0xb0
+[   40.537289]  __handle_irq_event_percpu+0x74/0x2a8
+[   40.541987]  handle_irq_event_percpu+0x40/0x98
+[   40.546423]  handle_irq_event+0x50/0x80
+[   40.550253]  handle_level_irq+0xd8/0x198
+[   40.554168]  generic_handle_irq+0x34/0x50
+[   40.558173]  bcm2836_chained_handle_irq+0x40/0x60
+[   40.562871]  generic_handle_irq+0x34/0x50
+[   40.566873]  __handle_domain_irq+0x8c/0x100
+[   40.571050]  bcm2836_arm_irqchip_handle_irq+0x68/0xd8
+[   40.576094]  el1_irq+0xb4/0x130
+[   40.579230]  panic+0x248/0x294
+[   40.582277]  die+0x1b4/0x1c0
+[   40.585153]  die_kernel_fault+0x68/0x78
+[   40.588982]  __do_kernel_fault+0x8c/0xb8
+[   40.592900]  do_translation_fault+0x60/0xb8
+[   40.597076]  do_mem_abort+0x68/0x128
+[   40.600644]  el1_da+0x20/0x80
+[   40.603604]  ktime_get_update_offsets_now+0xa0/0x108
+[   40.608563]  hrtimer_interrupt+0x154/0x258
+[   40.612654]  arch_timer_handler_phys+0x3c/0x50
+[   40.617091]  handle_percpu_devid_irq+0xa4/0x2a0
+[   40.621614]  generic_handle_irq+0x34/0x50
+[   40.625618]  __handle_domain_irq+0x8c/0x100
+[   40.629794]  bcm2836_arm_irqchip_handle_irq+0x68/0xd8
+[   40.634838]  el0_irq_naked+0x50/0x5c
+[   40.638405] ---[ end trace 9113e7ff2af3c7ff ]---
+[   40.643028] WARNING: CPU: 0 PID: 492 at kernel/workqueue.c:857 wq_worker_waking_up+0x60/0x68
+[   40.651457] Modules linked in: cfg80211 rfkill 8021q garp stp llc binfmt_misc bcm2835_codec(C) raspberrypi_hwmon bcm2835_v4l2(C) v4l2_mem2mem hwmon bcm2835_mmal_vchiq(C) v4l2_
+common videobuf2_dma_contig videobuf2_vmalloc videobuf2_memops videobuf2_v4l2 videobuf2_common videodev media vc_sm_cma(C) uio_pdrv_genirq uio ip_tables x_tables ipv6
+[   40.681541] CPU: 0 PID: 492 Comm: test Tainted: G      D WC        4.19.118-v8+ #1311
+[   40.689362] Hardware name: Raspberry Pi 3 Model B Rev 1.2 (DT)
+[   40.695188] pstate: 20000085 (nzCv daIf -PAN -UAO)
+[   40.699972] pc : wq_worker_waking_up+0x60/0x68
+[   40.704410] lr : wq_worker_waking_up+0x24/0x68
+[   40.708844] sp : ffffff80080034b0
+[   40.712151] x29: ffffff80080034b0 x28: 0000000000000000 
+[   40.717456] x27: ffffffc03ab7f2c0 x26: 0000000000000000 
+[   40.722762] x25: ffffff8008cb9000 x24: ffffff8008cc93f8 
+[   40.728068] x23: 0000000000000080 x22: ffffff8008003568 
+[   40.733374] x21: 0000000000000004 x20: 0000000000000000 
+[   40.738680] x19: ffffffc038ec0000 x18: ffffff8008cc8688 
+[   40.743985] x17: 0000000000000000 x16: 0000000000000000 
+[   40.749291] x15: ffffff8088dd664f x14: 2d5d207470757272 
+[   40.754596] x13: 65746e69206e6920 x12: 6e6f697470656378 
+[   40.759902] x11: 65206c6174614620 x10: 3a676e69636e7973 
+[   40.765207] x9 : 20746f6e202d2063 x8 : 0000000000000000 
+[   40.770512] x7 : 00000000a2704302 x6 : 0000000000000000 
+[   40.775818] x5 : ffffffc03ab7f370 x4 : 0000000000000000 
+[   40.781123] x3 : 0000000000000000 x2 : ffffffc03abc6c40 
+[   40.786429] x1 : 0000000000000000 x0 : 0000000000000003 
+[   40.791734] Call trace:
+[   40.794175]  wq_worker_waking_up+0x60/0x68
+[   40.798265]  ttwu_do_activate+0x74/0x98
+[   40.802094]  try_to_wake_up+0x1d8/0x498
+[   40.805924]  default_wake_function+0x34/0x48
+[   40.810188]  __wake_up_common+0xa4/0x158
+[   40.814104]  __wake_up_locked+0x40/0x50
+[   40.817932]  complete+0x50/0x70
+[   40.821068]  response_callback+0x20/0x30
+[   40.824984]  mbox_chan_received_data+0x30/0x40
+[   40.829422]  bcm2835_mbox_irq+0x60/0xb0
+[   40.833250]  __handle_irq_event_percpu+0x74/0x2a8
+[   40.837947]  handle_irq_event_percpu+0x40/0x98
+[   40.842384]  handle_irq_event+0x50/0x80
+[   40.846213]  handle_level_irq+0xd8/0x198
+[   40.850129]  generic_handle_irq+0x34/0x50
+[   40.854132]  bcm2836_chained_handle_irq+0x40/0x60
+[   40.858828]  generic_handle_irq+0x34/0x50
+[   40.862831]  __handle_domain_irq+0x8c/0x100
+[   40.867007]  bcm2836_arm_irqchip_handle_irq+0x68/0xd8
+[   40.872052]  el1_irq+0xb4/0x130
+[   40.875186]  panic+0x248/0x294
+[   40.878233]  die+0x1b4/0x1c0
+[   40.881107]  die_kernel_fault+0x68/0x78
+[   40.884937]  __do_kernel_fault+0x8c/0xb8
+[   40.888853]  do_translation_fault+0x60/0xb8
+[   40.893029]  do_mem_abort+0x68/0x128
+[   40.896597]  el1_da+0x20/0x80
+[   40.899558]  ktime_get_update_offsets_now+0xa0/0x108
+[   40.904516]  hrtimer_interrupt+0x154/0x258
+[   40.908606]  arch_timer_handler_phys+0x3c/0x50
+[   40.913043]  handle_percpu_devid_irq+0xa4/0x2a0
+[   40.917566]  generic_handle_irq+0x34/0x50
+[   40.921568]  __handle_domain_irq+0x8c/0x100
+[   40.925744]  bcm2836_arm_irqchip_handle_irq+0x68/0xd8
+[   40.930789]  el0_irq_naked+0x50/0x5c
+[   40.934356] ---[ end trace 9113e7ff2af3c800 ]---
