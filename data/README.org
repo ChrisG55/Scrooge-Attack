@@ -21,4 +21,22 @@ The results are composed of the following log files:
 - ~l2ping_*.log~: 32 pings are sent to measure the Bluetooth round trip time (RTT)
 - ~powerspy_*.log~: PowerSpy stream log
 
-* stability
+* reliability
+Contains the [[https://github.com/ColinIanKing/stress-ng][stress-ng]] results and power measurements used to determine the reliability of the CPU when operating under critical condition.
+Each reliability benchmark was started with an ambient SoC temperature (about 25°C).
+The data is organized in a hierarchical directory structure:
+
+- ~<device>~: name of the device used for the measurement
+- ~f<frequency>~: ARM CPU frequency of measurement in MHz
+- ~dU<voltage>~: ARM CPU voltage adjustment in mV
+- ~active~: reliability benchmark where the device was actively cooled
+- ~passive~: reliability benchmark where the device was passively cooled
+
+The measurement results can be found in the ~active~ and ~passive~ directories.
+In case of an error, failure or an untrustworthy measurement, the results are stored in a corresponding subdirectory.
+The results are composed of the following log files:
+
+- ~kernel_*.log~: kernel log (optional)
+- ~l2ping_*.log~: 32 pings are sent to measure the Bluetooth round trip time (RTT)
+- ~powerspy_*.log~: PowerSpy stream log
+- ~stress-ng_*.log~: reliability benchmark log
