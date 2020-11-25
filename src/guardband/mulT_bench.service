@@ -2,12 +2,12 @@
 # Copyright (C) 2020 Christian Göttel
 
 [Unit]
-Description=Under-volting benchmark
-After=ssh.service
+Description=Temperature-based multiplication benchmark
+After=ssh.service systemd-timesyncd.service
 
 [Service]
 Type=oneshot
-ExecStart=/home/pi/uvbench.sh run
+ExecStart=/home/pi/mulT_bench.sh run -t 25
 User=1000
 Group=1000
 WorkingDirectory=~

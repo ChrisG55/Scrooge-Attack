@@ -1,0 +1,27 @@
+This directory contains the source code to run the benchmarks, retrieve the measurements and plot the results.
+
+* guardband
+Contains the source code, scripts and configurations to measure the guardband.
+
+- ~Makefile~ :: a Makefile to compile the benchmarks
+- ~mul_bench.c~ :: a benchmark to measure the guardband of an undervolted CPU as in [fn:1]
+- ~mulT_bench.service~ :: a systemd service to run the temperature-based multiplication benchmark
+- ~mulT_bench.sh~ :: a wrapper script to launch the multiplication benchmark at a specific temperature
+- ~validate.sh~ :: a script to validate the guardband analysis results
+
+* reliability
+Contains the scripts used to run the stress-ng[fn:3][fn:4] reliability benchmark.
+
+- ~error.sh~ :: common error function
+- ~run_reliability.sh~ :: automation of the reliability benchmark (never tested in production)
+- ~run_stress.sh~ :: a wrapper script to launch the stress-ng benchmark
+
+* Footnotes
+
+[fn:1] https://plundervolt.com/
+
+[fn:2] http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.357.7367&rep=rep1&type=pdf
+
+[fn:3] https://github.com/ColinIanKing/stress-ng
+
+[fn:4] https://wiki.ubuntu.com/Kernel/Reference/stress-ng

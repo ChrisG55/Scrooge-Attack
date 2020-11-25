@@ -9,6 +9,7 @@
 LC_ALL=C
 export LC_ALL
 
+readonly BENCHMARK=mul_bench
 readonly CSV="${0%sh}csv"
 readonly LOG="${0%sh}log"
 
@@ -132,7 +133,7 @@ heatup()
     i=0
     while [ $i -lt $(nproc) ]
     do
-	./test -i &
+	./$BENCHMARK -i &
 	pids="$pids $!"
 	i=$((i+1))
     done
@@ -142,7 +143,7 @@ heatup()
     do
 	sleep 1
 	# Check that none of the infinite loops have crashed
-	cpids="$(ps -o "ppid user group comm pid" | grep -e "$$[[:space:]]\+pi[[:space:]]\+pi[[:space:]]\+test" | sed -e 's/^.\+[[:space:]]\([[:digit:]]\+\)$/\1/' | sed ':a;N;$!ba;s/\n/ /g')"
+	cpids="$(ps -o "ppid user group comm pid" | grep -e "$$[[:space:]]\+pi[[:space:]]\+pi[[:space:]]\+$BENCHMARK" | sed -e 's/^.\+[[:space:]]\([[:digit:]]\+\)$/\1/' | sed ':a;N;$!ba;s/\n/ /g')"
 	if [ $(printf "$cpids\n" | wc -w) -lt $(nproc) ]
 	then
 	    for pid in $pids
@@ -150,7 +151,7 @@ heatup()
 		printf "$cpids\n" | grep -e $pid 2>&1 >/dev/null
 		if [ $? -eq 1 ]
 		then
-		    ./test -i &
+		    ./$BENCHMARK -i &
 		    pids="$(printf "$pids\n" | sed -e "s/$pid/$!/")"
 		    printf "heatup: infinite multiplication loop $pid has crashed, starting $!\n" | tee -a "$LOG"
 		fi
@@ -190,7 +191,7 @@ set_over_voltage()
 schedule()
 {
     # Start immediatetly after bootup
-    sudo systemd-run --on-startup=30 --working-directory=$HOME --uid=$(id -u) --gid=$(id -g) ${HOME}/uvbench.sh run 2>&1 | tee -a "$LOG"
+    sudo systemd-run --on-startup=30 --working-directory=$HOME --uid=$(id -u) --gid=$(id -g) ${HOME}/mulT_bench.sh run 2>&1 | tee -a "$LOG"
     sync
     sudo reboot
 }
@@ -229,7 +230,7 @@ run()
     get_measure
     val=$(run_vcgencmd get_throttled | sed -e 's/^[^=]\+=\([[:alnum:]]\+\)$/\1/')
     printf "$val," >>"$CSV"
-    ./test -l 2>&1 | tee -a "$LOG"
+    ./$BENCHMARK -l 2>&1 | tee -a "$LOG"
     rc=$?
     over_voltage=$(vcgencmd get_config over_voltage | sed -e 's/^[^=]\+=\([-[:digit:]]\+\)$/\1/')
     if [ $over_voltage -gt -16 ] && [ $rc -eq 0 ]
@@ -245,14 +246,15 @@ run()
 
 usage()
 {
-    printf "$0 help\n$0 precool <T>\n$0 preheat <T>\n$0 run [-t <T>]\n" #$0 schedule\n"
+    printf "Temperature-based multiplication benchmark\n"
+    printf "usage: $0 help\n$0 precool <T>\n$0 preheat <T>\n$0 run [-t <T>]\n" #$0 schedule\n"
     printf "  help       print usage information\n"
     printf "  precool T  cool the SoC down to temperature T (>25°C)\n"
     printf "  preheat T  heat the SoC up to temperature T (<80°C)\n"
     printf "  run        run the DVFS test\n"
     printf "    -t T     tempering the SoC to temperature T (25-80°C)\n"
     # printf "  schedule  schedule the DVFS batch\n"
-    printf "NOTE: the Raspberry Pi will reboot automatically inbetween DVFS test runs\n"
+    # printf "NOTE: the Raspberry Pi will reboot automatically inbetween DVFS test runs\n"
 }
 
 if [ $# -lt 1 ] || [ 3 -lt $# ]
