@@ -1,5 +1,9 @@
 This directory contains the source code to run the benchmarks, retrieve the measurements and plot the results.
 
+Files contained in this directory add common functionalities to the source code in the subdirectories.
+
+- ~error.sh~ :: common error functions
+
 * guardband
 Contains the source code, scripts and configurations to measure the guardband.
 
@@ -12,7 +16,6 @@ Contains the source code, scripts and configurations to measure the guardband.
 * reliability
 Contains the scripts used to run the stress-ng[fn:3][fn:4] reliability benchmark.
 
-- ~error.sh~ :: common error function
 - ~run_reliability.sh~ :: automation of the reliability benchmark (never tested in production)
 - ~run_stress.sh~ :: a wrapper script to launch the stress-ng benchmark
 

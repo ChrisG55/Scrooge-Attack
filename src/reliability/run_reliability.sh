@@ -49,7 +49,7 @@ fi
 
 [ -s ./dsn ] && fail "main" "could not find private SSH key"
 
-. error.sh
+. ../error.sh
 
 model=$1
 freq=$2
