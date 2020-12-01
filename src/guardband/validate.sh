@@ -58,6 +58,13 @@ filter_out()
     done
 }
 
+# usage: benchmark_csv_format csv
+benchmark_csv_format()
+{
+    grep -e '^[[:space:]]\+$' -q "$1"
+    [ $? -eq 0 ] && warn "$1 has an empty line containing spaces"
+}
+
 # The last line of the PowerSpy log file should be complete and should not be missing any columns due to a SIGINT.
 # usage: powerspy_format <PowerSpy log>
 powerspy_format()
@@ -108,7 +115,9 @@ check_failed_measurements()
 	do
 	    non_empty_file "$mfile"
 	    case $(basename $mfile) in
-		benchmark_*.csv) found=$((found+1)) ;;
+		benchmark_*.csv)
+		    benchmark_csv_format "$mfile"
+		    found=$((found+1)) ;;
 		benchmark_*.log) found=$((found+2)) ;;
 		l2ping_*.log) found=$((found+4)) ;;
 		powerspy_*.log)
@@ -153,7 +162,9 @@ check_regular_measurements()
 	do
 	    non_empty_file "$mfile"
 	    case $(basename $mfile) in
-		benchmark_*.csv) found=$((found+1)) ;;
+		benchmark_*.csv)
+		    benchmark_csv_format "$mfile"
+		    found=$((found+1)) ;;
 		benchmark_*.log) found=$((found+2)) ;;
 		l2ping_*.log) found=$((found+4)) ;;
 		powerspy_*.log)
