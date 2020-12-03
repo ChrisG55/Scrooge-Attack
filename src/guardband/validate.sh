@@ -279,7 +279,7 @@ do
 
 		# Soft limit (3B+ only)
 		# NOTE: the soft limit is only applicable between 60-80°C.
-		if [ "x$(basename "$device")" = "x3B+" ] && [ 60 -le $temp ] && [ $temp -le 80 ]
+		if [ "x$(basename "$device")" = "x3B+" ] && [ 59 -le $temp ] && [ $temp -le 80 ]
 		then
 		    softlimits=$(ls -d ${T}/* 2>/dev/null)
 		    check_directories $softlimits
