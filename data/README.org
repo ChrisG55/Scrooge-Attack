@@ -1,5 +1,21 @@
 This directory contains the raw data recorded during the measurements.
 
+* etr
+Contains energy to throughput ratio (ETR) measurements.
+The raw data is organized in an hierarchical directory structure:
+
+- ~<device>~: name of the device used for the measurement
+- ~dU<voltage>~: ARM CPU voltage adjustment in mV
+- ~f<frequency>~: ARM CPU frequency of measurement in MHz
+
+The measurement results can be found in the ~f<frequency>~ directory.
+The results are composed of the following log files:
+
+- ~benchmark_*.log~: benchmark log
+- ~benchmark_*.csv~: benchmark recorded values during measurement
+- ~l2ping_*.log~: 32 pings are sent to measure the Bluetooth round trip time (RTT)
+- ~powerspy_*.log~: PowerSpy stream log
+
 * guardband
 Contains temperature dependent dynamic voltage and frequency scaling (DVFS) measurements.
 The raw data is organized in an hierarchical directory structure:
