@@ -3,6 +3,9 @@ This directory contains the source code to run the benchmarks, retrieve the meas
 Files contained in this directory add common functionalities to the source code in the subdirectories.
 
 - ~error.sh~ :: common error functions
+- ~powerspy_extractor.m~ :: a helper script to extract time series data from the PowerSpy log
+- ~powerspy_log2csv.sh~ :: a script to convert the PowerSpy log to CSV format
+- ~powerspy_p2E.m~ :: a script that computes the total power consumption based on a PowerSpy time series file in CSV format
 
 * etr
 Contains the script for the energy to throughput ratio (ETR) measurement.
