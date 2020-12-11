@@ -2,6 +2,8 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # Copyright (C) 2020 Christian Göttel
 
+LOGLEVEL="warn"
+
 # usage: print_msg <type> <fct> <msg>...
 print_msg()
 {
@@ -19,6 +21,13 @@ fail()
     [ $# -lt 2 ] && fail "fail" "invalid number of arguments $#/2+"
     print_msg "ERROR" $*
     exit 1
+}
+
+# usage info <function> <msg>...
+info()
+{
+    [ $# -lt 2 ] && fail "info" "invalid number of arguments $#"
+    [ "x$LOGLEVEL" = "xinfo" ] && print_msg "INFO" $*
 }
 
 # usage: warn <function> <msg>...
