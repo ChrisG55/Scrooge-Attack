@@ -1,0 +1,815 @@
+[    0.000000] Booting Linux on physical CPU 0x0
+[    0.000000] Linux version 4.19.118-v7+ (dom@buildbot) (gcc version 4.9.3 (crosstool-NG crosstool-ng-1.22.0-88-g8460611)) #1311 SMP Mon Apr 27 14:21:24 BST 2020
+[    0.000000] CPU: ARMv7 Processor [410fd034] revision 4 (ARMv7), cr=10c5383d
+[    0.000000] CPU: div instructions available: patching division code
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+[    0.000000] OF: fdt: Machine model: Raspberry Pi 3 Model B Plus Rev 1.3
+[    0.000000] Memory policy: Data cache writealloc
+[    0.000000] cma: Reserved 256 MiB at 0x1ec00000
+[    0.000000] random: get_random_bytes called from start_kernel+0xac/0x4b4 with crng_init=0
+[    0.000000] percpu: Embedded 16 pages/cpu s36864 r8192 d20480 u65536
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 240555
+[    0.000000] Kernel command line: coherent_pool=1M 8250.nr_uarts=1 snd_bcm2835.enable_compat_alsa=0 snd_bcm2835.enable_hdmi=1 snd_bcm2835.enable_headphones=1 cma=256M video=Comp
+osite-1:720x480@60,margin_left=32,margin_right=32,margin_top=32,margin_bottom=32 vc_mem.mem_base=0x3ec00000 vc_mem.mem_size=0x40000000  dwc_otg.lpm_enable=0 console=ttyAMA0,115200
+ console=tty1 root=PARTUUID=4c999877-02 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait
+[    0.000000] Dentry cache hash table entries: 131072 (order: 7, 524288 bytes)
+[    0.000000] Inode-cache hash table entries: 65536 (order: 6, 262144 bytes)
+[    0.000000] Memory: 684616K/970752K available (8192K kernel code, 656K rwdata, 2232K rodata, 1024K init, 831K bss, 23992K reserved, 262144K cma-reserved)
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000]     fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
+[    0.000000]     vmalloc : 0xbb800000 - 0xff800000   (1088 MB)
+[    0.000000]     lowmem  : 0x80000000 - 0xbb400000   ( 948 MB)
+[    0.000000]     modules : 0x7f000000 - 0x80000000   (  16 MB)
+[    0.000000]       .text : 0x(ptrval) - 0x(ptrval)   (9184 kB)
+[    0.000000]       .init : 0x(ptrval) - 0x(ptrval)   (1024 kB)
+[    0.000000]       .data : 0x(ptrval) - 0x(ptrval)   ( 657 kB)
+[    0.000000]        .bss : 0x(ptrval) - 0x(ptrval)   ( 832 kB)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[    0.000000] ftrace: allocating 27093 entries in 80 pages
+[    0.000000] rcu: Hierarchical RCU implementation.
+[    0.000000] NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16
+[    0.000000] arch_timer: cp15 timer(s) running at 19.20MHz (phys).
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x46d987e47, max_idle_ns: 440795202767 ns
+[    0.000007] sched_clock: 56 bits at 19MHz, resolution 52ns, wraps every 4398046511078ns
+[    0.000023] Switching to timer-based delay loop, resolution 52ns
+[    0.000278] Console: colour dummy device 80x30
+[    0.000920] console [tty1] enabled
+[    0.000980] Calibrating delay loop (skipped), value calculated using timer frequency.. 38.40 BogoMIPS (lpj=192000)
+[    0.001023] pid_max: default: 32768 minimum: 301
+[    0.001384] Mount-cache hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.001421] Mountpoint-cache hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.002383] CPU: Testing write buffer coherency: ok
+[    0.002868] CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
+[    0.003551] Setting up static identity map for 0x100000 - 0x10003c
+[    0.003723] rcu: Hierarchical SRCU implementation.
+[    0.004562] smp: Bringing up secondary CPUs ...
+[    0.005491] CPU1: thread -1, cpu 1, socket 0, mpidr 80000001
+[    0.006478] CPU2: thread -1, cpu 2, socket 0, mpidr 80000002
+[    0.007408] CPU3: thread -1, cpu 3, socket 0, mpidr 80000003
+[    0.007522] smp: Brought up 1 node, 4 CPUs
+[    0.007603] SMP: Total of 4 processors activated (153.60 BogoMIPS).
+[    0.007627] CPU: All CPU(s) started in HYP mode.
+[    0.007647] CPU: Virtualization extensions available.
+[    0.008631] devtmpfs: initialized
+[    0.022214] VFP support v0.3: implementor 41 architecture 3 part 40 variant 3 rev 4
+[    0.022489] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.022538] futex hash table entries: 1024 (order: 4, 65536 bytes)
+[    0.033377] pinctrl core: initialized pinctrl subsystem
+[    0.034386] NET: Registered protocol family 16
+[    0.037703] DMA: preallocated 1024 KiB pool for atomic coherent allocations
+[    0.043656] hw-breakpoint: found 5 (+1 reserved) breakpoint and 4 watchpoint registers.
+[    0.043693] hw-breakpoint: maximum watchpoint size is 8 bytes.
+[    0.043916] Serial: AMBA PL011 UART driver
+[    0.046388] bcm2835-mbox 3f00b880.mailbox: mailbox enabled
+[    0.060088] raspberrypi-firmware soc:firmware: Attached to firmware from 2020-04-15 11:43, variant start
+[    0.070102] raspberrypi-firmware soc:firmware: Firmware hash is 82f9bb929ce2186eb1824178c1ae82902ad6275c
+[    0.112931] bcm2835-dma 3f007000.dma: DMA legacy API manager at (ptrval), dmachans=0x1
+[    0.114600] SCSI subsystem initialized
+[    0.114844] usbcore: registered new interface driver usbfs
+[    0.114919] usbcore: registered new interface driver hub
+[    0.115033] usbcore: registered new device driver usb
+[    0.116815] clocksource: Switched to clocksource arch_sys_counter
+[    0.207609] VFS: Disk quotas dquot_6.6.0
+[    0.207719] VFS: Dquot-cache hash table entries: 1024 (order 0, 4096 bytes)
+[    0.207922] FS-Cache: Loaded
+[    0.208144] CacheFiles: Loaded
+[    0.208639] simple-framebuffer 3eaf0000.framebuffer: framebuffer at 0x3eaf0000, 0x10a800 bytes, mapped to 0x(ptrval)
+[    0.208683] simple-framebuffer 3eaf0000.framebuffer: format=a8r8g8b8, mode=656x416x32, linelength=2624
+[    0.213644] Console: switching to colour frame buffer device 82x26
+[    0.220576] simple-framebuffer 3eaf0000.framebuffer: fb0: simplefb registered!
+[    0.233171] NET: Registered protocol family 2
+[    0.236793] tcp_listen_portaddr_hash hash table entries: 512 (order: 0, 6144 bytes)
+[    0.242295] TCP established hash table entries: 8192 (order: 3, 32768 bytes)
+[    0.245194] TCP bind hash table entries: 8192 (order: 4, 65536 bytes)
+[    0.248147] TCP: Hash tables configured (established 8192 bind 8192)
+[    0.251068] UDP hash table entries: 512 (order: 2, 16384 bytes)
+[    0.253906] UDP-Lite hash table entries: 512 (order: 2, 16384 bytes)
+[    0.257078] NET: Registered protocol family 1
+[    0.260576] RPC: Registered named UNIX socket transport module.
+[    0.263521] RPC: Registered udp transport module.
+[    0.266389] RPC: Registered tcp transport module.
+[    0.269189] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    0.273841] hw perfevents: enabled with armv7_cortex_a7 PMU driver, 7 counters available
+[    0.282585] Initialise system trusted keyrings
+[    0.285565] workingset: timestamp_bits=14 max_order=18 bucket_order=4
+[    0.298308] FS-Cache: Netfs 'nfs' registered for caching
+[    0.301595] NFS: Registering the id_resolver key type
+[    0.304293] Key type id_resolver registered
+[    0.306915] Key type id_legacy registered
+[    0.309417] nfs4filelayout_init: NFSv4 File Layout Driver Registering...
+[    0.317459] Key type asymmetric registered
+[    0.319946] Asymmetric key parser 'x509' registered
+[    0.322406] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 250)
+[    0.327479] io scheduler noop registered
+[    0.329871] io scheduler deadline registered (default)
+[    0.332446] io scheduler cfq registered
+[    0.334733] io scheduler mq-deadline registered (default)
+[    0.337066] io scheduler kyber registered
+[    0.342504] Serial: 8250/16550 driver, 1 ports, IRQ sharing enabled
+[    0.346374] bcm2835-rng 3f104000.rng: hwrng registered
+[    0.349146] vc-mem: phys_addr:0x00000000 mem_base=0x3ec00000 mem_size:0x40000000(1024 MiB)
+[    0.354485] vc-sm: Videocore shared memory driver
+[    0.357282] gpiomem-bcm2835 3f200000.gpiomem: Initialised: Registers at 0x3f200000
+[    0.372936] brd: module loaded
+[    0.385574] loop: module loaded
+[    0.388669] Loading iSCSI transport class v2.0-870.
+[    0.391823] libphy: Fixed MDIO Bus: probed
+[    0.394335] usbcore: registered new interface driver lan78xx
+[    0.396843] usbcore: registered new interface driver smsc95xx
+[    0.399214] dwc_otg: version 3.00a 10-AUG-2012 (platform bus)
+[    0.429398] dwc_otg 3f980000.usb: base=(ptrval)
+[    0.631865] Core Release: 2.80a
+[    0.634079] Setting default values for core params
+[    0.636370] Finished setting default values for core params
+[    0.838995] Using Buffer DMA mode
+[    0.841296] Periodic Transfer Interrupt Enhancement - disabled
+[    0.843688] Multiprocessor Interrupt Enhancement - disabled
+[    0.846066] OTG VER PARAM: 0, OTG VER FLAG: 0
+[    0.848443] Dedicated Tx FIFOs mode
+[    0.851356] WARN::dwc_otg_hcd_init:1074: FIQ DMA bounce buffers: virt = 9ed04000 dma = 0xded04000 len=9024
+[    0.855933] FIQ FSM acceleration enabled for :
+[    0.855933] Non-periodic Split Transactions
+[    0.855933] Periodic Split Transactions
+[    0.855933] High-Speed Isochronous Endpoints
+[    0.855933] Interrupt/Control Split Transaction hack enabled
+[    0.866912] WARN::hcd_init_fiq:457: FIQ on core 1
+[    0.869144] WARN::hcd_init_fiq:458: FIQ ASM at 8068fda0 length 36
+[    0.871359] WARN::hcd_init_fiq:497: MPHI regs_base at bb810000
+[    0.873621] dwc_otg 3f980000.usb: DWC OTG Controller
+[    0.875887] dwc_otg 3f980000.usb: new USB bus registered, assigned bus number 1
+[    0.878242] dwc_otg 3f980000.usb: irq 56, io mem 0x00000000
+[    0.880547] Init: Port Power? op_state=1
+[    0.882788] Init: Power Port (0)
+[    0.885196] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 4.19
+[    0.889723] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    0.892134] usb usb1: Product: DWC OTG Controller
+[    0.894500] usb usb1: Manufacturer: Linux 4.19.118-v7+ dwc_otg_hcd
+[    0.896946] usb usb1: SerialNumber: 3f980000.usb
+[    0.899910] hub 1-0:1.0: USB hub found
+[    0.902187] hub 1-0:1.0: 1 port detected
+[    0.905278] usbcore: registered new interface driver usb-storage
+[    0.907774] mousedev: PS/2 mouse device common for all mice
+[    0.910939] bcm2835-wdt bcm2835-wdt: Broadcom BCM2835 watchdog timer
+[    0.913602] bcm2835-cpufreq: min=600000 max=1400000
+[    0.916453] sdhci: Secure Digital Host Controller Interface driver
+[    0.918898] sdhci: Copyright(c) Pierre Ossman
+[    0.921739] sdhost-bcm2835 3f202000.mmc: could not get clk, deferring probe
+[    0.924419] sdhci-pltfm: SDHCI platform and OF driver helper
+[    0.928543] ledtrig-cpu: registered to indicate activity on CPUs
+[    0.931256] hidraw: raw HID events driver (C) Jiri Kosina
+[    0.933965] usbcore: registered new interface driver usbhid
+[    0.936513] usbhid: USB HID core driver
+[    0.939864] vchiq: vchiq_init_state: slot_zero = (ptrval), is_master = 0
+[    0.943976] [vc_sm_connected_init]: start
+[    0.952076] [vc_sm_connected_init]: end - returning 0
+[    0.955599] Initializing XFRM netlink socket
+[    0.958014] NET: Registered protocol family 17
+[    0.960456] Key type dns_resolver registered
+[    0.963432] Registering SWP/SWPB emulation handler
+[    0.966430] registered taskstats version 1
+[    0.968836] Loading compiled-in X.509 certificates
+[    0.977920] uart-pl011 3f201000.serial: cts_event_workaround enabled
+[    0.980425] 3f201000.serial: ttyAMA0 at MMIO 0x3f201000 (irq = 81, base_baud = 0) is a PL011 rev2
+[    2.001977] console [ttyAMA0] enabled
+[    2.010131] sdhost: log_buf @ (ptrval) (ded03000)
+[    2.065626] mmc0: sdhost-bcm2835 loaded - DMA enabled (>1)
+[    2.074785] of_cfs_init
+[    2.079693] of_cfs_init: OK
+[    2.085256] Waiting for root device PARTUUID=4c999877-02...
+[    2.116933] Indeed it is in host mode hprt0 = 00021501
+[    2.213343] random: fast init done
+[    2.227792] mmc0: host does not support reading read-only switch, assuming write-enable
+[    2.247096] mmc0: new high speed SDHC card at address aaaa
+[    2.256159] mmcblk0: mmc0:aaaa SL16G 14.8 GiB
+[    2.269370]  mmcblk0: p1 p2
+[    2.301939] EXT4-fs (mmcblk0p2): INFO: recovery required on readonly filesystem
+[    2.311779] EXT4-fs (mmcblk0p2): write access will be enabled during recovery
+[    2.326861] usb 1-1: new high-speed USB device number 2 using dwc_otg
+[    2.336017] Indeed it is in host mode hprt0 = 00001101
+[    2.409037] EXT4-fs (mmcblk0p2): recovery complete
+[    2.420968] EXT4-fs (mmcblk0p2): mounted filesystem with ordered data mode. Opts: (null)
+[    2.433998] VFS: Mounted root (ext4 filesystem) readonly on device 179:2.
+[    2.454534] devtmpfs: mounted
+[    2.467423] Freeing unused kernel memory: 1024K
+[    2.474899] Run /sbin/init as init process
+[    2.577131] usb 1-1: New USB device found, idVendor=0424, idProduct=2514, bcdDevice= b.b3
+[    2.590743] usb 1-1: New USB device strings: Mfr=0, Product=0, SerialNumber=0
+[    2.601457] hub 1-1:1.0: USB hub found
+[    2.608159] hub 1-1:1.0: 4 ports detected
+[    2.926880] usb 1-1.1: new high-speed USB device number 3 using dwc_otg
+[    3.067134] usb 1-1.1: New USB device found, idVendor=0424, idProduct=2514, bcdDevice= b.b3
+[    3.080949] usb 1-1.1: New USB device strings: Mfr=0, Product=0, SerialNumber=0
+[    3.091860] hub 1-1.1:1.0: USB hub found
+[    3.098737] hub 1-1.1:1.0: 3 ports detected
+[    3.170193] systemd[1]: System time before build time, advancing clock.
+[    3.239144] systemd[1]: systemd 241 running in system mode. (+PAM +AUDIT +SELINUX +IMA +APPARMOR +SMACK +SYSVINIT +UTMP +LIBCRYPTSETUP +GCRYPT +GNUTLS +ACL +XZ +LZ4 +SECCOMP +B
+LKID +ELFUTILS +KMOD -IDN2 +IDN -PCRE2 default-hierarchy=hybrid)
+[    3.269902] systemd[1]: Detected architecture arm.
+[    3.298344] systemd[1]: Set hostname to <raspberrypi>.
+[    3.497974] uart-pl011 3f201000.serial: no DMA platform data
+[    3.756880] usb 1-1.1.1: new high-speed USB device number 4 using dwc_otg
+[    3.887294] usb 1-1.1.1: New USB device found, idVendor=0424, idProduct=7800, bcdDevice= 3.00
+[    3.901255] usb 1-1.1.1: New USB device strings: Mfr=0, Product=0, SerialNumber=0
+[    4.179071] lan78xx 1-1.1.1:1.0 (unnamed net_device) (uninitialized): No External EEPROM. Setting MAC Speed
+[    4.195706] libphy: lan78xx-mdiobus: probed
+[    4.228519] lan78xx 1-1.1.1:1.0 (unnamed net_device) (uninitialized): int urb period 64
+[    4.283397] random: systemd: uninitialized urandom read (16 bytes read)
+[    4.304177] random: systemd: uninitialized urandom read (16 bytes read)
+[    4.314253] systemd[1]: Listening on initctl Compatibility Named Pipe.
+[    4.327662] random: systemd: uninitialized urandom read (16 bytes read)
+[    4.337811] systemd[1]: Listening on Syslog Socket.
+[    4.354246] systemd[1]: Created slice system-serial\x2dgetty.slice.
+[    4.367352] systemd[1]: Reached target Swap.
+[    4.378532] systemd[1]: Listening on udev Kernel Socket.
+[    4.390629] systemd[1]: Started Dispatch Password Requests to Console Directory Watch.
+[    4.408898] systemd[1]: Listening on Journal Socket.
+[    8.551260] Unable to handle kernel NULL pointer dereference at virtual address 00000328
+[   11.256280] Unable to handle kernel paging request at virtual address 26bffaf2
+[   11.256333] Unable to handle kernel NULL pointer dereference at virtual address 00000021
+[   11.256472] Unable to handle kernel paging request at virtual address 7f00000a
+[   11.256479] pgd = 68e427f3
+[   11.256482] [7f00000a] *pgd=00000000
+[   11.256489] Internal error: Oops: 5 [#1] SMP ARM
+[   11.256493] Modules linked in:
+[   11.256500] CPU: 0 PID: 159 Comm: systemd-udevd Not tainted 4.19.118-v7+ #1311
+[   11.256501] Hardware name: BCM2835
+[   11.256513] PC is at put_cpu_partial+0x24/0x1b4
+[   11.256517] LR is at __slab_free+0x280/0x3c0
+[   11.256519] pc : [<802b93f4>]    lr : [<802bb3c8>]    psr: 20000013
+[   11.256522] sp : b7881e10  ip : b7881e38  fp : b7881e34
+[   11.256524] r10: 00000000  r9 : 00000001  r8 : b78933c0
+[   11.256527] r7 : 00000001  r6 : 00000001  r5 : b78933c0  r4 : bb2f2678
+[   11.256530] r3 : c59839ac  r2 : 7f000000  r1 : bb2f2678  r0 : b78933c0
+[   11.256534] Flags: nzCv  IRQs on  FIQs on  Mode SVC_32  ISA ARM  Segment user
+[   11.256536] Control: 10c5383d  Table: 3788406a  DAC: 00000055
+[   11.256540] Process systemd-udevd (pid: 159, stack limit = 0x6df3dc7b)
+[   11.256543] Stack: (0xb7881e10 to 0xb7882000)
+[   11.256547] 1e00:                                     00000001 bb2f2678 20000013 00000000
+[   11.256552] 1e20: 00000001 b78933c0 b7881eb4 b7881e38 802bb3c8 802b93dc b6cee000 7603e000
+[   11.256557] 1e40: b7881e64 b782e360 80d04d48 80264bb4 802a0029 00000001 b782e360 00000000
+[   11.256562] 1e60: 80264d00 80264c7c b7881e84 b7881e78 80264d24 802a0029 b7881e9c b7881e88
+[   11.256568] 1e80: 80297198 26bffaee 80d04d48 ba4c1240 b782e360 8011d854 ffffffff b7833004
+[   11.256573] 1ea0: b782e300 b782e360 b7881eec b7881eb8 802bb72c 802bb154 00000001 8011d854
+[   11.256578] 1ec0: 00000000 b782e360 00000000 00000000 00000000 b7833004 b782e300 b782e360
+[   11.256583] 1ee0: b7881efc b7881ef0 8011d854 802bb514 b7881f14 b7881f00 8029ddcc 8011d838
+[   11.256588] 1f00: b782e360 b7833000 b7881f54 b7881f18 802a017c 8029dd80 76970000 b783303c
+[   11.256593] 1f20: b7881f3c b782e308 8086ef7c 80d04d48 b7881f5c b783303c b7833000 7603e000
+[   11.256598] 1f40: 00931770 0000005b b7881f8c b7881f58 802a08dc 8029ff0c b7881f7c b7881f5c
+[   11.256603] 1f60: b7881f5c 26bffaee 00931770 7603e000 00000001 0000005b 801011c4 b7880000
+[   11.256608] 1f80: b7881fa4 b7881f90 802a093c 802a0870 01a547a0 004aeaf0 00000000 b7881fa8
+[   11.256613] 1fa0: 801011a4 802a091c 01a547a0 004aeaf0 7603e000 00931770 00000000 00000000
+[   11.256618] 1fc0: 01a547a0 004aeaf0 00000001 0000005b 76f73968 0047d5b8 01a5acf8 01a52548
+[   11.256623] 1fe0: 004afeb8 7ee3f8f4 004388c8 76eb3d9c 20000010 7603e000 00000000 00000000
+[   11.256635] [<802b93f4>] (put_cpu_partial) from [<802bb3c8>] (__slab_free+0x280/0x3c0)
+[   11.256641] [<802bb3c8>] (__slab_free) from [<802bb72c>] (kmem_cache_free+0x224/0x234)
+[   11.256648] [<802bb72c>] (kmem_cache_free) from [<8011d854>] (vm_area_free+0x28/0x2c)
+[   11.256656] [<8011d854>] (vm_area_free) from [<8029ddcc>] (remove_vma+0x58/0x60)
+[   11.256663] [<8029ddcc>] (remove_vma) from [<802a017c>] (do_munmap+0x27c/0x368)
+[   11.256669] [<802a017c>] (do_munmap) from [<802a08dc>] (vm_munmap+0x78/0xac)
+[   11.256676] [<802a08dc>] (vm_munmap) from [<802a093c>] (sys_munmap+0x2c/0x30)
+[   11.256683] [<802a093c>] (sys_munmap) from [<801011a4>] (__sys_trace_return+0x0/0x1c)
+[   11.256686] Exception stack(0xb7881fa8 to 0xb7881ff0)
+[   11.256690] 1fa0:                   01a547a0 004aeaf0 7603e000 00931770 00000000 00000000
+[   11.256696] 1fc0: 01a547a0 004aeaf0 00000001 0000005b 76f73968 0047d5b8 01a5acf8 01a52548
+[   11.256699] 1fe0: 004afeb8 7ee3f8f4 004388c8 76eb3d9c
+[   11.256705] Code: e1a05000 e1a04001 e1a06002 ea000020 (e1d230ba)
+[   11.256709] ---[ end trace 0fb3612639335abd ]---
+[   11.256973] Unable to handle kernel paging request at virtual address 7f00000a
+[   11.256975] pgd = cc5d66fa
+[   11.256977] [7f00000a] *pgd=00000000
+[   11.256981] Internal error: Oops: 5 [#2] SMP ARM
+[   11.256983] Modules linked in:
+[   11.256988] CPU: 0 PID: 158 Comm: systemd-udevd Tainted: G      D           4.19.118-v7+ #1311
+[   11.256990] Hardware name: BCM2835
+[   11.256994] PC is at put_cpu_partial+0x24/0x1b4
+[   11.256997] LR is at __slab_free+0x280/0x3c0
+[   11.256999] pc : [<802b93f4>]    lr : [<802bb3c8>]    psr: 20000013
+[   11.257001] sp : b87d7e10  ip : b87d7e38  fp : b87d7e34
+[   11.257004] r10: 00000000  r9 : 00000001  r8 : b78933c0
+[   11.257006] r7 : 00000001  r6 : 00000001  r5 : b78933c0  r4 : bb2f24c8
+[   11.257009] r3 : c59839ac  r2 : 7f000000  r1 : bb2f24c8  r0 : b78933c0
+[   11.257012] Flags: nzCv  IRQs on  FIQs on  Mode SVC_32  ISA ARM  Segment user
+[   11.257015] Control: 10c5383d  Table: 387dc06a  DAC: 00000055
+[   11.257018] Process systemd-udevd (pid: 158, stack limit = 0xb64062f3)
+[   11.257020] Stack: (0xb87d7e10 to 0xb87d8000)
+[   11.257024] 7e00:                                     00000001 bb2f24c8 20000013 00000000
+[   11.257029] 7e20: 00000001 b78933c0 b87d7eb4 b87d7e38 802bb3c8 802b93dc b6cee000 7603e000
+[   11.257034] 7e40: b87d7e64 b7822360 80d04d48 80264bb4 802a0029 00000001 b7822360 00000000
+[   11.257039] 7e60: 80264d00 80264c7c b87d7e84 b87d7e78 80264d24 802a0029 b87d7e9c b87d7e88
+[   11.257045] 7e80: 80297198 26bffaee 80d04d48 ba4c1240 b7822360 8011d854 ffffffff b7832e04
+[   11.257050] 7ea0: b7822300 b7822360 b87d7eec b87d7eb8 802bb72c 802bb154 00000001 8011d854
+[   11.257054] 7ec0: 00000000 b7822360 00000000 00000000 00000000 b7832e04 b7822300 b7822360
+[   11.257060] 7ee0: b87d7efc b87d7ef0 8011d854 802bb514 b87d7f14 b87d7f00 8029ddcc 8011d838
+[   11.257065] 7f00: b7822360 b7832e00 b87d7f54 b87d7f18 802a017c 8029dd80 76970000 b7832e3c
+[   11.257070] 7f20: b87d7f3c b7822308 8086ef7c 80d04d48 b87d7f5c b7832e3c b7832e00 7603e000
+[   11.257075] 7f40: 00931770 0000005b b87d7f8c b87d7f58 802a08dc 8029ff0c b87d7f7c b87d7f5c
+[   11.257080] 7f60: b87d7f5c 26bffaee 00931770 7603e000 00000001 0000005b 801011c4 b87d6000
+[   11.257085] 7f80: b87d7fa4 b87d7f90 802a093c 802a0870 01a547a0 004aeaf0 00000000 b87d7fa8
+[   11.257090] 7fa0: 801011a4 802a091c 01a547a0 004aeaf0 7603e000 00931770 00000000 00000000
+[   11.257095] 7fc0: 01a547a0 004aeaf0 00000001 0000005b 76f73968 0047d5b8 01a6b368 01a52548
+[   11.257100] 7fe0: 004afeb8 7ee3f8f4 004388c8 76eb3d9c 20000010 7603e000 00000000 00000000
+[   11.257106] [<802b93f4>] (put_cpu_partial) from [<802bb3c8>] (__slab_free+0x280/0x3c0)
+[   11.257111] [<802bb3c8>] (__slab_free) from [<802bb72c>] (kmem_cache_free+0x224/0x234)
+[   11.257117] [<802bb72c>] (kmem_cache_free) from [<8011d854>] (vm_area_free+0x28/0x2c)
+[   11.257123] [<8011d854>] (vm_area_free) from [<8029ddcc>] (remove_vma+0x58/0x60)
+[   11.257129] [<8029ddcc>] (remove_vma) from [<802a017c>] (do_munmap+0x27c/0x368)
+[   11.257135] [<802a017c>] (do_munmap) from [<802a08dc>] (vm_munmap+0x78/0xac)
+[   11.257141] [<802a08dc>] (vm_munmap) from [<802a093c>] (sys_munmap+0x2c/0x30)
+[   11.257147] [<802a093c>] (sys_munmap) from [<801011a4>] (__sys_trace_return+0x0/0x1c)
+[   11.257149] Exception stack(0xb87d7fa8 to 0xb87d7ff0)
+[   11.257154] 7fa0:                   01a547a0 004aeaf0 7603e000 00931770 00000000 00000000
+[   11.257159] 7fc0: 01a547a0 004aeaf0 00000001 0000005b 76f73968 0047d5b8 01a6b368 01a52548
+[   11.257162] 7fe0: 004afeb8 7ee3f8f4 004388c8 76eb3d9c
+[   11.257167] Code: e1a05000 e1a04001 e1a06002 ea000020 (e1d230ba)
+[   11.257170] ---[ end trace 0fb3612639335abe ]---
+[   11.264642] pgd = 216615e6
+[   11.264644] [26bffaf2] *pgd=00000000
+[   11.264649] Internal error: Oops: 5 [#3] SMP ARM
+[   11.264650] Modules linked in:
+[   11.264655] CPU: 2 PID: 154 Comm: systemd-udevd Tainted: G      D           4.19.118-v7+ #1311
+[   11.264659] Hardware name: BCM2835
+[   11.274637] pgd = eddd93f3
+[   11.282858] PC is at unfreeze_partials+0x44/0x1d8
+[   11.282861] LR is at   (null)
+[   11.282864] pc : [<802b923c>]    lr : [<00000000>]    psr: 20000093
+[   11.282867] sp : b8535dc0  ip : 00000001  fp : b8535e0c
+[   11.286550] [00000021] *pgd=00000000
+[   11.291094] r10: 00000000  r9 : ff7e79a0  r8 : 00000000
+[   11.291097] r7 : b8fb4640  r6 : 80d04d48  r5 : b78933c0  r4 : 26bffaee
+[   11.291099] r3 : b8fb4640  r2 : b8fb4648  r1 : b6e6bbac  r0 : 00000000
+[   11.291104] Flags: nzCv  IRQs off  FIQs on  Mode SVC_32  ISA ARM  Segment user
+[   12.199586] Control: 10c5383d  Table: 3783c06a  DAC: 00000055
+[   12.206260] Process systemd-udevd (pid: 154, stack limit = 0x359d32b3)
+[   12.213736] Stack: (0xb8535dc0 to 0xb8536000)
+[   12.219025] 5dc0: 80d04d70 802b94a8 b78933c0 00000001 a0000013 00000000 00000001 00000000
+[   12.229157] 5de0: b8535e0c 26bffaee bb2f3104 b78933c0 00000001 a0000013 b78933c0 00000001
+[   12.239454] 5e00: b8535e34 b8535e10 802b94bc 802b9204 00000001 bb2f3104 20000013 00000000
+[   12.249845] 5e20: 00000001 b78933c0 b8535eb4 b8535e38 802bb3c8 802b93dc b6c18000 7603e000
+[   12.260371] 5e40: b8535e64 b7879360 80d04d48 80264bb4 802a0029 00000001 b7879360 00000000
+[   12.271045] 5e60: 80264d00 80264c7c b8535e84 b8535e78 80264d24 802a0029 b8535e9c b8535e88
+[   12.281823] 5e80: 80297198 26bffaee 80d04d48 ba4c1240 b7879360 8011d854 00000328 b7832604
+[   12.292730] 5ea0: b7879300 b7879360 b8535eec b8535eb8 802bb72c 802bb154 00000001 8011d854
+[   12.303772] 5ec0: 00000000 b7879360 00000000 00000000 00000000 b7832604 b7879300 b7879360
+[   12.314862] 5ee0: b8535efc b8535ef0 8011d854 802bb514 b8535f14 b8535f00 8029ddcc 8011d838
+[   12.326008] 5f00: b7879360 b7832600 b8535f54 b8535f18 802a017c 8029dd80 76970000 b8535f54
+[   12.337186] 5f20: b8535f30 b7879308 8086ef7c 80d04d48 b8535f5c b783263c b7832600 7603e000
+[   12.348347] 5f40: 00931770 0000005b b8535f8c b8535f58 802a08dc 8029ff0c b8535f7c b8535f5c
+[   12.359523] 5f60: b8535f5c 26bffaee 00931770 7603e000 00000001 0000005b 801011c4 b8534000
+[   12.370701] 5f80: b8535fa4 b8535f90 802a093c 802a0870 01a547a0 004aeaf0 00000000 b8535fa8
+[   12.381866] 5fa0: 801011a4 802a091c 01a547a0 004aeaf0 7603e000 00931770 00000000 00000000
+[   12.393044] 5fc0: 01a547a0 004aeaf0 00000001 0000005b 76f73968 0047d5b8 01a62ba0 01a52548
+[   12.404222] 5fe0: 004afeb8 7ee3f8f4 004388c8 76eb3d9c 20000010 7603e000 00000000 00000000
+[   12.415388] [<802b923c>] (unfreeze_partials) from [<802b94bc>] (put_cpu_partial+0xec/0x1b4)
+[   12.426745] [<802b94bc>] (put_cpu_partial) from [<802bb3c8>] (__slab_free+0x280/0x3c0)
+[   12.437670] [<802bb3c8>] (__slab_free) from [<802bb72c>] (kmem_cache_free+0x224/0x234)
+[   12.448595] [<802bb72c>] (kmem_cache_free) from [<8011d854>] (vm_area_free+0x28/0x2c)
+[   12.459454] [<8011d854>] (vm_area_free) from [<8029ddcc>] (remove_vma+0x58/0x60)
+[   12.469884] [<8029ddcc>] (remove_vma) from [<802a017c>] (do_munmap+0x27c/0x368)
+[   12.478735] [<802a017c>] (do_munmap) from [<802a08dc>] (vm_munmap+0x78/0xac)
+[   12.487319] [<802a08dc>] (vm_munmap) from [<802a093c>] (sys_munmap+0x2c/0x30)
+[   12.495944] [<802a093c>] (sys_munmap) from [<801011a4>] (__sys_trace_return+0x0/0x1c)
+[   12.506670] Exception stack(0xb8535fa8 to 0xb8535ff0)
+[   12.513160] 5fa0:                   01a547a0 004aeaf0 7603e000 00931770 00000000 00000000
+[   12.524168] 5fc0: 01a547a0 004aeaf0 00000001 0000005b 76f73968 0047d5b8 01a62ba0 01a52548
+[   12.535161] 5fe0: 004afeb8 7ee3f8f4 004388c8 76eb3d9c
+[   12.541606] Code: e50b3028 0a000058 e3a08000 e1a03008 (e5942004)
+[   12.549081] ---[ end trace 0fb3612639335abf ]---
+[   12.549083] Internal error: Oops: 5 [#4] SMP ARM
+[   12.549085] Modules linked in:
+[   12.556388] Unable to handle kernel paging request at virtual address 26bffaf8
+[   12.561020] CPU: 3 PID: 160 Comm: systemd-udevd Tainted: G      D           4.19.118-v7+ #1311
+[   12.561021] Hardware name: BCM2835
+[   12.561026] PC is at put_cpu_partial+0x24/0x1b4
+[   12.561031] LR is at __slab_free+0x280/0x3c0
+[   12.565332] pgd = 79bb014a
+[   12.573827] pc : [<802b93f4>]    lr : [<802bb3c8>]    psr: 20000013
+[   12.573830] sp : b7841e10  ip : b7841e38  fp : b7841e34
+[   12.573832] r10: 00000000  r9 : 00000001  r8 : b78933c0
+[   12.573835] r7 : 00000001  r6 : 00000001  r5 : b78933c0  r4 : bb2f33d4
+[   12.573838] r3 : c59839ac  r2 : 00000017  r1 : bb2f33d4  r0 : b78933c0
+[   12.573843] Flags: nzCv  IRQs on  FIQs on  Mode SVC_32  ISA ARM  Segment user
+[   12.584926] [26bffaf8] *pgd=00000000
+[   12.589494] Control: 10c5383d  Table: 3784406a  DAC: 00000055
+[   12.589497] Process systemd-udevd (pid: 160, stack limit = 0xd42b4fd8)
+[   12.589500] Stack: (0xb7841e10 to 0xb7842000)
+[   12.589503] 1e00:                                     00000001 bb2f33d4 20000013 00000000
+[   12.681726] 1e20: 00000001 b78933c0 b7841eb4 b7841e38 802bb3c8 802b93dc b5c07000 7603e000
+[   12.691937] 1e40: b7841e64 b788d360 80d04d48 80264bb4 802a0029 00000001 b788d360 00000000
+[   12.702187] 1e60: 80264d00 80264c7c b7841e84 b7841e78 80264d24 802a0029 b7841e9c b7841e88
+[   12.712555] 1e80: 80297198 26bffaee 80d04d48 ba4c1240 b788d360 8011d854 80d0a644 b7833204
+[   12.723090] 1ea0: b788d300 b788d360 b7841eec b7841eb8 802bb72c 802bb154 00000001 8011d854
+[   12.733725] 1ec0: 00000000 b788d360 00000000 00000000 00000000 b7833204 b788d300 b788d360
+[   12.744514] 1ee0: b7841efc b7841ef0 8011d854 802bb514 b7841f14 b7841f00 8029ddcc 8011d838
+[   12.755446] 1f00: b788d360 b7833200 b7841f54 b7841f18 802a017c 8029dd80 76970000 b783323c
+[   12.766431] 1f20: b7841f3c b788d308 8086ef7c 80d04d48 b7841f5c b783323c b7833200 7603e000
+[   12.777501] 1f40: 00931770 0000005b b7841f8c b7841f58 802a08dc 8029ff0c b7841f7c b7841f5c
+[   12.788653] 1f60: b7841f5c 26bffaee 00931770 7603e000 00000001 0000005b 801011c4 b7840000
+[   12.799824] 1f80: b7841fa4 b7841f90 802a093c 802a0870 01a547a0 004aeaf0 00000000 b7841fa8
+[   12.811002] 1fa0: 801011a4 802a091c 01a547a0 004aeaf0 7603e000 00931770 00000000 00000000
+[   12.822181] 1fc0: 01a547a0 004aeaf0 00000001 0000005b 76f73968 0047d5b8 01a602c8 01a52548
+[   12.833348] 1fe0: 004afeb8 7ee3f8f4 004388c8 76eb3d9c 20000010 7603e000 00000000 00000000
+[   12.844527] [<802b93f4>] (put_cpu_partial) from [<802bb3c8>] (__slab_free+0x280/0x3c0)
+[   12.855447] [<802bb3c8>] (__slab_free) from [<802bb72c>] (kmem_cache_free+0x224/0x234)
+[   12.866368] [<802bb72c>] (kmem_cache_free) from [<8011d854>] (vm_area_free+0x28/0x2c)
+[   12.877218] [<8011d854>] (vm_area_free) from [<8029ddcc>] (remove_vma+0x58/0x60)
+[   12.887636] [<8029ddcc>] (remove_vma) from [<802a017c>] (do_munmap+0x27c/0x368)
+[   12.896485] [<802a017c>] (do_munmap) from [<802a08dc>] (vm_munmap+0x78/0xac)
+[   12.905064] [<802a08dc>] (vm_munmap) from [<802a093c>] (sys_munmap+0x2c/0x30)
+[   12.913686] [<802a093c>] (sys_munmap) from [<801011a4>] (__sys_trace_return+0x0/0x1c)
+[   12.924408] Exception stack(0xb7841fa8 to 0xb7841ff0)
+[   12.930894] 1fa0:                   01a547a0 004aeaf0 7603e000 00931770 00000000 00000000
+[   12.941900] 1fc0: 01a547a0 004aeaf0 00000001 0000005b 76f73968 0047d5b8 01a602c8 01a52548
+[   12.952888] 1fe0: 004afeb8 7ee3f8f4 004388c8 76eb3d9c
+[   12.959328] Code: e1a05000 e1a04001 e1a06002 ea000020 (e1d230ba)
+[   12.966802] Internal error: Oops: 5 [#5] SMP ARM
+[   12.966818] ---[ end trace 0fb3612639335ac0 ]---
+[   12.972762] Modules linked in:
+[   12.978860] Unable to handle kernel NULL pointer dereference at virtual address 0000032b
+[   12.982980] CPU: 2 PID: 151 Comm: systemd-udevd Tainted: G      D           4.19.118-v7+ #1311
+[   12.993585] pgd = a4bc0197
+[   13.004648] Hardware name: BCM2835
+[   13.004652] PC is at put_cpu_partial+0x24/0x1b4
+[   13.004655] LR is at __slab_free+0x280/0x3c0
+[   13.004659] pc : [<802b93f4>]    lr : [<802bb3c8>]    psr: 20000013
+[   13.008526] [0000032b] *pgd=00000000
+[   13.013048] sp : b8645e10  ip : b8645e38  fp : b8645e34
+[   13.042396] r10: 00000000  r9 : 00000001  r8 : b78933c0
+[   13.048676] r7 : 00000001  r6 : 00000001  r5 : b78933c0  r4 : bb312808
+[   13.056234] r3 : c59839ac  r2 : 26bffaee  r1 : bb312808  r0 : b78933c0
+[   13.063759] Flags: nzCv  IRQs on  FIQs on  Mode SVC_32  ISA ARM  Segment user
+[   13.068292] Unable to handle kernel paging request at virtual address 80874787
+[   13.071895] Control: 10c5383d  Table: 39be406a  DAC: 00000055
+[   13.080131] pgd = 6b50dc08
+[   13.086889] Process systemd-udevd (pid: 151, stack limit = 0x4b88658c)
+[   13.090568] [80874787] *pgd=0081940e(bad)
+[   13.098132] Stack: (0xb8645e10 to 0xb8646000)
+[   13.108530] 5e00:                                     00000001 bb312808 20000013 00000000
+[   13.118683] 5e20: 00000001 b78933c0 b8645eb4 b8645e38 802bb3c8 802b93dc b6c18000 7603e000
+[   13.128886] 5e40: b8645e64 b8672360 80d04d48 80264bb4 802a0029 00000001 b8672360 00000000
+[   13.139257] 5e60: 80264d00 80264c7c b8645e84 b8645e78 80264d24 802a0029 b8645e9c b8645e88
+[   13.149761] 5e80: 80297198 26bffaee 80d04d48 ba4c1240 b8672360 8011d854 00000328 b7832004
+[   13.160367] 5ea0: b8672300 b8672360 b8645eec b8645eb8 802bb72c 802bb154 00000001 8011d854
+[   13.171117] 5ec0: 00000000 b8672360 00000000 00000000 00000000 b7832004 b8672300 b8672360
+[   13.181970] 5ee0: b8645efc b8645ef0 8011d854 802bb514 b8645f14 b8645f00 8029ddcc 8011d838
+[   13.192870] 5f00: b8672360 b7832000 b8645f54 b8645f18 802a017c 8029dd80 76970000 b783203c
+[   13.203838] 5f20: b8645f3c b8672308 8086ef7c 80d04d48 b8645f5c b783203c b7832000 7603e000
+[   13.214872] 5f40: 00931770 0000005b b8645f8c b8645f58 802a08dc 8029ff0c b8645f7c b8645f5c
+[   13.226016] 5f60: b8645f5c 26bffaee 00931770 7603e000 00000001 0000005b 801011c4 b8644000
+[   13.237194] 5f80: b8645fa4 b8645f90 802a093c 802a0870 01a547a0 004aeaf0 00000000 b8645fa8
+[   13.248352] 5fa0: 801011a4 802a091c 01a547a0 004aeaf0 7603e000 00931770 00000000 00000000
+[   13.259525] 5fc0: 01a547a0 004aeaf0 00000001 0000005b 76f73968 0047d5b8 01a61730 01a52548
+[   13.270705] 5fe0: 004afeb8 7ee3f8f4 004388c8 76eb3d9c 20000010 7603e000 00000000 00000000
+[   13.281868] [<802b93f4>] (put_cpu_partial) from [<802bb3c8>] (__slab_free+0x280/0x3c0)
+[   13.292786] [<802bb3c8>] (__slab_free) from [<802bb72c>] (kmem_cache_free+0x224/0x234)
+[   13.303709] [<802bb72c>] (kmem_cache_free) from [<8011d854>] (vm_area_free+0x28/0x2c)
+[   13.314541] [<8011d854>] (vm_area_free) from [<8029ddcc>] (remove_vma+0x58/0x60)
+[   13.324963] [<8029ddcc>] (remove_vma) from [<802a017c>] (do_munmap+0x27c/0x368)
+[   13.333822] [<802a017c>] (do_munmap) from [<802a08dc>] (vm_munmap+0x78/0xac)
+[   13.342400] [<802a08dc>] (vm_munmap) from [<802a093c>] (sys_munmap+0x2c/0x30)
+[   13.351026] [<802a093c>] (sys_munmap) from [<801011a4>] (__sys_trace_return+0x0/0x1c)
+[   13.361744] Exception stack(0xb8645fa8 to 0xb8645ff0)
+[   13.368230] 5fa0:                   01a547a0 004aeaf0 7603e000 00931770 00000000 00000000
+[   13.379232] 5fc0: 01a547a0 004aeaf0 00000001 0000005b 76f73968 0047d5b8 01a61730 01a52548
+[   13.390220] 5fe0: 004afeb8 7ee3f8f4 004388c8 76eb3d9c
+[   13.396656] Code: e1a05000 e1a04001 e1a06002 ea000020 (e1d230ba)
+[   13.404130] Internal error: Oops: 5 [#6] SMP ARM
+[   13.404145] ---[ end trace 0fb3612639335ac1 ]---
+[   13.410081] Modules linked in:
+[   13.410087] CPU: 3 PID: 129 Comm: systemd-journal Tainted: G      D           4.19.118-v7+ #1311
+[   13.410090] Hardware name: BCM2835
+[   13.417043] Unable to handle kernel paging request at virtual address 26bffaf8
+[   13.420421] PC is at kmem_cache_alloc+0xb0/0x23c
+[   13.431675] pgd = febe91ae
+[   13.436248] LR is at root_mem_cgroup+0x0/0x4
+[   13.444682] [26bffaf8] *pgd=00000000
+[   13.450455] pc : [<802baa2c>]    lr : [<80d055f4>]    psr: 20000013
+[   13.450458] sp : b8585d70  ip : b8585d30  fp : b8585dac
+[   13.450460] r10: 80874738  r9 : ba4c1780  r8 : 802d1f40
+[   13.450464] r7 : b853e000  r6 : b8479a80  r5 : 006080c0  r4 : 0000032b
+[   13.491936] r3 : 00000000  r2 : b8585d70  r1 : c59812c0  r0 : 39e74000
+[   13.499509] Flags: nzCv  IRQs on  FIQs on  Mode SVC_32  ISA ARM  Segment user
+[   13.507689] Control: 10c5383d  Table: 385c806a  DAC: 00000055
+[   13.514454] Process systemd-journal (pid: 129, stack limit = 0xe192e46f)
+[   13.522195] Stack: (0xb8585d70 to 0xb8586000)
+[   13.527571] 5d60:                                     b8585e50 b8585ec8 80d04d48 7fff0000
+[   13.537812] 5d80: 00000142 80d24118 b853e000 00020842 b853e000 00000001 b8585e90 00000142
+[   13.548138] 5da0: b8585dcc b8585db0 802d1f40 802ba988 7fffffff 80d24118 80d04b40 00020842
+[   13.558558] 5dc0: b8585df4 b8585dd0 802d2424 802d1f18 00000000 802db8e8 80d04d48 80d04d48
+[   13.569043] 5de0: b8585f50 b8585f50 b8585e8c b8585df8 802e0138 802d23c8 802db8e8 b9b69000
+[   13.579633] 5e00: b8585f10 fffffffe b8585db8 00000000 b8585f5c b8585e40 b8585e3c 26bffaee
+[   13.590359] 5e20: 80d04d48 00000041 b8585ec4 b8585e38 801dff00 80222264 802e1688 015c6830
+[   13.601183] 5e40: 000a0842 000001a0 015cd6e0 76f84968 00000142 40000028 76eb6464 26bffaee
+[   13.612151] 5e60: ffffff9c 80d04d48 80d04d48 b8585f50 b8585e90 00000001 b8584000 00000142
+[   13.623178] 5e80: b8585f44 b8585e90 802e23e4 802e00f0 00000000 26bffaee 00000000 8086ef7c
+[   13.634244] 5ea0: 00000080 006000c0 b8585ec4 b8585eb8 8086ef7c 802bab48 b8585f04 802f1d04
+[   13.645389] 5ec0: 802bab48 802c7734 00000000 b8585ed0 802bab48 26bffaee 00000000 00000011
+[   13.656568] 5ee0: b8edd200 b85621c0 00000000 00080000 000a0842 00000100 b8585f34 b8585f08
+[   13.667740] 5f00: b9b69000 00000000 000a0842 000a0842 ffffff9c ffffff9c b9b69000 26bffaee
+[   13.678917] 5f20: b8584000 00000011 80d04d48 ffffff9c b9b69000 801011c4 b8585f94 b8585f48
+[   13.690094] 5f40: 802cdc54 802e2370 b8585f94 26bffaee 00020842 76f881a0 00000006 00000300
+[   13.701272] 5f60: 00000001 26bffaee b8585f84 015cd6e0 76f84968 00000042 00000142 801011c4
+[   13.712449] 5f80: b8584000 00000142 b8585fa4 b8585f98 802cdd50 802cdb20 00000000 b8585fa8
+[   13.723626] 5fa0: 801011a4 802cdd40 015cd6e0 76f84968 ffffff9c 015c6830 000a0842 000001a0
+[   13.734797] 5fc0: 015cd6e0 76f84968 00000042 00000142 00000200 00000000 ffffffff 015c4730
+[   13.745972] 5fe0: 76f3b000 7ef93ed0 76c94b3c 76eb6464 60000010 ffffff9c 00000000 00000000
+[   13.757155] [<802baa2c>] (kmem_cache_alloc) from [<802d1f40>] (__alloc_file+0x34/0xc8)
+[   13.768076] [<802d1f40>] (__alloc_file) from [<802d2424>] (alloc_empty_file+0x68/0x130)
+[   13.779092] [<802d2424>] (alloc_empty_file) from [<802e0138>] (path_openat+0x54/0x1014)
+[   13.790111] [<802e0138>] (path_openat) from [<802e23e4>] (do_filp_open+0x80/0xec)
+[   13.800601] [<802e23e4>] (do_filp_open) from [<802cdc54>] (do_sys_open+0x140/0x1f0)
+[   13.811274] [<802cdc54>] (do_sys_open) from [<802cdd50>] (sys_openat+0x1c/0x20)
+[   13.820132] [<802cdd50>] (sys_openat) from [<801011a4>] (__sys_trace_return+0x0/0x1c)
+[   13.830946] Exception stack(0xb8585fa8 to 0xb8585ff0)
+[   13.837488] 5fa0:                   015cd6e0 76f84968 ffffff9c 015c6830 000a0842 000001a0
+[   13.848584] 5fc0: 015cd6e0 76f84968 00000042 00000142 00000200 00000000 ffffffff 015c4730
+[   13.859682] 5fe0: 76f3b000 7ef93ed0 76c94b3c 76eb6464
+[   13.866180] Code: e7904001 e3540000 0a000053 e5963014 (e7943003)
+[   13.873707] Internal error: Oops: 80d [#7] SMP ARM
+[   13.873715] ---[ end trace 0fb3612639335ac2 ]---
+[   13.879889] Modules linked in:
+[   13.879894] CPU: 0 PID: 323 Comm: rs:main Q:Reg Tainted: G      D           4.19.118-v7+ #1311
+[   13.879897] Hardware name: BCM2835
+[   13.887550] Unable to handle kernel NULL pointer dereference at virtual address 00000021
+[   13.890242] PC is at __d_alloc+0x44/0x1f0
+[   13.901448] pgd = 5b2cb5eb
+[   13.906071] LR is at kmem_cache_alloc+0x1cc/0x23c
+[   13.916624] [00000021] *pgd=00000000
+[   13.921822] pc : [<802ebbe0>]    lr : [<802bab48>]    psr: a0000013
+[   13.921824] sp : b5c39cb8  ip : b5c39c78  fp : b5c39cdc
+[   13.921827] r10: 80e1d834  r9 : b5c39e68  r8 : b9ec6000
+[   13.921830] r7 : 80d056a0  r6 : b9a8c570  r5 : f9fd0b73  r4 : 80874738
+[   13.963738] r3 : 60000013  r2 : 60000013  r1 : ff7c8f60  r0 : 00000000
+[   13.971295] Flags: NzCv  IRQs on  FIQs on  Mode SVC_32  ISA ARM  Segment user
+[   13.979451] Control: 10c5383d  Table: 37b5006a  DAC: 00000055
+[   13.986219] Process rs:main Q:Reg (pid: 323, stack limit = 0xed679409)
+[   13.993789] Stack: (0xb5c39cb8 to 0xb5c3a000)
+[   13.999168] 9ca0:                                                       ba3c96e8 f9fd0b73
+[   14.009392] 9cc0: b9a8c570 ba3c96e8 ba3c96e8 b5c39e68 b5c39cf4 b5c39ce0 802ebdac 802ebba8
+[   14.019663] 9ce0: 00000376 f9fd0b73 b5c39d6c b5c39cf8 802ec224 802ebd98 b9ec4400 802dcaac
+[   14.030027] 9d00: 00000000 b5c39d48 00000003 802dbe64 b5c39d78 80d04d48 00000376 b5c39e68
+[   14.040430] 9d20: b5c39e60 ba3ca198 b5c39d8c b5c39d84 b5c39d7c b5c39d40 802dcb28 26bffaee
+[   14.050971] 9d40: ba6a7100 b9a8c5f0 80d04d48 b9a8c570 ba3c96e8 00000001 b5c39e68 00000000
+[   14.061631] 9d60: b5c39db4 b5c39d70 802dc61c 802ec1c8 b5c39d94 8086ef7c 00000000 b5c39d7c
+[   14.072402] 9d80: b5c39d7c 26bffaee 8086ef7c b9a8c5f0 ba3c96e8 00000001 b5c39e68 00000041
+[   14.083292] 9da0: b5c39f5c 00000021 b5c39dd4 b5c39db8 802dc764 802dc5bc b5c39e60 80d04d48
+[   14.094252] 9dc0: 00000000 00000000 b5c39e1c b5c39dd8 802df5d8 802dc730 00000000 802dbd28
+[   14.105262] 9de0: b5c39e60 b7a17010 b5c39e1c 26bffaee 802dbd28 b5c39e60 00000000 80d04d48
+[   14.116380] 9e00: b5c39f5c 00000041 b5c39f5c 00000021 b5c39e5c b5c39e20 802dfc84 802df3ec
+[   14.127561] 9e20: b9e6d000 b9e6cc00 80d6ce94 8068a7e0 b5c39e6c 26bffaee 8068a7e0 00000001
+[   14.138741] 9e40: 80d04d48 b7a17000 b5c39e60 00000001 b5c39f14 b5c39e60 802e1794 802dfc18
+[   14.149907] 9e60: b9ea4810 ba3c96e8 f9fd0b73 00000005 b7a17019 b5c39e80 b9ea4110 ba2cb990
+[   14.161088] 9e80: b9a8c570 00000001 00000002 00000344 00000000 00000000 00000001 b5c39ea0
+[   14.172265] 9ea0: b9ea4110 b9042aa0 00000000 006000c0 b7a17019 00000002 b5c39ee4 00000001
+[   14.183431] 9ec0: b7a17000 ffffff9c 76d4dd0c 00000000 b7a17000 00000000 b92a9508 00000002
+[   14.194615] 9ee0: ffffff9c 80553684 b5c39f5c 26bffaee 00000001 ffffff9c b5c39f5c ffffff9c
+[   14.205792] 9f00: 76d4dd0c b5c38000 b5c39f3c b5c39f18 802e1914 802e16f4 00000000 ffffff9c
+[   14.216961] 9f20: b5c39f3c 00000001 00000000 b6f74000 b5c39f94 b5c39f40 802cd114 802e18d0
+[   14.228138] 9f40: 00000000 b5c39f50 80191a14 b855a700 80d04d48 00000000 10c5383d 10c5387d
+[   14.239317] 9f60: 80101f24 26bffaee b5c39f94 76d4dd0c 76d66c6c 000ac848 00000021 801011c4
+[   14.250486] 9f80: b5c38000 00000021 b5c39fa4 b5c39f98 802cd2d8 802cd06c 00000000 b5c39fa8
+[   14.261664] 9fa0: 80101000 802cd2c0 76d4dd0c 76d66c6c 76d4dd0c 00000000 00000000 00000000
+[   14.272843] 9fc0: 76d4dd0c 76d66c6c 000ac848 00000021 000ac848 00850a90 75402f20 000ac98c
+[   14.284013] 9fe0: 000acc4c 75ffe220 76d2e604 76ce1b5c 60000010 76d4dd0c 00000000 00000000
+[   14.295196] [<802ebbe0>] (__d_alloc) from [<802ebdac>] (d_alloc+0x20/0x7c)
+[   14.303595] [<802ebdac>] (d_alloc) from [<802ec224>] (d_alloc_parallel+0x68/0x504)
+[   14.314119] [<802ec224>] (d_alloc_parallel) from [<802dc61c>] (__lookup_slow+0x6c/0x174)
+[   14.325189] [<802dc61c>] (__lookup_slow) from [<802dc764>] (lookup_slow+0x40/0x54)
+[   14.335736] [<802dc764>] (lookup_slow) from [<802df5d8>] (walk_component+0x1f8/0x2f8)
+[   14.346552] [<802df5d8>] (walk_component) from [<802dfc84>] (path_lookupat+0x78/0x214)
+[   14.357462] [<802dfc84>] (path_lookupat) from [<802e1794>] (filename_lookup+0xac/0x11c)
+[   14.368459] [<802e1794>] (filename_lookup) from [<802e1914>] (user_path_at_empty+0x50/0x58)
+[   14.379823] [<802e1914>] (user_path_at_empty) from [<802cd114>] (do_faccessat+0xb4/0x238)
+[   14.391013] [<802cd114>] (do_faccessat) from [<802cd2d8>] (sys_access+0x24/0x28)
+[   14.401412] [<802cd2d8>] (sys_access) from [<80101000>] (ret_fast_syscall+0x0/0x28)
+[   14.412085] Exception stack(0xb5c39fa8 to 0xb5c39ff0)
+[   14.418648] 9fa0:                   76d4dd0c 76d66c6c 76d4dd0c 00000000 00000000 00000000
+[   14.429804] 9fc0: 76d4dd0c 76d66c6c 000ac848 00000021 000ac848 00850a90 75402f20 000ac98c
+[   14.440938] 9fe0: 000acc4c 75ffe220 76d2e604 76ce1b5c
+[   14.447445] Code: e2504000 0a000068 e3590000 e3a00000 (e5c4004f)
+[   14.454990] ---[ end trace 0fb3612639335ac3 ]---
+[   14.454992] Internal error: Oops: 5 [#8] SMP ARM
+[   14.454994] Modules linked in:
+[   14.461301] Unable to handle kernel paging request at virtual address 7f00000a
+[   14.467069] CPU: 2 PID: 152 Comm: systemd-udevd Tainted: G      D           4.19.118-v7+ #1311
+[   14.471440] pgd = f686d939
+[   14.480003] Hardware name: BCM2835
+[   14.491225] [7f00000a] *pgd=00000000
+[   14.495161] PC is at put_cpu_partial+0x24/0x1b4
+[   14.510124] LR is at __slab_free+0x280/0x3c0
+[   14.515479] pc : [<802b93f4>]    lr : [<802bb3c8>]    psr: 20000013
+[   14.522832] sp : b8fc1e10  ip : b8fc1e38  fp : b8fc1e34
+[   14.529107] r10: 00000000  r9 : 00000001  r8 : b78933c0
+[   14.535369] r7 : 00000001  r6 : 00000001  r5 : b78933c0  r4 : bb312970
+[   14.542909] r3 : c59839ac  r2 : 26bffaee  r1 : bb312970  r0 : b78933c0
+[   14.550430] Flags: nzCv  IRQs on  FIQs on  Mode SVC_32  ISA ARM  Segment user
+[   14.558561] Control: 10c5383d  Table: 3866406a  DAC: 00000055
+[   14.565275] Process systemd-udevd (pid: 152, stack limit = 0xe2424901)
+[   14.572788] Stack: (0xb8fc1e10 to 0xb8fc2000)
+[   14.578112] 1e00:                                     00000001 bb312970 20000013 00000000
+[   14.588250] 1e20: 00000001 b78933c0 b8fc1eb4 b8fc1e38 802bb3c8 802b93dc b8ff8000 7603e000
+[   14.598470] 1e40: b8fc1e64 b867c360 80d04d48 80264bb4 802a0029 00000001 b867c360 00000000
+[   14.608737] 1e60: 80264d00 80264c7c b8fc1e84 b8fc1e78 80264d24 802a0029 b8fc1e9c b8fc1e88
+[   14.619151] 1e80: 80297198 26bffaee 80d04d48 ba4c1240 b867c360 8011d854 00000328 b7832204
+[   14.629730] 1ea0: b867c300 b867c360 b8fc1eec b8fc1eb8 802bb72c 802bb154 00000001 8011d854
+[   14.640440] 1ec0: 00000000 b867c360 00000000 00000000 00000000 b7832204 b867c300 b867c360
+[   14.651234] 1ee0: b8fc1efc b8fc1ef0 8011d854 802bb514 b8fc1f14 b8fc1f00 8029ddcc 8011d838
+[   14.662200] 1f00: b867c360 b7832200 b8fc1f54 b8fc1f18 802a017c 8029dd80 76970000 b783223c
+[   14.673225] 1f20: b8fc1f3c b867c308 8086ef7c 80d04d48 b8fc1f5c b783223c b7832200 7603e000
+[   14.684286] 1f40: 00931770 0000005b b8fc1f8c b8fc1f58 802a08dc 8029ff0c b8fc1f7c b8fc1f5c
+[   14.695437] 1f60: b8fc1f5c 26bffaee 00931770 7603e000 00000001 0000005b 801011c4 b8fc0000
+[   14.706617] 1f80: b8fc1fa4 b8fc1f90 802a093c 802a0870 01a547a0 004aeaf0 00000000 b8fc1fa8
+[   14.717781] 1fa0: 801011a4 802a091c 01a547a0 004aeaf0 7603e000 00931770 00000000 00000000
+[   14.728955] 1fc0: 01a547a0 004aeaf0 00000001 0000005b 76f73968 0047d5b8 01a63a48 01a52548
+[   14.740133] 1fe0: 004afeb8 7ee3f8f4 004388c8 76eb3d9c 20000010 7603e000 00000000 00000000
+[   14.751304] [<802b93f4>] (put_cpu_partial) from [<802bb3c8>] (__slab_free+0x280/0x3c0)
+[   14.762226] [<802bb3c8>] (__slab_free) from [<802bb72c>] (kmem_cache_free+0x224/0x234)
+[   14.773153] [<802bb72c>] (kmem_cache_free) from [<8011d854>] (vm_area_free+0x28/0x2c)
+[   14.783990] [<8011d854>] (vm_area_free) from [<8029ddcc>] (remove_vma+0x58/0x60)
+[   14.794405] [<8029ddcc>] (remove_vma) from [<802a017c>] (do_munmap+0x27c/0x368)
+[   14.803257] [<802a017c>] (do_munmap) from [<802a08dc>] (vm_munmap+0x78/0xac)
+[   14.811835] [<802a08dc>] (vm_munmap) from [<802a093c>] (sys_munmap+0x2c/0x30)
+[   14.820464] [<802a093c>] (sys_munmap) from [<801011a4>] (__sys_trace_return+0x0/0x1c)
+[   14.831173] Exception stack(0xb8fc1fa8 to 0xb8fc1ff0)
+[   14.837657] 1fa0:                   01a547a0 004aeaf0 7603e000 00931770 00000000 00000000
+[   14.848648] 1fc0: 01a547a0 004aeaf0 00000001 0000005b 76f73968 0047d5b8 01a63a48 01a52548
+[   14.859633] 1fe0: 004afeb8 7ee3f8f4 004388c8 76eb3d9c
+[   14.866074] Code: e1a05000 e1a04001 e1a06002 ea000020 (e1d230ba)
+[   14.873547] Internal error: Oops: 5 [#9] SMP ARM
+[   14.873561] ---[ end trace 0fb3612639335ac4 ]---
+[   14.879497] Modules linked in:
+[   14.879502] CPU: 3 PID: 156 Comm: systemd-udevd Tainted: G      D           4.19.118-v7+ #1311
+[   14.879505] Hardware name: BCM2835
+[   14.886646] Unable to handle kernel paging request at virtual address 26bffaf8
+[   14.889743] PC is at put_cpu_partial+0x24/0x1b4
+[   14.889746] LR is at __slab_free+0x280/0x3c0
+[   14.889748] pc : [<802b93f4>]    lr : [<802bb3c8>]    psr: 20000013
+[   14.889751] sp : b84b1e10  ip : b84b1e38  fp : b84b1e34
+[   14.889755] r10: 00000000  r9 : 00000001  r8 : b78933c0
+[   14.900833] pgd = 78992d2f
+[   14.905405] r7 : 00000001  r6 : 00000001  r5 : b78933c0  r4 : bb2f35a8
+[   14.913842] [26bffaf8] *pgd=00000000
+[   14.919528] r3 : c59839ac  r2 : 00000017  r1 : bb2f35a8  r0 : b78933c0
+[   14.919531] Flags: nzCv  IRQs on  FIQs on  Mode SVC_32  ISA ARM  Segment user
+[   14.919535] Control: 10c5383d  Table: 384b406a  DAC: 00000055
+[   14.983688] Process systemd-udevd (pid: 156, stack limit = 0x87081179)
+[   14.991292] Stack: (0xb84b1e10 to 0xb84b2000)
+[   14.996702] 1e00:                                     00000001 bb2f35a8 20000013 00000000
+[   15.007012] 1e20: 00000001 b78933c0 b84b1eb4 b84b1e38 802bb3c8 802b93dc b5c07000 7603e000
+[   15.017402] 1e40: b84b1e64 b789a360 80d04d48 80264bb4 802a0029 00000001 b789a360 00000000
+[   15.027885] 1e60: 80264d00 80264c7c b84b1e84 b84b1e78 80264d24 802a0029 b84b1e9c b84b1e88
+[   15.038431] 1e80: 80297198 26bffaee 80d04d48 ba4c1240 b789a360 8011d854 80d0a644 b7832a04
+[   15.049081] 1ea0: b789a300 b789a360 b84b1eec b84b1eb8 802bb72c 802bb154 00000001 8011d854
+[   15.059847] 1ec0: 00000000 b789a360 00000000 00000000 00000000 b7832a04 b789a300 b789a360
+[   15.070726] 1ee0: b84b1efc b84b1ef0 8011d854 802bb514 b84b1f14 b84b1f00 8029ddcc 8011d838
+[   15.081678] 1f00: b789a360 b7832a00 b84b1f54 b84b1f18 802a017c 8029dd80 76970000 b7832a3c
+[   15.092694] 1f20: b84b1f3c b789a308 8086ef7c 80d04d48 b84b1f5c b7832a3c b7832a00 7603e000
+[   15.103757] 1f40: 00931770 0000005b b84b1f8c b84b1f58 802a08dc 8029ff0c b84b1f7c b84b1f5c
+[   15.114891] 1f60: b84b1f5c 26bffaee 00931770 7603e000 00000001 0000005b 801011c4 b84b0000
+[   15.126068] 1f80: b84b1fa4 b84b1f90 802a093c 802a0870 01a547a0 004aeaf0 00000000 b84b1fa8
+[   15.137246] 1fa0: 801011a4 802a091c 01a547a0 004aeaf0 7603e000 00931770 00000000 00000000
+[   15.148414] 1fc0: 01a547a0 004aeaf0 00000001 0000005b 76f73968 0047d5b8 01a6dd18 01a52548
+[   15.159591] 1fe0: 004afeb8 7ee3f8f4 004388c8 76eb3d9c 20000010 7603e000 00000000 00000000
+[   15.170764] [<802b93f4>] (put_cpu_partial) from [<802bb3c8>] (__slab_free+0x280/0x3c0)
+[   15.181673] [<802bb3c8>] (__slab_free) from [<802bb72c>] (kmem_cache_free+0x224/0x234)
+[   15.192597] [<802bb72c>] (kmem_cache_free) from [<8011d854>] (vm_area_free+0x28/0x2c)
+[   15.203438] [<8011d854>] (vm_area_free) from [<8029ddcc>] (remove_vma+0x58/0x60)
+[   15.213846] [<8029ddcc>] (remove_vma) from [<802a017c>] (do_munmap+0x27c/0x368)
+[   15.222702] [<802a017c>] (do_munmap) from [<802a08dc>] (vm_munmap+0x78/0xac)
+[   15.231271] [<802a08dc>] (vm_munmap) from [<802a093c>] (sys_munmap+0x2c/0x30)
+[   15.239896] [<802a093c>] (sys_munmap) from [<801011a4>] (__sys_trace_return+0x0/0x1c)
+[   15.250595] Exception stack(0xb84b1fa8 to 0xb84b1ff0)
+[   15.257079] 1fa0:                   01a547a0 004aeaf0 7603e000 00931770 00000000 00000000
+[   15.268063] 1fc0: 01a547a0 004aeaf0 00000001 0000005b 76f73968 0047d5b8 01a6dd18 01a52548
+[   15.279044] 1fe0: 004afeb8 7ee3f8f4 004388c8 76eb3d9c
+[   15.285484] Code: e1a05000 e1a04001 e1a06002 ea000020 (e1d230ba)
+[   15.292954] Internal error: Oops: 5 [#10] SMP ARM
+[   15.292971] ---[ end trace 0fb3612639335ac5 ]---
+[   15.298995] Modules linked in:
+[   15.299000] CPU: 0 PID: 153 Comm: systemd-udevd Tainted: G      D           4.19.118-v7+ #1311
+[   15.299004] Hardware name: BCM2835
+[   15.324873] PC is at put_cpu_partial+0x24/0x1b4
+[   15.330552] LR is at __slab_free+0x280/0x3c0
+[   15.335933] pc : [<802b93f4>]    lr : [<802bb3c8>]    psr: 20000013
+[   15.343313] sp : b7897e10  ip : b7897e38  fp : b7897e34
+[   15.349636] r10: 00000000  r9 : 00000001  r8 : b78933c0
+[   15.355955] r7 : 00000001  r6 : 00000001  r5 : b78933c0  r4 : bb310bc4
+[   15.363555] r3 : c59839ac  r2 : 7f000000  r1 : bb310bc4  r0 : b78933c0
+[   15.371124] Flags: nzCv  IRQs on  FIQs on  Mode SVC_32  ISA ARM  Segment user
+[   15.379318] Control: 10c5383d  Table: 3783806a  DAC: 00000055
+[   15.386107] Process systemd-udevd (pid: 153, stack limit = 0x51ff0fec)
+[   15.393686] Stack: (0xb7897e10 to 0xb7898000)
+[   15.399058] 7e00:                                     00000001 bb310bc4 20000013 00000000
+[   15.409233] 7e20: 00000001 b78933c0 b7897eb4 b7897e38 802bb3c8 802b93dc b6cee000 7603e000
+[   15.419461] 7e40: b7897e64 b85a9360 80d04d48 80264bb4 802a0029 00000001 b85a9360 00000000
+[   15.429812] 7e60: 80264d00 80264c7c b7897e84 b7897e78 80264d24 802a0029 b7897e9c b7897e88
+[   15.440253] 7e80: 80297198 26bffaee 80d04d48 ba4c1240 b85a9360 8011d854 ffffffff b7832404
+[   15.450801] 7ea0: b85a9300 b85a9360 b7897eec b7897eb8 802bb72c 802bb154 00000001 8011d854
+[   15.461489] 7ec0: 00000000 b85a9360 00000000 00000000 00000000 b7832404 b85a9300 b85a9360
+[   15.472277] 7ee0: b7897efc b7897ef0 8011d854 802bb514 b7897f14 b7897f00 8029ddcc 8011d838
+[   15.483222] 7f00: b85a9360 b7832400 b7897f54 b7897f18 802a017c 8029dd80 76970000 b783243c
+[   15.494241] 7f20: b7897f3c b85a9308 8086ef7c 80d04d48 b7897f5c b783243c b7832400 7603e000
+[   15.505312] 7f40: 00931770 0000005b b7897f8c b7897f58 802a08dc 8029ff0c b7897f7c b7897f5c
+[   15.516443] 7f60: b7897f5c 26bffaee 00931770 7603e000 00000001 0000005b 801011c4 b7896000
+[   15.527619] 7f80: b7897fa4 b7897f90 802a093c 802a0870 01a547a0 004aeaf0 00000000 b7897fa8
+[   15.538797] 7fa0: 801011a4 802a091c 01a547a0 004aeaf0 7603e000 00931770 00000000 00000000
+[   15.549959] 7fc0: 01a547a0 004aeaf0 00000001 0000005b 76f73968 0047d5b8 01a714f8 01a52548
+[   15.561127] 7fe0: 004afeb8 7ee3f8f4 004388c8 76eb3d9c 20000010 7603e000 00000000 00000000
+[   15.572300] [<802b93f4>] (put_cpu_partial) from [<802bb3c8>] (__slab_free+0x280/0x3c0)
+[   15.583203] [<802bb3c8>] (__slab_free) from [<802bb72c>] (kmem_cache_free+0x224/0x234)
+[   15.594130] [<802bb72c>] (kmem_cache_free) from [<8011d854>] (vm_area_free+0x28/0x2c)
+[   15.604974] [<8011d854>] (vm_area_free) from [<8029ddcc>] (remove_vma+0x58/0x60)
+[   15.615375] [<8029ddcc>] (remove_vma) from [<802a017c>] (do_munmap+0x27c/0x368)
+[   15.624229] [<802a017c>] (do_munmap) from [<802a08dc>] (vm_munmap+0x78/0xac)
+[   15.632798] [<802a08dc>] (vm_munmap) from [<802a093c>] (sys_munmap+0x2c/0x30)
+[   15.641426] [<802a093c>] (sys_munmap) from [<801011a4>] (__sys_trace_return+0x0/0x1c)
+[   15.652130] Exception stack(0xb7897fa8 to 0xb7897ff0)
+[   15.658616] 7fa0:                   01a547a0 004aeaf0 7603e000 00931770 00000000 00000000
+[   15.669606] 7fc0: 01a547a0 004aeaf0 00000001 0000005b 76f73968 0047d5b8 01a714f8 01a52548
+[   15.680589] 7fe0: 004afeb8 7ee3f8f4 004388c8 76eb3d9c
+[   15.687031] Code: e1a05000 e1a04001 e1a06002 ea000020 (e1d230ba)
+[   15.694501] ---[ end trace 0fb3612639335ac6 ]---
+[   15.694503] Internal error: Oops: 5 [#11] SMP ARM
+[   15.694506] Modules linked in:
+[   15.710766] CPU: 2 PID: 155 Comm: systemd-udevd Tainted: G      D           4.19.118-v7+ #1311
+[   15.721849] Hardware name: BCM2835
+[   15.726425] PC is at put_cpu_partial+0x24/0x1b4
+[   15.732108] LR is at __slab_free+0x280/0x3c0
+[   15.737486] pc : [<802b93f4>]    lr : [<802bb3c8>]    psr: 20000013
+[   15.744864] sp : b87c7e10  ip : b87c7e38  fp : b87c7e34
+[   15.751182] r10: 00000000  r9 : 00000001  r8 : b78933c0
+[   15.757504] r7 : 00000001  r6 : 00000001  r5 : b78933c0  r4 : bb3123f4
+[   15.765107] r3 : c59839ac  r2 : 26bffaee  r1 : bb3123f4  r0 : b78933c0
+[   15.772681] Flags: nzCv  IRQs on  FIQs on  Mode SVC_32  ISA ARM  Segment user
+[   15.780879] Control: 10c5383d  Table: 3843806a  DAC: 00000055
+[   15.787675] Process systemd-udevd (pid: 155, stack limit = 0x7b3d8941)
+[   15.795259] Stack: (0xb87c7e10 to 0xb87c8000)
+[   15.800639] 7e00:                                     00000001 bb3123f4 20000013 00000000
+[   15.810825] 7e20: 00000001 b78933c0 b87c7eb4 b87c7e38 802bb3c8 802b93dc b6c18000 7603e000
+[   15.821064] 7e40: b87c7e64 b8655360 80d04d48 80264bb4 802a0029 00000001 b8655360 00000000
+[   15.831429] 7e60: 80264d00 80264c7c b87c7e84 b87c7e78 80264d24 802a0029 b87c7e9c b87c7e88
+[   15.841886] 7e80: 80297198 26bffaee 80d04d48 ba4c1240 b8655360 8011d854 00000328 b7832804
+[   15.852454] 7ea0: b8655300 b8655360 b87c7eec b87c7eb8 802bb72c 802bb154 00000001 8011d854
+[   15.863160] 7ec0: 00000000 b8655360 00000000 00000000 00000000 b7832804 b8655300 b8655360
+[   15.873955] 7ee0: b87c7efc b87c7ef0 8011d854 802bb514 b87c7f14 b87c7f00 8029ddcc 8011d838
+[   15.884897] 7f00: b8655360 b7832800 b87c7f54 b87c7f18 802a017c 8029dd80 76970000 b783283c
+[   15.895915] 7f20: b87c7f3c b8655308 8086ef7c 80d04d48 b87c7f5c b783283c b7832800 7603e000
+[   15.906982] 7f40: 00931770 0000005b b87c7f8c b87c7f58 802a08dc 8029ff0c b87c7f7c b87c7f5c
+[   15.918104] 7f60: b87c7f5c 26bffaee 00931770 7603e000 00000001 0000005b 801011c4 b87c6000
+[   15.929279] 7f80: b87c7fa4 b87c7f90 802a093c 802a0870 01a547a0 004aeaf0 00000000 b87c7fa8
+[   15.940445] 7fa0: 801011a4 802a091c 01a547a0 004aeaf0 7603e000 00931770 00000000 00000000
+[   15.951599] 7fc0: 01a547a0 004aeaf0 00000001 0000005b 76f73968 0047d5b8 01a63c50 01a52548
+[   15.962769] 7fe0: 004afeb8 7ee3f8f4 004388c8 76eb3d9c 20000010 7603e000 00000000 00000000
+[   15.973939] [<802b93f4>] (put_cpu_partial) from [<802bb3c8>] (__slab_free+0x280/0x3c0)
+[   15.984841] [<802bb3c8>] (__slab_free) from [<802bb72c>] (kmem_cache_free+0x224/0x234)
+[   15.995766] [<802bb72c>] (kmem_cache_free) from [<8011d854>] (vm_area_free+0x28/0x2c)
+[   16.006617] [<8011d854>] (vm_area_free) from [<8029ddcc>] (remove_vma+0x58/0x60)
+[   16.017016] [<8029ddcc>] (remove_vma) from [<802a017c>] (do_munmap+0x27c/0x368)
+[   16.025873] [<802a017c>] (do_munmap) from [<802a08dc>] (vm_munmap+0x78/0xac)
+[   16.034446] [<802a08dc>] (vm_munmap) from [<802a093c>] (sys_munmap+0x2c/0x30)
+[   16.043073] [<802a093c>] (sys_munmap) from [<801011a4>] (__sys_trace_return+0x0/0x1c)
+[   16.053785] Exception stack(0xb87c7fa8 to 0xb87c7ff0)
+[   16.060271] 7fa0:                   01a547a0 004aeaf0 7603e000 00931770 00000000 00000000
+[   16.071275] 7fc0: 01a547a0 004aeaf0 00000001 0000005b 76f73968 0047d5b8 01a63c50 01a52548
+[   16.082254] 7fe0: 004afeb8 7ee3f8f4 004388c8 76eb3d9c
+[   16.088696] Code: e1a05000 e1a04001 e1a06002 ea000020 (e1d230ba)
+[   16.096188] ---[ end trace 0fb3612639335ac7 ]---
+[   17.966804] Kernel panic - not syncing: stack-protector: Kernel stack is corrupted in: __hrtimer_run_queues+0x320/0x320
+[   17.980295] CPU0: stopping
+[   17.984288] CPU: 0 PID: 0 Comm: swapper/0 Tainted: G      D           4.19.118-v7+ #1311
+[   17.994904] Hardware name: BCM2835
+[   17.999516] [<801120c8>] (unwind_backtrace) from [<8010d5fc>] (show_stack+0x20/0x24)
+[   18.009677] [<8010d5fc>] (show_stack) from [<80856da8>] (dump_stack+0xe0/0x124)
+[   18.018244] [<80856da8>] (dump_stack) from [<801104e0>] (handle_IPI+0x388/0x3a8)
+[   18.028121] [<801104e0>] (handle_IPI) from [<801021f4>] (bcm2836_arm_irqchip_handle_irq+0xa0/0xa4)
+[   18.039605] [<801021f4>] (bcm2836_arm_irqchip_handle_irq) from [<801019bc>] (__irq_svc+0x5c/0x7c)
+[   18.051057] Exception stack(0x80d01ee8 to 0x80d01f30)
+[   18.057395] 1ee0:                   80109ae4 00000000 40000093 40000093 80d04d70 80d00000
+[   18.068108] 1f00: 80d04db8 00000001 80d8fb3e bb3ff840 80c64a38 80d01f44 80d0517c 80d01f38
+[   18.078896] 1f20: 00000000 80109ae8 40000013 ffffffff
+[   18.085253] [<801019bc>] (__irq_svc) from [<80109ae8>] (arch_cpu_idle+0x34/0x4c)
+[   18.095260] [<80109ae8>] (arch_cpu_idle) from [<80873e74>] (default_idle_call+0x34/0x48)
+[   18.106065] [<80873e74>] (default_idle_call) from [<80152eb8>] (do_idle+0xec/0x16c)
+[   18.116535] [<80152eb8>] (do_idle) from [<801531f8>] (cpu_startup_entry+0x28/0x2c)
+[   18.126927] [<801531f8>] (cpu_startup_entry) from [<8086d524>] (rest_init+0xbc/0xc0)
+[   18.137548] [<8086d524>] (rest_init) from [<80c00fb0>] (start_kernel+0x484/0x4b4)
+[   18.147917] CPU3: stopping
+[   18.152010] CPU: 3 PID: 0 Comm: swapper/3 Tainted: G      D           4.19.118-v7+ #1311
+[   18.162856] Hardware name: BCM2835
+[   18.167603] [<801120c8>] (unwind_backtrace) from [<8010d5fc>] (show_stack+0x20/0x24)
+[   18.178070] [<8010d5fc>] (show_stack) from [<80856da8>] (dump_stack+0xe0/0x124)
+[   18.186770] [<80856da8>] (dump_stack) from [<801104e0>] (handle_IPI+0x388/0x3a8)
+[   18.196874] [<801104e0>] (handle_IPI) from [<801021f4>] (bcm2836_arm_irqchip_handle_irq+0xa0/0xa4)
+[   18.208564] [<801021f4>] (bcm2836_arm_irqchip_handle_irq) from [<801019bc>] (__irq_svc+0x5c/0x7c)
+[   18.220150] Exception stack(0xba531f38 to 0xba531f80)
+[   18.226546] 1f20:                                                       80109ae4 00000000
+[   18.237290] 1f40: 40000193 40000193 80d04d70 ba530000 80d04db8 00000008 80d8fb3e 410fd034
+[   18.247997] 1f60: 00000000 ba531f94 80d0517c ba531f88 00000000 80109ae8 40000113 ffffffff
+[   18.258698] [<801019bc>] (__irq_svc) from [<80109ae8>] (arch_cpu_idle+0x34/0x4c)
+[   18.268716] [<80109ae8>] (arch_cpu_idle) from [<80873e74>] (default_idle_call+0x34/0x48)
+[   18.279540] [<80873e74>] (default_idle_call) from [<80152eb8>] (do_idle+0xec/0x16c)
+[   18.289984] [<80152eb8>] (do_idle) from [<801531f8>] (cpu_startup_entry+0x28/0x2c)
+[   18.300369] [<801531f8>] (cpu_startup_entry) from [<8010fee4>] (secondary_start_kernel+0x134/0x140)
+[   18.312287] [<8010fee4>] (secondary_start_kernel) from [<0010270c>] (0x10270c)
+[   19.043296] SMP: failed to stop secondary CPUs
+[   19.049159] ---[ end Kernel panic - not syncing: stack-protector: Kernel stack is corrupted in: __hrtimer_run_queues+0x320/0x320 ]---

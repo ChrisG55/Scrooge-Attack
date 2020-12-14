@@ -1,0 +1,281 @@
+stress-ng: 16:09:05.66 debug: [547] 4 processors online, 4 processors configured
+stress-ng: 16:09:05.66 info:  [547] apparmor: stressor will be skipped, AppArmor is not available
+stress-ng: 16:09:05.66 info:  [547] bad_ioctl stressor will be skipped, need to be running without root privilege for this stressor
+stress-ng: 16:09:05.66 info:  [547] cpu_online stressor will be skipped, cannot write to cpu1 online sysfs control file
+stress-ng: 16:09:05.66 info:  [547] efivar stressor will be skipped, need to have access to EFI vars in /sys/firmware/efi/vars
+stress-ng: 16:09:05.66 info:  [547] exec stressor must not run as root, skipping the stressor
+stress-ng: 16:09:05.66 info:  [547] /sys/kernel/mm/page_idle/bitmap stressor will be skipped, cannot access file idle_page
+stress-ng: 16:09:05.66 info:  [547] ipsec_mb: stressor will be skipped, CPU needs to be an x86-64 and a recent IPSec MB library is required.
+stress-ng: 16:09:05.67 info:  [547] pidfd: stressor will be skipped, system call not supported at build time
+stress-ng: 16:09:05.67 info:  [547] rdrand stressor will be skipped, CPU does not support the rdrand instruction.
+stress-ng: 16:09:05.67 info:  [547] spawn stressor must not run as root, skipping the stressor
+stress-ng: 16:09:05.67 info:  [547] tsc stressor will be skipped, CPU does not support the rdtsc instruction.
+stress-ng: 16:09:05.69 info:  [547] vdso stressor will be skipped, failed to find relevant vDSO ifunctions
+stress-ng: 16:09:05.69 info:  [547] disabled 'bind-mount' as it may hang or reboot the machine (enable it with the --pathological option)
+stress-ng: 16:09:05.69 info:  [547] disabled 'mlockmany' as it may hang or reboot the machine (enable it with the --pathological option)
+stress-ng: 16:09:05.69 info:  [547] disabled 'oom-pipe' as it may hang or reboot the machine (enable it with the --pathological option)
+stress-ng: 16:09:05.69 info:  [547] disabled 'watchdog' as it may hang or reboot the machine (enable it with the --pathological option)
+stress-ng: 16:09:05.70 info:  [547] defaulting to a 60 second run per stressor
+stress-ng: 16:09:05.70 info:  [547] dispatching hogs: 4 aio, 4 aiol, 4 atomic, 4 bad-altstack, 4 bigheap, 4 branch, 4 brk, 4 bsearch, 4 cache, 4 cap, 4 chroot, 4 clock, 4 clone, 4 close, 4 context, 4 cpu, 4 crypt, 4 daemon, 4 dev, 4 dev-shm, 4 dynlib, 4 enosys, 4 env, 4 epoll, 4 fault, 4 fifo, 4 fork, 4 fp-error, 4 full, 4 funccall, 4 funcret, 4 futex, 4 get, 4 getrandom, 4 hdd, 4 heapsort, 4 hrtimers, 4 hsearch, 4 icache, 4 icmp-flood, 4 itimer, 4 judy, 4 kcmp, 4 key, 4 kill, 4 klog, 4 lockbus, 4 longjmp, 4 loop, 4 lsearch, 4 madvise, 4 malloc, 4 matrix, 4 matrix-3d, 4 mcontend, 4 membarrier, 4 memcpy, 4 memfd, 4 memrate, 4 memthrash, 4 mergesort, 4 mincore, 4 mmap, 4 mmapaddr, 4 mmapfixed, 4 mmapfork, 4 mmapmany, 4 mq, 4 mremap, 4 msg, 4 msync, 4 nanosleep, 4 netdev, 4 netlink-task, 4 nice, 4 nop, 4 null, 4 opcode, 4 personality, 4 physpage, 4 pipe, 4 pipeherd, 4 poll, 4 prctl, 4 pthread, 4 ptrace, 4 pty, 4 qsort, 4 quota, 4 radixsort, 4 ramfs, 4 rawdev, 4 rawpkt, 4 rawsock, 4 rawudp, 4 readahead, 4 reboot, 4 remap, 4 resources, 4 revio, 4 rlimit, 4 rmap, 4 rtc, 4 schedpolicy, 4 seal, 4 seccomp, 4 seek, 4 sem, 4 sem-sysv, 4 sendfile, 4 session, 4 set, 4 shellsort, 4 shm, 4 shm-sysv, 4 sigabrt, 4 sigchld, 4 sigfd, 4 sigfpe, 4 sigio, 4 sigpending, 4 sigpipe, 4 sigq, 4 sigrt, 4 sigsegv, 4 sigsuspend, 4 sigtrap, 4 skiplist, 4 sleep, 4 sock, 4 sockabuse, 4 sockdiag, 4 sockfd, 4 sockpair, 4 sockmany, 4 softlockup, 4 splice, 4 stack, 4 stackmmap, 4 str, 4 stream, 4 swap, 4 switch, 4 sysbadaddr, 4 sysinval, 4 sysfs, 4 tee, 4 timer, 4 timerfd, 4 tlb-shootdown, 4 tmpfs, 4 tsearch, 4 tun, 4 udp, 4 udp-flood, 4 unshare, 4 urandom, 4 vecmath, 4 vfork, 4 vforkmany, 4 vm, 4 vm-addr, 4 vm-rw, 4 vm-segv, 4 vm-splice, 4 wait, 4 wcs, 4 x86syscall, 4 yield, 4 zero, 4 zlib, 4 zombie
+stress-ng: 16:09:05.73 debug: [547] cache allocate: using defaults, can't determine cache details from sysfs
+stress-ng: 16:09:05.73 debug: [547] cache allocate: default cache size: 2048K
+stress-ng: 16:09:05.73 debug: [547] starting stressors
+stress-ng: 16:09:05.73 debug: [553] stress-ng-aio: started [553] (instance 0)
+stress-ng: 16:09:05.74 debug: [554] stress-ng-aio: started [554] (instance 1)
+stress-ng: 16:09:05.74 debug: [555] stress-ng-aio: started [555] (instance 2)
+stress-ng: 16:09:05.74 debug: [547] 4 stressors started
+stress-ng: 16:09:05.74 debug: [557] stress-ng-aio: started [557] (instance 3)
+stress-ng: 16:10:05.74 debug: [553] stress-ng-aio: total of 390632 async I/O signals caught (instance 0)
+stress-ng: 16:10:05.74 debug: [553] stress-ng-aio: exited [553] (instance 0)
+stress-ng: 16:10:05.74 debug: [554] stress-ng-aio: total of 405101 async I/O signals caught (instance 1)
+stress-ng: 16:10:05.74 debug: [554] stress-ng-aio: exited [554] (instance 1)
+stress-ng: 16:10:05.74 debug: [547] process [553] terminated
+stress-ng: 16:10:05.74 debug: [547] process [554] terminated
+stress-ng: 16:10:05.75 debug: [555] stress-ng-aio: total of 378389 async I/O signals caught (instance 2)
+stress-ng: 16:10:05.75 debug: [555] stress-ng-aio: exited [555] (instance 2)
+stress-ng: 16:10:05.75 debug: [547] process [555] terminated
+stress-ng: 16:10:05.75 debug: [557] stress-ng-aio: total of 374462 async I/O signals caught (instance 3)
+stress-ng: 16:10:05.75 debug: [557] stress-ng-aio: exited [557] (instance 3)
+stress-ng: 16:10:05.75 debug: [547] process [557] terminated
+stress-ng: 16:10:05.75 debug: [547] starting stressors
+stress-ng: 16:10:05.75 debug: [562] stress-ng-aiol: started [562] (instance 0)
+stress-ng: 16:10:05.76 debug: [547] 4 stressors started
+stress-ng: 16:10:05.76 debug: [563] stress-ng-aiol: started [563] (instance 1)
+stress-ng: 16:10:05.76 debug: [565] stress-ng-aiol: started [565] (instance 3)
+stress-ng: 16:10:05.76 debug: [564] stress-ng-aiol: started [564] (instance 2)
+stress-ng: 16:12:26.14 debug: [564] stress-ng-aiol: exited [564] (instance 2)
+stress-ng: 16:12:26.23 debug: [562] stress-ng-aiol: exited [562] (instance 0)
+stress-ng: 16:12:26.24 debug: [547] process [562] terminated
+stress-ng: 16:12:26.35 debug: [563] stress-ng-aiol: exited [563] (instance 1)
+stress-ng: 16:12:26.36 debug: [547] process [563] terminated
+stress-ng: 16:12:26.36 debug: [547] process [564] terminated
+stress-ng: 16:12:26.68 debug: [565] stress-ng-aiol: exited [565] (instance 3)
+stress-ng: 16:12:26.69 debug: [547] process [565] terminated
+stress-ng: 16:12:26.69 debug: [547] starting stressors
+stress-ng: 16:12:26.69 debug: [827] stress-ng-atomic: started [827] (instance 0)
+stress-ng: 16:12:26.69 debug: [547] 4 stressors started
+stress-ng: 16:12:26.69 debug: [829] stress-ng-atomic: started [829] (instance 2)
+stress-ng: 16:12:26.70 debug: [830] stress-ng-atomic: started [830] (instance 3)
+stress-ng: 16:12:26.70 debug: [828] stress-ng-atomic: started [828] (instance 1)
+stress-ng: 16:13:26.69 debug: [827] stress-ng-atomic: exited [827] (instance 0)
+stress-ng: 16:13:26.69 debug: [829] stress-ng-atomic: exited [829] (instance 2)
+stress-ng: 16:13:26.70 debug: [830] stress-ng-atomic: exited [830] (instance 3)
+stress-ng: 16:13:26.70 debug: [828] stress-ng-atomic: exited [828] (instance 1)
+stress-ng: 16:13:26.70 debug: [547] process [828] terminated
+stress-ng: 16:13:26.70 debug: [547] process [829] terminated
+stress-ng: 16:13:26.70 debug: [547] process [830] terminated
+stress-ng: 16:13:26.70 debug: [547] starting stressors
+stress-ng: 16:13:26.71 debug: [831] stress-ng-bad-altstack: started [831] (instance 0)
+stress-ng: 16:13:26.71 debug: [832] stress-ng-bad-altstack: started [832] (instance 1)
+stress-ng: 16:13:26.71 debug: [547] 4 stressors started
+stress-ng: 16:13:26.71 debug: [834] stress-ng-bad-altstack: started [834] (instance 3)
+stress-ng: 16:13:26.71 debug: [833] stress-ng-bad-altstack: started [833] (instance 2)
+stress-ng: 16:14:26.71 debug: [831] stress-ng-bad-altstack: exited [831] (instance 0)
+stress-ng: 16:14:26.71 debug: [833] stress-ng-bad-altstack: exited [833] (instance 2)
+stress-ng: 16:14:26.71 debug: [832] stress-ng-bad-altstack: exited [832] (instance 1)
+stress-ng: 16:14:26.71 debug: [547] process [832] terminated
+stress-ng: 16:14:26.71 debug: [547] process [833] terminated
+stress-ng: 16:14:26.71 debug: [834] stress-ng-bad-altstack: exited [834] (instance 3)
+stress-ng: 16:14:26.72 debug: [547] process [834] terminated
+stress-ng: 16:14:26.72 debug: [547] starting stressors
+stress-ng: 16:14:26.72 debug: [889] stress-ng-bigheap: started [889] (instance 1)
+stress-ng: 16:14:26.72 debug: [888] stress-ng-bigheap: started [888] (instance 0)
+stress-ng: 16:14:26.72 debug: [547] 4 stressors started
+stress-ng: 16:14:26.72 debug: [890] stress-ng-bigheap: started [890] (instance 2)
+stress-ng: 16:14:26.74 debug: [891] stress-ng-bigheap: started [891] (instance 3)
+stress-ng: 16:15:57.49 debug: [891] stress-ng-bigheap: exited [891] (instance 3)
+stress-ng: 16:15:57.49 debug: [888] stress-ng-bigheap: exited [888] (instance 0)
+stress-ng: 16:15:57.49 debug: [890] stress-ng-bigheap: exited [890] (instance 2)
+stress-ng: 16:15:57.49 debug: [889] stress-ng-bigheap: exited [889] (instance 1)
+stress-ng: 16:16:22.45 debug: [547] process [888] terminated
+stress-ng: 16:16:25.31 debug: [547] process [889] terminated
+stress-ng: 16:16:25.31 debug: [547] process [890] terminated
+stress-ng: 16:16:25.31 debug: [547] process [891] terminated
+stress-ng: 16:16:25.31 debug: [547] starting stressors
+stress-ng: 16:16:29.17 debug: [547] 4 stressors started
+stress-ng: 16:16:40.38 debug: [901] stress-ng-branch: started [901] (instance 3)
+stress-ng: 16:16:40.38 debug: [900] stress-ng-branch: started [900] (instance 2)
+stress-ng: 16:16:40.38 debug: [898] stress-ng-branch: started [898] (instance 0)
+stress-ng: 16:16:40.38 debug: [899] stress-ng-branch: started [899] (instance 1)
+stress-ng: 16:17:35.69 debug: [901] stress-ng-branch: exited [901] (instance 3)
+stress-ng: 16:17:35.69 debug: [900] stress-ng-branch: exited [900] (instance 2)
+stress-ng: 16:17:35.69 debug: [899] stress-ng-branch: exited [899] (instance 1)
+stress-ng: 16:17:35.69 debug: [898] stress-ng-branch: exited [898] (instance 0)
+stress-ng: 16:17:35.69 debug: [547] process [898] terminated
+stress-ng: 16:17:35.69 debug: [547] process [899] terminated
+stress-ng: 16:17:35.69 debug: [547] process [900] terminated
+stress-ng: 16:17:35.69 debug: [547] process [901] terminated
+stress-ng: 16:17:35.70 debug: [547] starting stressors
+stress-ng: 16:17:35.70 debug: [918] stress-ng-brk: started [918] (instance 1)
+stress-ng: 16:17:35.70 debug: [547] 4 stressors started
+stress-ng: 16:17:35.70 debug: [919] stress-ng-brk: started [919] (instance 2)
+stress-ng: 16:17:35.70 debug: [920] stress-ng-brk: started [920] (instance 3)
+stress-ng: 16:17:35.71 debug: [917] stress-ng-brk: started [917] (instance 0)
+stress-ng: 16:18:35.84 debug: [918] stress-ng-brk: exited [918] (instance 1)
+stress-ng: 16:18:35.84 debug: [919] stress-ng-brk: exited [919] (instance 2)
+stress-ng: 16:18:35.85 debug: [917] stress-ng-brk: exited [917] (instance 0)
+stress-ng: 16:18:35.86 debug: [547] process [917] terminated
+stress-ng: 16:18:35.87 debug: [547] process [918] terminated
+stress-ng: 16:18:35.87 debug: [547] process [919] terminated
+stress-ng: 16:18:35.87 debug: [920] stress-ng-brk: exited [920] (instance 3)
+stress-ng: 16:18:35.88 debug: [547] process [920] terminated
+stress-ng: 16:18:35.88 debug: [547] starting stressors
+stress-ng: 16:18:35.88 debug: [929] stress-ng-bsearch: started [929] (instance 1)
+stress-ng: 16:18:35.89 debug: [547] 4 stressors started
+stress-ng: 16:18:35.88 debug: [928] stress-ng-bsearch: started [928] (instance 0)
+stress-ng: 16:18:35.89 debug: [930] stress-ng-bsearch: started [930] (instance 2)
+stress-ng: 16:18:35.89 debug: [931] stress-ng-bsearch: started [931] (instance 3)
+stress-ng: 16:19:35.95 debug: [929] stress-ng-bsearch: exited [929] (instance 1)
+stress-ng: 16:19:36.24 debug: [931] stress-ng-bsearch: exited [931] (instance 3)
+stress-ng: 16:19:36.45 debug: [928] stress-ng-bsearch: exited [928] (instance 0)
+stress-ng: 16:19:36.45 debug: [547] process [928] terminated
+stress-ng: 16:19:36.45 debug: [547] process [929] terminated
+stress-ng: 16:19:37.05 debug: [930] stress-ng-bsearch: exited [930] (instance 2)
+stress-ng: 16:19:37.05 debug: [547] process [930] terminated
+stress-ng: 16:19:37.05 debug: [547] process [931] terminated
+stress-ng: 16:19:37.05 debug: [547] starting stressors
+stress-ng: 16:19:37.06 debug: [932] stress-ng-cache: started [932] (instance 0)
+stress-ng: 16:19:37.06 debug: [933] stress-ng-cache: started [933] (instance 1)
+stress-ng: 16:19:37.06 debug: [547] 4 stressors started
+stress-ng: 16:19:37.06 debug: [934] stress-ng-cache: started [934] (instance 2)
+stress-ng: 16:19:37.06 debug: [932] stress-ng-cache: using cache buffer size of 2048K
+stress-ng: 16:19:37.06 debug: [935] stress-ng-cache: started [935] (instance 3)
+stress-ng: 16:20:37.06 debug: [932] stress-ng-cache: exited [932] (instance 0)
+stress-ng: 16:20:37.06 debug: [933] stress-ng-cache: exited [933] (instance 1)
+stress-ng: 16:20:37.06 debug: [547] process [933] terminated
+stress-ng: 16:20:37.06 debug: [934] stress-ng-cache: exited [934] (instance 2)
+stress-ng: 16:20:37.06 debug: [935] stress-ng-cache: exited [935] (instance 3)
+stress-ng: 16:20:37.06 debug: [547] process [934] terminated
+stress-ng: 16:20:37.06 debug: [547] process [935] terminated
+stress-ng: 16:20:37.06 debug: [547] starting stressors
+stress-ng: 16:20:37.07 debug: [936] stress-ng-cap: started [936] (instance 0)
+stress-ng: 16:20:37.07 debug: [937] stress-ng-cap: started [937] (instance 1)
+stress-ng: 16:20:37.07 debug: [547] 4 stressors started
+stress-ng: 16:20:37.07 debug: [938] stress-ng-cap: started [938] (instance 2)
+stress-ng: 16:20:37.08 debug: [939] stress-ng-cap: started [939] (instance 3)
+stress-ng: 16:21:37.07 debug: [936] stress-ng-cap: exited [936] (instance 0)
+stress-ng: 16:21:37.07 debug: [937] stress-ng-cap: exited [937] (instance 1)
+stress-ng: 16:21:37.07 debug: [938] stress-ng-cap: exited [938] (instance 2)
+stress-ng: 16:21:37.07 debug: [547] process [937] terminated
+stress-ng: 16:21:37.08 debug: [547] process [938] terminated
+stress-ng: 16:21:37.08 debug: [939] stress-ng-cap: exited [939] (instance 3)
+stress-ng: 16:21:37.08 debug: [547] process [939] terminated
+stress-ng: 16:21:37.08 debug: [547] starting stressors
+stress-ng: 16:21:37.08 debug: [940] stress-ng-chroot: started [940] (instance 0)
+stress-ng: 16:21:37.08 debug: [941] stress-ng-chroot: started [941] (instance 1)
+stress-ng: 16:21:37.08 debug: [547] 4 stressors started
+stress-ng: 16:21:37.09 debug: [942] stress-ng-chroot: started [942] (instance 2)
+stress-ng: 16:21:37.09 debug: [943] stress-ng-chroot: started [943] (instance 3)
+stress-ng: 16:22:37.08 debug: [940] stress-ng-chroot: exited [940] (instance 0)
+stress-ng: 16:22:37.09 debug: [547] process [940] terminated
+stress-ng: 16:22:37.09 debug: [941] stress-ng-chroot: exited [941] (instance 1)
+stress-ng: 16:22:37.09 debug: [547] process [941] terminated
+stress-ng: 16:22:37.09 debug: [942] stress-ng-chroot: exited [942] (instance 2)
+stress-ng: 16:22:37.09 debug: [547] process [942] terminated
+stress-ng: 16:22:37.09 debug: [943] stress-ng-chroot: exited [943] (instance 3)
+stress-ng: 16:22:37.10 debug: [547] process [943] terminated
+stress-ng: 16:22:37.10 debug: [547] starting stressors
+stress-ng: 16:22:37.10 debug: [7564] stress-ng-clock: started [7564] (instance 0)
+stress-ng: 16:22:37.11 debug: [7565] stress-ng-clock: started [7565] (instance 1)
+stress-ng: 16:22:37.11 debug: [547] 4 stressors started
+stress-ng: 16:22:37.11 debug: [7566] stress-ng-clock: started [7566] (instance 2)
+stress-ng: 16:22:37.11 debug: [7567] stress-ng-clock: started [7567] (instance 3)
+stress-ng: 16:23:37.10 debug: [7564] stress-ng-clock: exited [7564] (instance 0)
+stress-ng: 16:23:37.11 debug: [7565] stress-ng-clock: exited [7565] (instance 1)
+stress-ng: 16:23:37.11 debug: [7566] stress-ng-clock: exited [7566] (instance 2)
+stress-ng: 16:23:37.11 debug: [547] process [7565] terminated
+stress-ng: 16:23:37.11 debug: [547] process [7566] terminated
+stress-ng: 16:23:37.11 debug: [7567] stress-ng-clock: exited [7567] (instance 3)
+stress-ng: 16:23:37.11 debug: [547] process [7567] terminated
+stress-ng: 16:23:37.11 debug: [547] starting stressors
+stress-ng: 16:23:37.12 debug: [7570] stress-ng-clone: started [7570] (instance 0)
+stress-ng: 16:23:37.12 debug: [7571] stress-ng-clone: started [7571] (instance 1)
+stress-ng: 16:23:37.12 debug: [7572] stress-ng-clone: started [7572] (instance 2)
+stress-ng: 16:23:37.12 debug: [547] 4 stressors started
+stress-ng: 16:23:37.12 debug: [7574] stress-ng-clone: started [7574] (instance 3)
+stress-ng: 16:24:37.14 debug: [7571] stress-ng-clone: exited [7571] (instance 1)
+stress-ng: 16:24:37.21 debug: [7570] stress-ng-clone: exited [7570] (instance 0)
+stress-ng: 16:24:37.21 debug: [547] process [7570] terminated
+stress-ng: 16:24:37.21 debug: [547] process [7571] terminated
+stress-ng: 16:24:37.22 debug: [7574] stress-ng-clone: exited [7574] (instance 3)
+stress-ng: 16:24:37.23 debug: [7572] stress-ng-clone: exited [7572] (instance 2)
+stress-ng: 16:24:37.23 debug: [547] process [7572] terminated
+stress-ng: 16:24:37.23 debug: [547] process [7574] terminated
+stress-ng: 16:24:37.23 debug: [547] starting stressors
+stress-ng: 16:24:37.23 debug: [12799] stress-ng-close: started [12799] (instance 0)
+stress-ng: 16:24:37.23 debug: [12800] stress-ng-close: started [12800] (instance 1)
+stress-ng: 16:24:37.23 debug: [547] 4 stressors started
+stress-ng: 16:24:37.24 debug: [12801] stress-ng-close: started [12801] (instance 2)
+stress-ng: 16:24:37.24 debug: [12802] stress-ng-close: started [12802] (instance 3)
+stress-ng: 16:25:37.24 debug: [12800] stress-ng-close: exited [12800] (instance 1)
+stress-ng: 16:25:37.25 debug: [12801] stress-ng-close: exited [12801] (instance 2)
+stress-ng: 16:25:37.26 debug: [12802] stress-ng-close: exited [12802] (instance 3)
+stress-ng: 16:25:37.26 debug: [12799] stress-ng-close: exited [12799] (instance 0)
+stress-ng: 16:25:37.26 debug: [547] process [12799] terminated
+stress-ng: 16:25:37.26 debug: [547] process [12800] terminated
+stress-ng: 16:25:37.26 debug: [547] process [12801] terminated
+stress-ng: 16:25:37.26 debug: [547] process [12802] terminated
+stress-ng: 16:25:37.26 debug: [547] starting stressors
+stress-ng: 16:25:37.27 debug: [24204] stress-ng-context: started [24204] (instance 0)
+stress-ng: 16:25:37.27 debug: [24205] stress-ng-context: started [24205] (instance 1)
+stress-ng: 16:25:37.27 debug: [547] 4 stressors started
+stress-ng: 16:25:37.27 debug: [24206] stress-ng-context: started [24206] (instance 2)
+stress-ng: 16:25:37.28 debug: [24207] stress-ng-context: started [24207] (instance 3)
+stress-ng: 16:26:37.27 debug: [24204] stress-ng-context: exited [24204] (instance 0)
+stress-ng: 16:26:37.27 debug: [24205] stress-ng-context: exited [24205] (instance 1)
+stress-ng: 16:26:37.27 debug: [547] process [24205] terminated
+stress-ng: 16:26:37.27 debug: [24206] stress-ng-context: exited [24206] (instance 2)
+stress-ng: 16:26:37.27 debug: [547] process [24206] terminated
+stress-ng: 16:26:37.28 debug: [24207] stress-ng-context: exited [24207] (instance 3)
+stress-ng: 16:26:37.28 debug: [547] process [24207] terminated
+stress-ng: 16:26:37.28 debug: [547] starting stressors
+stress-ng: 16:26:37.28 debug: [24208] stress-ng-cpu: started [24208] (instance 0)
+stress-ng: 16:26:37.28 debug: [24209] stress-ng-cpu: started [24209] (instance 1)
+stress-ng: 16:26:37.28 debug: [24208] stress-ng-cpu using method 'all'
+stress-ng: 16:26:37.28 debug: [24209] stress-ng-cpu using method 'all'
+stress-ng: 16:26:37.28 debug: [547] 4 stressors started
+stress-ng: 16:26:37.28 debug: [24210] stress-ng-cpu: started [24210] (instance 2)
+stress-ng: 16:26:37.29 debug: [24211] stress-ng-cpu: started [24211] (instance 3)
+stress-ng: 16:26:37.29 debug: [24210] stress-ng-cpu using method 'all'
+stress-ng: 16:26:37.29 debug: [24211] stress-ng-cpu using method 'all'
+stress-ng: 16:27:37.61 debug: [24209] stress-ng-cpu: exited [24209] (instance 1)
+stress-ng: 16:27:37.79 debug: [24211] stress-ng-cpu: exited [24211] (instance 3)
+stress-ng: 16:27:37.97 debug: [24210] stress-ng-cpu: exited [24210] (instance 2)
+stress-ng: 16:27:38.77 debug: [24208] stress-ng-cpu: exited [24208] (instance 0)
+stress-ng: 16:27:38.77 debug: [547] process [24208] terminated
+stress-ng: 16:27:38.78 debug: [547] process [24209] terminated
+stress-ng: 16:27:38.78 debug: [547] process [24210] terminated
+stress-ng: 16:27:38.78 debug: [547] process [24211] terminated
+stress-ng: 16:27:38.78 debug: [547] starting stressors
+stress-ng: 16:27:38.78 debug: [24212] stress-ng-crypt: started [24212] (instance 0)
+stress-ng: 16:27:38.79 debug: [24213] stress-ng-crypt: started [24213] (instance 1)
+stress-ng: 16:27:38.79 debug: [547] 4 stressors started
+stress-ng: 16:27:38.79 debug: [24214] stress-ng-crypt: started [24214] (instance 2)
+stress-ng: 16:27:38.79 debug: [24215] stress-ng-crypt: started [24215] (instance 3)
+stress-ng: 16:28:38.80 debug: [24213] stress-ng-crypt: exited [24213] (instance 1)
+stress-ng: 16:28:38.82 debug: [24215] stress-ng-crypt: exited [24215] (instance 3)
+stress-ng: 16:28:38.82 debug: [24214] stress-ng-crypt: exited [24214] (instance 2)
+stress-ng: 16:28:38.87 debug: [24212] stress-ng-crypt: exited [24212] (instance 0)
+stress-ng: 16:28:38.87 debug: [547] process [24212] terminated
+stress-ng: 16:28:38.87 debug: [547] process [24213] terminated
+stress-ng: 16:28:38.87 debug: [547] process [24214] terminated
+stress-ng: 16:28:38.87 debug: [547] process [24215] terminated
+stress-ng: 16:28:38.88 debug: [547] starting stressors
+stress-ng: 16:28:38.88 debug: [24216] stress-ng-daemon: started [24216] (instance 0)
+stress-ng: 16:28:38.88 debug: [547] 4 stressors started
+stress-ng: 16:28:38.88 debug: [24218] stress-ng-daemon: started [24218] (instance 2)
+stress-ng: 16:28:38.88 debug: [24219] stress-ng-daemon: started [24219] (instance 3)
+stress-ng: 16:28:38.88 debug: [24217] stress-ng-daemon: started [24217] (instance 1)
+stress-ng: 16:29:38.88 debug: [24216] stress-ng-daemon: exited [24216] (instance 0)
+stress-ng: 16:29:38.88 debug: [24218] stress-ng-daemon: exited [24218] (instance 2)
+stress-ng: 16:29:38.88 debug: [24217] stress-ng-daemon: exited [24217] (instance 1)
+stress-ng: 16:29:38.88 debug: [24219] stress-ng-daemon: exited [24219] (instance 3)
+stress-ng: 16:29:38.89 debug: [547] process [24217] terminated
+stress-ng: 16:29:38.89 debug: [547] process [24218] terminated
+stress-ng: 16:29:38.89 debug: [547] process [24219] terminated
+stress-ng: 16:29:38.89 debug: [547] starting stressors
+stress-ng: 16:29:38.89 debug: [23135] stress-ng-dev: started [23135] (instance 0)
+stress-ng: 16:29:38.90 debug: [547] 4 stressors started
+stress-ng: 16:29:38.90 debug: [23137] stress-ng-dev: started [23137] (instance 2)
+stress-ng: 16:29:38.90 debug: [23138] stress-ng-dev: started [23138] (instance 3)
+stress-ng: 16:29:38.90 debug: [23136] stress-ng-dev: started [23136] (instance 1)

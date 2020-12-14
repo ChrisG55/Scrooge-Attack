@@ -1,0 +1,699 @@
+[    0.000000] Booting Linux on physical CPU 0x0
+[    0.000000] Linux version 4.19.118-v7+ (dom@buildbot) (gcc version 4.9.3 (crosstool-NG crosstool-ng-1.22.0-88-g8460611)) #1311 SMP Mon Apr 27 14:21:24 BST 2020
+[    0.000000] CPU: ARMv7 Processor [410fd034] revision 4 (ARMv7), cr=10c5383d
+[    0.000000] CPU: div instructions available: patching division code
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+[    0.000000] OF: fdt: Machine model: Raspberry Pi 3 Model B Plus Rev 1.3
+[    0.000000] Memory policy: Data cache writealloc
+[    0.000000] cma: Reserved 8 MiB at 0x3ac00000
+[    0.000000] random: get_random_bytes called from start_kernel+0xac/0x4b4 with crng_init=0
+[    0.000000] percpu: Embedded 16 pages/cpu s36864 r8192 d20480 u65536
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 240555
+[    0.000000] Kernel command line: coherent_pool=1M 8250.nr_uarts=1 snd_bcm2835.enable_compat_alsa=0 snd_bcm2835.enable_hdmi=1 snd_bcm2835.enable_headphones=1 bcm2708_fb.fbwidth=
+656 bcm2708_fb.fbheight=416 bcm2708_fb.fbswap=1 vc_mem.mem_base=0x3ec00000 vc_mem.mem_size=0x40000000  dwc_otg.lpm_enable=0 console=ttyAMA0,115200 console=tty1 root=PARTUUID=4c999
+877-02 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait
+[    0.000000] Dentry cache hash table entries: 131072 (order: 7, 524288 bytes)
+[    0.000000] Inode-cache hash table entries: 65536 (order: 6, 262144 bytes)
+[    0.000000] Memory: 939064K/970752K available (8192K kernel code, 656K rwdata, 2232K rodata, 1024K init, 831K bss, 23496K reserved, 8192K cma-reserved)
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000]     fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
+[    0.000000]     vmalloc : 0xbb800000 - 0xff800000   (1088 MB)
+[    0.000000]     lowmem  : 0x80000000 - 0xbb400000   ( 948 MB)
+[    0.000000]     modules : 0x7f000000 - 0x80000000   (  16 MB)
+[    0.000000]       .text : 0x(ptrval) - 0x(ptrval)   (9184 kB)
+[    0.000000]       .init : 0x(ptrval) - 0x(ptrval)   (1024 kB)
+[    0.000000]       .data : 0x(ptrval) - 0x(ptrval)   ( 657 kB)
+[    0.000000]        .bss : 0x(ptrval) - 0x(ptrval)   ( 832 kB)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[    0.000000] ftrace: allocating 27093 entries in 80 pages
+[    0.000000] rcu: Hierarchical RCU implementation.
+[    0.000000] NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16
+[    0.000000] arch_timer: cp15 timer(s) running at 19.20MHz (phys).
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x46d987e47, max_idle_ns: 440795202767 ns
+[    0.000007] sched_clock: 56 bits at 19MHz, resolution 52ns, wraps every 4398046511078ns
+[    0.000023] Switching to timer-based delay loop, resolution 52ns
+[    0.000274] Console: colour dummy device 80x30
+[    0.000909] console [tty1] enabled
+[    0.000968] Calibrating delay loop (skipped), value calculated using timer frequency.. 38.40 BogoMIPS (lpj=192000)
+[    0.001011] pid_max: default: 32768 minimum: 301
+[    0.001378] Mount-cache hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.001415] Mountpoint-cache hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.002370] CPU: Testing write buffer coherency: ok
+[    0.002848] CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
+[    0.003528] Setting up static identity map for 0x100000 - 0x10003c
+[    0.003695] rcu: Hierarchical SRCU implementation.
+[    0.004520] smp: Bringing up secondary CPUs ...
+[    0.005428] CPU1: thread -1, cpu 1, socket 0, mpidr 80000001
+[    0.006404] CPU2: thread -1, cpu 2, socket 0, mpidr 80000002
+[    0.007316] CPU3: thread -1, cpu 3, socket 0, mpidr 80000003
+[    0.007430] smp: Brought up 1 node, 4 CPUs
+[    0.007512] SMP: Total of 4 processors activated (153.60 BogoMIPS).
+[    0.007536] CPU: All CPU(s) started in HYP mode.
+[    0.007556] CPU: Virtualization extensions available.
+[    0.008548] devtmpfs: initialized
+[    0.021996] VFP support v0.3: implementor 41 architecture 3 part 40 variant 3 rev 4
+[    0.022269] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.022319] futex hash table entries: 1024 (order: 4, 65536 bytes)
+[    0.022927] pinctrl core: initialized pinctrl subsystem
+[    0.023790] NET: Registered protocol family 16
+[    0.026992] DMA: preallocated 1024 KiB pool for atomic coherent allocations
+[    0.032909] hw-breakpoint: found 5 (+1 reserved) breakpoint and 4 watchpoint registers.
+[    0.032944] hw-breakpoint: maximum watchpoint size is 8 bytes.
+[    0.033165] Serial: AMBA PL011 UART driver
+[    0.035524] bcm2835-mbox 3f00b880.mailbox: mailbox enabled
+[    0.050028] raspberrypi-firmware soc:firmware: Attached to firmware from 2020-04-15 11:43, variant start
+[    0.060042] raspberrypi-firmware soc:firmware: Firmware hash is 82f9bb929ce2186eb1824178c1ae82902ad6275c
+[    0.103090] bcm2835-dma 3f007000.dma: DMA legacy API manager at (ptrval), dmachans=0x1
+[    0.104743] SCSI subsystem initialized
+[    0.104988] usbcore: registered new interface driver usbfs
+[    0.105070] usbcore: registered new interface driver hub
+[    0.105183] usbcore: registered new device driver usb
+[    0.106907] clocksource: Switched to clocksource arch_sys_counter
+[    0.197404] VFS: Disk quotas dquot_6.6.0
+[    0.197515] VFS: Dquot-cache hash table entries: 1024 (order 0, 4096 bytes)
+[    0.197685] FS-Cache: Loaded
+[    0.197912] CacheFiles: Loaded
+[    0.207925] NET: Registered protocol family 2
+[    0.208793] tcp_listen_portaddr_hash hash table entries: 512 (order: 0, 6144 bytes)
+[    0.208857] TCP established hash table entries: 8192 (order: 3, 32768 bytes)
+[    0.208987] TCP bind hash table entries: 8192 (order: 4, 65536 bytes)
+[    0.209192] TCP: Hash tables configured (established 8192 bind 8192)
+[    0.209353] UDP hash table entries: 512 (order: 2, 16384 bytes)
+[    0.209423] UDP-Lite hash table entries: 512 (order: 2, 16384 bytes)
+[    0.209682] NET: Registered protocol family 1
+[    0.210271] RPC: Registered named UNIX socket transport module.
+[    0.210298] RPC: Registered udp transport module.
+[    0.210320] RPC: Registered tcp transport module.
+[    0.210341] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    0.212183] hw perfevents: enabled with armv7_cortex_a7 PMU driver, 7 counters available
+[    0.215284] Initialise system trusted keyrings
+[    0.215489] workingset: timestamp_bits=14 max_order=18 bucket_order=4
+[    0.225453] FS-Cache: Netfs 'nfs' registered for caching
+[    0.226030] NFS: Registering the id_resolver key type
+[    0.226076] Key type id_resolver registered
+[    0.226098] Key type id_legacy registered
+[    0.226129] nfs4filelayout_init: NFSv4 File Layout Driver Registering...
+[    0.231570] Key type asymmetric registered
+[    0.231606] Asymmetric key parser 'x509' registered
+[    0.231678] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 250)
+[    0.231873] io scheduler noop registered
+[    0.231898] io scheduler deadline registered (default)
+[    0.232115] io scheduler cfq registered
+[    0.232139] io scheduler mq-deadline registered (default)
+[    0.232163] io scheduler kyber registered
+[    0.234368] bcm2708_fb soc:fb: FB found 1 display(s)
+[    0.243711] Console: switching to colour frame buffer device 82x26
+[    0.250572] bcm2708_fb soc:fb: Registered framebuffer for display 0, size 656x416
+[    0.256201] Serial: 8250/16550 driver, 1 ports, IRQ sharing enabled
+[    0.260041] bcm2835-rng 3f104000.rng: hwrng registered
+[    0.262722] vc-mem: phys_addr:0x00000000 mem_base=0x3ec00000 mem_size:0x40000000(1024 MiB)
+[    0.268117] vc-sm: Videocore shared memory driver
+[    0.270927] gpiomem-bcm2835 3f200000.gpiomem: Initialised: Registers at 0x3f200000
+[    0.286786] brd: module loaded
+[    0.299506] loop: module loaded
+[    0.302599] Loading iSCSI transport class v2.0-870.
+[    0.305764] libphy: Fixed MDIO Bus: probed
+[    0.308308] usbcore: registered new interface driver lan78xx
+[    0.310821] usbcore: registered new interface driver smsc95xx
+[    0.313252] dwc_otg: version 3.00a 10-AUG-2012 (platform bus)
+[    0.343553] dwc_otg 3f980000.usb: base=(ptrval)
+[    0.546249] Core Release: 2.80a
+[    0.548726] Setting default values for core params
+[    0.551223] Finished setting default values for core params
+[    0.754000] Using Buffer DMA mode
+[    0.756397] Periodic Transfer Interrupt Enhancement - disabled
+[    0.758825] Multiprocessor Interrupt Enhancement - disabled
+[    0.761208] OTG VER PARAM: 0, OTG VER FLAG: 0
+[    0.763552] Dedicated Tx FIFOs mode
+[    0.766238] WARN::dwc_otg_hcd_init:1074: FIQ DMA bounce buffers: virt = bad14000 dma = 0xfad14000 len=9024
+[    0.770844] FIQ FSM acceleration enabled for :
+[    0.770844] Non-periodic Split Transactions
+[    0.770844] Periodic Split Transactions
+[    0.770844] High-Speed Isochronous Endpoints
+[    0.770844] Interrupt/Control Split Transaction hack enabled
+[    0.781811] WARN::hcd_init_fiq:457: FIQ on core 1
+[    0.784039] WARN::hcd_init_fiq:458: FIQ ASM at 8068fda0 length 36
+[    0.786252] WARN::hcd_init_fiq:497: MPHI regs_base at bb810000
+[    0.788509] dwc_otg 3f980000.usb: DWC OTG Controller
+[    0.790771] dwc_otg 3f980000.usb: new USB bus registered, assigned bus number 1
+[    0.793095] dwc_otg 3f980000.usb: irq 56, io mem 0x00000000
+[    0.795399] Init: Port Power? op_state=1
+[    0.797660] Init: Power Port (0)
+[    0.800079] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 4.19
+[    0.804592] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    0.807028] usb usb1: Product: DWC OTG Controller
+[    0.809397] usb usb1: Manufacturer: Linux 4.19.118-v7+ dwc_otg_hcd
+[    0.811823] usb usb1: SerialNumber: 3f980000.usb
+[    0.814781] hub 1-0:1.0: USB hub found
+[    0.817090] hub 1-0:1.0: 1 port detected
+[    0.820129] usbcore: registered new interface driver usb-storage
+[    0.822598] mousedev: PS/2 mouse device common for all mice
+[    0.825739] bcm2835-wdt bcm2835-wdt: Broadcom BCM2835 watchdog timer
+[    0.828402] bcm2835-cpufreq: min=600000 max=1400000
+[    0.831223] sdhci: Secure Digital Host Controller Interface driver
+[    0.833644] sdhci: Copyright(c) Pierre Ossman
+[    0.836456] sdhost-bcm2835 3f202000.mmc: could not get clk, deferring probe
+[    0.839150] sdhci-pltfm: SDHCI platform and OF driver helper
+[    0.843220] ledtrig-cpu: registered to indicate activity on CPUs
+[    0.845916] hidraw: raw HID events driver (C) Jiri Kosina
+[    0.848684] usbcore: registered new interface driver usbhid
+[    0.851232] usbhid: USB HID core driver
+[    0.854546] vchiq: vchiq_init_state: slot_zero = (ptrval), is_master = 0
+[    0.858698] [vc_sm_connected_init]: start
+[    0.867355] [vc_sm_connected_init]: end - returning 0
+[    0.870877] Initializing XFRM netlink socket
+[    0.873268] NET: Registered protocol family 17
+[    0.875723] Key type dns_resolver registered
+[    0.878720] Registering SWP/SWPB emulation handler
+[    0.881729] registered taskstats version 1
+[    0.884105] Loading compiled-in X.509 certificates
+[    0.893125] uart-pl011 3f201000.serial: cts_event_workaround enabled
+[    0.895624] 3f201000.serial: ttyAMA0 at MMIO 0x3f201000 (irq = 81, base_baud = 0) is a PL011 rev2
+[    1.899304] console [ttyAMA0] enabled
+[    1.907386] sdhost: log_buf @ (ptrval) (fad13000)
+[    1.962817] mmc0: sdhost-bcm2835 loaded - DMA enabled (>1)
+[    1.971984] of_cfs_init
+[    1.976859] of_cfs_init: OK
+[    1.982437] Waiting for root device PARTUUID=4c999877-02...
+[    2.017026] Indeed it is in host mode hprt0 = 00021501
+[    2.112072] random: fast init done
+[    2.122362] mmc0: host does not support reading read-only switch, assuming write-enable
+[    2.140395] mmc0: new high speed SDHC card at address aaaa
+[    2.149419] mmcblk0: mmc0:aaaa SC16G 14.8 GiB
+[    2.161337]  mmcblk0: p1 p2
+[    2.189993] EXT4-fs (mmcblk0p2): mounted filesystem with ordered data mode. Opts: (null)
+[    2.203022] VFS: Mounted root (ext4 filesystem) readonly on device 179:2.
+[    2.222442] devtmpfs: mounted
+[    2.226949] usb 1-1: new high-speed USB device number 2 using dwc_otg
+[    2.237414] Indeed it is in host mode hprt0 = 00001101
+[    2.238896] Freeing unused kernel memory: 1024K
+[    2.305581] Run /sbin/init as init process
+[    2.477244] usb 1-1: New USB device found, idVendor=0424, idProduct=2514, bcdDevice= b.b3
+[    2.490706] usb 1-1: New USB device strings: Mfr=0, Product=0, SerialNumber=0
+[    2.501266] hub 1-1:1.0: USB hub found
+[    2.507953] hub 1-1:1.0: 4 ports detected
+[    2.826956] usb 1-1.1: new high-speed USB device number 3 using dwc_otg
+[    2.938480] systemd[1]: System time before build time, advancing clock.
+[    2.957268] usb 1-1.1: New USB device found, idVendor=0424, idProduct=2514, bcdDevice= b.b3
+[    2.971227] usb 1-1.1: New USB device strings: Mfr=0, Product=0, SerialNumber=0
+[    2.982147] hub 1-1.1:1.0: USB hub found
+[    2.989120] hub 1-1.1:1.0: 3 ports detected
+[    3.009394] systemd[1]: systemd 241 running in system mode. (+PAM +AUDIT +SELINUX +IMA +APPARMOR +SMACK +SYSVINIT +UTMP +LIBCRYPTSETUP +GCRYPT +GNUTLS +ACL +XZ +LZ4 +SECCOMP +B
+LKID +ELFUTILS +KMOD -IDN2 +IDN -PCRE2 default-hierarchy=hybrid)
+[    3.040537] systemd[1]: Detected architecture arm.
+[    3.068167] systemd[1]: Set hostname to <raspberrypi>.
+[    3.249491] uart-pl011 3f201000.serial: no DMA platform data
+[    3.666959] usb 1-1.1.1: new high-speed USB device number 4 using dwc_otg
+[    3.797414] usb 1-1.1.1: New USB device found, idVendor=0424, idProduct=7800, bcdDevice= 3.00
+[    3.811495] usb 1-1.1.1: New USB device strings: Mfr=0, Product=0, SerialNumber=0
+[    3.980229] random: systemd: uninitialized urandom read (16 bytes read)
+[    4.001050] random: systemd: uninitialized urandom read (16 bytes read)
+[    4.025133] systemd[1]: Created slice User and Session Slice.
+[    4.037299] random: systemd: uninitialized urandom read (16 bytes read)
+[    4.046785] systemd[1]: Reached target Slices.
+[    4.058287] systemd[1]: Listening on Journal Socket.
+[    4.079365] systemd[1]: Starting Restore / save the current clock...
+[    4.089349] lan78xx 1-1.1.1:1.0 (unnamed net_device) (uninitialized): No External EEPROM. Setting MAC Speed
+[    4.090420] libphy: lan78xx-mdiobus: probed
+[    4.116001] systemd[1]: Condition check resulted in Huge Pages File System being skipped.
+[    4.120067] lan78xx 1-1.1.1:1.0 (unnamed net_device) (uninitialized): int urb period 64
+[    4.135266] systemd[1]: Mounting RPC Pipe File System...
+[    4.162644] systemd[1]: Mounting POSIX Message Queue File System...
+
+Raspbian GNU/Linux 10 raspberrypi ttyAMA0
+
+raspberrypi login: [ 5090.884674] Unhandled fault: alignment exception (0x801) at 0x00a4f908
+[ 5090.893849] pgd = 63244e9b
+[ 5090.899159] [00a4f908] *pgd=37375835, *pte=2faa67df, *ppte=2faa6e7f
+[ 5090.915696] Unhandled fault: alignment exception (0x801) at 0x00a4f908
+[ 5090.925262] pgd = 9eb89a56
+[ 5090.931161] [00a4f908] *pgd=28748835, *pte=2faa67df, *ppte=2faa6e7f
+[ 5092.599086] Unhandled fault: alignment exception (0x001) at 0xfffffff3
+[ 5092.609062] pgd = 3f6c65f3
+[ 5092.614799] [fffffff3] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5092.631139] Unhandled fault: alignment exception (0x001) at 0xfffffff3
+[ 5092.641232] pgd = 2e2cee3f
+[ 5092.647371] [fffffff3] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5093.317068] Unhandled fault: alignment exception (0x801) at 0x00fc0001
+[ 5093.327195] pgd = 9eb89a56
+[ 5093.333633] [00fc0001] *pgd=00000000
+[ 5093.375052] Unhandled fault: alignment exception (0x801) at 0x00fc0001
+[ 5093.385681] pgd = 9eb89a56
+[ 5093.392248] [00fc0001] *pgd=00000000
+[ 5094.754652] Unhandled fault: alignment exception (0x001) at 0xfffffffb
+[ 5094.765424] pgd = 9eb89a56
+[ 5094.772458] [fffffffb] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5094.812143] Unhandled fault: alignment exception (0x001) at 0xfffffffb
+[ 5094.823139] pgd = 9eb89a56
+[ 5094.830542] [fffffffb] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5095.198751] Unhandled fault: alignment exception (0x001) at 0x000f1d94
+[ 5095.210158] pgd = b9d8d299
+[ 5095.217436] [000f1d94] *pgd=373dd835, *pte=00000000, *ppte=00000000
+[ 5095.325041] Unhandled fault: alignment exception (0x001) at 0xffffffff
+[ 5095.336198] pgd = 63244e9b
+[ 5095.343371] [ffffffff] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5095.388548] Unhandled fault: alignment exception (0x001) at 0xffffffff
+[ 5095.399716] pgd = 63244e9b
+[ 5095.406712] [ffffffff] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5095.422584] Unhandled fault: alignment exception (0x801) at 0x00000003
+[ 5095.433596] pgd = b97a9b6d
+[ 5095.440837] [00000003] *pgd=38db5835, *pte=00000000, *ppte=00000000
+[ 5095.469333] Unhandled fault: alignment exception (0x801) at 0x00000003
+[ 5095.480321] Unhandled fault: alignment exception (0x001) at 0xffffffff
+[ 5095.480376] pgd = b97a9b6d
+[ 5095.491111] pgd = 63244e9b
+[ 5095.497901] [00000003] *pgd=33f41835, *pte=00000000, *ppte=00000000
+[ 5095.505007] [ffffffff] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5095.535353] Unhandled fault: alignment exception (0x001) at 0xffffffff
+[ 5095.546159] pgd = 63244e9b
+[ 5095.553250] [ffffffff] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5095.582772] Unhandled fault: alignment exception (0x001) at 0xffffffff
+[ 5095.593976] pgd = 63244e9b
+[ 5095.600885] [ffffffff] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5095.624219] Unhandled fault: alignment exception (0x001) at 0xffffffff
+[ 5095.635304] pgd = 63244e9b
+[ 5095.642173] [ffffffff] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5096.126600] Unhandled fault: alignment exception (0x801) at 0xffffffdf
+[ 5096.137408] pgd = 63244e9b
+[ 5096.144297] [ffffffdf] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5096.154688] Unhandled fault: alignment exception (0x001) at 0x00107c5c
+[ 5096.165458] pgd = 44c21926
+[ 5096.172197] [00107c5c] *pgd=33ce2835
+[ 5096.179618] Unhandled fault: alignment exception (0x801) at 0xffffffdf
+[ 5096.179649] pgd = 63244e9b
+[ 5096.197070] [ffffffdf] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5096.207664] Unhandled fault: alignment exception (0x001) at 0x00107c5c
+[ 5096.218646] pgd = 3f6c65f3
+[ 5096.225356] [00107c5c] *pgd=35eb3835, *pte=1c58c79f, *ppte=1c58ce7f
+[ 5096.243701] Unhandled fault: alignment exception (0x001) at 0x00107c5c
+[ 5096.254490] pgd = 3f6c65f3
+[ 5096.261238] [00107c5c] *pgd=35eb3835, *pte=1c58c79f, *ppte=1c58ce7f
+[ 5096.278605] Unhandled fault: alignment exception (0x001) at 0x00107c5c
+[ 5096.289397] pgd = b97a9b6d
+[ 5096.296410] [00107c5c] *pgd=38eb2835, *pte=1c58c79f, *ppte=1c58ce7f
+[ 5096.313761] Unhandled fault: alignment exception (0x001) at 0x00107c5c
+[ 5096.324526] pgd = b97a9b6d
+[ 5096.331359] [00107c5c] *pgd=38eb2835, *pte=1c58c79f, *ppte=1c58ce7f
+[ 5096.536605] Unhandled fault: alignment exception (0x801) at 0xffffffe3
+[ 5096.547431] pgd = 63244e9b
+[ 5096.554324] [ffffffe3] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5096.576532] Unhandled fault: alignment exception (0x801) at 0xffffffe3
+[ 5096.587511] pgd = 2e2cee3f
+[ 5096.594300] [ffffffe3] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5096.610845] Unhandled fault: alignment exception (0x801) at 0xffffffe3
+[ 5096.621770] pgd = 3f6c65f3
+[ 5096.628835] [ffffffe3] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5096.809817] Unhandled prefetch abort: unknown 1 (0x001) at 0xc5b0e372
+[ 5097.147065] Unhandled prefetch abort: unknown 1 (0x001) at 0x565a43ea
+[ 5097.296042] Unhandled fault: alignment exception (0x801) at 0x00107cf2
+[ 5097.306466] pgd = b9d8d299
+[ 5097.313003] [00107cf2] *pgd=01d6f835, *pte=1c58c79f, *ppte=1c58ce7f
+[ 5097.356095] Unhandled fault: alignment exception (0x801) at 0x00107cf2
+[ 5097.366728] pgd = b9d8d299
+[ 5097.373483] [00107cf2] *pgd=371ea835, *pte=1c58c79f, *ppte=1c58ce7f
+[ 5097.405040] Unhandled fault: alignment exception (0x801) at 0x00107cf2
+[ 5097.415865] pgd = b9d8d299
+[ 5097.422728] [00107cf2] *pgd=3739c835, *pte=1c58c79f, *ppte=1c58ce7f
+[ 5097.709195] Unhandled fault: alignment exception (0x801) at 0xffffffff
+[ 5097.719877] pgd = 63244e9b
+[ 5097.726649] [ffffffff] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5098.610639] Unhandled prefetch abort: unknown 1 (0x001) at 0x44b0bab6
+[ 5098.795300] Unhandled fault: alignment exception (0x001) at 0x4e203a5f
+[ 5098.806416] pgd = b9d8d299
+[ 5098.813514] [4e203a5f] *pgd=00000000
+[ 5098.833543] Unhandled fault: alignment exception (0x001) at 0x4e203a5f
+[ 5098.844730] pgd = b97a9b6d
+[ 5098.851585] [4e203a5f] *pgd=00000000
+[ 5098.873086] Unhandled fault: alignment exception (0x001) at 0x4e203a5f
+[ 5098.883958] pgd = b97a9b6d
+[ 5098.890909] [4e203a5f] *pgd=00000000
+[ 5098.930320] Unhandled fault: alignment exception (0x001) at 0x7ec7d1fb
+[ 5098.941041] pgd = 3f6c65f3
+[ 5098.947802] [7ec7d1fb] *pgd=28744835, *pte=2faba75f, *ppte=2fabac7f
+[ 5098.966265] Unhandled fault: alignment exception (0x001) at 0x7ec7d1fb
+[ 5098.977122] pgd = 9eb89a56
+[ 5098.983916] [7ec7d1fb] *pgd=35eb3835, *pte=18f5075f, *ppte=18f50c7f
+[ 5099.039734] Unhandled fault: alignment exception (0x001) at 0x7ec7d1fb
+[ 5099.050547] pgd = 9eb89a56
+[ 5099.057226] [7ec7d1fb] *pgd=33803835, *pte=31f5275f, *ppte=31f52c7f
+[ 5099.081788] Unhandled fault: alignment exception (0x001) at 0x7ec7d1fb
+[ 5099.092750] pgd = 9eb89a56
+[ 5099.099621] [7ec7d1fb] *pgd=285bd835, *pte=18dd075f, *ppte=18dd0c7f
+[ 5099.122413] Unhandled fault: alignment exception (0x001) at 0x7ec7d1fb
+[ 5099.133425] pgd = 9eb89a56
+[ 5099.140687] [7ec7d1fb] *pgd=33c95835, *pte=0ef8b75f, *ppte=0ef8bc7f
+[ 5099.635062] Unhandled fault: alignment exception (0x801) at 0xffffffd7
+[ 5099.646329] pgd = 2e2cee3f
+[ 5099.653599] [ffffffd7] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5099.680701] Unhandled fault: alignment exception (0x801) at 0xffffffd7
+[ 5099.691684] pgd = 63244e9b
+[ 5099.698885] [ffffffd7] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5100.774917] Unhandled fault: alignment exception (0x001) at 0x7ec7d031
+[ 5100.785986] pgd = 44c21926
+[ 5100.793386] [7ec7d031] *pgd=1a94a835, *pte=3a08975f, *ppte=3a089c7f
+[ 5100.815148] Unhandled fault: alignment exception (0x001) at 0x7ec7d031
+[ 5100.826256] pgd = 63244e9b
+[ 5100.833465] [7ec7d031] *pgd=33e93835, *pte=0f74775f, *ppte=0f747c7f
+[ 5100.871540] Unhandled fault: alignment exception (0x001) at 0x7ec7d031
+[ 5100.882477] pgd = 2e2cee3f
+[ 5100.889720] [7ec7d031] *pgd=37079835, *pte=2a68775f, *ppte=2a687c7f
+[ 5101.340582] Unhandled prefetch abort: unknown 1 (0x001) at 0x12c15036
+[ 5101.588301] Unhandled fault: alignment exception (0x801) at 0x46b88fe3
+[ 5101.599266] pgd = 3f6c65f3
+[ 5101.606083] [46b88fe3] *pgd=00000000
+[ 5101.630138] Unhandled fault: alignment exception (0x001) at 0xffffffe3
+[ 5101.630171] Unhandled prefetch abort: breakpoint debug exception (0x002) at 0x76b89008
+[ 5101.640862] pgd = 63244e9b
+[ 5101.640874] [ffffffe3] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5101.683315] Unhandled prefetch abort: breakpoint debug exception (0x002) at 0x76b89004
+[ 5101.716655] Unhandled prefetch abort: breakpoint debug exception (0x002) at 0x76b89000
+[ 5102.283720] Unhandled prefetch abort: unknown 1 (0x001) at 0xfcf472e6
+[ 5104.908342] Unhandled fault: alignment exception (0x801) at 0xffffffcf
+[ 5104.919723] pgd = 44c21926
+[ 5104.927310] [ffffffcf] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5105.016799] Unhandled prefetch abort: breakpoint debug exception (0x002) at 0x76b89000
+[ 5105.185201] Unhandled fault: alignment exception (0x801) at 0xb5c47fff
+[ 5105.196958] pgd = 3f6c65f3
+[ 5105.204513] [b5c47fff] *pgd=35c1141e(bad)
+[ 5105.641506] Unhandled fault: alignment exception (0x001) at 0x00000003
+[ 5105.652688] pgd = b97a9b6d
+[ 5105.659924] [00000003] *pgd=33d4c835, *pte=00000000, *ppte=00000000
+[ 5106.830065] Unhandled fault: alignment exception (0x801) at 0x3ec94de2
+[ 5106.841456] pgd = 2e2cee3f
+[ 5106.849166] [3ec94de2] *pgd=00000000
+[ 5106.860350] Unhandled fault: alignment exception (0x801) at 0xffffffff
+[ 5106.872205] pgd = 63244e9b
+[ 5106.879974] [ffffffff] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5106.881426] Unhandled prefetch abort: breakpoint debug exception (0x002) at 0x76b8900c
+[ 5106.927103] Unhandled prefetch abort: breakpoint debug exception (0x002) at 0x76b89008
+[ 5106.970308] Unhandled prefetch abort: breakpoint debug exception (0x002) at 0x76b89004
+[ 5107.026340] Unhandled prefetch abort: breakpoint debug exception (0x002) at 0x76b89000
+[ 5107.954511] Unhandled fault: alignment exception (0x001) at 0x00107c5c
+[ 5107.966453] pgd = 44c21926
+[ 5107.974580] [00107c5c] *pgd=38d90835, *pte=1c58c79f, *ppte=1c58ce7f
+[ 5108.009625] Unhandled fault: alignment exception (0x001) at 0x00107c5c
+[ 5108.021446] pgd = 2e2cee3f
+[ 5108.029623] [00107c5c] *pgd=37ddd835, *pte=1c58c79f, *ppte=1c58ce7f
+[ 5109.159956] Unhandled fault: alignment exception (0x801) at 0xffffffd7
+[ 5109.171396] pgd = 63244e9b
+[ 5109.178962] [ffffffd7] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5109.248058] Unhandled fault: alignment exception (0x801) at 0xffffffdf
+[ 5109.259851] pgd = 63244e9b
+[ 5109.267929] [ffffffdf] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5109.427626] Unhandled prefetch abort: unknown 1 (0x001) at 0x20000006
+[ 5109.806335] Unhandled fault: alignment exception (0x001) at 0xffffffe7
+[ 5109.818339] pgd = b97a9b6d
+[ 5109.826219] [ffffffe7] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5110.860609] Unhandled fault: alignment exception (0x001) at 0xffffffff
+[ 5110.872443] pgd = 44c21926
+[ 5110.880414] [ffffffff] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5111.007838] Unhandled prefetch abort: breakpoint debug exception (0x002) at 0x76b89000
+[ 5111.869775] Unhandled prefetch abort: unknown 1 (0x001) at 0x2e47ec2a
+[ 5112.030804] Unhandled fault: alignment exception (0x801) at 0xffffffe7
+[ 5112.042195] pgd = 44c21926
+[ 5112.049616] [ffffffe7] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5112.067304] Unhandled fault: alignment exception (0x801) at 0xffffffe7
+[ 5112.078583] pgd = 44c21926
+[ 5112.085673] [ffffffe7] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5112.864028] Unhandled fault: alignment exception (0x801) at 0xffffffff
+[ 5112.875410] pgd = b9d8d299
+[ 5112.882766] [ffffffff] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5112.906291] Unhandled fault: alignment exception (0x801) at 0xffffffff
+[ 5112.917719] pgd = b9d8d299
+[ 5112.925230] [ffffffff] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5112.944010] Unhandled fault: alignment exception (0x801) at 0xffffffff
+[ 5112.955233] pgd = 44c21926
+[ 5112.955248] [ffffffff] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5112.962258] Unhandled fault: alignment exception (0x801) at 0x00109bcf
+[ 5112.984219] Unhandled fault: alignment exception (0x801) at 0xffffffff
+[ 5112.984260] pgd = 2e2cee3f
+[ 5112.995298] pgd = 9eb89a56
+[ 5113.002242] [00109bcf] *pgd=35ecd835, *pte=222a175f, *ppte=222a1c7f
+[ 5113.020068] Unhandled fault: alignment exception (0x801) at 0x00109bcf
+[ 5113.020124] [ffffffff] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5113.030579] pgd = 2e2cee3f
+[ 5113.030595] [00109bcf] *pgd=35ecd835, *pte=32ab075f, *ppte=32ab0c7f
+[ 5113.058615] Unhandled fault: alignment exception (0x801) at 0xffffffff
+[ 5113.069185] pgd = 63244e9b
+[ 5113.076138] [ffffffff] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5113.590263] Unhandled fault: alignment exception (0x801) at 0x00000003
+[ 5113.600855] pgd = b97a9b6d
+[ 5113.607731] [00000003] *pgd=39db4835, *pte=00000000, *ppte=00000000
+[ 5113.651662] Unhandled fault: alignment exception (0x801) at 0x00000003
+[ 5113.662279] pgd = 63244e9b
+[ 5113.668952] [00000003] *pgd=39db4835, *pte=00000000, *ppte=00000000
+[ 5113.704468] Unhandled fault: alignment exception (0x801) at 0x00000003
+[ 5113.715233] pgd = 2e2cee3f
+[ 5113.722151] [00000003] *pgd=396e2835, *pte=00000000, *ppte=00000000
+[ 5113.742287] Unhandled fault: alignment exception (0x801) at 0x00000003
+[ 5113.752838] pgd = b9d8d299
+[ 5113.759407] [00000003] *pgd=38ec7835, *pte=00000000, *ppte=00000000
+[ 5113.785021] Unhandled fault: alignment exception (0x801) at 0x00000003
+[ 5113.795621] pgd = 9eb89a56
+[ 5113.802315] [00000003] *pgd=37c2f835, *pte=00000000, *ppte=00000000
+[ 5114.020270] Unhandled prefetch abort: unknown 1 (0x001) at 0x00107bde
+[ 5114.043400] Unhandled prefetch abort: unknown 1 (0x001) at 0x00107bde
+[ 5114.074125] Unhandled prefetch abort: unknown 1 (0x001) at 0x00107bde
+[ 5114.115147] Unhandled prefetch abort: unknown 1 (0x001) at 0x00107bde
+[ 5114.243911] Unhandled prefetch abort: unknown 1 (0x001) at 0x77683e4a
+[ 5115.215376] Unhandled prefetch abort: unknown 1 (0x001) at 0x6e9e742e
+[ 5115.257751] Unhandled fault: alignment exception (0x801) at 0xffffffff
+[ 5115.268116] pgd = 63244e9b
+[ 5115.274565] [ffffffff] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5115.309419] Unhandled fault: alignment exception (0x801) at 0xffffffff
+[ 5115.319770] pgd = b9d8d299
+[ 5115.326218] [ffffffff] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5115.766382] Unhandled prefetch abort: unknown 1 (0x001) at 0xba8c3de6
+[ 5116.507039] Unhandled fault: alignment exception (0x001) at 0x00000003
+[ 5116.517478] pgd = 0333d9c5
+[ 5116.523959] [00000003] *pgd=33e08835, *pte=00000000, *ppte=00000000
+[ 5116.545048] Unhandled fault: alignment exception (0x001) at 0x00000003
+[ 5116.555372] pgd = b97a9b6d
+[ 5116.561848] [00000003] *pgd=396e2835, *pte=00000000, *ppte=00000000
+[ 5116.583574] Unhandled fault: alignment exception (0x001) at 0x00000003
+[ 5116.594105] pgd = 2e2cee3f
+[ 5116.600400] [00000003] *pgd=33c7d835, *pte=00000000, *ppte=00000000
+[ 5116.622386] Unhandled fault: alignment exception (0x001) at 0x00000003
+[ 5116.632755] pgd = b97a9b6d
+[ 5116.639228] [00000003] *pgd=01d5c835, *pte=00000000, *ppte=00000000
+[ 5116.667283] Unhandled fault: alignment exception (0x001) at 0x00000003
+[ 5116.677737] pgd = b97a9b6d
+[ 5116.684306] [00000003] *pgd=01dff835, *pte=00000000, *ppte=00000000
+[ 5116.706255] Unhandled fault: alignment exception (0x001) at 0x00000003
+[ 5116.716905] pgd = b97a9b6d
+[ 5116.723880] [00000003] *pgd=01dff835, *pte=00000000, *ppte=00000000
+[ 5116.741541] Unhandled fault: alignment exception (0x001) at 0x00000003
+[ 5116.752574] pgd = b97a9b6d
+[ 5116.759733] [00000003] *pgd=01dff835, *pte=00000000, *ppte=00000000
+[ 5116.783654] Unhandled fault: alignment exception (0x001) at 0x00000003
+[ 5116.794323] pgd = 2e2cee3f
+[ 5116.800945] [00000003] *pgd=20463835, *pte=00000000, *ppte=00000000
+[ 5116.913391] Unhandled fault: alignment exception (0x001) at 0xffffffff
+[ 5116.924418] pgd = 63244e9b
+[ 5116.931408] [ffffffff] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5117.382632] Unhandled fault: alignment exception (0x001) at 0x00000003
+[ 5117.393400] pgd = 9eb89a56
+[ 5117.400480] [00000003] *pgd=01dff835, *pte=00000000, *ppte=00000000
+[ 5117.610783] Unhandled prefetch abort: unknown 1 (0x001) at 0x4aa8e07a
+[ 5119.724970] Unhandled fault: alignment exception (0x801) at 0xffffffdf
+[ 5119.735880] pgd = 63244e9b
+[ 5119.742815] [ffffffdf] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5119.781314] Unhandled fault: alignment exception (0x801) at 0xffffffdf
+[ 5119.792208] pgd = 63244e9b
+[ 5119.798873] [ffffffdf] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5119.826427] Unhandled fault: alignment exception (0x801) at 0xffffffdf
+[ 5119.837427] pgd = 63244e9b
+[ 5119.844588] [ffffffdf] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5119.929847] Unhandled fault: alignment exception (0x801) at 0x00000003
+[ 5119.940893] pgd = 9eb89a56
+[ 5119.947819] [00000003] *pgd=1a897835, *pte=00000000, *ppte=00000000
+[ 5120.058766] Unhandled fault: alignment exception (0x801) at 0xffffffff
+[ 5120.069882] pgd = 2e2cee3f
+[ 5120.076860] [ffffffff] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5120.201153] Unhandled prefetch abort: unknown 1 (0x001) at 0xa4107c5a
+[ 5120.223191] Unhandled prefetch abort: unknown 1 (0x001) at 0xa4107c5a
+[ 5121.234655] Unhandled prefetch abort: unknown 1 (0x001) at 0x0000000a
+[ 5121.256590] Unhandled prefetch abort: unknown 1 (0x001) at 0x0000000a
+[ 5121.715107] Unhandled fault: alignment exception (0x001) at 0xffffffd7
+[ 5121.725768] pgd = b9d8d299
+[ 5121.732727] [ffffffd7] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5122.438340] Unhandled fault: alignment exception (0x801) at 0x00000001
+[ 5122.449130] pgd = b9d8d299
+[ 5122.455791] [00000001] *pgd=38f32835, *pte=00000000, *ppte=00000000
+[ 5122.998863] Unhandled fault: alignment exception (0x801) at 0x00000003
+[ 5123.009685] pgd = 0333d9c5
+[ 5123.016693] [00000003] *pgd=395ea835, *pte=00000000, *ppte=00000000
+[ 5123.307328] Unhandled fault: alignment exception (0x801) at 0x00000003
+[ 5123.318248] pgd = 63244e9b
+[ 5123.325003] [00000003] *pgd=33fe3835, *pte=00000000, *ppte=00000000
+[ 5123.350167] Unhandled fault: alignment exception (0x801) at 0x00000003
+[ 5123.360742] pgd = b97a9b6d
+[ 5123.367440] [00000003] *pgd=28747835, *pte=00000000, *ppte=00000000
+[ 5123.416445] Unhandled fault: alignment exception (0x801) at 0x00000003
+[ 5123.427254] pgd = b97a9b6d
+[ 5123.433948] [00000003] *pgd=33b55835, *pte=00000000, *ppte=00000000
+[ 5123.462821] Unhandled fault: alignment exception (0x801) at 0x00000003
+[ 5123.473632] pgd = b97a9b6d
+[ 5123.480345] [00000003] *pgd=37038835, *pte=00000000, *ppte=00000000
+[ 5123.525212] Unhandled fault: alignment exception (0x001) at 0x000f1d94
+[ 5123.535964] pgd = 2e2cee3f
+[ 5123.542713] [000f1d94] *pgd=33a08835, *pte=00000000, *ppte=00000000
+[ 5125.330132] Unhandled prefetch abort: unknown 1 (0x001) at 0x2ae25072
+[ 5125.349038] Unhandled prefetch abort: unknown 1 (0x001) at 0xd89f7402
+[ 5125.486721] Unhandled prefetch abort: unknown 1 (0x001) at 0xf46306ee
+[ 5125.504199] Unhandled prefetch abort: unknown 1 (0x001) at 0xb2cc77ee
+[ 5127.955161] Unhandled fault: alignment exception (0x001) at 0xffffffdf
+[ 5127.965430] pgd = 44c21926
+[ 5127.971932] [ffffffdf] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5128.185595] Unhandled fault: alignment exception (0x801) at 0xffffffff
+[ 5128.195917] pgd = 9eb89a56
+[ 5128.202590] [ffffffff] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5128.230318] Unhandled fault: alignment exception (0x801) at 0xffffffff
+[ 5128.241142] pgd = 63244e9b
+[ 5128.247924] [ffffffff] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5128.264908] Unhandled fault: alignment exception (0x801) at 0xffffffff
+[ 5128.275706] pgd = 63244e9b
+[ 5128.282709] [ffffffff] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5128.300764] Unhandled fault: alignment exception (0x801) at 0xffffffff
+[ 5128.311518] pgd = 9eb89a56
+[ 5128.318380] [ffffffff] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5129.883083] Unhandled prefetch abort: unknown 1 (0x001) at 0x6bc49512
+[ 5129.918117] Unhandled prefetch abort: unknown 1 (0x001) at 0xf8eb9966
+[ 5130.333844] Unhandled fault: alignment exception (0x801) at 0xffffffff
+[ 5130.344511] pgd = 9eb89a56
+[ 5130.351202] [ffffffff] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5130.466988] Unhandled fault: alignment exception (0x001) at 0x0000004f
+[ 5130.477615] pgd = 7fe65222
+[ 5130.484386] [0000004f] *pgd=37c2d835, *pte=00000000, *ppte=00000000
+[ 5130.530896] Unhandled fault: alignment exception (0x001) at 0x0000004f
+[ 5130.541427] pgd = b9d8d299
+[ 5130.548156] [0000004f] *pgd=33fc9835, *pte=00000000, *ppte=00000000
+[ 5130.581497] Unhandled fault: alignment exception (0x001) at 0x0000004f
+[ 5130.592521] pgd = b9d8d299
+[ 5130.599352] [0000004f] *pgd=33fc9835, *pte=00000000, *ppte=00000000
+[ 5130.646366] Unhandled fault: alignment exception (0x801) at 0xffffffe3
+[ 5130.657532] pgd = b97a9b6d
+[ 5130.664745] [ffffffe3] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5130.946521] Unhandled prefetch abort: unknown 1 (0x001) at 0x64789f82
+[ 5131.695816] Unhandled fault: alignment exception (0x001) at 0xffffffff
+[ 5131.706650] pgd = 0333d9c5
+[ 5131.713759] [ffffffff] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5131.736177] Unhandled fault: alignment exception (0x001) at 0xffffffff
+[ 5131.747197] pgd = 0333d9c5
+[ 5131.754386] [ffffffff] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5133.434208] Unhandled prefetch abort: unknown 1 (0x001) at 0x65d4454e
+[ 5134.214631] Unhandled prefetch abort: breakpoint debug exception (0x002) at 0x76b89004
+[ 5134.244858] Unhandled prefetch abort: breakpoint debug exception (0x002) at 0x76b89000
+[ 5135.191366] Unhandled fault: alignment exception (0x001) at 0xffffffcf
+[ 5135.202449] pgd = 44c21926
+[ 5135.210063] [ffffffcf] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5136.039879] Unhandled fault: alignment exception (0x801) at 0x000001b3
+[ 5136.051522] pgd = b97a9b6d
+[ 5136.059013] [000001b3] *pgd=18447835, *pte=00000000, *ppte=00000000
+[ 5136.076320] Unhandled fault: alignment exception (0x801) at 0x000001b3
+[ 5136.087573] pgd = b97a9b6d
+[ 5136.095257] [000001b3] *pgd=18447835, *pte=00000000, *ppte=00000000
+[ 5136.113852] Unhandled fault: alignment exception (0x801) at 0x000001b3
+[ 5136.125233] pgd = 44c21926
+[ 5136.132770] [000001b3] *pgd=38fe8835, *pte=00000000, *ppte=00000000
+[ 5136.505673] Unhandled fault: alignment exception (0x801) at 0xffffffef
+[ 5136.517140] pgd = 7fe65222
+[ 5136.524672] [ffffffef] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5138.268986] Unhandled prefetch abort: unknown 1 (0x001) at 0x2d476ffa
+[ 5139.228507] Unhandled prefetch abort: unknown 1 (0x001) at 0x81c7def6
+[ 5139.257866] Unhandled prefetch abort: unknown 1 (0x001) at 0x47ef27ce
+[ 5140.111691] Unhandled prefetch abort: unknown 1 (0x001) at 0x00000266
+[ 5140.252595] Unhandled fault: alignment exception (0x801) at 0x00000003
+[ 5140.263211] pgd = b9d8d299
+[ 5140.269929] [00000003] *pgd=338b5835, *pte=00000000, *ppte=00000000
+[ 5140.885201] Unhandled fault: alignment exception (0x801) at 0x00000003
+[ 5140.896129] pgd = 44c21926
+[ 5140.902950] Unhandled fault: alignment exception (0x801) at 0xffffffdb
+[ 5140.902963] [00000003] *pgd=338df835, *pte=00000000, *ppte=00000000
+[ 5140.913359] pgd = b97a9b6d
+[ 5140.929908] [ffffffdb] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5140.943986] Unhandled fault: alignment exception (0x801) at 0x00000003
+[ 5140.954784] pgd = 7fe65222
+[ 5140.961487] [00000003] *pgd=36455835, *pte=00000000, *ppte=00000000
+[ 5140.972159] Unhandled fault: alignment exception (0x801) at 0xffffffdb
+[ 5140.982742] pgd = 0333d9c5
+[ 5140.989486] [ffffffdb] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5141.170083] Unhandled fault: alignment exception (0x801) at 0x76b8904e
+[ 5141.180663] pgd = 7fe65222
+[ 5141.187118] [76b8904e] *pgd=33c4f835, *pte=2c8a35df, *ppte=2c8a3e7e
+[ 5141.211966] Unhandled fault: alignment exception (0x801) at 0x76b8904e
+[ 5141.222477] pgd = b97a9b6d
+[ 5141.229113] [76b8904e] *pgd=364f6835, *pte=077e65df, *ppte=077e6e7e
+[ 5141.265603] Unhandled fault: alignment exception (0x801) at 0x76b8904e
+[ 5141.276252] pgd = 44c21926
+[ 5141.282943] [76b8904e] *pgd=28571835, *pte=2e3db5df, *ppte=2e3dbe7e
+[ 5141.623562] Unhandled fault: alignment exception (0x001) at 0xfff8ac53
+[ 5141.634343] pgd = 9eb89a56
+[ 5141.641229] [fff8ac53] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5141.668350] Unhandled fault: alignment exception (0x001) at 0xfff8ac53
+[ 5141.679307] pgd = 9eb89a56
+[ 5141.686166] [fff8ac53] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5141.705080] Unhandled fault: alignment exception (0x001) at 0xfff8ac53
+[ 5141.716031] pgd = b9d8d299
+[ 5141.723011] [fff8ac53] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5142.618327] Unhandled fault: alignment exception (0x001) at 0x00000003
+[ 5142.629241] pgd = 9eb89a56
+[ 5142.636395] [00000003] *pgd=38e45835, *pte=00000000, *ppte=00000000
+[ 5142.652119] Unhandled fault: alignment exception (0x801) at 0x000a10a9
+[ 5142.663007] pgd = 2e2cee3f
+[ 5142.670051] [000a10a9] *pgd=37fe2835, *pte=0edef59f, *ppte=0edefe7e
+[ 5144.398483] Unhandled fault: alignment exception (0x801) at 0xffffffdf
+[ 5144.409737] pgd = 2e2cee3f
+[ 5144.417206] [ffffffdf] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5144.437661] Unhandled fault: alignment exception (0x801) at 0xffffffdf
+[ 5144.448577] pgd = 2e2cee3f
+[ 5144.455750] [ffffffdf] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5145.937193] Unhandled fault: alignment exception (0x801) at 0xffffffc7
+[ 5145.948359] pgd = b97a9b6d
+[ 5145.955686] [ffffffc7] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5145.976917] Unhandled fault: alignment exception (0x801) at 0xffffffc7
+[ 5145.988286] pgd = b97a9b6d
+[ 5145.995444] [ffffffc7] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5146.014252] Unhandled fault: alignment exception (0x801) at 0xffffffc7
+[ 5146.025341] pgd = b97a9b6d
+[ 5146.032702] [ffffffc7] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5146.059380] Unhandled fault: alignment exception (0x801) at 0xffffffc7
+[ 5146.070384] pgd = 2e2cee3f
+[ 5146.077599] [ffffffc7] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5146.100134] Unhandled fault: alignment exception (0x801) at 0xffffffc7
+[ 5146.111553] pgd = 7fe65222
+[ 5146.118898] [ffffffc7] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5146.415568] Unhandled fault: alignment exception (0x001) at 0xffffffff
+[ 5146.426942] pgd = 44c21926
+[ 5146.434383] [ffffffff] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5146.458527] Unhandled fault: alignment exception (0x001) at 0xffffffff
+[ 5146.469858] pgd = b97a9b6d
+[ 5146.477335] [ffffffff] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5147.210417] Unhandled fault: alignment exception (0x801) at 0x00000003
+[ 5147.221287] pgd = 2e2cee3f
+[ 5147.228217] [00000003] *pgd=1a879835, *pte=00000000, *ppte=00000000
+[ 5147.266624] Unhandled fault: alignment exception (0x801) at 0x00000003
+[ 5147.277701] pgd = 0333d9c5
+[ 5147.284981] [00000003] *pgd=1a879835, *pte=00000000, *ppte=00000000
+[ 5147.320622] Unhandled fault: alignment exception (0x801) at 0x00000003
+[ 5147.331634] pgd = 0333d9c5
+[ 5147.338703] [00000003] *pgd=33bbf835, *pte=00000000, *ppte=00000000
+[ 5147.409353] Unhandled fault: alignment exception (0x801) at 0x00000003
+[ 5147.420416] pgd = 9eb89a56
+[ 5147.427642] [00000003] *pgd=33da9835, *pte=00000000, *ppte=00000000
+[ 5147.637651] Unhandled fault: alignment exception (0x801) at 0xffffffe3
+[ 5147.648787] pgd = 7fe65222
+[ 5147.656011] [ffffffe3] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5147.678838] Unhandled fault: alignment exception (0x801) at 0xffffffe3
+[ 5147.689943] pgd = 7fe65222
+[ 5147.696744] [ffffffe3] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5147.929263] Unhandled fault: alignment exception (0x801) at 0xffffffff
+[ 5147.940431] pgd = b9d8d299
+[ 5147.947401] [ffffffff] *pgd=3abfa861, *pte=00000000, *ppte=00000000
+[ 5148.447715] Unhandled prefetch abort: breakpoint debug exception (0x002) at 0x76b89008
+[ 5148.498983] Unhandled prefetch abort: breakpoint debug exception (0x002) at 0x76b89004
+[ 5148.546710] Unhandled prefetch abort: breakpoint debug exception (0x002) at 0x76b89000
+[ 5149.866205] Unhandled fault: alignment exception (0x801) at 0xffffffd3
+[ 5149.877793] pgd = 44c21926
+[ 5149.885567] [ffffffd3] *pgd=3abfa861, *pte=00000000, *ppte=00000000

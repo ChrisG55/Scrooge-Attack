@@ -1,0 +1,690 @@
+[    0.000000] Booting Linux on physical CPU 0x0
+[    0.000000] Linux version 4.19.118-v7+ (dom@buildbot) (gcc version 4.9.3 (crosstool-NG crosstool-ng-1.22.0-88-g8460611)) #1311 SMP Mon Apr 27 14:21:24 BST 2020
+[    0.000000] CPU: ARMv7 Processor [410fd034] revision 4 (ARMv7), cr=10c5383d
+[    0.000000] CPU: div instructions available: patching division code
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+[    0.000000] OF: fdt: Machine model: Raspberry Pi 3 Model B Plus Rev 1.3
+[    0.000000] Memory policy: Data cache writealloc
+[    0.000000] cma: Reserved 256 MiB at 0x1ec00000
+[    0.000000] random: get_random_bytes called from start_kernel+0xac/0x4b4 with crng_init=0
+[    0.000000] percpu: Embedded 16 pages/cpu s36864 r8192 d20480 u65536
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 240555
+[    0.000000] Kernel command line: coherent_pool=1M 8250.nr_uarts=1 snd_bcm2835.enable_compat_alsa=0 snd_bcm2835.enable_hdmi=1 snd_bcm2835.enable_headphones=1 cma=256M video=Composite-1:720x480@60,margin_left=32,mar
+gin_right=32,margin_top=32,margin_bottom=32 vc_mem.mem_base=0x3ec00000 vc_mem.mem_size=0x40000000  dwc_otg.lpm_enable=0 console=ttyAMA0,115200 console=tty1 root=PARTUUID=4c999877-02 rootfstype=ext4 elevator=deadline
+fsck.repair=yes rootwait
+[    0.000000] Dentry cache hash table entries: 131072 (order: 7, 524288 bytes)
+[    0.000000] Inode-cache hash table entries: 65536 (order: 6, 262144 bytes)
+[    0.000000] Memory: 684616K/970752K available (8192K kernel code, 656K rwdata, 2232K rodata, 1024K init, 831K bss, 23992K reserved, 262144K cma-reserved)
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000]     fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
+[    0.000000]     vmalloc : 0xbb800000 - 0xff800000   (1088 MB)
+[    0.000000]     lowmem  : 0x80000000 - 0xbb400000   ( 948 MB)
+[    0.000000]     modules : 0x7f000000 - 0x80000000   (  16 MB)
+[    0.000000]       .text : 0x(ptrval) - 0x(ptrval)   (9184 kB)
+[    0.000000]       .init : 0x(ptrval) - 0x(ptrval)   (1024 kB)
+[    0.000000]       .data : 0x(ptrval) - 0x(ptrval)   ( 657 kB)
+[    0.000000]        .bss : 0x(ptrval) - 0x(ptrval)   ( 832 kB)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[    0.000000] ftrace: allocating 27093 entries in 80 pages
+[    0.000000] rcu: Hierarchical RCU implementation.
+[    0.000000] NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16
+[    0.000000] arch_timer: cp15 timer(s) running at 19.20MHz (phys).
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x46d987e47, max_idle_ns: 440795202767 ns
+[    0.000007] sched_clock: 56 bits at 19MHz, resolution 52ns, wraps every 4398046511078ns
+[    0.000023] Switching to timer-based delay loop, resolution 52ns
+[    0.000275] Console: colour dummy device 80x30
+[    0.000916] console [tty1] enabled
+[    0.000975] Calibrating delay loop (skipped), value calculated using timer frequency.. 38.40 BogoMIPS (lpj=192000)
+[    0.001019] pid_max: default: 32768 minimum: 301
+[    0.001381] Mount-cache hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.001417] Mountpoint-cache hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.002369] CPU: Testing write buffer coherency: ok
+[    0.002852] CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
+[    0.003541] Setting up static identity map for 0x100000 - 0x10003c
+[    0.003712] rcu: Hierarchical SRCU implementation.
+[    0.004547] smp: Bringing up secondary CPUs ...
+[    0.005476] CPU1: thread -1, cpu 1, socket 0, mpidr 80000001
+[    0.006459] CPU2: thread -1, cpu 2, socket 0, mpidr 80000002
+[    0.007395] CPU3: thread -1, cpu 3, socket 0, mpidr 80000003
+[    0.007509] smp: Brought up 1 node, 4 CPUs
+[    0.007591] SMP: Total of 4 processors activated (153.60 BogoMIPS).
+[    0.007615] CPU: All CPU(s) started in HYP mode.
+[    0.007635] CPU: Virtualization extensions available.
+[    0.008638] devtmpfs: initialized
+[    0.022224] VFP support v0.3: implementor 41 architecture 3 part 40 variant 3 rev 4
+[    0.022498] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.022547] futex hash table entries: 1024 (order: 4, 65536 bytes)
+[    0.033378] pinctrl core: initialized pinctrl subsystem
+[    0.034374] NET: Registered protocol family 16
+[    0.037685] DMA: preallocated 1024 KiB pool for atomic coherent allocations
+[    0.043650] hw-breakpoint: found 5 (+1 reserved) breakpoint and 4 watchpoint registers.
+[    0.043686] hw-breakpoint: maximum watchpoint size is 8 bytes.
+[    0.043906] Serial: AMBA PL011 UART driver
+[    0.046381] bcm2835-mbox 3f00b880.mailbox: mailbox enabled
+[    0.060083] raspberrypi-firmware soc:firmware: Attached to firmware from 2020-04-15 11:43, variant start
+[    0.070096] raspberrypi-firmware soc:firmware: Firmware hash is 82f9bb929ce2186eb1824178c1ae82902ad6275c
+[    0.112931] bcm2835-dma 3f007000.dma: DMA legacy API manager at (ptrval), dmachans=0x1
+[    0.114591] SCSI subsystem initialized
+[    0.114836] usbcore: registered new interface driver usbfs
+[    0.114910] usbcore: registered new interface driver hub
+[    0.115024] usbcore: registered new device driver usb
+[    0.116794] clocksource: Switched to clocksource arch_sys_counter
+[    0.207573] VFS: Disk quotas dquot_6.6.0
+[    0.207685] VFS: Dquot-cache hash table entries: 1024 (order 0, 4096 bytes)
+[    0.207890] FS-Cache: Loaded
+[    0.208116] CacheFiles: Loaded
+[    0.208619] simple-framebuffer 3eaf0000.framebuffer: framebuffer at 0x3eaf0000, 0x10a800 bytes, mapped to 0x(ptrval)
+[    0.208664] simple-framebuffer 3eaf0000.framebuffer: format=a8r8g8b8, mode=656x416x32, linelength=2624
+[    0.213628] Console: switching to colour frame buffer device 82x26
+[    0.220560] simple-framebuffer 3eaf0000.framebuffer: fb0: simplefb registered!
+[    0.233147] NET: Registered protocol family 2
+[    0.236762] tcp_listen_portaddr_hash hash table entries: 512 (order: 0, 6144 bytes)
+[    0.242268] TCP established hash table entries: 8192 (order: 3, 32768 bytes)
+[    0.245169] TCP bind hash table entries: 8192 (order: 4, 65536 bytes)
+[    0.248119] TCP: Hash tables configured (established 8192 bind 8192)
+[    0.251035] UDP hash table entries: 512 (order: 2, 16384 bytes)
+[    0.253871] UDP-Lite hash table entries: 512 (order: 2, 16384 bytes)
+[    0.257040] NET: Registered protocol family 1
+[    0.260539] RPC: Registered named UNIX socket transport module.
+[    0.263485] RPC: Registered udp transport module.
+[    0.266349] RPC: Registered tcp transport module.
+[    0.269145] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    0.273801] hw perfevents: enabled with armv7_cortex_a7 PMU driver, 7 counters available
+[    0.282560] Initialise system trusted keyrings
+[    0.285546] workingset: timestamp_bits=14 max_order=18 bucket_order=4
+[    0.298295] FS-Cache: Netfs 'nfs' registered for caching
+[    0.301584] NFS: Registering the id_resolver key type
+[    0.304287] Key type id_resolver registered
+[    0.306914] Key type id_legacy registered
+[    0.309422] nfs4filelayout_init: NFSv4 File Layout Driver Registering...
+[    0.317478] Key type asymmetric registered
+[    0.319968] Asymmetric key parser 'x509' registered
+[    0.322432] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 250)
+[    0.327524] io scheduler noop registered
+[    0.329925] io scheduler deadline registered (default)
+[    0.332499] io scheduler cfq registered
+[    0.334793] io scheduler mq-deadline registered (default)
+[    0.337137] io scheduler kyber registered
+[    0.342604] Serial: 8250/16550 driver, 1 ports, IRQ sharing enabled
+[    0.346486] bcm2835-rng 3f104000.rng: hwrng registered
+[    0.349264] vc-mem: phys_addr:0x00000000 mem_base=0x3ec00000 mem_size:0x40000000(1024 MiB)
+[    0.354612] vc-sm: Videocore shared memory driver
+[    0.357415] gpiomem-bcm2835 3f200000.gpiomem: Initialised: Registers at 0x3f200000
+[    0.373062] brd: module loaded
+[    0.385693] loop: module loaded
+[    0.388781] Loading iSCSI transport class v2.0-870.
+[    0.391945] libphy: Fixed MDIO Bus: probed
+[    0.394460] usbcore: registered new interface driver lan78xx
+[    0.396967] usbcore: registered new interface driver smsc95xx
+[    0.399344] dwc_otg: version 3.00a 10-AUG-2012 (platform bus)
+[    0.429519] dwc_otg 3f980000.usb: base=(ptrval)
+[    0.631999] Core Release: 2.80a
+[    0.634212] Setting default values for core params
+[    0.636500] Finished setting default values for core params
+[    0.839124] Using Buffer DMA mode
+[    0.841427] Periodic Transfer Interrupt Enhancement - disabled
+[    0.843821] Multiprocessor Interrupt Enhancement - disabled
+[    0.846200] OTG VER PARAM: 0, OTG VER FLAG: 0
+[    0.848576] Dedicated Tx FIFOs mode
+[    0.851484] WARN::dwc_otg_hcd_init:1074: FIQ DMA bounce buffers: virt = 9ed04000 dma = 0xded04000 len=9024
+[    0.856055] FIQ FSM acceleration enabled for :
+[    0.856055] Non-periodic Split Transactions
+[    0.856055] Periodic Split Transactions
+[    0.856055] High-Speed Isochronous Endpoints
+[    0.856055] Interrupt/Control Split Transaction hack enabled
+[    0.867012] WARN::hcd_init_fiq:457: FIQ on core 1
+[    0.869237] WARN::hcd_init_fiq:458: FIQ ASM at 8068fda0 length 36
+[    0.871447] WARN::hcd_init_fiq:497: MPHI regs_base at bb810000
+[    0.873705] dwc_otg 3f980000.usb: DWC OTG Controller
+[    0.875969] dwc_otg 3f980000.usb: new USB bus registered, assigned bus number 1
+[    0.878320] dwc_otg 3f980000.usb: irq 56, io mem 0x00000000
+[    0.880626] Init: Port Power? op_state=1
+[    0.882865] Init: Power Port (0)
+[    0.885267] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 4.19
+[    0.889789] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    0.892202] usb usb1: Product: DWC OTG Controller
+[    0.894569] usb usb1: Manufacturer: Linux 4.19.118-v7+ dwc_otg_hcd
+[    0.897013] usb usb1: SerialNumber: 3f980000.usb
+[    0.899972] hub 1-0:1.0: USB hub found
+[    0.902245] hub 1-0:1.0: 1 port detected
+[    0.905347] usbcore: registered new interface driver usb-storage
+[    0.907840] mousedev: PS/2 mouse device common for all mice
+[    0.911010] bcm2835-wdt bcm2835-wdt: Broadcom BCM2835 watchdog timer
+[    0.913666] bcm2835-cpufreq: min=600000 max=1400000
+[    0.916505] sdhci: Secure Digital Host Controller Interface driver
+[    0.918943] sdhci: Copyright(c) Pierre Ossman
+[    0.921777] sdhost-bcm2835 3f202000.mmc: could not get clk, deferring probe
+[    0.924454] sdhci-pltfm: SDHCI platform and OF driver helper
+[    0.928579] ledtrig-cpu: registered to indicate activity on CPUs
+[    0.931289] hidraw: raw HID events driver (C) Jiri Kosina
+[    0.933998] usbcore: registered new interface driver usbhid
+[    0.936543] usbhid: USB HID core driver
+[    0.939893] vchiq: vchiq_init_state: slot_zero = (ptrval), is_master = 0
+[    0.944033] [vc_sm_connected_init]: start
+[    0.952102] [vc_sm_connected_init]: end - returning 0
+[    0.955623] Initializing XFRM netlink socket
+[    0.958036] NET: Registered protocol family 17
+[    0.960475] Key type dns_resolver registered
+[    0.963451] Registering SWP/SWPB emulation handler
+[    0.966443] registered taskstats version 1
+[    0.968844] Loading compiled-in X.509 certificates
+[    0.977954] uart-pl011 3f201000.serial: cts_event_workaround enabled
+[    0.980458] 3f201000.serial: ttyAMA0 at MMIO 0x3f201000 (irq = 81, base_baud = 0) is a PL011 rev2
+[    2.002010] console [ttyAMA0] enabled
+[    2.010168] sdhost: log_buf @ (ptrval) (ded03000)
+[    2.065668] mmc0: sdhost-bcm2835 loaded - DMA enabled (>1)
+[    2.074816] of_cfs_init
+[    2.079719] of_cfs_init: OK
+[    2.085268] Waiting for root device PARTUUID=4c999877-02...
+[    2.116912] Indeed it is in host mode hprt0 = 00021501
+[    2.213312] random: fast init done
+[    2.227595] mmc0: host does not support reading read-only switch, assuming write-enable
+[    2.246914] mmc0: new high speed SDHC card at address aaaa
+[    2.255973] mmcblk0: mmc0:aaaa SL16G 14.8 GiB
+[    2.269062]  mmcblk0: p1 p2
+[    2.301808] EXT4-fs (mmcblk0p2): INFO: recovery required on readonly filesystem
+[    2.311646] EXT4-fs (mmcblk0p2): write access will be enabled during recovery
+[    2.326851] usb 1-1: new high-speed USB device number 2 using dwc_otg
+[    2.336009] Indeed it is in host mode hprt0 = 00001101
+[    2.577116] usb 1-1: New USB device found, idVendor=0424, idProduct=2514, bcdDevice= b.b3
+[    2.590436] usb 1-1: New USB device strings: Mfr=0, Product=0, SerialNumber=0
+[    2.600902] hub 1-1:1.0: USB hub found
+[    2.607357] hub 1-1:1.0: 4 ports detected
+[    2.770640] EXT4-fs (mmcblk0p2): recovery complete
+[    2.782463] EXT4-fs (mmcblk0p2): mounted filesystem with ordered data mode. Opts: (null)
+[    2.795828] VFS: Mounted root (ext4 filesystem) readonly on device 179:2.
+[    2.816479] devtmpfs: mounted
+[    2.829510] Freeing unused kernel memory: 1024K
+[    2.837175] Run /sbin/init as init process
+[    2.926906] usb 1-1.1: new high-speed USB device number 3 using dwc_otg
+[    3.067158] usb 1-1.1: New USB device found, idVendor=0424, idProduct=2514, bcdDevice= b.b3
+[    3.080978] usb 1-1.1: New USB device strings: Mfr=0, Product=0, SerialNumber=0
+[    3.091890] hub 1-1.1:1.0: USB hub found
+[    3.098762] hub 1-1.1:1.0: 3 ports detected
+[    3.512864] systemd[1]: System time before build time, advancing clock.
+[    3.581840] systemd[1]: systemd 241 running in system mode. (+PAM +AUDIT +SELINUX +IMA +APPARMOR +SMACK +SYSVINIT +UTMP +LIBCRYPTSETUP +GCRYPT +GNUTLS +ACL +XZ +LZ4 +SECCOMP +BLKID +ELFUTILS +KMOD -IDN2 +IDN -PCRE
+2 default-hierarchy=hybrid)
+[    3.612458] systemd[1]: Detected architecture arm.
+[    3.640743] systemd[1]: Set hostname to <raspberrypi>.
+[    3.756921] usb 1-1.1.1: new high-speed USB device number 4 using dwc_otg
+[    3.860384] uart-pl011 3f201000.serial: no DMA platform data
+[    3.897337] usb 1-1.1.1: New USB device found, idVendor=0424, idProduct=7800, bcdDevice= 3.00
+[    3.911467] usb 1-1.1.1: New USB device strings: Mfr=0, Product=0, SerialNumber=0
+[    4.189872] lan78xx 1-1.1.1:1.0 (unnamed net_device) (uninitialized): No External EEPROM. Setting MAC Speed
+[    4.206614] libphy: lan78xx-mdiobus: probed
+[    4.243327] lan78xx 1-1.1.1:1.0 (unnamed net_device) (uninitialized): int urb period 64
+[    4.644352] random: systemd: uninitialized urandom read (16 bytes read)
+[    4.665305] random: systemd: uninitialized urandom read (16 bytes read)
+[    4.675698] systemd[1]: Listening on Syslog Socket.
+[    4.687418] random: systemd: uninitialized urandom read (16 bytes read)
+[    4.697515] systemd[1]: Listening on fsck to fsckd communication Socket.
+[    4.711361] systemd[1]: Listening on Journal Socket.
+[    4.737100] systemd[1]: Starting Load Kernel Modules...
+[    4.759106] systemd[1]: Starting Restore / save the current clock...
+[    4.772507] systemd[1]: Reached target Swap.
+[    4.797620] systemd[1]: Condition check resulted in Journal Audit Socket being skipped.
+[    8.997604] Unable to handle kernel paging request at virtual address 00319736
+[    9.005931] pgd = 4583557a
+[    9.009537] [00319736] *pgd=00000000
+[    9.013975] Internal error: Oops: 5 [#1] SMP ARM
+[    9.019485] Modules linked in:
+[    9.023409] CPU: 2 PID: 351 Comm: loadcpufreq Not tainted 4.19.118-v7+ #1311
+[    9.031382] Hardware name: BCM2835
+[    9.035704] PC is at do_page_fault+0x84/0x3b8
+[    9.040994] LR is at do_translation_fault+0xbc/0xc0
+[    9.046782] pc : [<808747bc>]    lr : [<80874bac>]    psr: 20000193
+[    9.053977] sp : b54a20d0  ip : b54a2128  fp : b54a2124
+[    9.060148] r10: b5522340  r9 : b54a2200  r8 : 00000005
+[    9.066297] r7 : 80874af0  r6 : 00319736  r5 : 0031940e  r4 : b54a2200
+[    9.073751] r3 : b54a2000  r2 : 20000193  r1 : 00000005  r0 : 00000000
+[    9.081213] Flags: nzCv  IRQs off  FIQs on  Mode SVC_32  ISA ARM  Segment user
+[    9.089418] Control: 10c5383d  Table: 3553806a  DAC: 00000055
+[    9.096166] Process loadcpufreq (pid: 351, stack limit = 0x95d5d538)
+[    9.103562] Stack: (0xb54a20d0 to 0xb54a2000)
+[    9.108976] [<808747bc>] (do_page_fault) from [<80874bac>] (do_translation_fault+0xbc/0xc0)
+[    9.119487] [<80874bac>] (do_translation_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[    9.129957] [<801167fc>] (do_DataAbort) from [<80101934>] (__dabt_svc+0x54/0x80)
+[    9.139681] Exception stack(0xb54a2200 to 0xb54a2248)
+[    9.145937] 2200: 00000000 00000005 20000193 b54a2000 b54a2380 0031940e 00319736 80874af0
+[    9.156522] 2220: 00000005 b54a2380 b5522340 b54a22a4 b54a22a8 b54a2250 80874bac 808747bc
+[    9.167219] 2240: 20000193 ffffffff
+[    9.171965] [<80101934>] (__dabt_svc) from [<808747bc>] (do_page_fault+0x84/0x3b8)
+[    9.182125] [<808747bc>] (do_page_fault) from [<80874bac>] (do_translation_fault+0xbc/0xc0)
+[    9.193214] [<80874bac>] (do_translation_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[    9.204269] [<801167fc>] (do_DataAbort) from [<80101934>] (__dabt_svc+0x54/0x80)
+[    9.214518] Exception stack(0xb54a2380 to 0xb54a23c8)
+[    9.221000] 2380: 00000000 00000005 20000193 b54a2000 b54a2500 0031940e 00319736 80874af0
+[    9.232002] 23a0: 00000005 b54a2500 b5522340 b54a2424 b54a2428 b54a23d0 80874bac 808747bc
+[    9.242998] 23c0: 20000193 ffffffff
+[    9.247843] [<80101934>] (__dabt_svc) from [<808747bc>] (do_page_fault+0x84/0x3b8)
+[    9.258194] [<808747bc>] (do_page_fault) from [<80874bac>] (do_translation_fault+0xbc/0xc0)
+[    9.269327] [<80874bac>] (do_translation_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[    9.280435] [<801167fc>] (do_DataAbort) from [<80101934>] (__dabt_svc+0x54/0x80)
+[    9.290712] Exception stack(0xb54a2500 to 0xb54a2548)
+[    9.297191] 2500: 00000000 00000005 20000193 b54a2000 b54a2680 0031940e 00319736 80874af0
+[    9.308188] 2520: 00000005 b54a2680 b5522340 b54a25a4 b54a25a8 b54a2550 80874bac 808747bc
+[    9.319165] 2540: 20000193 ffffffff
+[    9.324016] [<80101934>] (__dabt_svc) from [<808747bc>] (do_page_fault+0x84/0x3b8)
+[    9.334355] [<808747bc>] (do_page_fault) from [<80874bac>] (do_translation_fault+0xbc/0xc0)
+[    9.345503] [<80874bac>] (do_translation_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[    9.356609] [<801167fc>] (do_DataAbort) from [<80101934>] (__dabt_svc+0x54/0x80)
+[    9.366883] Exception stack(0xb54a2680 to 0xb54a26c8)
+[    9.373366] 2680: 00000000 00000005 20000193 b54a2000 b54a2800 0031940e 00319736 80874af0
+[    9.384364] 26a0: 00000005 b54a2800 b5522340 b54a2724 b54a2728 b54a26d0 80874bac 808747bc
+[    9.395358] 26c0: 20000193 ffffffff
+[    9.400212] [<80101934>] (__dabt_svc) from [<808747bc>] (do_page_fault+0x84/0x3b8)
+[    9.410566] [<808747bc>] (do_page_fault) from [<80874bac>] (do_translation_fault+0xbc/0xc0)
+[    9.421714] [<80874bac>] (do_translation_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[    9.432828] [<801167fc>] (do_DataAbort) from [<80101934>] (__dabt_svc+0x54/0x80)
+[    9.443108] Exception stack(0xb54a2800 to 0xb54a2848)
+[    9.449583] 2800: 00000000 00000005 20000193 b54a2000 b54a2980 0031940e 00319736 80874af0
+[    9.460587] 2820: 00000005 b54a2980 b5522340 b54a28a4 b54a28a8 b54a2850 80874bac 808747bc
+[    9.471574] 2840: 20000193 ffffffff
+[    9.476428] [<80101934>] (__dabt_svc) from [<808747bc>] (do_page_fault+0x84/0x3b8)
+[    9.486766] [<808747bc>] (do_page_fault) from [<80874bac>] (do_translation_fault+0xbc/0xc0)
+[    9.497918] [<80874bac>] (do_translation_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[    9.509028] [<801167fc>] (do_DataAbort) from [<80101934>] (__dabt_svc+0x54/0x80)
+[    9.519287] Exception stack(0xb54a2980 to 0xb54a29c8)
+[    9.525768] 2980: 00000000 00000005 20000193 b54a2000 b54a2b00 0031940e 00319736 80874af0
+[    9.536751] 29a0: 00000005 b54a2b00 b5522340 b54a2a24 b54a2a28 b54a29d0 80874bac 808747bc
+[    9.547741] 29c0: 20000193 ffffffff
+[    9.552591] [<80101934>] (__dabt_svc) from [<808747bc>] (do_page_fault+0x84/0x3b8)
+[    9.562939] [<808747bc>] (do_page_fault) from [<80874bac>] (do_translation_fault+0xbc/0xc0)
+[    9.574090] [<80874bac>] (do_translation_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[    9.585186] [<801167fc>] (do_DataAbort) from [<80101934>] (__dabt_svc+0x54/0x80)
+[    9.595464] Exception stack(0xb54a2b00 to 0xb54a2b48)
+[    9.601946] 2b00: 00000000 00000005 20000193 b54a2000 b54a2c80 0031940e 00319736 80874af0
+[    9.612948] 2b20: 00000005 b54a2c80 b5522340 b54a2ba4 b54a2ba8 b54a2b50 80874bac 808747bc
+[    9.623939] 2b40: 20000193 ffffffff
+[    9.628791] [<80101934>] (__dabt_svc) from [<808747bc>] (do_page_fault+0x84/0x3b8)
+[    9.639139] [<808747bc>] (do_page_fault) from [<80874bac>] (do_translation_fault+0xbc/0xc0)
+[    9.650291] [<80874bac>] (do_translation_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[    9.661398] [<801167fc>] (do_DataAbort) from [<80101934>] (__dabt_svc+0x54/0x80)
+[    9.671673] Exception stack(0xb54a2c80 to 0xb54a2cc8)
+[    9.678155] 2c80: 00000000 00000005 20000193 b54a2000 b54a2e00 0031940e 00319736 80874af0
+[    9.689152] 2ca0: 00000005 b54a2e00 b5522340 b54a2d24 b54a2d28 b54a2cd0 80874bac 808747bc
+[    9.700144] 2cc0: 20000193 ffffffff
+[    9.704995] [<80101934>] (__dabt_svc) from [<808747bc>] (do_page_fault+0x84/0x3b8)
+[    9.715344] [<808747bc>] (do_page_fault) from [<80874bac>] (do_translation_fault+0xbc/0xc0)
+[    9.726491] [<80874bac>] (do_translation_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[    9.737582] [<801167fc>] (do_DataAbort) from [<80101934>] (__dabt_svc+0x54/0x80)
+[    9.747859] Exception stack(0xb54a2e00 to 0xb54a2e48)
+[    9.754342] 2e00: 00000000 00000005 20000193 b54a2000 b54a2f80 0031940e 00319736 80874af0
+[    9.765342] 2e20: 00000005 b54a2f80 b5522340 b54a2ea4 b54a2ea8 b54a2e50 80874bac 808747bc
+[    9.776334] 2e40: 20000193 ffffffff
+[    9.781178] [<80101934>] (__dabt_svc) from [<808747bc>] (do_page_fault+0x84/0x3b8)
+[    9.791523] [<808747bc>] (do_page_fault) from [<80874bac>] (do_translation_fault+0xbc/0xc0)
+[    9.802659] [<80874bac>] (do_translation_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[    9.813765] [<801167fc>] (do_DataAbort) from [<80101934>] (__dabt_svc+0x54/0x80)
+[    9.824047] Exception stack(0xb54a2f80 to 0xb54a2fc8)
+[    9.830530] 2f80: 00000000 00000005 20000193 b54a2000 b54a3100 0031940e 00319736 80874af0
+[    9.841534] 2fa0: 00000005 b54a3100 b5522340 b54a3024 b54a3028 b54a2fd0 80874bac 808747bc
+[    9.852518] 2fc0: 20000193 ffffffff
+[    9.857370] [<80101934>] (__dabt_svc) from [<808747bc>] (do_page_fault+0x84/0x3b8)
+[    9.867710] [<808747bc>] (do_page_fault) from [<80874bac>] (do_translation_fault+0xbc/0xc0)
+[    9.878861] [<80874bac>] (do_translation_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[    9.889967] [<801167fc>] (do_DataAbort) from [<80101934>] (__dabt_svc+0x54/0x80)
+[    9.900243] Exception stack(0xb54a3100 to 0xb54a3148)
+[    9.906726] 3100: 00000000 00000005 20000193 b54a2000 b54a3280 0031940e 00319736 80874af0
+[    9.917723] 3120: 00000005 b54a3280 b5522340 b54a31a4 b54a31a8 b54a3150 80874bac 808747bc
+[    9.928714] 3140: 20000193 ffffffff
+[    9.933561] [<80101934>] (__dabt_svc) from [<808747bc>] (do_page_fault+0x84/0x3b8)
+[    9.943910] [<808747bc>] (do_page_fault) from [<80874bac>] (do_translation_fault+0xbc/0xc0)
+[    9.955049] [<80874bac>] (do_translation_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[    9.966155] [<801167fc>] (do_DataAbort) from [<80101934>] (__dabt_svc+0x54/0x80)
+[    9.976436] Exception stack(0xb54a3280 to 0xb54a32c8)
+[    9.982909] 3280: 00000000 00000005 20000193 b54a2000 b54a3400 0031940e 00319736 80874af0
+[    9.993910] 32a0: 00000005 b54a3400 b5522340 b54a3324 b54a3328 b54a32d0 80874bac 808747bc
+[   10.004892] 32c0: 20000193 ffffffff
+[   10.009743] [<80101934>] (__dabt_svc) from [<808747bc>] (do_page_fault+0x84/0x3b8)
+[   10.020077] [<808747bc>] (do_page_fault) from [<80874bac>] (do_translation_fault+0xbc/0xc0)
+[   10.031230] [<80874bac>] (do_translation_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[   10.042339] [<801167fc>] (do_DataAbort) from [<80101934>] (__dabt_svc+0x54/0x80)
+[   10.052602] Exception stack(0xb54a3400 to 0xb54a3448)
+[   10.059086] 3400: 00000000 00000005 20000193 b54a2000 b54a3580 0031940e 00319736 80874af0
+[   10.070076] 3420: 00000005 b54a3580 b5522340 b54a34a4 b54a34a8 b54a3450 80874bac 808747bc
+[   10.081073] 3440: 20000193 ffffffff
+[   10.085927] [<80101934>] (__dabt_svc) from [<808747bc>] (do_page_fault+0x84/0x3b8)
+[   10.096283] [<808747bc>] (do_page_fault) from [<80874bac>] (do_translation_fault+0xbc/0xc0)
+[   10.107439] [<80874bac>] (do_translation_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[   10.118545] [<801167fc>] (do_DataAbort) from [<80101934>] (__dabt_svc+0x54/0x80)
+[   10.128831] Exception stack(0xb54a3580 to 0xb54a35c8)
+[   10.135313] 3580: 00000000 00000005 20000193 b54a2000 b54a3700 0031940e 00319736 80874af0
+[   10.146323] 35a0: 00000005 b54a3700 b5522340 b54a3624 b54a3628 b54a35d0 80874bac 808747bc
+[   10.157325] 35c0: 20000193 ffffffff
+[   10.162182] [<80101934>] (__dabt_svc) from [<808747bc>] (do_page_fault+0x84/0x3b8)
+[   10.172536] [<808747bc>] (do_page_fault) from [<80874bac>] (do_translation_fault+0xbc/0xc0)
+[   10.183698] [<80874bac>] (do_translation_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[   10.194817] [<801167fc>] (do_DataAbort) from [<80101934>] (__dabt_svc+0x54/0x80)
+[   10.205100] Exception stack(0xb54a3700 to 0xb54a3748)
+[   10.211588] 3700: 00000000 00000005 20000193 b54a2000 b54a3880 0031940e 00319736 80874af0
+[   10.222597] 3720: 00000005 b54a3880 b5522340 b54a37a4 b54a37a8 b54a3750 80874bac 808747bc
+[   10.233606] 3740: 20000193 ffffffff
+[   10.238464] [<80101934>] (__dabt_svc) from [<808747bc>] (do_page_fault+0x84/0x3b8)
+[   10.248822] [<808747bc>] (do_page_fault) from [<80874bac>] (do_translation_fault+0xbc/0xc0)
+[   10.259985] [<80874bac>] (do_translation_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[   10.271087] [<801167fc>] (do_DataAbort) from [<80101934>] (__dabt_svc+0x54/0x80)
+[   10.281378] Exception stack(0xb54a3880 to 0xb54a38c8)
+[   10.287866] 3880: 00000000 00000005 20000193 b54a2000 b54a3a00 0031940e 00319736 80874af0
+[   10.298880] 38a0: 00000005 b54a3a00 b5522340 b54a3924 b54a3928 b54a38d0 80874bac 808747bc
+[   10.309886] 38c0: 20000193 ffffffff
+[   10.314733] [<80101934>] (__dabt_svc) from [<808747bc>] (do_page_fault+0x84/0x3b8)
+[   10.325093] [<808747bc>] (do_page_fault) from [<80874bac>] (do_translation_fault+0xbc/0xc0)
+[   10.336242] [<80874bac>] (do_translation_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[   10.347361] [<801167fc>] (do_DataAbort) from [<80101934>] (__dabt_svc+0x54/0x80)
+[   10.357653] Exception stack(0xb54a3a00 to 0xb54a3a48)
+[   10.364139] 3a00: 00000000 00000005 20000193 b54a2000 b54a3b80 0031940e 0031973a 80874af0
+[   10.375156] 3a20: 00000005 b54a3b80 b5522340 b54a3aa4 b54a3aa8 b54a3a50 80874bac 808747bc
+[   10.386151] 3a40: 20000193 ffffffff
+[   10.391008] [<80101934>] (__dabt_svc) from [<808747bc>] (do_page_fault+0x84/0x3b8)
+[   10.401362] [<808747bc>] (do_page_fault) from [<80874bac>] (do_translation_fault+0xbc/0xc0)
+[   10.412528] [<80874bac>] (do_translation_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[   10.423647] [<801167fc>] (do_DataAbort) from [<80101934>] (__dabt_svc+0x54/0x80)
+[   10.433939] Exception stack(0xb54a3b80 to 0xb54a3bc8)
+[   10.440427] 3b80: 0031940e 00000005 b54a3cd0 b54a3bd0 b54a3cd0 00000005 d21e9869 80874af0
+[   10.451439] 3ba0: d21e9869 b54a3cd0 b5522340 b54a3bf4 b54a2000 b54a3bd0 00000013 8011672c
+[   10.462446] 3bc0: 20000193 ffffffff
+[   10.467300] [<80101934>] (__dabt_svc) from [<8011672c>] (do_bad_area+0x3c/0x94)
+[   10.476037] [<8011672c>] (do_bad_area) from [<80874b6c>] (do_translation_fault+0x7c/0xc0)
+[   10.486975] [<80874b6c>] (do_translation_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[   10.498023] [<801167fc>] (do_DataAbort) from [<80101934>] (__dabt_svc+0x54/0x80)
+[   10.508278] Exception stack(0xb54a3cd0 to 0xb54a3d18)
+[   10.514746] 3cc0:                                     d21e9869 0000009f 80c94314 51555555
+[   10.525701] 3ce0: 80d054c4 0041940e 00000000 80d04d48 b5564000 0000009f b5522340 b54a3d3c
+[   10.536599] 3d00: b54a3d40 b54a3d20 8027180c 8027142c 00000013 ffffffff
+[   10.544600] [<80101934>] (__dabt_svc) from [<8027142c>] (lru_add_drain_cpu+0x30/0x150)
+[   10.555223] [<8027142c>] (lru_add_drain_cpu) from [<8027180c>] (lru_add_drain+0x28/0x2c)
+[   10.566074] [<8027180c>] (lru_add_drain) from [<802add70>] (free_pages_and_swap_cache+0x34/0x104)
+[   10.577724] [<802add70>] (free_pages_and_swap_cache) from [<80297174>] (tlb_finish_mmu+0x5c/0xf8)
+[   10.589451] [<80297174>] (tlb_finish_mmu) from [<8029f6c4>] (exit_mmap+0x100/0x178)
+[   10.600003] [<8029f6c4>] (exit_mmap) from [<8011db1c>] (mmput+0x58/0x108)
+[   10.608266] [<8011db1c>] (mmput) from [<802d8478>] (flush_old_exec+0x3dc/0x744)
+[   10.617036] [<802d8478>] (flush_old_exec) from [<803334a4>] (load_elf_binary+0x32c/0x12a0)
+[   10.628131] [<803334a4>] (load_elf_binary) from [<802d7d5c>] (search_binary_handler+0xb0/0x24c)
+[   10.639716] [<802d7d5c>] (search_binary_handler) from [<802d90a4>] (__do_execve_file+0x524/0x7c8)
+[   10.651563] [<802d90a4>] (__do_execve_file) from [<802d93c4>] (do_execve+0x3c/0x44)
+[   10.662193] [<802d93c4>] (do_execve) from [<802d9604>] (sys_execve+0x2c/0x30)
+[   10.670860] [<802d9604>] (sys_execve) from [<80101000>] (ret_fast_syscall+0x0/0x28)
+[   10.681486] Exception stack(0xb54a3fa8 to 0xb54a3ff0)
+[   10.688014] 3fa0:                   0092d8ac 00933ce8 0092d8ac 00933ce8 0092d894 ffc9d100
+[   10.699091] 3fc0: 0092d8ac 00933ce8 0002334c 0000000b 00038568 0092d894 0002334c 00024414
+[   10.710147] 3fe0: 00035f80 7e8271f4 00014b90 76e539ac
+[   10.716611] Code: e3c33d7f e3c3303f e3120080 e593500c (e5957328)
+[   10.724109] ---[ end trace 051e493609e7a8e5 ]---
+[   11.096775] ------------[ cut here ]------------
+[   11.102770] WARNING: CPU: 2 PID: 351 at kernel/time/hrtimer.c:917 hrtimer_forward+0x168/0x194
+[   11.114008] Modules linked in:
+[   11.118363] CPU: 2 PID: 351 Comm: loadcpufreq Tainted: G      D           4.19.118-v7+ #1311
+[   11.129366] Hardware name: BCM2835
+[   11.133995] [<801120c8>] (unwind_backtrace) from [<8010d5fc>] (show_stack+0x20/0x24)
+[   11.144189] [<8010d5fc>] (show_stack) from [<80856da8>] (dump_stack+0xe0/0x124)
+[   11.152755] [<80856da8>] (dump_stack) from [<80120c8c>] (__warn+0x104/0x11c)
+[   11.161050] [<80120c8c>] (__warn) from [<80120ddc>] (warn_slowpath_null+0x50/0x58)
+[   11.171023] [<80120ddc>] (warn_slowpath_null) from [<8019af84>] (hrtimer_forward+0x168/0x194)
+[   11.182037] [<8019af84>] (hrtimer_forward) from [<801ad37c>] (tick_sched_timer+0x88/0xb8)
+[   11.192715] [<801ad37c>] (tick_sched_timer) from [<8019b464>] (__hrtimer_run_queues+0x164/0x320)
+[   11.204074] [<8019b464>] (__hrtimer_run_queues) from [<8019c084>] (hrtimer_interrupt+0x130/0x2a4)
+[   11.215636] [<8019c084>] (hrtimer_interrupt) from [<806e798c>] (arch_timer_handler_phys+0x40/0x48)
+[   11.227345] [<806e798c>] (arch_timer_handler_phys) from [<80185b8c>] (handle_percpu_devid_irq+0x88/0x23c)
+[   11.239756] [<80185b8c>] (handle_percpu_devid_irq) from [<8017fc6c>] (generic_handle_irq+0x34/0x44)
+[   11.251750] [<8017fc6c>] (generic_handle_irq) from [<801803bc>] (__handle_domain_irq+0x6c/0xc4)
+[   11.263448] [<801803bc>] (__handle_domain_irq) from [<801021b4>] (bcm2836_arm_irqchip_handle_irq+0x60/0xa4)
+[   11.276227] [<801021b4>] (bcm2836_arm_irqchip_handle_irq) from [<801019bc>] (__irq_svc+0x5c/0x7c)
+[   11.288173] Exception stack(0xb54a1d68 to 0xb54a1db0)
+[   11.294752] 1d60:                   80102374 00000000 40000193 40000193 00400044 00000000
+[   11.305921] 1d80: 00000000 00000001 ba433000 b54a0000 00000200 b54a1e1c 80d0517c b54a1db8
+[   11.317080] 1da0: 00000000 80102378 40000113 ffffffff
+[   11.323611] [<801019bc>] (__irq_svc) from [<80102378>] (__do_softirq+0xf8/0x3f0)
+[   11.333921] [<80102378>] (__do_softirq) from [<80126e18>] (irq_exit+0xfc/0x120)
+[   11.342721] [<80126e18>] (irq_exit) from [<801803c0>] (__handle_domain_irq+0x70/0xc4)
+[   11.353415] [<801803c0>] (__handle_domain_irq) from [<801021b4>] (bcm2836_arm_irqchip_handle_irq+0x60/0xa4)
+[   11.366055] [<801021b4>] (bcm2836_arm_irqchip_handle_irq) from [<801019bc>] (__irq_svc+0x5c/0x7c)
+[   11.377812] Exception stack(0xb54a1e70 to 0xb54a1eb8)
+[   11.384280] 1e60:                                     80124fe0 00000000 40000193 40000193
+[   11.395242] 1e80: b55a8000 0000000b 00000544 7f000000 00000005 80d09cb4 b55a8000 b54a1efc
+[   11.406151] 1ea0: 80d0517c b54a1ec0 00000000 80124fe4 40000113 ffffffff
+[   11.414178] [<801019bc>] (__irq_svc) from [<80124fe4>] (do_exit+0x110/0xc14)
+[   11.422643] [<80124fe4>] (do_exit) from [<8010d854>] (die+0x254/0x35c)
+[   11.430580] [<8010d854>] (die) from [<801169e4>] (__do_kernel_fault.part.0+0x74/0x84)
+[   11.441149] [<801169e4>] (__do_kernel_fault.part.0) from [<80874920>] (do_page_fault+0x1e8/0x3b8)
+[   11.452826] [<80874920>] (do_page_fault) from [<80874bac>] (do_translation_fault+0xbc/0xc0)
+[   11.463990] [<80874bac>] (do_translation_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[   11.475098] ---[ end trace 051e493609e7a8e6 ]---
+[   11.566792] ------------[ cut here ]------------
+[   11.572871] WARNING: CPU: 2 PID: 351 at kernel/sched/fair.c:9332 nohz_balance_exit_idle+0x100/0x104
+[   11.584638] rq != this_rq()
+[   11.584640] Modules linked in:
+[   11.593062] CPU: 2 PID: 351 Comm: loadcpufreq Tainted: G      D W         4.19.118-v7+ #1311
+[   11.604063] Hardware name: BCM2835
+[   11.608709] [<801120c8>] (unwind_backtrace) from [<8010d5fc>] (show_stack+0x20/0x24)
+[   11.618948] [<8010d5fc>] (show_stack) from [<80856da8>] (dump_stack+0xe0/0x124)
+[   11.627565] [<80856da8>] (dump_stack) from [<80120c8c>] (__warn+0x104/0x11c)
+[   11.635895] [<80120c8c>] (__warn) from [<80120cfc>] (warn_slowpath_fmt+0x58/0x74)
+[   11.645855] [<80120cfc>] (warn_slowpath_fmt) from [<8015e99c>] (nohz_balance_exit_idle+0x100/0x104)
+[   11.657385] [<8015e99c>] (nohz_balance_exit_idle) from [<8015eb88>] (trigger_load_balance+0x6c/0x1d8)
+[   11.669101] [<8015eb88>] (trigger_load_balance) from [<8014fadc>] (scheduler_tick+0xc8/0xe8)
+[   11.680061] [<8014fadc>] (scheduler_tick) from [<8019a8fc>] (update_process_times+0x60/0x6c)
+[   11.691124] [<8019a8fc>] (update_process_times) from [<801ad0dc>] (tick_sched_handle+0x64/0x70)
+[   11.702514] [<801ad0dc>] (tick_sched_handle) from [<801ad350>] (tick_sched_timer+0x5c/0xb8)
+[   11.713718] [<801ad350>] (tick_sched_timer) from [<8019b464>] (__hrtimer_run_queues+0x164/0x320)
+[   11.725447] [<8019b464>] (__hrtimer_run_queues) from [<8019c084>] (hrtimer_interrupt+0x130/0x2a4)
+[   11.737318] [<8019c084>] (hrtimer_interrupt) from [<806e798c>] (arch_timer_handler_phys+0x40/0x48)
+[   11.749317] [<806e798c>] (arch_timer_handler_phys) from [<80185b8c>] (handle_percpu_devid_irq+0x88/0x23c)
+[   11.761990] [<80185b8c>] (handle_percpu_devid_irq) from [<8017fc6c>] (generic_handle_irq+0x34/0x44)
+[   11.774123] [<8017fc6c>] (generic_handle_irq) from [<801803bc>] (__handle_domain_irq+0x6c/0xc4)
+[   11.785919] [<801803bc>] (__handle_domain_irq) from [<801021b4>] (bcm2836_arm_irqchip_handle_irq+0x60/0xa4)
+[   11.798770] [<801021b4>] (bcm2836_arm_irqchip_handle_irq) from [<801019bc>] (__irq_svc+0x5c/0x7c)
+[   11.810741] Exception stack(0xb54a1d68 to 0xb54a1db0)
+[   11.817312] 1d60:                   80102374 00000000 40000193 40000193 00400044 00000000
+[   11.828498] 1d80: 00000000 00000001 ba433000 b54a0000 00000200 b54a1e1c 80d0517c b54a1db8
+[   11.839640] 1da0: 00000000 80102378 40000113 ffffffff
+[   11.846170] [<801019bc>] (__irq_svc) from [<80102378>] (__do_softirq+0xf8/0x3f0)
+[   11.856467] [<80102378>] (__do_softirq) from [<80126e18>] (irq_exit+0xfc/0x120)
+[   11.865268] [<80126e18>] (irq_exit) from [<801803c0>] (__handle_domain_irq+0x70/0xc4)
+[   11.875976] [<801803c0>] (__handle_domain_irq) from [<801021b4>] (bcm2836_arm_irqchip_handle_irq+0x60/0xa4)
+[   11.888603] [<801021b4>] (bcm2836_arm_irqchip_handle_irq) from [<801019bc>] (__irq_svc+0x5c/0x7c)
+[   11.900357] Exception stack(0xb54a1e70 to 0xb54a1eb8)
+[   11.906833] 1e60:                                     80124fe0 00000000 40000193 40000193
+[   11.917791] 1e80: b55a8000 0000000b 00000544 7f000000 00000005 80d09cb4 b55a8000 b54a1efc
+[   11.928714] 1ea0: 80d0517c b54a1ec0 00000000 80124fe4 40000113 ffffffff
+[   11.936732] [<801019bc>] (__irq_svc) from [<80124fe4>] (do_exit+0x110/0xc14)
+[   11.945198] [<80124fe4>] (do_exit) from [<8010d854>] (die+0x254/0x35c)
+[   11.953127] [<8010d854>] (die) from [<801169e4>] (__do_kernel_fault.part.0+0x74/0x84)
+[   11.963693] [<801169e4>] (__do_kernel_fault.part.0) from [<80874920>] (do_page_fault+0x1e8/0x3b8)
+[   11.975363] [<80874920>] (do_page_fault) from [<80874bac>] (do_translation_fault+0xbc/0xc0)
+[   11.986522] [<80874bac>] (do_translation_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[   11.997631] ---[ end trace 051e493609e7a8e7 ]---
+[   13.326781] Internal error: Oops - undefined instruction: 0 [#2] SMP ARM
+[   13.334891] Modules linked in:
+[   13.339299] CPU: 2 PID: 351 Comm: loadcpufreq Tainted: G      D W         4.19.118-v7+ #1311
+[   13.350434] Hardware name: BCM2835
+[   13.355148] PC is at __hrtimer_run_queues+0x180/0x320
+[   13.361530] LR is at _raw_spin_lock_irq+0x20/0x60
+[   13.367523] pc : [<8019b480>]    lr : [<80874280>]    psr: 20000193
+[   13.375077] sp : b54a1c28  ip : b54a1c10  fp : b54a1c7c
+[   13.381565] r10: 00000001  r9 : baae65f0  r8 : baae6540
+[   13.388018] r7 : b54a0000  r6 : baae6540  r5 : baae6580  r4 : baae6840
+[   13.395770] r3 : 00000000  r2 : 00000000  r1 : 00000000  r0 : baae6540
+[   13.403491] Flags: nzCv  IRQs off  FIQs on  Mode SVC_32  ISA ARM  Segment user
+[   13.411910] Control: 10c5383d  Table: 3553806a  DAC: 00000055
+[   13.418827] Process loadcpufreq (pid: 351, stack limit = 0x95d5d538)
+[   13.426338] Stack: (0xb54a1c28 to 0xb54a2000)
+[   13.431814] 1c20:                   8019fdd4 80d04d48 19ef1436 00000003 00000004 80d04d70
+[   13.442191] 1c40: 19ef1436 00000003 10a2688b 26bffaee 20000193 20000193 00000003 7fffffff
+[   13.452578] 1c60: ffffffff baae6540 baae65f0 baae65c8 b54a1cdc b54a1c80 8019c084 8019b30c
+[   13.463029] 1c80: 20000193 0000000f 19ef1436 00000003 000022c9 baae6670 baae6690 baae6618
+[   13.473532] 1ca0: baae66c0 baae654c 19ef1436 00000003 00000004 ba402dc0 00000000 ba4c0d00
+[   13.484163] 1cc0: 80d5d66c 000000a2 b54a0000 00000200 b54a1cec b54a1ce0 806e798c 8019bf60
+[   13.494915] 1ce0: b54a1d14 b54a1cf0 80185b8c 806e7958 80c94fa8 00000000 b54a1e70 00000001
+[   13.505751] 1d00: ba433000 b54a0000 b54a1d24 b54a1d18 8017fc6c 80185b10 b54a1d4c b54a1d28
+[   13.516757] 1d20: 801803bc 8017fc44 b54a1d68 00000002 40000113 ffffffff b54a1d9c ba433000
+[   13.527823] 1d40: b54a1d64 b54a1d50 801021b4 8018035c 00000000 80102378 b54a1e1c b54a1d68
+[   13.538941] 1d60: 801019bc 80102160 80102374 00000000 40000193 40000193 00400044 00000000
+[   13.550108] 1d80: 00000000 00000001 ba433000 b54a0000 00000200 b54a1e1c 80d0517c b54a1db8
+[   13.561291] 1da0: 00000000 80102378 40000113 ffffffff 80102374 7f000000 b54a1e24 ba402dc0
+[   13.572468] 1dc0: 00000001 00400044 80d03d00 ffff8e55 0000000a 80c94fc0 b54a1df4 80d04d70
+[   13.583650] 1de0: 80c8d308 80d03080 b54a1e1c b54a1df8 80185b8c 80c94fa8 00000000 00000000
+[   13.594835] 1e00: 00000001 ba433000 b54a0000 b55a8000 b54a1e2c b54a1e20 80126e18 8010228c
+[   13.606012] 1e20: b54a1e54 b54a1e30 801803c0 80126d28 b54a1e70 00000002 40000113 ffffffff
+[   13.617198] 1e40: b54a1ea4 00000005 b54a1e6c b54a1e58 801021b4 8018035c 00000000 80124fe4
+[   13.628386] 1e60: b54a1efc b54a1e70 801019bc 80102160 80124fe0 00000000 40000193 40000193
+[   13.639562] 1e80: b55a8000 0000000b 00000544 7f000000 00000005 80d09cb4 b55a8000 b54a1efc
+[   13.650748] 1ea0: 80d0517c b54a1ec0 00000000 80124fe4 40000113 ffffffff 80124fe0 7f000000
+[   13.661936] 1ec0: 26bffaee 80da4544 60000193 26bffaee 7f000000 80da4544 60000193 0000000b
+[   13.673116] 1ee0: 7f000000 00000005 80d09cb4 b55a8000 b54a1f34 b54a1f00 8010d854 80124ee0
+[   13.684305] 1f00: b54a0210 0000000b 80a72874 00319736 00000005 b54a2080 b6932800 00000005
+[   13.695491] 1f20: b693283c 00000000 b54a1f4c b54a1f38 801169e4 8010d60c b54a2080 b6932800
+[   13.706665] 1f40: b54a1fa4 b54a1f50 80874920 8011697c 802cc854 802d229c 0000000f b680d400
+[   13.717849] 1f60: 00000004 80101c9c 60000010 00000000 00010000 00000014 00000000 00000005
+[   13.729032] 1f80: 80d04d48 00000005 80874af0 00319736 b54a2080 b5522340 b54a1fc4 b54a1fa8
+[   13.740206] 1fa0: 80874bac 80874744 26bffaee 80d0a624 80d04d48 00000005 b54a207c b54a1fc8
+[   13.751387] 1fc0: 801167fc 80874afc 000387e8 00000072 00000000 00000000 000364d8 00000001
+[   13.762574] 1fe0: 00035f98 7e8271b4 000188ec 76e5337c 60000010 ffffffff 00000000 00000000
+[   13.773749] [<8019b480>] (__hrtimer_run_queues) from [<8019c084>] (hrtimer_interrupt+0x130/0x2a4)
+[   13.785643] [<8019c084>] (hrtimer_interrupt) from [<806e798c>] (arch_timer_handler_phys+0x40/0x48)
+[   13.797635] [<806e798c>] (arch_timer_handler_phys) from [<80185b8c>] (handle_percpu_devid_irq+0x88/0x23c)
+[   13.810235] [<80185b8c>] (handle_percpu_devid_irq) from [<8017fc6c>] (generic_handle_irq+0x34/0x44)
+[   13.822324] [<8017fc6c>] (geneic_handle_irq) from [<801803bc>] (__handle_domain_irq+0x6c/0xc4)
+[   13.833990] [<801803bc>] (__handle_domain_irq) from [<801021b4>] (bcm2836_arm_irqchip_handle_irq+0x60/0xa4)
+[   13.846802] [<801021b4>] (bcm2836_arm_irqchip_handle_irq) from [<801019bc>] (__irq_svc+0x5c/0x7c)
+[   13.858726] Exception stack(0xb54a1d68 to 0xb54a1db0)
+[   13.865299] 1d60:                   80102374 00000000 40000193 40000193 00400044 00000000
+[   13.876464] 1d80: 00000000 00000001 ba433000 b54a0000 00000200 b54a1e1c 80d0517c b54a1db8
+[   13.887618] 1da0: 00000000 80102378 40000113 ffffffff
+[   13.894148] [<801019bc>] (__irq_svc) from [<80102378>] (__do_softirq+0xf8/0x3f0)
+[   13.904450] [<80102378>] (__do_softirq) from [<80126e18>] (irq_exit+0xfc/0x120)
+[   13.913252] [<80126e18>] (irq_exit) from [<801803c0>] (__handle_domain_irq+0x70/0xc4)
+[   13.923943] [<801803c0>] (__handle_domain_irq) from [<801021b4>] (bcm2836_arm_irqchip_handle_irq+0x60/0xa4)
+[   13.936585] [<801021b4>] (bcm2836_arm_irqchip_handle_irq) from [<801019bc>] (__irq_svc+0x5c/0x7c)
+[   13.948343] Exception stack(0xb54a1e70 to 0xb54a1eb8)
+[   13.954812] 1e60:                                     80124fe0 00000000 40000193 40000193
+[   13.965776] 1e80: b55a8000 0000000b 00000544 7f000000 00000005 80d09cb4 b55a8000 b54a1efc
+[   13.976697] 1ea0: 80d0517c b54a1ec0 00000000 80124fe4 40000113 ffffffff
+[   13.984725] [<801019bc>] (__irq_svc) from [<80124fe4>] (do_exit+0x110/0xc14)
+[   13.993189] [<80124fe4>] (do_exit) from [<8010d854>] (die+0x254/0x35c)
+[   14.001125] [<8010d854>] (die) from [<801169e4>] (__do_kernel_fault.part.0+0x74/0x84)
+[   14.011699] [<801169e4>] (__do_kernel_fault.part.0) from [<80874920>] (do_page_fault+0x1e8/0x3b8)
+[   14.023374] [<80874920>] (do_page_fault) from [<80874bac>] (do_translation_fault+0xbc/0xc0)
+[   14.034544] [<80874bac>] (do_translation_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[   14.045660] Code: eb1b637a e35a0000 0affffd0 e5d42028 (e2122001)
+[   14.053176] ---[ end trace 051e493609e7a8e8 ]---
+[   14.059185] Fixing recursive fault but reboot is needed!
+[   14.065874] Unable to handle kernel NULL pointer dereference at virtual address 000005ec
+[   14.076680] pgd = 4583557a
+[   14.080699] [000005ec] *pgd=35487835, *pte=00000000, *ppte=00000000
+[   14.088328] Internal error: Oops: 5 [#3] SMP ARM
+[   14.094274] Modules linked in:
+[   14.098612] CPU: 2 PID: 351 Comm: loadcpufreq Tainted: G      D W         4.19.118-v7+ #1311
+[   14.109605] Hardware name: BCM2835
+[   14.114254] PC is at update_blocked_averages+0xc0/0xac4
+[   14.120726] LR is at 0xb
+[   14.124448] pc : [<80156608>]    lr : [<0000000b>]    psr: 80000193
+[   14.131920] sp : b54a18c8  ip : 0682aaab  fp : b54a195c
+[   14.138310] r10: b5521e00  r9 : b5521c9c  r8 : fffffe9c
+[   14.144667] r7 : baaf9b10  r6 : baaf9400  r5 : ffff8eb8  r4 : 00000000
+[   14.152306] r3 : 00000001  r2 : 80c8d390  r1 : 0000fb46  r0 : 00000008
+[   14.159908] Flags: Nzcv  IRQs off  FIQs on  Mode SVC_32  ISA ARM  Segment user
+[   14.168203] Control: 10c5383d  Table: 3553806a  DAC: 00000055
+[   14.175010] Process loadcpufreq (pid: 351, stack limit = 0x95d5d538)
+[   14.182430] Stack: (0xb54a18c8 to 0xb54a2000)
+[   14.187838] 18c0:                   80589c74 808743f4 000015bf 20000193 80da7758 80c948dc
+[   14.198116] 18e0: b54a1904 b54a18f0 80874454 80d04d48 20000193 80d10320 b54a1924 b54a1908
+[   14.208470] 1900: 801773ec 80d054c4 00000000 60000193 80da7758 0000023d baaf9400 b54a1928
+[   14.218918] 1920: baaf99c8 00000001 80da7758 26bffaee b54a199c 80d8fb46 ffff8eb8 baaf9b00
+[   14.229451] 1940: baaf9b10 baaf9400 00000002 80d04dbc b54a19d4 b54a1960 8015e3f8 80156554
+[   14.240089] 1960: 801ac510 806e7890 ba524b00 00ffffff 80c95400 80d04d48 80d8fb46 00000000
+[   14.250851] 1980: 00000001 b54a1a04 baaf9400 80d03d00 b54a19ac b54a19a0 801520cc 801ac4e4
+[   14.261709] 19a0: b54a19d4 26bffaee 8014c074 b54a1a04 00000000 ba524f54 80d054c4 baaf9400
+[   14.272699] 19c0: ba524b00 80d04d48 b54a1a3c b54a19d8 8086e310 8015e13c b54a19fc b54a19e8
+[   14.283758] 19e0: 8017ef58 8017e9c4 80a745a0 80902410 39e64000 80c95400 8086ebdc baaf9400
+[   14.294876] 1a00: 8017ef58 80144a88 00000004 26bffaee 0000000b b54a0000 0000000b 0000000b
+[   14.306039] 1a20: 7f000000 00000000 80d09cb4 b55a8000 b54a1a54 b54a1a40 8086ebdc 8086e1ec
+[   14.317225] 1a40: b55a8000 b55a8000 b54a1a94 b54a1a58 801258e8 8086eb98 26bffaee 80da4544
+[   14.328413] 1a60: 60000193 26bffaee 7f000000 80da4544 60000193 0000000b 7f000000 00000000
+[   14.339593] 1a80: 80d09cb4 b55a8000 b54a1acc b54a1a98 8010d854 80124ee0 b54a0210 0000000b
+[   14.350781] 1aa0: 80a76ca0 80d09cb8 80d04d48 8019b480 e2122001 b54a1b98 00000000 b54a0000
+[   14.361968] 1ac0: b54a1adc b54a1ad0 8010d988 8010d60c b54a1b94 b54a1ae0 8010db18 8010d968
+[   14.373149] 1ae0: 00000006 051e4936 b54a1b24 00000004 00000000 00000001 8019b480 00000000
+[   14.384335] 1b00: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[   14.395522] 1b20: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[   14.406703] 1b40: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[   14.417889] 1b60: 00000000 00000000 00000000 26bffaee 8019b484 00000000 80101e98 00000000
+[   14.429075] 1b80: e2100000 80101a68 b54a1c7c b54a1b98 80101a68 8010d9cc baae6540 00000000
+[   14.440252] 1ba0: 00000000 00000000 baae6840 baae6580 baae6540 b54a0000 baae6540 baae65f0
+[   14.451440] 1bc0: 00000001 b54a1c7c b54a1c10 b54a1c28 80874280 8019b480 20000193 ffffffff
+[   14.462629] 1be0: 00000003 7f000000 baae65f0 801ad2f4 00000000 baae6540 baae6580 baae6540
+[   14.473805] 1c00: b54a1c24 b54a1c10 80874280 802038f8 00000000 baae6840 b54a1c7c b54a1c28
+[   14.484994] 1c20: 8019b474 8087426c 8019fdd4 80d04d48 19ef1436 00000003 00000004 80d04d70
+[   14.496185] 1c40: 19ef1436 00000003 10a2688b 26bffaee 20000193 20000193 00000003 7fffffff
+[   14.507362] 1c60: ffffffff baae6540 baae65f0 baae65c8 b54a1cdc b54a1c80 8019c084 8019b30c
+[   14.518552] 1c80: 20000193 0000000f 19ef1436 00000003 000022c9 baae6670 baae6690 baae6618
+[   14.529737] 1ca0: baae66c0 baae654c 19ef1436 00000003 00000004 ba402dc0 00000000 ba4c0d00
+[   14.540912] 1cc0: 80d5d66c 000000a2 b54a0000 00000200 b54a1cec b54a1ce0 806e798c 8019bf60
+[   14.552099] 1ce0: b54a1d14 b54a1cf0 80185b8c 806e7958 80c94fa8 00000000 b54a1e70 00000001
+[   14.563285] 1d00: ba433000 b54a0000 b54a1d24 b54a1d18 8017fc6c 80185b10 b54a1d4c b54a1d28
+[   14.574459] 1d20: 801803bc 8017fc44 b54a1d68 00000002 40000113 ffffffff b54a1d9c ba433000
+[   14.585643] 1d40: b54a1d64 b54a1d50 801021b4 8018035c 00000000 80102378 b54a1e1c b54a1d68
+[   14.596831] 1d60: 801019bc 80102160 80102374 00000000 40000193 40000193 00400044 00000000
+[   14.608004] 1d80: 00000000 00000001 ba433000 b54a0000 00000200 b54a1e1c 80d0517c b54a1db8
+[   14.619188] 1da0: 00000000 80102378 40000113 ffffffff 80102374 7f000000 b54a1e24 ba402dc0
+[   14.630373] 1dc0: 00000001 00400044 80d03d00 ffff8e55 0000000a 80c94fc0 b54a1df4 80d04d70
+[   14.641546] 1de0: 80c8d308 80d03080 b54a1e1c b54a1df8 80185b8c 80c94fa8 00000000 00000000
+[   14.652733] 1e00: 00000001 ba433000 b54a0000 b55a8000 b54a1e2c b54a1e20 80126e18 8010228c
+[   14.663920] 1e20: b54a1e54 b54a1e30 801803c0 80126d28 b54a1e70 00000002 40000113 ffffffff
+[   14.675094] 1e40: b54a1ea4 00000005 b54a1e6c b54a1e58 801021b4 8018035c 00000000 80124fe4
+[   14.686281] 1e60: b54a1efc b54a1e70 801019bc 80102160 80124fe0 00000000 40000193 40000193
+[   14.697466] 1e80: b55a8000 0000000b 00000544 7f000000 00000005 80d09cb4 b55a8000 b54a1efc
+[   14.708639] 1ea0: 80d0517c b54a1ec0 00000000 80124fe4 40000113 ffffffff 80124fe0 7f000000
+[   14.719824] 1ec0: 26bffaee 80da4544 60000193 26bffaee 7f000000 80da4544 60000193 0000000b
+[   14.731012] 1ee0: 7f000000 00000005 80d09cb4 b55a8000 b54a1f34 b54a1f00 8010d854 80124ee0
+[   14.742186] 1f00: b54a0210 0000000b 80a72874 00319736 00000005 b54a2080 b6932800 00000005
+[   14.753373] 1f20: b693283c 00000000 b54a1f4c b54a1f38 801169e4 8010d60c b54a2080 b6932800
+[   14.764559] 1f40: b54a1fa4 b54a1f50 80874920 8011697c 802cc854 802d229c 0000000f b680d400
+[   14.775734] 1f60: 00000004 80101c9c 60000010 00000000 00010000 00000014 00000000 00000005
+[   14.786924] 1f80: 80d04d48 00000005 80874af0 00319736 b54a2080 b5522340 b54a1fc4 b54a1fa8
+[   14.798114] 1fa0: 80874bac 80874744 26bffaee 80d0a624 80d04d48 00000005 b54a207c b54a1fc8
+[   14.809292] 1fc0: 801167fc 80874afc 000387e8 00000072 00000000 00000000 000364d8 00000001
+[   14.820480] 1fe0: 00035f98 7e8271b4 000188ec 76e5337c 60000010 ffffffff 00000000 00000000
+[   14.831671] [<80156608>] (update_blocked_averages) from [<8015e3f8>] (pick_next_task_fair+0x2c8/0x718)
+[   14.843996] [<8015e3f8>] (pick_next_task_fair) from [<8086e310>] (__schedule+0x130/0x9ac)
+[   14.855200] [<8086e310>] (__schedule) from [<8086ebdc>] (schedule+0x50/0xa8)
+[   14.863793] [<8086ebdc>] (schedule) from [<801258e8>] (do_exit+0xa14/0xc14)
+[   14.872271] [<801258e8>] (do_exit) from [<8010d854>] (die+0x254/0x35c)
+[   14.880305] [<8010d854>] (die) from [<8010d988>] (arm_notify_die+0x2c/0x64)
+[   14.888751] [<8010d988>] (arm_notify_die) from [<8010db18>] (do_undefinstr+0x158/0x1cc)
+[   14.899648] [<8010db18>] (do_undefinstr) from [<80101a68>] (__und_svc_finish+0x0/0x38)
+[   14.910455] Exception stack(0xb54a1b98 to 0xb54a1be0)
+[   14.916944] 1b80:                                                       baae6540 00000000
+[   14.927890] 1ba0: 00000000 00000000 baae6840 baae6580 baae6540 b54a0000 baae6540 baae65f0
+[   14.938793] 1bc0: 00000001 b54a1c7c b54a1c10 b54a1c28 80874280 8019b480 20000193 ffffffff
+[   14.949697] [<80101a68>] (__und_svc_finish) from [<8019b480>] (__hrtimer_run_queues+0x180/0x320)
+[   14.961214] [<8019b480>] (__hrtimer_run_queues) from [<8019c084>] (hrtimer_interrupt+0x130/0x2a4)
+[   14.972828] [<8019c084>] (hrtimer_interrupt) from [<806e798c>] (arch_timer_handler_phys+0x40/0x48)
+[   14.984531] [<806e798c>] (arch_timer_handler_phys) from [<80185b8c>] (handle_percpu_devid_irq+0x88/0x23c)
+[   14.996905] [<80185b8c>] (handle_percpu_devid_irq) from [<8017fc6c>] (generic_handle_irq+0x34/0x44)
+[   15.008810] [<8017fc6c>] (generic_handle_irq) from [<801803bc>] (__handle_domain_irq+0x6c/0xc4)
+[   15.020400] [<801803bc>] (__handle_domain_irq) from [<801021b4>] (bcm2836_arm_irqchip_handle_irq+0x60/0xa4)
+[   15.033064] [<801021b4>] (bcm2836_arm_irqchip_handle_irq) from [<801019bc>] (__irq_svc+0x5c/0x7c)
+[   15.044960] Exception stack(0xb54a1d68 to 0xb54a1db0)
+[   15.051536] 1d60:                   80102374 00000000 40000193 40000193 00400044 00000000
+[   15.062716] 1d80: 00000000 00000001 ba433000 b54a0000 00000200 b54a1e1c 80d0517c b54a1db8
+[   15.073867] 1da0: 00000000 80102378 40000113 ffffffff
+[   15.080397] [<801019bc>] (__irq_svc) from [<80102378>] (__do_softirq+0xf8/0x3f0)
+[   15.090687] [<80102378>] (__do_softirq) from [<80126e18>] (irq_exit+0xfc/0x120)
+[   15.099483] [<80126e18>] (irq_exit) from [<801803c0>] (__handle_domain_irq+0x70/0xc4)
+[   15.110179] [<801803c0>] (__handle_domain_irq) from [<801021b4>] (bcm2836_arm_irqchip_handle_irq+0x60/0xa4)
+[   15.122817] [<801021b4>] (bcm2836_arm_irqchip_handle_irq) from [<801019bc>] (__irq_svc+0x5c/0x7c)
+[   15.134573] Exception stack(0xb54a1e70 to 0xb54a1eb8)
+[   15.141048] 1e60:                                     80124fe0 00000000 40000193 40000193
+[   15.152006] 1e80: b55a8000 0000000b 00000544 7f000000 00000005 80d09cb4 b55a8000 b54a1efc
+[   15.162929] 1ea0: 80d0517c b54a1ec0 00000000 80124fe4 40000113 ffffffff
+[   15.170954] [<801019bc>] (__irq_svc) from [<80124fe4>] (do_exit+0x110/0xc14)
+[   15.179417] [<80124fe4>] (do_exit) from [<8010d854>] (die+0x254/0x35c)
+[   15.187350] [<8010d854>] (die) from [<801169e4>] (__do_kernel_fault.part.0+0x74/0x84)
+[   15.197916] [<801169e4>] (__do_kernel_fault.part.0) from [<80874920>] (do_page_fault+0x1e8/0x3b8)
+[   15.209571] [<80874920>] (do_page_fault) from [<80874bac>] (do_translation_fault+0xbc/0xc0)
+[   15.220733] [<80874bac>] (do_translation_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[   15.231843] Code: e50b3080 e3a03001 e50b3038 e34820c8 (e59435ec)
+[   15.239354] ---[ end trace 051e493609e7a8e9 ]---
+[   15.245358] Fixing recursive fault but reboot is needed!

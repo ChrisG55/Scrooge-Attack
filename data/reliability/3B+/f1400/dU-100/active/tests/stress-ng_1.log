@@ -1,0 +1,115 @@
+stress-ng: 12:08:28.83 info:  [4713] apparmor: stressor will be skipped, AppArmor is not available
+stress-ng: 12:08:28.83 info:  [4713] bad_ioctl stressor will be skipped, need to be running without root privilege for this stressor
+stress-ng: 12:08:28.83 info:  [4713] cpu_online stressor will be skipped, cannot write to cpu1 online sysfs control file
+stress-ng: 12:08:28.83 info:  [4713] efivar stressor will be skipped, need to have access to EFI vars in /sys/firmware/efi/vars
+stress-ng: 12:08:28.83 info:  [4713] exec stressor must not run as root, skipping the stressor
+stress-ng: 12:08:28.83 info:  [4713] /sys/kernel/mm/page_idle/bitmap stressor will be skipped, cannot access file idle_page
+stress-ng: 12:08:28.83 info:  [4713] ipsec_mb: stressor will be skipped, CPU needs to be an x86-64 and a recent IPSec MB library is required.
+stress-ng: 12:08:28.83 info:  [4713] pidfd: stressor will be skipped, system call not supported at build time
+stress-ng: 12:08:28.83 info:  [4713] rdrand stressor will be skipped, CPU does not support the rdrand instruction.
+stress-ng: 12:08:28.84 info:  [4713] spawn stressor must not run as root, skipping the stressor
+stress-ng: 12:08:28.84 info:  [4713] tsc stressor will be skipped, CPU does not support the rdtsc instruction.
+stress-ng: 12:08:28.84 info:  [4713] tun stressor will be skipped, cannot open /dev/net/tun
+stress-ng: 12:08:28.84 info:  [4713] disabled 'bind-mount' as it may hang or reboot the machine (enable it with the --pathological option)
+stress-ng: 12:08:28.84 info:  [4713] disabled 'mlockmany' as it may hang or reboot the machine (enable it with the --pathological option)
+stress-ng: 12:08:28.84 info:  [4713] disabled 'oom-pipe' as it may hang or reboot the machine (enable it with the --pathological option)
+stress-ng: 12:08:28.84 info:  [4713] disabled 'watchdog' as it may hang or reboot the machine (enable it with the --pathological option)
+stress-ng: 12:08:28.84 info:  [4713] defaulting to a 60 second run per stressor
+stress-ng: 12:08:28.84 info:  [4713] dispatching hogs: 4 af-alg, 4 affinity, 4 aio, 4 aiol, 4 atomic, 4 bad-altstack, 4 bigheap, 4 branch, 4 brk, 4 bsearch, 4 cache, 4 cap, 4 chroot, 4 clock, 4 clone, 4 close, 4 context, 4 cpu, 4 crypt, 4 cyclic, 4 daemon, 4 dev, 4 dev-shm, 4 dynlib, 4 enosys, 4 env, 4 epoll, 4 fault, 4 fifo, 4 fork, 4 fp-error, 4 full, 4 funccall, 4 funcret, 4 futex, 4 get, 4 getrandom, 4 hdd, 4 heapsort, 4 hrtimers, 4 hsearch, 4 icache, 4 icmp-flood, 4 itimer, 4 judy, 4 kcmp, 4 key, 4 kill, 4 klog, 4 lockbus, 4 longjmp, 4 loop, 4 lsearch, 4 madvise, 4 malloc, 4 matrix, 4 matrix-3d, 4 mcontend, 4 membarrier, 4 memcpy, 4 memfd, 4 memrate, 4 memthrash, 4 mergesort, 4 mincore, 4 mlock, 4 mmap, 4 mmapaddr, 4 mmapfixed, 4 mmapfork, 4 mmapmany, 4 mq, 4 mremap, 4 msg, 4 msync, 4 nanosleep, 4 netdev, 4 netlink-task, 4 nice, 4 nop, 4 null, 4 opcode, 4 personality, 4 physpage, 4 pipe, 4 pipeherd, 4 poll, 4 prctl, 4 pthread, 4 ptrace, 4 pty, 4 qsort, 4 quota, 4 radixsort, 4 ramfs, 4 rawdev, 4 rawpkt, 4 rawsock, 4 rawudp, 4 readahead, 4 reboot, 4 remap, 4 resources, 4 revio, 4 rlimit, 4 rmap, 4 rtc, 4 schedpolicy, 4 seal, 4 seccomp, 4 seek, 4 sem, 4 sem-sysv, 4 sendfile, 4 session, 4 set, 4 shellsort, 4 shm, 4 shm-sysv, 4 sigabrt, 4 sigchld, 4 sigfd, 4 sigfpe, 4 sigio, 4 sigpending, 4 sigpipe, 4 sigq, 4 sigrt, 4 sigsegv, 4 sigsuspend, 4 sigtrap, 4 skiplist, 4 sleep, 4 sock, 4 sockabuse, 4 sockdiag, 4 sockfd, 4 sockpair, 4 sockmany, 4 softlockup, 4 splice, 4 stack, 4 stackmmap, 4 str, 4 stream, 4 swap, 4 switch, 4 sysbadaddr, 4 sysinval, 4 sysfs, 4 tee, 4 timer, 4 timerfd, 4 tlb-shootdown, 4 tmpfs, 4 tree, 4 tsearch, 4 udp, 4 udp-flood, 4 unshare, 4 urandom, 4 userfaultfd, 4 vdso, 4 vecmath, 4 vfork, 4 vforkmany, 4 vm, 4 vm-addr, 4 vm-rw, 4 vm-segv, 4 vm-splice, 4 wait, 4 wcs, 4 x86syscall, 4 yield, 4 zero, 4 zlib, 4 zombie
+stress-ng: 12:08:28.87 info:  [4716] stress-ng-af-alg: 12 cryptographic algorithms found in /proc/crypto
+stress-ng: 12:08:28.87 info:  [4716] stress-ng-af-alg: 101 cryptographic algorithms max (with defconfigs)
+stress-ng: 12:08:34.26 fail:  [4829] stress-ng-affinity: failed to move to CPU 2
+stress-ng: 12:08:34.26 fail:  [4828] stress-ng-affinity: failed to move to CPU 1
+stress-ng: 12:08:34.26 fail:  [4829] stress-ng-affinity: failed to move to CPU 2
+stress-ng: 12:08:34.26 fail:  [4828] stress-ng-affinity: failed to move to CPU 0
+stress-ng: 12:08:34.26 fail:  [4826] stress-ng-affinity: failed to move to CPU 1
+stress-ng: 12:08:34.26 fail:  [4828] stress-ng-affinity: failed to move to CPU 0
+stress-ng: 12:08:34.27 fail:  [4828] stress-ng-affinity: failed to move to CPU 2
+stress-ng: 12:08:34.27 fail:  [4826] stress-ng-affinity: failed to move to CPU 1
+stress-ng: 12:08:34.27 fail:  [4827] stress-ng-affinity: failed to move to CPU 2
+stress-ng: 12:08:34.27 fail:  [4829] stress-ng-affinity: failed to move to CPU 0
+stress-ng: 12:08:34.27 fail:  [4829] stress-ng-affinity: failed to move to CPU 2
+stress-ng: 12:08:34.27 fail:  [4827] stress-ng-affinity: failed to move to CPU 2
+stress-ng: 12:08:34.27 fail:  [4828] stress-ng-affinity: failed to move to CPU 2
+stress-ng: 12:08:34.27 fail:  [4826] stress-ng-affinity: failed to move to CPU 3
+stress-ng: 12:08:34.27 fail:  [4829] stress-ng-affinity: failed to move to CPU 3
+stress-ng: 12:08:34.27 fail:  [4827] stress-ng-affinity: failed to move to CPU 2
+stress-ng: 12:08:34.27 fail:  [4826] stress-ng-affinity: failed to move to CPU 2
+stress-ng: 12:09:34.26 error: [4713] process 4829 (stress-ng-affinity) terminated with an error, exit status=1 (stress-ng core failure)
+stress-ng: 12:27:25.49 info:  [6069] stress-ng-cyclic: for best results, run just 1 instance of this stressor
+stress-ng: 12:27:25.55 fail:  [6074] stress-ng-cyclic: sched_setscheduler failed: errno=16 (Device or resource busy) for scheduler policy SCHED_DEADLINE
+stress-ng: 12:27:25.55 fail:  [6075] stress-ng-cyclic: sched_setscheduler failed: errno=16 (Device or resource busy) for scheduler policy SCHED_DEADLINE
+stress-ng: 12:27:25.55 info:  [6077] sched: cannot set scheduler 'deadline': errno=1 (Operation not permitted)
+stress-ng: 12:27:25.55 fail:  [6076] stress-ng-cyclic: sched_setscheduler failed: errno=16 (Device or resource busy) for scheduler policy SCHED_DEADLINE
+stress-ng: 12:28:25.49 info:  [6069] stress-ng-cyclic: SCHED_DEADLINE: no latency information available
+stress-ng: 13:11:44.08 error: [540] stress-ng-memrate: cannot allocate 268435456 bytes
+stress-ng: 13:11:44.34 info:  [534] stress-ng-memrate: write64: interrupted early
+stress-ng: 13:11:44.34 info:  [534] stress-ng-memrate:  read64: interrupted early
+stress-ng: 13:11:44.34 info:  [534] stress-ng-memrate: write32: interrupted early
+stress-ng: 13:11:44.34 info:  [534] stress-ng-memrate:  read32: interrupted early
+stress-ng: 13:11:44.34 info:  [534] stress-ng-memrate: write16: interrupted early
+stress-ng: 13:11:44.34 info:  [534] stress-ng-memrate:  read16: interrupted early
+stress-ng: 13:11:44.34 info:  [534] stress-ng-memrate:  write8: interrupted early
+stress-ng: 13:11:44.34 info:  [534] stress-ng-memrate:   read8: interrupted early
+stress-ng: 13:12:13.02 info:  [532] stress-ng-memrate: write64: 458.01 MB/sec
+stress-ng: 13:12:13.02 info:  [532] stress-ng-memrate:  read64: 550.08 MB/sec
+stress-ng: 13:12:13.02 info:  [533] stress-ng-memrate: write64: 461.14 MB/sec
+stress-ng: 13:12:13.02 info:  [532] stress-ng-memrate: write32: 466.60 MB/sec
+stress-ng: 13:12:13.02 info:  [533] stress-ng-memrate:  read64: 446.93 MB/sec
+stress-ng: 13:12:13.02 info:  [532] stress-ng-memrate:  read32: 554.15 MB/sec
+stress-ng: 13:12:13.02 info:  [533] stress-ng-memrate: write32: 468.18 MB/sec
+stress-ng: 13:12:13.02 info:  [533] stress-ng-memrate:  read32: 543.94 MB/sec
+stress-ng: 13:12:13.02 info:  [532] stress-ng-memrate: write16: 528.67 MB/sec
+stress-ng: 13:12:13.02 info:  [533] stress-ng-memrate: write16: 499.88 MB/sec
+stress-ng: 13:12:13.02 info:  [533] stress-ng-memrate:  read16: 623.05 MB/sec
+stress-ng: 13:12:13.02 info:  [533] stress-ng-memrate:  write8: 319.97 MB/sec
+stress-ng: 13:12:13.02 info:  [532] stress-ng-memrate:  read16: 525.93 MB/sec
+stress-ng: 13:12:13.02 info:  [533] stress-ng-memrate:   read8: 329.12 MB/sec
+stress-ng: 13:12:13.02 info:  [532] stress-ng-memrate:  write8: 338.27 MB/sec
+stress-ng: 13:12:13.02 info:  [532] stress-ng-memrate:   read8: 348.89 MB/sec
+stress-ng: 13:12:13.02 info:  [535] stress-ng-memrate: write64: 619.49 MB/sec
+stress-ng: 13:12:13.03 info:  [535] stress-ng-memrate:  read64: 785.21 MB/sec
+stress-ng: 13:12:13.03 info:  [535] stress-ng-memrate: write32: 492.89 MB/sec
+stress-ng: 13:12:13.03 info:  [535] stress-ng-memrate:  read32: 480.33 MB/sec
+stress-ng: 13:12:13.03 info:  [535] stress-ng-memrate: write16: 407.33 MB/sec
+stress-ng: 13:12:13.03 info:  [535] stress-ng-memrate:  read16: 518.82 MB/sec
+stress-ng: 13:12:13.03 info:  [535] stress-ng-memrate:  write8: 313.85 MB/sec
+stress-ng: 13:12:13.03 info:  [535] stress-ng-memrate:   read8: 352.25 MB/sec
+stress-ng: 13:12:13.04 info:  [542] stress-ng-memthrash: starting 1 thread on each of the 4 stressors on a 4 CPU system
+stress-ng: 13:15:27.21 fail:  [570] stress-ng-mlock: malloc failed, out of memory
+stress-ng: 13:21:23.96 info:  [23244] stress-ng-mq: POSIX message queue requested size 32 messages, maximum of 10 allowed
+stress-ng: 13:21:23.96 info:  [23245] stress-ng-mq: POSIX message queue requested size 32 messages, maximum of 10 allowed
+stress-ng: 13:21:23.96 info:  [23246] stress-ng-mq: POSIX message queue requested size 32 messages, maximum of 10 allowed
+stress-ng: 13:21:23.97 info:  [23247] stress-ng-mq: POSIX message queue requested size 32 messages, maximum of 10 allowed
+stress-ng: 13:36:25.09 info:  [9545] stress-ng-pipeherd: 0.80 context switches per bogo operation (26522.05 per second)
+stress-ng: 13:36:25.09 info:  [9549] stress-ng-pipeherd: 0.87 context switches per bogo operation (27286.69 per second)
+stress-ng: 13:36:25.13 info:  [9547] stress-ng-pipeherd: 0.59 context switches per bogo operation (22622.37 per second)
+stress-ng: 13:36:25.14 info:  [9551] stress-ng-pipeherd: 0.88 context switches per bogo operation (27163.65 per second)
+stress-ng: 13:39:25.20 info:  [28543] stress-ng-pthread: 100.00% of iterations could not reach requested 30000 threads (instance 3)
+stress-ng: 13:39:25.21 info:  [28541] stress-ng-pthread: 99.78% of iterations could not reach requested 30000 threads (instance 1)
+stress-ng: 13:39:25.22 info:  [28540] stress-ng-pthread: 100.00% of iterations could not reach requested 30000 threads (instance 0)
+stress-ng: 13:39:25.23 info:  [28542] stress-ng-pthread: 99.77% of iterations could not reach requested 30000 threads (instance 2)
+stress-ng: 13:50:25.84 info:  [21843] stress-ng-readahead: test expired during test setup (writing of data file)
+stress-ng: 13:50:25.90 info:  [21846] stress-ng-readahead: test expired during test setup (writing of data file)
+stress-ng: 13:50:25.94 info:  [21844] stress-ng-readahead: test expired during test setup (writing of data file)
+stress-ng: 13:50:26.45 info:  [21845] stress-ng-readahead: test expired during test setup (writing of data file)
+stress-ng: 13:55:19.43 info:  [464] stress-ng-revio: average number of extents 41248.00
+stress-ng: 13:55:19.80 info:  [467] stress-ng-revio: average number of extents 34060.00
+stress-ng: 13:55:20.57 info:  [465] stress-ng-revio: average number of extents 38972.00
+stress-ng: 13:55:21.02 info:  [466] stress-ng-revio: average number of extents 38796.00
+stress-ng: 14:24:15.63 info:  [11645] stress-ng-sleep: 0.00% of iterations could not reach requested 30000 threads (instance 3)
+stress-ng: 14:24:15.64 info:  [11643] stress-ng-sleep: 0.00% of iterations could not reach requested 30000 threads (instance 1)
+stress-ng: 14:24:15.63 info:  [11644] stress-ng-sleep: 0.00% of iterations could not reach requested 30000 threads (instance 2)
+stress-ng: 14:24:15.65 info:  [11642] stress-ng-sleep: 0.00% of iterations could not reach requested 30000 threads (instance 0)
+stress-ng: 14:34:22.64 info:  [13184] stress-ng-stream: using built-in defaults as unable to determine cache details
+stress-ng: 14:34:22.64 info:  [13184] stress-ng-stream: stressor loosely based on a variant of the STREAM benchmark code
+stress-ng: 14:34:22.64 info:  [13184] stress-ng-stream: do NOT submit any of these results to the STREAM benchmark results
+stress-ng: 14:34:22.64 info:  [13184] stress-ng-stream: Using CPU cache size of 2048K
+stress-ng: 14:35:22.65 info:  [13184] stress-ng-stream: memory rate: 463.03 MB/sec, 185.21 Mflop/sec (instance 0)
+stress-ng: 14:35:22.65 info:  [13186] stress-ng-stream: memory rate: 365.55 MB/sec, 146.22 Mflop/sec (instance 2)
+stress-ng: 14:35:22.66 info:  [13185] stress-ng-stream: memory rate: 415.27 MB/sec, 166.11 Mflop/sec (instance 1)
+stress-ng: 14:35:22.66 info:  [13187] stress-ng-stream: memory rate: 309.42 MB/sec, 123.77 Mflop/sec (instance 3)
+stress-ng: 14:37:22.75 info:  [13195] stress-ng-switch: 50176.67 nanoseconds per context switch (based on parent run time)
+stress-ng: 14:37:22.75 info:  [13196] stress-ng-switch: 50708.53 nanoseconds per context switch (based on parent run time)
+stress-ng: 14:37:22.75 info:  [13197] stress-ng-switch: 50838.24 nanoseconds per context switch (based on parent run time)
+stress-ng: 14:37:22.75 info:  [13199] stress-ng-switch: 50797.06 nanoseconds per context switch (based on parent run time)

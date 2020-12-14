@@ -1,0 +1,80 @@
+stress-ng: 18:14:14.73 info:  [573] apparmor: stressor will be skipped, AppArmor is not available
+stress-ng: 18:14:14.73 info:  [573] bad_ioctl stressor will be skipped, need to be running without root privilege for this stressor
+stress-ng: 18:14:14.73 info:  [573] cpu_online stressor will be skipped, cannot write to cpu1 online sysfs control file
+stress-ng: 18:14:14.73 info:  [573] efivar stressor will be skipped, need to have access to EFI vars in /sys/firmware/efi/vars
+stress-ng: 18:14:14.73 info:  [573] exec stressor must not run as root, skipping the stressor
+stress-ng: 18:14:14.73 info:  [573] /sys/kernel/mm/page_idle/bitmap stressor will be skipped, cannot access file idle_page
+stress-ng: 18:14:14.73 info:  [573] ipsec_mb: stressor will be skipped, CPU needs to be an x86-64 and a recent IPSec MB library is required.
+stress-ng: 18:14:14.73 info:  [573] pidfd: stressor will be skipped, system call not supported at build time
+stress-ng: 18:14:14.74 info:  [573] rdrand stressor will be skipped, CPU does not support the rdrand instruction.
+stress-ng: 18:14:14.74 info:  [573] spawn stressor must not run as root, skipping the stressor
+stress-ng: 18:14:14.74 info:  [573] tsc stressor will be skipped, CPU does not support the rdtsc instruction.
+stress-ng: 18:14:14.74 info:  [573] tun stressor will be skipped, cannot open /dev/net/tun
+stress-ng: 18:14:14.74 info:  [573] disabled 'bind-mount' as it may hang or reboot the machine (enable it with the --pathological option)
+stress-ng: 18:14:14.74 info:  [573] disabled 'mlockmany' as it may hang or reboot the machine (enable it with the --pathological option)
+stress-ng: 18:14:14.74 info:  [573] disabled 'oom-pipe' as it may hang or reboot the machine (enable it with the --pathological option)
+stress-ng: 18:14:14.74 info:  [573] disabled 'watchdog' as it may hang or reboot the machine (enable it with the --pathological option)
+stress-ng: 18:14:14.74 info:  [573] defaulting to a 60 second run per stressor
+stress-ng: 18:14:14.75 info:  [573] dispatching hogs: 4 aio, 4 aiol, 4 atomic, 4 bad-altstack, 4 bigheap, 4 branch, 4 brk, 4 bsearch, 4 cache, 4 cap, 4 chroot, 4 clock, 4 clone, 4 close, 4 context, 4 cpu, 4 crypt, 4 daemon, 4 dev, 4 dev-shm, 4 dynlib, 4 enosys, 4 env, 4 epoll, 4 fault, 4 fifo, 4 fork, 4 fp-error, 4 full, 4 funccall, 4 funcret, 4 futex, 4 get, 4 getrandom, 4 hdd, 4 heapsort, 4 hrtimers, 4 hsearch, 4 icache, 4 icmp-flood, 4 itimer, 4 judy, 4 kcmp, 4 key, 4 kill, 4 klog, 4 lockbus, 4 longjmp, 4 loop, 4 lsearch, 4 madvise, 4 malloc, 4 matrix, 4 matrix-3d, 4 mcontend, 4 membarrier, 4 memcpy, 4 memfd, 4 memrate, 4 memthrash, 4 mergesort, 4 mincore, 4 mmap, 4 mmapaddr, 4 mmapfixed, 4 mmapfork, 4 mmapmany, 4 mq, 4 mremap, 4 msg, 4 msync, 4 nanosleep, 4 netdev, 4 netlink-task, 4 nice, 4 nop, 4 null, 4 opcode, 4 personality, 4 physpage, 4 pipe, 4 pipeherd, 4 poll, 4 prctl, 4 pthread, 4 ptrace, 4 pty, 4 qsort, 4 quota, 4 radixsort, 4 ramfs, 4 rawdev, 4 rawpkt, 4 rawsock, 4 rawudp, 4 readahead, 4 reboot, 4 remap, 4 resources, 4 revio, 4 rlimit, 4 rmap, 4 rtc, 4 schedpolicy, 4 seal, 4 seccomp, 4 seek, 4 sem, 4 sem-sysv, 4 sendfile, 4 session, 4 set, 4 shellsort, 4 shm, 4 shm-sysv, 4 sigabrt, 4 sigchld, 4 sigfd, 4 sigfpe, 4 sigio, 4 sigpending, 4 sigpipe, 4 sigq, 4 sigrt, 4 sigsegv, 4 sigsuspend, 4 sigtrap, 4 skiplist, 4 sleep, 4 sock, 4 sockabuse, 4 sockdiag, 4 sockfd, 4 sockpair, 4 sockmany, 4 softlockup, 4 splice, 4 stack, 4 stackmmap, 4 str, 4 stream, 4 swap, 4 switch, 4 sysbadaddr, 4 sysinval, 4 sysfs, 4 tee, 4 timer, 4 timerfd, 4 tlb-shootdown, 4 tmpfs, 4 tsearch, 4 udp, 4 udp-flood, 4 unshare, 4 urandom, 4 vdso, 4 vecmath, 4 vfork, 4 vforkmany, 4 vm, 4 vm-addr, 4 vm-rw, 4 vm-segv, 4 vm-splice, 4 wait, 4 wcs, 4 x86syscall, 4 yield, 4 zero, 4 zlib, 4 zombie
+stress-ng: 19:27:05.77 info:  [573] successful run completed in 4371.00s (1 hour, 12 mins, 51.00 secs)
+stress-ng: 19:27:05.77 info:  [573] stressor       bogo ops real time  usr time  sys time   bogo ops/s   bogo ops/s
+stress-ng: 19:27:05.77 info:  [573]                           (secs)    (secs)    (secs)   (real time) (usr+sys time)
+stress-ng: 19:27:05.77 info:  [573] aio             5931573     60.02    102.47     91.80     98823.34     30532.62
+stress-ng: 19:27:05.77 info:  [573] aiol                 12    254.30      0.56      1.96         0.05         4.76
+stress-ng: 19:27:05.77 info:  [573] atomic          3106212     60.00    160.91      0.73     51770.61     19216.85
+stress-ng: 19:27:05.78 info:  [573] bad-altstack      36766     60.00     86.40     63.22       612.73       245.73
+stress-ng: 19:27:05.78 info:  [573] bigheap              12     63.99      0.42      4.70         0.19         2.34
+stress-ng: 19:27:05.78 info:  [573] branch        1552583938     59.98    160.74      0.65  25884249.43   9620075.21
+stress-ng: 19:27:05.78 info:  [573] brk              419864    161.49      0.11      1.92      2599.94    206829.56
+stress-ng: 19:27:05.78 info:  [573] bsearch              49     63.84    169.24      0.84         0.77         0.29
+stress-ng: 19:27:05.78 info:  [573] cache               196     60.00    159.62      0.91         3.27         1.22
+stress-ng: 19:27:05.78 info:  [573] cap            21286989     60.00     56.89    104.55    354778.59    131856.97
+stress-ng: 19:27:05.78 info:  [573] chroot            46240     60.00     80.78     67.49       770.65       311.86
+stress-ng: 19:27:05.79 info:  [573] clock            796288     60.00     19.23    129.44     13271.55      5356.08
+stress-ng: 19:27:05.79 info:  [573] clone              4094     60.22      0.62    180.42        67.98        22.61
+stress-ng: 19:27:05.79 info:  [573] close            206572     60.02     13.96     53.59      3441.97      3058.06
+stress-ng: 19:27:05.79 info:  [573] context           96751     60.00     62.22     99.28      1612.53       599.08
+stress-ng: 19:27:05.79 info:  [573] cpu                2547     61.10    164.49      0.70        41.69        15.42
+stress-ng: 19:27:05.79 info:  [573] crypt              1486     60.06    161.36      0.80        24.74         9.16
+stress-ng: 19:27:05.79 info:  [573] daemon            72219     60.00      0.23      3.49      1203.66     19413.71
+stress-ng: 19:27:05.79 info:  [573] dev                5224     60.05     14.44     49.57        86.99        81.61
+stress-ng: 19:27:05.79 info:  [573] dev-shm            1114     60.15      1.60    229.10        18.52         4.83
+stress-ng: 19:27:05.79 info:  [573] dynlib            21102     60.00     73.54     86.67       351.69       131.71
+stress-ng: 19:27:05.80 info:  [573] enosys            55257     60.01    120.04    110.62       920.81       239.56
+stress-ng: 19:27:05.80 info:  [573] env                 104     79.18      6.96      3.55         1.31         9.90
+stress-ng: 19:27:05.80 info:  [573] epoll            808785     60.00     25.41    168.21     13479.54      4177.18
+stress-ng: 19:27:05.80 info:  [573] fault            355527     60.00      2.06    154.17      5925.46      2275.66
+stress-ng: 19:27:05.80 info:  [573] fifo             352385     60.21      3.57    225.88      5852.29      1535.78
+stress-ng: 19:27:05.80 info:  [573] fork              13055     60.03     21.00    150.79       217.46        75.99
+stress-ng: 19:27:05.80 info:  [573] fp-error       35759970     60.00    160.82      0.64    596004.72    221478.82
+stress-ng: 19:27:05.81 info:  [573] full            3108634     60.00     95.47     64.01     51810.97     19492.31
+stress-ng: 19:27:05.81 info:  [573] funccall          38505     60.00    161.21      0.56       641.71       238.02
+stress-ng: 19:27:05.81 info:  [573] funcret         2759413     60.00    161.09      0.65     45989.30     17060.80
+stress-ng: 19:27:05.81 info:  [573] futex           5537280     60.00     13.67    182.45     92286.14     28234.14
+stress-ng: 19:27:05.81 info:  [573] get              369251     60.00     32.55    119.96      6154.24      2421.16
+stress-ng: 19:27:05.81 info:  [573] getrandom        225270     60.00      0.12    133.49      3754.46      1686.03
+stress-ng: 19:27:05.81 info:  [573] hdd                  66    262.55      1.06      2.38         0.25        19.19
+stress-ng: 19:27:05.81 info:  [573] heapsort              1     60.01    161.24      0.99         0.02         0.01
+stress-ng: 19:27:05.81 info:  [573] hrtimers       12023992     62.75     16.58    237.57    191610.26     47310.61
+stress-ng: 19:27:05.81 info:  [573] hsearch              22     60.09    159.23      2.71         0.37         0.14
+stress-ng: 19:27:05.82 info:  [573] icache             8496     60.01     15.62    145.60       141.58        52.70
+stress-ng: 19:27:05.82 info:  [573] icmp-flood      3339175     60.00      9.69    146.43     55652.76     21388.52
+stress-ng: 19:27:05.82 info:  [573] itimer            16149     60.00     20.40    141.17       269.15        99.95
+stress-ng: 19:27:05.82 info:  [573] judy                 16     62.83    170.84      1.09         0.25         0.09
+stress-ng: 19:27:05.82 info:  [573] kcmp            7112435     60.00    105.84     55.83    118538.63     43993.54
+stress-ng: 19:27:05.82 info:  [573] key                4475     60.00     20.45    134.71        74.58        28.84
+stress-ng: 19:27:05.82 info:  [573] kill            4105668     60.00      3.68    157.43     68427.98     25483.63
+stress-ng: 19:27:05.82 info:  [573] klog               5544     60.01      0.03    157.61        92.38        35.17
+stress-ng: 19:27:05.82 info:  [573] lockbus        42520445     60.06    160.28      1.12    708018.34    263447.61
+stress-ng: 19:27:05.82 info:  [573] longjmp          513966     60.00    161.41      0.80      8566.14      3168.52
+stress-ng: 19:27:05.82 info:  [573] loop                138     60.74      0.06      0.84         2.27       153.33
+stress-ng: 19:27:05.82 info:  [573] lsearch               4     60.00    160.62      0.75         0.07         0.02
+stress-ng: 19:27:05.83 info:  [573] madvise             471     60.19     13.13    150.37         7.82         2.88
+stress-ng: 19:27:05.83 info:  [573] malloc                8    257.44      0.02      1.27         0.03         6.20
+stress-ng: 19:27:05.83 info:  [573] matrix                4    390.39     11.49      6.17         0.01         0.23
+stress-ng: 19:27:05.83 info:  [573] for a 4371.00s run time:
+stress-ng: 19:27:05.83 info:  [573]   17484.00s available CPU time
+stress-ng: 19:27:05.83 info:  [573]    3486.88s user time   ( 19.94%)
+stress-ng: 19:27:05.83 info:  [573]    3833.26s system time ( 21.92%)
+stress-ng: 19:27:05.83 info:  [573]    7320.14s total time  ( 41.87%)
+stress-ng: 19:27:05.83 info:  [573] load average: 9.30 11.97 12.03

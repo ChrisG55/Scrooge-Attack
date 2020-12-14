@@ -1,0 +1,1 @@
+It seems the BlackBox power switch experienced several power outages. The PowerSpy recording was interrupted early and the Raspberry Pi rebooted twice over night, yet managed to finish the stress-ng benchmark.

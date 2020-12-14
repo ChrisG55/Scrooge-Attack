@@ -1,0 +1,224 @@
+[    0.000000] Booting Linux on physical CPU 0x0
+[    0.000000] Linux version 4.19.118-v7+ (dom@buildbot) (gcc version 4.9.3 (crosstool-NG crosstool-ng-1.22.0-88-g8460611)) #1311 SMP Mon Apr 27 14:21:24 BST 2020
+[    0.000000] CPU: ARMv7 Processor [410fd034] revision 4 (ARMv7), cr=10c5383d
+[    0.000000] CPU: div instructions available: patching division code
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+[    0.000000] OF: fdt: Machine model: Raspberry Pi 3 Model B Plus Rev 1.3
+[    0.000000] Memory policy: Data cache writealloc
+[    0.000000] cma: Reserved 8 MiB at 0x3ac00000
+[    0.000000] random: get_random_bytes called from start_kernel+0xac/0x4b4 with crng_init=0
+[    0.000000] percpu: Embedded 16 pages/cpu s36864 r8192 d20480 u65536
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 240555
+[    0.000000] Kernel command line: coherent_pool=1M 8250.nr_uarts=1 snd_bcm2835.enable_compat_alsa=0 snd_bcm2835.enable_hdmi=1 snd_bcm2835.enable_headphones=1 bcm2708_fb.fbwidth=656 bcm2708_fb.fbheight=416 bcm2708_f
+b.fbswap=1 vc_mem.mem_base=0x3ec00000 vc_mem.mem_size=0x40000000  dwc_otg.lpm_enable=0 console=ttyAMA0,115200 console=tty1 root=PARTUUID=4c999877-02 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait
+[    0.000000] Dentry cache hash table entries: 131072 (order: 7, 524288 bytes)
+[    0.000000] Inode-cache hash table entries: 65536 (order: 6, 262144 bytes)
+[    0.000000] Memory: 939064K/970752K available (8192K kernel code, 656K rwdata, 2232K rodata, 1024K init, 831K bss, 23496K reserved, 8192K cma-reserved)
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000]     fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
+[    0.000000]     vmalloc : 0xbb800000 - 0xff800000   (1088 MB)
+[    0.000000]     lowmem  : 0x80000000 - 0xbb400000   ( 948 MB)
+[    0.000000]     modules : 0x7f000000 - 0x80000000   (  16 MB)
+[    0.000000]       .text : 0x(ptrval) - 0x(ptrval)   (9184 kB)
+[    0.000000]       .init : 0x(ptrval) - 0x(ptrval)   (1024 kB)
+[    0.000000]       .data : 0x(ptrval) - 0x(ptrval)   ( 657 kB)
+[    0.000000]        .bss : 0x(ptrval) - 0x(ptrval)   ( 832 kB)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[    0.000000] ftrace: allocating 27093 entries in 80 pages
+[    0.000000] rcu: Hierarchical RCU implementation.
+[    0.000000] NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16
+[    0.000000] arch_timer: cp15 timer(s) running at 19.20MHz (phys).
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x46d987e47, max_idle_ns: 440795202767 ns
+[    0.000007] sched_clock: 56 bits at 19MHz, resolution 52ns, wraps every 4398046511078ns
+[    0.000023] Switching to timer-based delay loop, resolution 52ns
+[    0.000277] Console: colour dummy device 80x30
+[    0.000912] console [tty1] enabled
+[    0.000971] Calibrating delay loop (skipped), value calculated using timer frequency.. 38.40 BogoMIPS (lpj=192000)
+[    0.001014] pid_max: default: 32768 minimum: 301
+[    0.001381] Mount-cache hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.001417] Mountpoint-cache hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.002375] CPU: Testing write buffer coherency: ok
+[    0.002857] CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
+[    0.003540] Setting up static identity map for 0x100000 - 0x10003c
+[    0.003708] rcu: Hierarchical SRCU implementation.
+[    0.004538] smp: Bringing up secondary CPUs ...
+[    0.005454] CPU1: thread -1, cpu 1, socket 0, mpidr 80000001
+[    0.006433] CPU2: thread -1, cpu 2, socket 0, mpidr 80000002
+[    0.007348] CPU3: thread -1, cpu 3, socket 0, mpidr 80000003
+[    0.007463] smp: Brought up 1 node, 4 CPUs
+[    0.007542] SMP: Total of 4 processors activated (153.60 BogoMIPS).
+[    0.007566] CPU: All CPU(s) started in HYP mode.
+[    0.007587] CPU: Virtualization extensions available.
+[    0.008582] devtmpfs: initialized
+[    0.022033] VFP support v0.3: implementor 41 architecture 3 part 40 variant 3 rev 4
+[    0.022307] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.022357] futex hash table entries: 1024 (order: 4, 65536 bytes)
+[    0.022965] pinctrl core: initialized pinctrl subsystem
+[    0.023831] NET: Registered protocol family 16
+[    0.027050] DMA: preallocated 1024 KiB pool for atomic coherent allocations
+[    0.032962] hw-breakpoint: found 5 (+1 reserved) breakpoint and 4 watchpoint registers.
+[    0.032997] hw-breakpoint: maximum watchpoint size is 8 bytes.
+[    0.033216] Serial: AMBA PL011 UART driver
+[    0.035572] bcm2835-mbox 3f00b880.mailbox: mailbox enabled
+[    0.050029] raspberrypi-firmware soc:firmware: Attached to firmware from 2020-04-15 11:43, variant start
+[    0.060042] raspberrypi-firmware soc:firmware: Firmware hash is 82f9bb929ce2186eb1824178c1ae82902ad6275c
+[    0.103054] bcm2835-dma 3f007000.dma: DMA legacy API manager at (ptrval), dmachans=0x1
+[    0.104708] SCSI subsystem initialized
+[    0.104955] usbcore: registered new interface driver usbfs
+[    0.105035] usbcore: registered new interface driver hub
+[    0.105149] usbcore: registered new device driver usb
+[    0.106883] clocksource: Switched to clocksource arch_sys_counter
+[    0.197437] VFS: Disk quotas dquot_6.6.0
+[    0.197547] VFS: Dquot-cache hash table entries: 1024 (order 0, 4096 bytes)
+[    0.197716] FS-Cache: Loaded
+[    0.197944] CacheFiles: Loaded
+[    0.207931] NET: Registered protocol family 2
+[    0.208799] tcp_listen_portaddr_hash hash table entries: 512 (order: 0, 6144 bytes)
+[    0.208863] TCP established hash table entries: 8192 (order: 3, 32768 bytes)
+[    0.208993] TCP bind hash table entries: 8192 (order: 4, 65536 bytes)
+[    0.209197] TCP: Hash tables configured (established 8192 bind 8192)
+[    0.209362] UDP hash table entries: 512 (order: 2, 16384 bytes)
+[    0.209432] UDP-Lite hash table entries: 512 (order: 2, 16384 bytes)
+[    0.209690] NET: Registered protocol family 1
+[    0.210280] RPC: Registered named UNIX socket transport module.
+[    0.210308] RPC: Registered udp transport module.
+[    0.210329] RPC: Registered tcp transport module.
+[    0.210351] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    0.212198] hw perfevents: enabled with armv7_cortex_a7 PMU driver, 7 counters available
+[    0.215301] Initialise system trusted keyrings
+[    0.215510] workingset: timestamp_bits=14 max_order=18 bucket_order=4
+[    0.225472] FS-Cache: Netfs 'nfs' registered for caching
+[    0.226050] NFS: Registering the id_resolver key type
+[    0.226096] Key type id_resolver registered
+[    0.226119] Key type id_legacy registered
+[    0.226150] nfs4filelayout_init: NFSv4 File Layout Driver Registering...
+[    0.231600] Key type asymmetric registered
+[    0.231636] Asymmetric key parser 'x509' registered
+[    0.231708] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 250)
+[    0.231903] io scheduler noop registered
+[    0.231928] io scheduler deadline registered (default)
+[    0.232145] io scheduler cfq registered
+[    0.232170] io scheduler mq-deadline registered (default)
+[    0.232193] io scheduler kyber registered
+[    0.234402] bcm2708_fb soc:fb: FB found 1 display(s)
+[    0.243758] Console: switching to colour frame buffer device 82x26
+[    0.250618] bcm2708_fb soc:fb: Registered framebuffer for display 0, size 656x416
+[    0.256252] Serial: 8250/16550 driver, 1 ports, IRQ sharing enabled
+[    0.260088] bcm2835-rng 3f104000.rng: hwrng registered
+[    0.262771] vc-mem: phys_addr:0x00000000 mem_base=0x3ec00000 mem_size:0x40000000(1024 MiB)
+[    0.268164] vc-sm: Videocore shared memory driver
+[    0.270972] gpiomem-bcm2835 3f200000.gpiomem: Initialised: Registers at 0x3f200000
+[    0.286848] brd: module loaded
+[    0.299615] loop: module loaded
+[    0.302721] Loading iSCSI transport class v2.0-870.
+[    0.305895] libphy: Fixed MDIO Bus: probed
+[    0.308432] usbcore: registered new interface driver lan78xx
+[    0.310953] usbcore: registered new interface driver smsc95xx
+[    0.313395] dwc_otg: version 3.00a 10-AUG-2012 (platform bus)
+[    0.343706] dwc_otg 3f980000.usb: base=(ptrval)
+[    0.546411] Core Release: 2.80a
+[    0.548897] Setting default values for core params
+[    0.551400] Finished setting default values for core params
+[    0.754171] Using Buffer DMA mode
+[    0.756582] Periodic Transfer Interrupt Enhancement - disabled
+[    0.759022] Multiprocessor Interrupt Enhancement - disabled
+[    0.761415] OTG VER PARAM: 0, OTG VER FLAG: 0
+[    0.763767] Dedicated Tx FIFOs mode
+[    0.766466] WARN::dwc_otg_hcd_init:1074: FIQ DMA bounce buffers: virt = bad14000 dma = 0xfad14000 len=9024
+[    0.771080] FIQ FSM acceleration enabled for :
+[    0.771080] Non-periodic Split Transactions
+[    0.771080] Periodic Split Transactions
+[    0.771080] High-Speed Isochronous Endpoints
+[    0.771080] Interrupt/Control Split Transaction hack enabled
+[    0.782053] WARN::hcd_init_fiq:457: FIQ on core 1
+[    0.784280] WARN::hcd_init_fiq:458: FIQ ASM at 8068fda0 length 36
+[    0.786492] WARN::hcd_init_fiq:497: MPHI regs_base at bb810000
+[    0.788749] dwc_otg 3f980000.usb: DWC OTG Controller
+[    0.791021] dwc_otg 3f980000.usb: new USB bus registered, assigned bus number 1
+[    0.793344] dwc_otg 3f980000.usb: irq 56, io mem 0x00000000
+[    0.795651] Init: Port Power? op_state=1
+[    0.797911] Init: Power Port (0)
+[    0.800329] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 4.19
+[    0.804839] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    0.807279] usb usb1: Product: DWC OTG Controller
+[    0.809647] usb usb1: Manufacturer: Linux 4.19.118-v7+ dwc_otg_hcd
+[    0.812074] usb usb1: SerialNumber: 3f980000.usb
+[    0.815026] hub 1-0:1.0: USB hub found
+[    0.817334] hub 1-0:1.0: 1 port detected
+[    0.820377] usbcore: registered new interface driver usb-storage
+[    0.822842] mousedev: PS/2 mouse device common for all mice
+[    0.825984] bcm2835-wdt bcm2835-wdt: Broadcom BCM2835 watchdog timer
+[    0.828630] bcm2835-cpufreq: min=600000 max=1400000
+[    0.831446] sdhci: Secure Digital Host Controller Interface driver
+[    0.833861] sdhci: Copyright(c) Pierre Ossman
+[    0.836669] sdhost-bcm2835 3f202000.mmc: could not get clk, deferring probe
+[    0.839358] sdhci-pltfm: SDHCI platform and OF driver helper
+[    0.843414] ledtrig-cpu: registered to indicate activity on CPUs
+[    0.846104] hidraw: raw HID events driver (C) Jiri Kosina
+[    0.848869] usbcore: registered new interface driver usbhid
+[    0.851416] usbhid: USB HID core driver
+[    0.854751] vchiq: vchiq_init_state: slot_zero = (ptrval), is_master = 0
+[    0.858912] [vc_sm_connected_init]: start
+[    0.868584] [vc_sm_connected_init]: end - returning 0
+[    0.872113] Initializing XFRM netlink socket
+[    0.874504] NET: Registered protocol family 17
+[    0.876993] Key type dns_resolver registered
+[    0.879967] Registering SWP/SWPB emulation handler
+[    0.882972] registered taskstats version 1
+[    0.885351] Loading compiled-in X.509 certificates
+[    0.894394] uart-pl011 3f201000.serial: cts_event_workaround enabled
+[    0.896961] 3f201000.serial: ttyAMA0 at MMIO 0x3f201000 (irq = 81, base_baud = 0) is a PL011 rev2
+[    1.900612] console [ttyAMA0] enabled
+[    1.908696] sdhost: log_buf @ (ptrval) (fad13000)
+[    1.964155] mmc0: sdhost-bcm2835 loaded - DMA enabled (>1)
+[    1.973336] of_cfs_init
+[    1.978173] of_cfs_init: OK
+[    1.983730] Waiting for root device PARTUUID=4c999877-02...
+[    2.017002] Indeed it is in host mode hprt0 = 00021501
+[    2.112052] random: fast init done
+[    2.122348] mmc0: host does not support reading read-only switch, assuming write-enable
+[    2.140386] mmc0: new high speed SDHC card at address aaaa
+[    2.149391] mmcblk0: mmc0:aaaa SC16G 14.8 GiB
+[    2.161344]  mmcblk0: p1 p2
+[    2.201108] EXT4-fs (mmcblk0p2): INFO: recovery required on readonly filesystem
+[    2.210968] EXT4-fs (mmcblk0p2): write access will be enabled during recovery
+[    2.226922] usb 1-1: new high-speed USB device number 2 using dwc_otg
+[    2.236028] Indeed it is in host mode hprt0 = 00001101
+[    2.477196] usb 1-1: New USB device found, idVendor=0424, idProduct=2514, bcdDevice= b.b3
+[    2.490536] usb 1-1: New USB device strings: Mfr=0, Product=0, SerialNumber=0
+[    2.501108] hub 1-1:1.0: USB hub found
+[    2.507675] hub 1-1:1.0: 4 ports detected
+[    2.686661] EXT4-fs (mmcblk0p2): recovery complete
+[    2.696293] EXT4-fs (mmcblk0p2): mounted filesystem with ordered data mode. Opts: (null)
+[    2.709697] VFS: Mounted root (ext4 filesystem) readonly on device 179:2.
+[    2.730512] devtmpfs: mounted
+[    2.743531] Freeing unused kernel memory: 1024K
+[    2.751216] Run /sbin/init as init process
+[    2.836936] usb 1-1.1: new high-speed USB device number 3 using dwc_otg
+[    2.967222] usb 1-1.1: New USB device found, idVendor=0424, idProduct=2514, bcdDevice= b.b3
+[    2.981022] usb 1-1.1: New USB device strings: Mfr=0, Product=0, SerialNumber=0
+[    2.991917] hub 1-1.1:1.0: USB hub found
+[    2.998769] hub 1-1.1:1.0: 3 ports detected
+[    3.381594] systemd[1]: System time before build time, advancing clock.
+[    3.443663] systemd[1]: systemd 241 running in system mode. (+PAM +AUDIT +SELINUX +IMA +APPARMOR +SMACK +SYSVINIT +UTMP +LIBCRYPTSETUP +GCRYPT +GNUTLS +ACL +XZ +LZ4 +SECCOMP +BLKID +ELFUTILS +KMOD -IDN2 +IDN -PCRE
+2 default-hierarchy=hybrid)
+[    3.474360] systemd[1]: Detected architecture arm.
+[    3.502128] systemd[1]: Set hostname to <raspberrypi>.
+[    3.657041] usb 1-1.1.1: new high-speed USB device number 4 using dwc_otg
+[    3.685463] uart-pl011 3f201000.serial: no DMA platform data
+[    3.807457] usb 1-1.1.1: New USB device found, idVendor=0424, idProduct=7800, bcdDevice= 3.00
+[    3.821569] usb 1-1.1.1: New USB device strings: Mfr=0, Product=0, SerialNumber=0
+[    4.099508] lan78xx 1-1.1.1:1.0 (unnamed net_device) (uninitialized): No External EEPROM. Setting MAC Speed
+[    4.116294] libphy: lan78xx-mdiobus: probed
+[    4.148464] lan78xx 1-1.1.1:1.0 (unnamed net_device) (uninitialized): int urb period 64
+[    4.496457] random: systemd: uninitialized urandom read (16 bytes read)
+[    4.517670] random: systemd: uninitialized urandom read (16 bytes read)
+[    4.528127] systemd[1]: Listening on Journal Socket (/dev/log).
+[    4.540985] random: systemd: uninitialized urandom read (16 bytes read)
+[    4.551121] systemd[1]: Listening on Syslog Socket.
+[    4.563017] systemd[1]: Listening on Journal Socket.
+[    4.574976] systemd[1]: Listening on udev Kernel Socket.
+[    4.604512] systemd[1]: Starting Set the console keyboard layout...
+[    4.623326] systemd[1]: Mounting RPC Pipe File System...
+[    4.642012] systemd[1]: Mounting POSIX Message Queue File System...
