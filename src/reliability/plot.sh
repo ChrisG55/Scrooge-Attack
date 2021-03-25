@@ -48,10 +48,11 @@ compute_measurement_results()
     # Get UNIX timestamp
     pslog="${1%/*}/powerspy_${1##*_}"
     pscsv="${pslog%log}csv"
-    [ ! -s "$pslog" ] && fail "parse_regular_measurements" "$pslog does not exist"
+    [ ! -s "$pslog" ] && fail "compute_measurement_results" "$pslog does not exist"
     [ ! -s "$pscsv" ] && ../powerspy_log2csv.sh "$pslog"
     # tsps: timestamp in seconds in PowerSpy log
     # tst0: timestamp in seconds at 00:00:00
+    # NOTE: timestamps of measurements done at midnight are fixed later
     tsps=$(sed -n -e '2 s/^\([[:digit:]]\+\)\..\+$/\1/p' "$pslog")
     tst0=$(date -d @$tsps | awk '{ split($4, arr, ":"); for (i in arr) { sub("^0", "", arr[i]) }; print ts - (arr[1] * 3600 + arr[2] * 60 + arr[3]) }' ts=$tsps)
     # Stressor's start and end times (sed version)
@@ -81,8 +82,12 @@ compute_measurement_results()
 	    warn "compute_measurement_results" "$pslog does not exist"
 	    continue
 	fi
-	../powerspy_extractor.m "$pscsv" "$PSTMP" $(printf "$line\n" | cut -d , -f 2) ${line##*,}
-	E=$(../powerspy_p2E.m "$PSTMP" | sed -e 's/^.\+ \([[:digit:]]\+\.[[:digit:]]\+\)$/\1/')
+	# NOTE: fixing timestamps of measurements done at midnight
+	tsfirst=$(printf "$line\n" | cut -d , -f 2)
+	tslast=${line##*,}
+	ts=$(awk -v tsps=$tsps -v tsfirst=$tsfirst -v tslast=$tslast 'BEGIN { if ((tsfirst < tsps) && (tslast < tsps)) { tsfirst+=86400; tslast+=86400 }; if (tslast - tsfirst < 0) tslast+=86400; printf("%.2f %.2f\n", tsfirst, tslast) }')
+	../powerspy_extractor.m "$pscsv" "$PSTMP" $ts
+	E=$(../powerspy_p2E.m "$PSTMP" | sed -e 's/^ans =[[:space:]]\+\([[:digit:]]\+\)\(\.[[:digit:]]\+\)\{0,1\}$/\1\2/')
 	printf "$stressor,$E,$op,$opps\n"
 	rm -f "$PSTMP"
     done <$tmpE
@@ -94,6 +99,8 @@ compute_measurement_results()
 # FILES:
 #   Results are written into dir/results.csv. The file is created if it does not
 #   exist.
+# STDERR:
+#   The standard error shall be used only for diagnostic messages.
 # RETURN VALUE:
 #   0 if successful
 #   1 if a new result was successfully added
@@ -108,7 +115,8 @@ parse_regular_measurements()
 	do
 	    measurement_id=$(printf "$log" | sed -e 's/^[^_]\+_\([[:digit:]]\+\)\.log$/\1/')
 	    [ -s "$1"results.csv ] && grep -q -e ^$measurement_id, "$1"results.csv
-	    if [ $? -eq 1 ]
+	    rc=$?
+	    if [ $rc -eq 1 ]
 	    then
 		# CSV format:
 		# 1) measurement ID
@@ -122,6 +130,9 @@ parse_regular_measurements()
 		    printf "$measurement_id,0,$line\n" >>"$1"results.csv
 		done
 		new_result=1
+	    elif [ $rc -gt 1 ]
+	    then
+		fail "parse_regular_measurements" "An error occured while searching \"$1\"results.csv for measurement id $measurement_id"
 	    fi
 	done
     fi
@@ -143,7 +154,7 @@ generate_averages()
     recompute_average=$?
     if [ ! -s "$1"results.csv ]
     then
-	info "generate_averages" "${1}results.csv is not available"
+	info "generate_averages" "${1}results.csv could not be generated"
 	return 1
     fi
     stressor_list=$(cut -d , -f 3 "$1"results.csv | sort -u -d)
@@ -171,7 +182,7 @@ generate_averages()
 	    else
 		Epopavg=$(printf "scale=9; $Eavg/$Oavg\n" | bc)
 	    fi
-	    [ $recompute_average -eq 1 ] && sed -e "/^$stressor,/d" "$1"averages.csv >"$1"averages.csv
+	    [ $recompute_average -eq 1 ] && sed -e "/^$stressor,/d" "$1"averages.csv >/tmp/averages.csv && mv /tmp/averages.csv "$1"averages.csv
 	    # CSV format:
 	    # 1) stressor
 	    # 2) average consumed energy in joule [J]
@@ -212,7 +223,7 @@ traverse_measurements()
 plot()
 {
     fail "plot" "not yet implemented"
-    # grep -e ^bigheap, -e ^bsearch, -e ^clock, -e ^cpu, -e ^fork, -e ^futex, -e ^get, -e ^heapsort, -e ^hsearch, -e ^kcmp, -e ^lsearch, -e ^mergesort, -e ^mq, -e ^msg, -e ^pipe, -e ^poll, -e ^qsort, -e ^seek, -e ^sigsegv, -e ^urandom, -e ^vm-rw, "$2"averages.csv | cut -d , -f 4-5 | sed -e '/,$/d' -e 's%^\([^,]\+\),\([^,]\+\)$%\2/\1%' | while read line; do printf "scale=16; $line\n" | bc; done)
+    # grep -e ^atomic, -e ^bigheap, -e ^bsearch, -e ^clock, -e ^cpu, -e ^fork, -e ^futex, -e ^get, -e ^hrtimers, -e ^hsearch, -e ^kcmp, -e ^lsearch, -e ^mergesort, -e ^mq, -e ^msg, -e ^pipe, -e ^poll, -e ^seek, -e ^sigsegv, -e ^urandom, -e ^vm-rw, "$2"averages.csv | cut -d , -f 4-5 | sed -e '/,$/d' -e 's%^\([^,]\+\),\([^,]\+\)$%\2/\1%' | while read line; do printf "scale=16; $line\n" | bc; done)
 }
 
 usage()
