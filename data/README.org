@@ -47,6 +47,10 @@ The data is organized in a hierarchical directory structure:
 - ~dU<voltage>~: ARM CPU voltage adjustment in mV
 - ~active~: reliability benchmark where the device was actively cooled
 - ~passive~: reliability benchmark where the device was passively cooled
+- ~faults~: directory containing different types of faults
+  + ~errors~: measurements that were incorrectly conducted
+  + ~failures~: measurements that failed
+  + ~untrustworthy~: measurements that finished with untrustworthy results
 
 The measurement results can be found in the ~active~ and ~passive~ directories.
 In case of an error, failure or an untrustworthy measurement, the results are stored in a corresponding subdirectory.
