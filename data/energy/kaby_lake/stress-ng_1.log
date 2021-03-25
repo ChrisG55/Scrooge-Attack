@@ -1,0 +1,61 @@
+stress-ng: 22:18:39.32 debug: [622823] 4 processors online, 4 processors configured
+stress-ng: 22:18:39.32 info:  [622823] bad_ioctl stressor will be skipped, need to be running without root privilege for this stressor
+stress-ng: 22:18:39.32 info:  [622823] exec stressor must not run as root, skipping the stressor
+stress-ng: 22:18:39.32 info:  [622823] spawn stressor must not run as root, skipping the stressor
+stress-ng: 22:18:39.32 info:  [622823] disabled 'bind-mount' as it may hang or reboot the machine (enable it with the --pathological option)
+stress-ng: 22:18:39.32 info:  [622823] disabled 'cpu-online' as it may hang or reboot the machine (enable it with the --pathological option)
+stress-ng: 22:18:39.32 info:  [622823] disabled 'mlockmany' as it may hang or reboot the machine (enable it with the --pathological option)
+stress-ng: 22:18:39.32 info:  [622823] disabled 'oom-pipe' as it may hang or reboot the machine (enable it with the --pathological option)
+stress-ng: 22:18:39.32 info:  [622823] disabled 'sysinval' as it may hang or reboot the machine (enable it with the --pathological option)
+stress-ng: 22:18:39.32 info:  [622823] disabled 'watchdog' as it may hang or reboot the machine (enable it with the --pathological option)
+stress-ng: 22:18:39.32 info:  [622823] defaulting to a 60 second run per stressor
+stress-ng: 22:18:39.32 info:  [622823] dispatching hogs: 4 crypt, 4 malloc
+stress-ng: 22:18:39.33 debug: [622823] cache allocate: default cache size: 8192K
+stress-ng: 22:18:39.33 debug: [622823] starting stressors
+stress-ng: 22:18:39.33 debug: [622825] stress-ng-crypt: started [622825] (instance 0)
+stress-ng: 22:18:39.33 debug: [622826] stress-ng-crypt: started [622826] (instance 1)
+stress-ng: 22:18:39.33 debug: [622823] 4 stressors started
+stress-ng: 22:18:39.33 debug: [622827] stress-ng-crypt: started [622827] (instance 2)
+stress-ng: 22:18:39.33 debug: [622828] stress-ng-crypt: started [622828] (instance 3)
+stress-ng: 22:19:39.33 debug: [622825] stress-ng-crypt: exited [622825] (instance 0)
+stress-ng: 22:19:39.33 debug: [622827] stress-ng-crypt: exited [622827] (instance 2)
+stress-ng: 22:19:39.33 debug: [622826] stress-ng-crypt: exited [622826] (instance 1)
+stress-ng: 22:19:39.33 debug: [622823] process [622826] terminated
+stress-ng: 22:19:39.33 debug: [622823] process [622827] terminated
+stress-ng: 22:19:39.33 debug: [622828] stress-ng-crypt: exited [622828] (instance 3)
+stress-ng: 22:19:39.33 debug: [622823] process [622828] terminated
+stress-ng: 22:19:39.33 debug: [622823] starting stressors
+stress-ng: 22:19:39.34 debug: [622853] stress-ng-malloc: started [622853] (instance 0)
+stress-ng: 22:19:39.34 debug: [622823] 4 stressors started
+stress-ng: 22:19:39.34 debug: [622854] stress-ng-malloc: started [622854] (instance 1)
+stress-ng: 22:19:39.34 debug: [622856] stress-ng-malloc: started [622856] (instance 3)
+stress-ng: 22:19:39.34 debug: [622855] stress-ng-malloc: started [622855] (instance 2)
+stress-ng: 22:20:05.43 debug: [622855] stress-ng-malloc: child died: signal 9 'SIGKILL' (instance 2)
+stress-ng: 22:20:05.43 debug: [622855] stress-ng-malloc: assuming killed by OOM killer, restarting again (instance 2)
+stress-ng: 22:20:15.76 debug: [622853] stress-ng-malloc: child died: signal 9 'SIGKILL' (instance 0)
+stress-ng: 22:20:15.76 debug: [622853] stress-ng-malloc: assuming killed by OOM killer, restarting again (instance 0)
+stress-ng: 22:20:29.06 debug: [622856] stress-ng-malloc: child died: signal 9 'SIGKILL' (instance 3)
+stress-ng: 22:20:29.06 debug: [622856] stress-ng-malloc: assuming killed by OOM killer, restarting again (instance 3)
+stress-ng: 22:20:39.66 debug: [622856] stress-ng-malloc: OOM restarts: 1, SIGSEGV restarts: 0, SIGBUS restarts: 0
+stress-ng: 22:20:39.66 debug: [622856] stress-ng-malloc: exited [622856] (instance 3)
+stress-ng: 22:20:39.90 debug: [622853] stress-ng-malloc: OOM restarts: 1, SIGSEGV restarts: 0, SIGBUS restarts: 0
+stress-ng: 22:20:39.90 debug: [622853] stress-ng-malloc: exited [622853] (instance 0)
+stress-ng: 22:20:39.90 debug: [622823] process [622853] terminated
+stress-ng: 22:20:40.01 debug: [622855] stress-ng-malloc: OOM restarts: 1, SIGSEGV restarts: 0, SIGBUS restarts: 0
+stress-ng: 22:20:40.01 debug: [622855] stress-ng-malloc: exited [622855] (instance 2)
+stress-ng: 22:20:40.85 debug: [622854] stress-ng-malloc: exited [622854] (instance 1)
+stress-ng: 22:20:40.85 debug: [622823] process [622854] terminated
+stress-ng: 22:20:40.85 debug: [622823] process [622855] terminated
+stress-ng: 22:20:40.85 debug: [622823] process [622856] terminated
+stress-ng: 22:20:40.86 info:  [622823] successful run completed in 121.53s (2 mins, 1.53 secs)
+stress-ng: 22:20:40.86 info:  [622823] stressor       bogo ops real time  usr time  sys time   bogo ops/s   bogo ops/s
+stress-ng: 22:20:40.86 info:  [622823]                           (secs)    (secs)    (secs)   (real time) (usr+sys time)
+stress-ng: 22:20:40.86 info:  [622823] crypt             36442     60.00    163.28      0.21       607.35       222.90
+stress-ng: 22:20:40.86 info:  [622823] malloc              276     60.77     23.62     57.45         4.54         3.40
+stress-ng: 22:20:40.86 debug: [622823] metrics-check: all stressor metrics validated and sane
+stress-ng: 22:20:40.86 info:  [622823] for a 121.53s run time:
+stress-ng: 22:20:40.86 info:  [622823]     486.10s available CPU time
+stress-ng: 22:20:40.86 info:  [622823]     186.94s user time   ( 38.46%)
+stress-ng: 22:20:40.86 info:  [622823]      57.73s system time ( 11.88%)
+stress-ng: 22:20:40.86 info:  [622823]     244.67s total time  ( 50.33%)
+stress-ng: 22:20:40.86 info:  [622823] load average: 3.91 1.49 0.55

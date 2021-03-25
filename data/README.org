@@ -1,5 +1,19 @@
 This directory contains the raw data recorded during the measurements.
 
+* energy
+Contains energy consumption measurements on ARM and x86 architectures.
+The raw data is organized in an hierarchical directory structure:
+
+- ~<device>~: name of the device used for the measurement
+
+The measurement results can be found in the ~<device>~ directory.
+
+- ~cpuinfo.txt~: output of cpuinfo (x86 only)
+- ~l2ping_*.log~: 32 pings are sent to measure the Bluetooth round trip time (RTT)
+- ~pdu_*.log~: PDU stream log (x86 only)
+- ~powerspy_*.log~: PowerSpy stream log (ARM only)
+- ~stress-ng_*.log~: reliability benchmark log
+
 * etr
 Contains energy to throughput ratio (ETR) measurements.
 The raw data is organized in an hierarchical directory structure:
