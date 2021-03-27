@@ -33,7 +33,9 @@ is_in()
 }
 
 # Compute the results for one measurement.
-# usage: compute_measurement_results stress-ng_*.log
+# usage: compute_measurement_results
+# ENVIRONMENT:
+#   LOG  read stress-ng log file path
 # STDERR:
 #   The standard error shall be used only for diagnostic messages.
 # STDOUT:
@@ -46,7 +48,7 @@ compute_measurement_results()
 {
     tmpE=/tmp/energy.csv
     # Get UNIX timestamp
-    pslog="${1%/*}/powerspy_${1##*_}"
+    pslog="${LOG%/*}/powerspy_${LOG##*_}"
     pscsv="${pslog%log}csv"
     [ ! -s "$pslog" ] && fail "compute_measurement_results" "$pslog does not exist"
     [ ! -s "$pscsv" ] && ../powerspy_log2csv.sh "$pslog"
@@ -66,11 +68,13 @@ compute_measurement_results()
     #    hold space, exchange the hold space with the pattern space and
     #    reorder the fields
     # 5) delete any other line
-    awk -v ts=$tst0 'BEGIN { a=0 }; /4 stressors started/ { split($2, ta, ":"); for (i in ta) { sub("^0", "", ta[i]) }; getline; l=length($5)-11; s=substr($5, 11, l); if (a == 0) a=1 }; /starting stressors/ { if (a == 1) { split($2, to, ":"); for (i in to) { sub("^0", "", to[i]) }; printf("%s,%.2f,%.2f\n", s, ts + ta[1] * 3600 + ta[2] * 60 + ta[3], ts + to[1] * 3600 + to[2] * 60 + to[3]) } }; /run completed in/ { split($2, to, ":"); for (i in to) { sub("^0", "", to[i]) }; printf("%s,%.2f,%.2f\n", s, ts + ta[1] * 3600 + ta[2] * 60 + ta[3], ts + to[1] * 3600 + to[2] * 60 + to[3]) }' "$1" >$tmpE
-    throughput=$(awk 'BEGIN { OFS=","; a=0 }; /run completed in/ { getline; getline; getline; a=1 }; /debug/ { a=0 }; /run time/ { a=0 }; { if (a == 1) { print $5, $6, $7, $8, $9, $10, $11 } }' "$1")
+    awk -v ts=$tst0 'BEGIN { a=0 }; /4 stressors started/ { split($2, ta, ":"); for (i in ta) { sub("^0", "", ta[i]) }; getline; l=length($5)-11; s=substr($5, 11, l); if (a == 0) a=1 }; /starting stressors/ { if (a == 1) { split($2, to, ":"); for (i in to) { sub("^0", "", to[i]) }; printf("%s,%.2f,%.2f\n", s, ts + ta[1] * 3600 + ta[2] * 60 + ta[3], ts + to[1] * 3600 + to[2] * 60 + to[3]) } }; /run completed in/ { split($2, to, ":"); for (i in to) { sub("^0", "", to[i]) }; printf("%s,%.2f,%.2f\n", s, ts + ta[1] * 3600 + ta[2] * 60 + ta[3], ts + to[1] * 3600 + to[2] * 60 + to[3]) }' "$LOG" >$tmpE
+    throughput=$(awk 'BEGIN { OFS=","; a=0 }; /run completed in/ { getline; getline; getline; a=1 }; /debug/ { a=0 }; /run time/ { a=0 }; { if (a == 1) { print $5, $6, $7, $8, $9, $10, $11 } }' "$LOG")
+    stressor_list=$(grep -e 'child died' -e 'out of memory at' "$LOG" | head -n 10 | cut -d ' ' -f 5 | sed -e 's/^stress-ng-\([^:]\+\):$/\1/' | sort -u -d | sed -e ':a;N;$!ba;s/\n/ /g')
     while read line
     do
 	stressor=${line%%,*}
+	is_in $stressor $stressor_list && { info "compute_measurement_results" "stressor $stressor had an issue and is skipped"; continue; }
 	printf "$stressor:\n" >&2
 	op=$(printf "$throughput\n" | grep -e ^$stressor, | cut -d , -f 2)
 	[ -z "$op" ] && op="n/a"
@@ -95,7 +99,10 @@ compute_measurement_results()
     n=$((n+1))
 }
 
-# usage: parse_regular_measurements dir
+# usage: parse_regular_measurements
+# ENVIRONMENT:
+#   DIR   read the current work directory
+#   LOG   set stress-ng log file path
 # FILES:
 #   Results are written into dir/results.csv. The file is created if it does not
 #   exist.
@@ -108,13 +115,13 @@ parse_regular_measurements()
 {
     new_result=0
     n=0
-    ls "$1"stress-ng_*.log >/dev/null 2>&1
+    ls "$DIR"stress-ng_*.log >/dev/null 2>&1
     if [ $? -eq 0 ]
     then
-	for log in "$1"stress-ng_*.log
+	for LOG in "$DIR"stress-ng_*.log
 	do
-	    measurement_id=$(printf "$log" | sed -e 's/^[^_]\+_\([[:digit:]]\+\)\.log$/\1/')
-	    [ -s "$1"results.csv ] && grep -q -e ^$measurement_id, "$1"results.csv
+	    measurement_id=$(printf "$LOG" | sed -e 's/^[^_]\+_\([[:digit:]]\+\)\.log$/\1/')
+	    [ -s "$DIR"results.csv ] && grep -q -e ^$measurement_id, "$DIR"results.csv
 	    rc=$?
 	    if [ $rc -eq 1 ]
 	    then
@@ -125,14 +132,14 @@ parse_regular_measurements()
 		# 4) energy in joule [J]
 		# 5) number of operations
 		# 6) throughput [op/s]
-		compute_measurement_results "$log" | while read line
+		compute_measurement_results | while read line
 		do
-		    printf "$measurement_id,0,$line\n" >>"$1"results.csv
+		    printf "$measurement_id,0,$line\n" >>"$DIR"results.csv
 		done
 		new_result=1
 	    elif [ $rc -gt 1 ]
 	    then
-		fail "parse_regular_measurements" "An error occured while searching \"$1\"results.csv for measurement id $measurement_id"
+		fail "parse_regular_measurements" "An error occured while searching \"$DIR\"results.csv for measurement id $measurement_id"
 	    fi
 	done
     fi
@@ -140,6 +147,8 @@ parse_regular_measurements()
 }
 
 # usage: generate_averages dir
+# ENVIRONMENT:
+#   DIR   read the current work directory
 # STDERR:
 #   The standard error shall be used only for diagnostic messages.
 # RETURN VALUE:
@@ -149,24 +158,24 @@ parse_regular_measurements()
 #     data
 generate_averages()
 {
-    #ret=$(parse_regular_measurements "$1")
-    parse_regular_measurements "$1"
+    #ret=$(parse_regular_measurements)
+    parse_regular_measurements
     recompute_average=$?
-    if [ ! -s "$1"results.csv ]
+    if [ ! -s "$DIR"results.csv ]
     then
-	info "generate_averages" "${1}results.csv could not be generated"
+	info "generate_averages" "${DIR}results.csv could not be generated"
 	return 1
     fi
-    stressor_list=$(cut -d , -f 3 "$1"results.csv | sort -u -d)
+    stressor_list=$(cut -d , -f 3 "$DIR"results.csv | sort -u -d)
     for stressor in $stressor_list
     do
-	[ -s "$1"averages.csv ] && grep -q -e ^$stressor, "$1"averages.csv
+	[ -s "$DIR"averages.csv ] && grep -q -e ^$stressor, "$DIR"averages.csv
 	if [ $? -eq 1 ] || [ $recompute_average -eq 1 ]
 	then
-	    results=$(grep -e ,$stressor, "$1"results.csv | sed -e '/,n\/a/d')
+	    results=$(grep -e ,$stressor, "$DIR"results.csv | sed -e '/,n\/a/d')
 	    if [ -z "$results" ]
 	    then
-		info "generate_averages" "no average for stressor $stressor because of incomplete data in ${1}results.csv"
+		info "generate_averages" "no average for stressor $stressor because of incomplete data in ${DIR}results.csv"
 		continue
 	    fi
 	    n=$(printf "$results\n" | wc -l)
@@ -182,35 +191,42 @@ generate_averages()
 	    else
 		Epopavg=$(printf "scale=9; $Eavg/$Oavg\n" | bc)
 	    fi
-	    [ $recompute_average -eq 1 ] && sed -e "/^$stressor,/d" "$1"averages.csv >/tmp/averages.csv && mv /tmp/averages.csv "$1"averages.csv
+	    [ $recompute_average -eq 1 ] && sed -e "/^$stressor,/d" "$DIR"averages.csv >/tmp/averages.csv && mv /tmp/averages.csv "$DIR"averages.csv
 	    # CSV format:
 	    # 1) stressor
 	    # 2) average consumed energy in joule [J]
 	    # 3) average number of operations [op]
 	    # 4) average throughput in operations per second [op/s]
 	    # 5) average consumed energy per operation [J/op]
-	    printf "$stressor,$Eavg,$Oavg,$Opsavg,$Epopavg\n" >>"$1"averages.csv
+	    printf "$stressor,$Eavg,$Oavg,$Opsavg,$Epopavg\n" >>"$DIR"averages.csv
 	fi
     done
 }
 
+# usage: traverse_measurements
+# ENVIRONMENT:
+#   DATADIR  read the dataset directory
+#   DIR      set the current work directory
+# STDERR:
+#   The standard error shall be used only for diagnostic messages.
 traverse_measurements()
 {
-    for model in $(ls -d "$1"/*/ 2>/dev/null)
+    for mdir in $(ls -d "$DATADIR"/*/ 2>/dev/null)
     do
-	#printf "$model\n"
-	m="${model%/}"
-	m="${m##*/}"
-	for frequency in $(ls -d "$model"*/ 2>/dev/null)
+	#printf "$mdir\n"
+	MODEL="${mdir%/}"
+	MODEL="${MODEL##*/}"
+	for fdir in $(ls -d "$mdir"*/ 2>/dev/null)
 	do
-	    #printf "$frequency\n"
-	    for overvoltage in $(ls -d "$frequency"*/ 2>/dev/null)
+	    #printf "$fdir\n"
+	    for ovdir in $(ls -d "$fdir"*/ 2>/dev/null)
 	    do
-		#printf "$overvoltage\n"
-		for cooling in $(ls -d "$overvoltage"*/ 2>/dev/null)
+		#printf "$ovdir\n"
+		for DIR in $(ls -d "$ovdir"*/ 2>/dev/null)
 		do
-		    printf "$cooling\n"
-		    generate_averages "$cooling"
+		    printf "$DIR\n"
+		    # cooling=$(printf "$DIR\n" | ...)
+		    generate_averages
 		done
 	    done
 	done
@@ -238,7 +254,6 @@ if [ $# -gt 1 ]
 then
     usage
     fail "main" "invalid number of arguments"
-    exit 1
 fi
 
 [ "x$1" = "x-v" ] && LOGLEVEL="info"
