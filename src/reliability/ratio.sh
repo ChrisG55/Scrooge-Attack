@@ -29,7 +29,7 @@ fi
 
 stressor_list=""
 
-for stressor in atomic bigheap bsearch clock fork futex get hdd hrtimers hsearch judy kcmp kill lsearch mergesort mq msg pipe poll seek sigsegv sysfs tmpfs tsearch urandom vm-rw wcs
+for stressor in aio atomic bsearch clock fork futex get hrtimers hsearch icache judy kcmp kill lsearch membarrier mergesort msg pipe poll sem sigsegv sysfs timer tsearch urandom vm-rw wcs
 do
     base_stressor=$(grep -q -e ^$stressor, "$1"averages.csv)
     [ $? -eq 1 ] && warn "main" "stressor $stressor not available in ${1}averages.csv" && continue
@@ -56,6 +56,12 @@ do
     [ $? -eq 1 ] && warn "main" "stressor $stressor not available in ${1}averages.csv" && continue
     under_stressor=$(grep -q -e ^$stressor, "$2"averages.csv)
     [ $? -eq 1 ] && warn "main" "stressor $stressor not available in ${2}averages.csv" && continue
+    # CSV format:
+    # 1) stressor
+    # 2) average consumed energy in joule [J]
+    # 3) average number of operations [op]
+    # 4) average throughput in operations per second [op/s]
+    # 5) average consumed energy per operation [J/op]
     line=$(grep -e ^$stressor, "$1"averages.csv | cut -d , -f 4-5 | sed -e '/,$/d' -e 's%^\([^,]\+\),\([^,]\+\)$%\2/\1%')
     base_ETR=$(printf "scale=16; $line\n" | bc 2>/dev/null)
     [ -z "$base_ETR" ] && warn "main" "$stressor has zero ETR at base" && continue

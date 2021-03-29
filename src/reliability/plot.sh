@@ -71,10 +71,12 @@ compute_measurement_results()
     awk -v ts=$tst0 'BEGIN { a=0 }; /4 stressors started/ { split($2, ta, ":"); for (i in ta) { sub("^0", "", ta[i]) }; getline; l=length($5)-11; s=substr($5, 11, l); if (a == 0) a=1 }; /starting stressors/ { if (a == 1) { split($2, to, ":"); for (i in to) { sub("^0", "", to[i]) }; printf("%s,%.2f,%.2f\n", s, ts + ta[1] * 3600 + ta[2] * 60 + ta[3], ts + to[1] * 3600 + to[2] * 60 + to[3]) } }; /run completed in/ { split($2, to, ":"); for (i in to) { sub("^0", "", to[i]) }; printf("%s,%.2f,%.2f\n", s, ts + ta[1] * 3600 + ta[2] * 60 + ta[3], ts + to[1] * 3600 + to[2] * 60 + to[3]) }' "$LOG" >$tmpE
     throughput=$(awk 'BEGIN { OFS=","; a=0 }; /run completed in/ { getline; getline; getline; a=1 }; /debug/ { a=0 }; /run time/ { a=0 }; { if (a == 1) { print $5, $6, $7, $8, $9, $10, $11 } }' "$LOG")
     stressor_list=$(grep -e 'child died' -e 'out of memory at' "$LOG" | head -n 10 | cut -d ' ' -f 5 | sed -e 's/^stress-ng-\([^:]\+\):$/\1/' | sort -u -d | sed -e ':a;N;$!ba;s/\n/ /g')
+    strezzor_list="brk hdd seek"
     while read line
     do
 	stressor=${line%%,*}
 	is_in $stressor $stressor_list && { info "compute_measurement_results" "stressor $stressor had an issue and is skipped"; continue; }
+	is_in $stressor $strezzor_list && { info "compute_measurement_results" "stressor $stressor is force skipped"; continue; }
 	printf "$stressor:\n" >&2
 	op=$(printf "$throughput\n" | grep -e ^$stressor, | cut -d , -f 2)
 	[ -z "$op" ] && op="n/a"
