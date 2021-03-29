@@ -89,6 +89,8 @@ compute_measurement_results()
 	# NOTE: fixing timestamps of measurements done at midnight
 	tsfirst=$(printf "$line\n" | cut -d , -f 2)
 	tslast=${line##*,}
+	# FIXME: if the machine operates in CEST timezone 3600 seconds have to
+	# be substracted from the timestamps!
 	ts=$(awk -v tsps=$tsps -v tsfirst=$tsfirst -v tslast=$tslast 'BEGIN { if ((tsfirst < tsps) && (tslast < tsps)) { tsfirst+=86400; tslast+=86400 }; if (tslast - tsfirst < 0) tslast+=86400; printf("%.2f %.2f\n", tsfirst, tslast) }')
 	../powerspy_extractor.m "$pscsv" "$PSTMP" $ts
 	E=$(../powerspy_p2E.m "$PSTMP" | sed -e 's/^ans =[[:space:]]\+\([[:digit:]]\+\)\(\.[[:digit:]]\+\)\{0,1\}$/\1\2/')
