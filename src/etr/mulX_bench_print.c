@@ -146,7 +146,6 @@ static void init_clock()
 static int log_result(struct thread_info *ti)
 {
 	int rv = 0;
-	FILE *csv;
 	double cpu_usage;
 	double duration;
 
@@ -168,30 +167,17 @@ static int log_result(struct thread_info *ti)
 		printf("TID[%d] iterations   = %" PRIu64 "\n", ti->id, ti->i);
 	}
 
-	csv = fopen("./mulX_bench.csv", "a");
-	if (csv == NULL) {
-		perror("fopen");
-		rv = 1;
-		goto log_end;
-	}
-	rv = fprintf(csv, "%ld.%09ld,%ld.%09ld,0x%016" PRIX64 ",0x%016" \
-		     PRIX64 ",0x%016" PRIX64 ",0x%016" PRIX64 ",0x%016" PRIX64 \
-		     ",%" PRIu64 ",%ld.%09ld,%lf\n",
-		     (long)ti->rt_clock_start.tv_sec, ti->rt_clock_start.tv_nsec,
-		     (long)ti->rt_clock_stop.tv_sec, ti->rt_clock_stop.tv_nsec,
-		     vars[MULTIPLIER], vars[MULTIPLICANT], vars[PRODUCT],
-		     ti->product, ti->flipped_bits, ti->i,
-		     (long)ti->duration.tv_sec, ti->duration.tv_nsec,
-		     cpu_usage);
-	if (rv < 0)
-		perror("fprintf");
-	else
-		fflush(csv);
+	puts("=== mulX_bench.csv ===");
+	rv = printf("%ld.%09ld,%ld.%09ld,0x%016" PRIX64 ",0x%016"	\
+		    PRIX64 ",0x%016" PRIX64 ",0x%016" PRIX64 ",0x%016" PRIX64 \
+		    ",%" PRIu64 ",%ld.%09ld,%lf\n",
+		    (long)ti->rt_clock_start.tv_sec, ti->rt_clock_start.tv_nsec,
+		    (long)ti->rt_clock_stop.tv_sec, ti->rt_clock_stop.tv_nsec,
+		    vars[MULTIPLIER], vars[MULTIPLICANT], vars[PRODUCT],
+		    ti->product, ti->flipped_bits, ti->i,
+		    (long)ti->duration.tv_sec, ti->duration.tv_nsec,
+		    cpu_usage);
 
-	if ((rv = fclose(csv)) != 0)
-		perror("fclose");
-	
-log_end:
 	return rv;
 }
 
@@ -286,9 +272,9 @@ static void multiply(struct thread_info *ti)
 	clock_diff(&mon_clock_start, &mon_clock_stop, &ti->duration);
 	
 	ti->flipped_bits = ti->product ^ vars[PRODUCT];
-	return;
+return;
 mulfail:
-	perror("clock_gettime");
+perror("clock_gettime");
 }
 
 static void usage(const char *progname)

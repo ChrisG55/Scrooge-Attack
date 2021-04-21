@@ -15,7 +15,7 @@
 LC_ALL=C
 export LC_ALL
 
-readonly CSV="${0%sh}csv"
+readonly CSV="$(dirname "$0")/vcgencmd.csv"
 readonly LOG="${0%sh}log"
 
 # Check if the command is available
@@ -241,19 +241,19 @@ run()
     printf "%i," $val >>"$CSV"
     get_measure
     val=$(run_vcgencmd get_throttled | sed -e 's/^[^=]\+=\([[:alnum:]]\+\)$/\1/')
-    printf "$val," >>"$CSV"
+    printf "$val\n" >>"$CSV"
     sudo ./mulX_bench -l 2>&1 | tee -a "$LOG"
     rc=$?
-    over_voltage=$(vcgencmd get_config over_voltage | sed -e 's/^[^=]\+=\([-[:digit:]]\+\)$/\1/')
-    if [ $over_voltage -gt -16 ] && [ $rc -eq 0 ]
-    then
-	set_over_voltage $((over_voltage-1))
+    #over_voltage=$(vcgencmd get_config over_voltage | sed -e 's/^[^=]\+=\([-[:digit:]]\+\)$/\1/')
+    #if [ $over_voltage -gt -16 ] && [ $rc -eq 0 ]
+    #then
+#	set_over_voltage $((over_voltage-1))
 	# NOTE: for some reason this script cannot be scheduled
 	#schedule
 	printf "run: system is ready for reboot and next run\n" | tee -a "$LOG"
-    else
-	printf "Test finised: over_voltage = $over_voltage, rc = $rc\n" | tee -a "$LOG"
-    fi
+    #else
+#	printf "Test finised: over_voltage = $over_voltage, rc = $rc\n" | tee -a "$LOG"
+    #fi
 }
 
 usage()

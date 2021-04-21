@@ -15,7 +15,9 @@ Contains the script for the energy to throughput ratio (ETR) measurement.
 - ~Makefile~ :: a Makefile to compile the benchmark
 - ~mulX_bench.c~ :: a multithreaded benchmark to measure ETR
 - ~mulX_bench.sh~ :: a wrapper script to run the multithreaded benchmark
-- ~plot.sh~ :: a script to extract data needed for plotting
+- ~mulX_bench_print.c~ :: a variant of the multithreaded benchmark that does not create output files
+- ~plot_mulT.sh~ :: a script to extract data from the original benchmark needed for plotting
+- ~plot_mulX.sh~ :: a script to extract data from the multithreaded benchmark needed for plotting 
 
 * energy
 Contains scripts to measure energy consumption of x86 architecture.
