@@ -51,6 +51,19 @@ The results are composed of the following log files:
 - ~l2ping_*.log~: 32 pings are sent to measure the Bluetooth round trip time (RTT)
 - ~powerspy_*.log~: PowerSpy stream log
 
+* param
+Contains measurement results for the detection method.
+The data is organized in a hierarchical directory structure:
+
+- ~<device>~: name of the device used for the measurement
+- ~<platform>~: either bare metal (BM) or Kubernetes (K8S)
+
+The measurement results can be found in the ~<platform>~ directories.
+The results are composed of the following log files:
+
+- ~kernel_*.log~: kernel log
+- ~param_*.log~: CPU temperature time series
+
 * reliability
 Contains the [[https://github.com/ColinIanKing/stress-ng][stress-ng]] results and power measurements used to determine the reliability of the CPU when operating under critical condition.
 Each reliability benchmark was started with an ambient SoC temperature (about 25°C).

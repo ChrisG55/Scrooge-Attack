@@ -1,0 +1,324 @@
+[  242.567240] Unable to handle kernel paging request at virtual address 5555587d
+[  242.567249] Unable to handle kernel paging request at virtual address 780cd1ec
+[  242.567259] Unable to handle kernel paging request at virtual address 206f7444
+[  242.567264] Unable to handle kernel paging request at virtual address 206f7444
+[  242.567268] Unable to handle kernel paging request at virtual address 206f7444
+[  242.567271] Unable to handle kernel paging request at virtual address 206f7444
+[  242.567274] Unable to handle kernel paging request at virtual address 206f7444
+[  242.567280] Unable to handle kernel paging request at virtual address 206f7444
+[  242.567286] Unable to handle kernel paging request at virtual address 206f7444
+[  242.567293] Unable to handle kernel paging request at virtual address 206f7444
+[  242.567296] Unable to handle kernel paging request at virtual address 206f7444
+[  242.567301] Unable to handle kernel paging request at virtual address 206f7444
+[  242.567308] Unable to handle kernel paging request at virtual address 206f7444
+[  242.567315] Unable to handle kernel paging request at virtual address 206f7444
+[  242.567320] Unable to handle kernel paging request at virtual address 206f7444
+[  242.567323] Unable to handle kernel paging request at virtual address 206f7444
+[  242.567326] Unable to handle kernel paging request at virtual address 206f7444
+[  242.567333] Unable to handle kernel paging request at virtual address 206f7444
+[  242.567346] Unable to handle kernel NULL pointer dereference at virtual address 00000328
+[  242.567352] pgd = 55463a65
+[  242.567355] [00000328] *pgd=00000000
+[  242.567367] Internal error: Oops: 17 [#1] SMP ARM
+[  242.567374] Modules linked in:
+[  242.567386] CPU: 0 PID: 0 Comm: � Not tainted 4.19.118-v7+ #1311
+[  242.567391] Hardware name: BCM2835
+[  242.567404] PC is at do_page_fault+0x84/0x3b8
+[  242.567411] LR is at do_DataAbort+0x58/0xf4
+[  242.567414] pc : [<808747bc>]    lr : [<801167fc>]    psr: 20000193
+[  242.567417] sp : b9e400b8  ip : b9e40110  fp : b9e4010c
+[  242.567420] r10: 80da7758  r9 : b9e401c8  r8 : 00000017
+[  242.567423] r7 : 80874738  r6 : 00000328  r5 : 00000000  r4 : b9e401c8
+[  242.567427] r3 : b9e40000  r2 : 20000193  r1 : 00000017  r0 : 00000000
+[  242.567431] Flags: nzCv  IRQs off  FIQs on  Mode SVC_32  ISA ARM  Segment user
+[  242.567434] Control: 10c5383d  Table: 3415006a  DAC: 00000055
+[  242.567438] Process � (pid: 0, stack limit = 0xcbc30418)
+[  242.567442] Stack: (0xb9e400b8 to 0xb9e40008)
+[  242.567453] [<808747bc>] (do_page_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[  242.567463] [<801167fc>] (do_DataAbort) from [<80101934>] (__dabt_svc+0x54/0x80)
+[  242.567465] Exception stack(0xb9e401c8 to 0xb9e40210)
+[  242.567471] 01c0:                   00000000 00000017 20000193 b9e40000 b9e40328 00000000
+[  242.567477] 01e0: 00000328 80874738 00000017 b9e40328 80da7758 b9e4026c b9e40270 b9e40218
+[  242.567481] 0200: 801167fc 808747bc 20000193 ffffffff
+[  242.567487] [<80101934>] (__dabt_svc) from [<808747bc>] (do_page_fault+0x84/0x3b8)
+[  242.567494] [<808747bc>] (do_page_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[  242.567500] [<801167fc>] (do_DataAbort) from [<80101934>] (__dabt_svc+0x54/0x80)
+[  242.567502] Exception stack(0xb9e40328 to 0xb9e40370)
+[  242.567508] 0320:                   00000000 00000017 20000193 b9e40000 b9e40488 00000000
+[  242.567513] 0340: 00000328 80874738 00000017 b9e40488 80da7758 b9e403cc b9e403d0 b9e40378
+[  242.567517] 0360: 801167fc 808747bc 20000193 ffffffff
+[  242.567523] [<80101934>] (__dabt_svc) from [<808747bc>] (do_page_fault+0x84/0x3b8)
+[  242.567529] [<808747bc>] (do_page_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[  242.567535] [<801167fc>] (do_DataAbort) from [<80101934>] (__dabt_svc+0x54/0x80)
+[  242.567538] Exception stack(0xb9e40488 to 0xb9e404d0)
+[  242.567543] 0480:                   00000000 00000017 20000193 b9e40000 b9e405e8 00000000
+[  242.567549] 04a0: 00000328 80874738 00000017 b9e405e8 80da7758 b9e4052c b9e40530 b9e404d8
+[  242.567553] 04c0: 801167fc 808747bc 20000193 ffffffff
+[  242.567559] [<80101934>] (__dabt_svc) from [<808747bc>] (do_page_fault+0x84/0x3b8)
+[  242.567565] [<808747bc>] (do_page_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[  242.567571] [<801167fc>] (do_DataAbort) from [<80101934>] (__dabt_svc+0x54/0x80)
+[  242.567573] Exception stack(0xb9e405e8 to 0xb9e40630)
+[  242.567578] 05e0:                   00000000 00000017 20000193 b9e40000 b9e40748 00000000
+[  242.567584] 0600: 00000328 80874738 00000017 b9e40748 80da7758 b9e4068c b9e40690 b9e40638
+[  242.567588] 0620: 801167fc 808747bc 20000193 ffffffff
+[  242.567594] [<80101934>] (__dabt_svc) from [<808747bc>] (do_page_fault+0x84/0x3b8)
+[  242.567600] [<808747bc>] (do_page_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[  242.567606] [<801167fc>] (do_DataAbort) from [<80101934>] (__dabt_svc+0x54/0x80)
+[  242.567609] Exception stack(0xb9e40748 to 0xb9e40790)
+[  242.567614] 0740:                   00000000 00000017 20000193 b9e40000 b9e408a8 00000000
+[  242.567620] 0760: 00000328 80874738 00000017 b9e408a8 80da7758 b9e407ec b9e407f0 b9e40798
+[  242.567624] 0780: 801167fc 808747bc 20000193 ffffffff
+[  242.567629] [<80101934>] (__dabt_svc) from [<808747bc>] (do_page_fault+0x84/0x3b8)
+[  242.567635] [<808747bc>] (do_page_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[  242.567641] [<801167fc>] (do_DataAbort) from [<80101934>] (__dabt_svc+0x54/0x80)
+[  242.567644] Exception stack(0xb9e408a8 to 0xb9e408f0)
+[  242.567649] 08a0:                   00000000 00000017 20000193 b9e40000 b9e40a08 00000000
+[  242.567655] 08c0: 00000328 80874738 00000017 b9e40a08 80da7758 b9e4094c b9e40950 b9e408f8
+[  242.567659] 08e0: 801167fc 808747bc 20000193 ffffffff
+[  242.567665] [<80101934>] (__dabt_svc) from [<808747bc>] (do_page_fault+0x84/0x3b8)
+[  242.567671] [<808747bc>] (do_page_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[  242.567677] [<801167fc>] (do_DataAbort) from [<80101934>] (__dabt_svc+0x54/0x80)
+[  242.567680] Exception stack(0xb9e40a08 to 0xb9e40a50)
+[  242.567685] 0a00:                   00000000 00000017 20000193 b9e40000 b9e40b68 00000000
+[  242.567691] 0a20: 00000328 80874738 00000017 b9e40b68 80da7758 b9e40aac b9e40ab0 b9e40a58
+[  242.567695] 0a40: 801167fc 808747bc 20000193 ffffffff
+[  242.567701] [<80101934>] (__dabt_svc) from [<808747bc>] (do_page_fault+0x84/0x3b8)
+[  242.567706] [<808747bc>] (do_page_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[  242.567713] [<801167fc>] (do_DataAbort) from [<80101934>] (__dabt_svc+0x54/0x80)
+[  242.567715] Exception stack(0xb9e40b68 to 0xb9e40bb0)
+[  242.567720] 0b60:                   00000000 00000017 20000193 b9e40000 b9e40cc8 00000000
+[  242.567726] 0b80: 00000328 80874738 00000017 b9e40cc8 80da7758 b9e40c0c b9e40c10 b9e40bb8
+[  242.567730] 0ba0: 801167fc 808747bc 20000193 ffffffff
+[  242.567736] [<80101934>] (__dabt_svc) from [<808747bc>] (do_page_fault+0x84/0x3b8)
+[  242.567742] [<808747bc>] (do_page_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[  242.567748] [<801167fc>] (do_DataAbort) from [<80101934>] (__dabt_svc+0x54/0x80)
+[  242.567751] Exception stack(0xb9e40cc8 to 0xb9e40d10)
+[  242.567756] 0cc0:                   00000000 00000017 20000193 b9e40000 b9e40e28 00000000
+[  242.567762] 0ce0: 00000328 80874738 00000017 b9e40e28 80da7758 b9e40d6c b9e40d70 b9e40d18
+[  242.567766] 0d00: 801167fc 808747bc 20000193 ffffffff
+[  242.567771] [<80101934>] (__dabt_svc) from [<808747bc>] (do_page_fault+0x84/0x3b8)
+[  242.567777] [<808747bc>] (do_page_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[  242.567783] [<801167fc>] (do_DataAbort) from [<80101934>] (__dabt_svc+0x54/0x80)
+[  242.567786] Exception stack(0xb9e40e28 to 0xb9e40e70)
+[  242.567791] 0e20:                   00000000 00000017 20000193 b9e40000 b9e40f88 00000000
+[  242.567797] 0e40: 00000328 80874738 00000017 b9e40f88 80da7758 b9e40ecc b9e40ed0 b9e40e78
+[  242.567801] 0e60: 801167fc 808747bc 20000193 ffffffff
+[  242.567807] [<80101934>] (__dabt_svc) from [<808747bc>] (do_page_fault+0x84/0x3b8)
+[  242.567813] [<808747bc>] (do_page_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[  242.567819] [<801167fc>] (do_DataAbort) from [<80101934>] (__dabt_svc+0x54/0x80)
+[  242.567822] Exception stack(0xb9e40f88 to 0xb9e40fd0)
+[  242.567827] 0f80:                   00000000 00000017 20000193 b9e40000 b9e410e8 00000000
+[  242.567833] 0fa0: 00000328 80874738 00000017 b9e410e8 80da7758 b9e4102c b9e41030 b9e40fd8
+[  242.567837] 0fc0: 801167fc 808747bc 20000193 ffffffff
+[  242.567842] [<80101934>] (__dabt_svc) from [<808747bc>] (do_page_fault+0x84/0x3b8)
+[  242.567848] [<808747bc>] (do_page_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[  242.567854] [<801167fc>] (do_DataAbort) from [<80101934>] (__dabt_svc+0x54/0x80)
+[  242.567857] Exception stack(0xb9e410e8 to 0xb9e41130)
+[  242.567862] 10e0:                   00000000 00000017 20000193 b9e40000 b9e41248 00000000
+[  242.567868] 1100: 00000328 80874738 00000017 b9e41248 80da7758 b9e4118c b9e41190 b9e41138
+[  242.567872] 1120: 801167fc 808747bc 20000193 ffffffff
+[  242.567878] [<80101934>] (__dabt_svc) from [<808747bc>] (do_page_fault+0x84/0x3b8)
+[  242.567885] [<808747bc>] (do_page_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[  242.567891] [<801167fc>] (do_DataAbort) from [<80101934>] (__dabt_svc+0x54/0x80)
+[  242.567893] Exception stack(0xb9e41248 to 0xb9e41290)
+[  242.567898] 1240:                   00000000 00000017 20000193 b9e40000 b9e413a8 00000000
+[  242.567904] 1260: 00000328 80874738 00000017 b9e413a8 80da7758 b9e412ec b9e412f0 b9e41298
+[  242.567908] 1280: 801167fc 808747bc 20000193 ffffffff
+[  242.567914] [<80101934>] (__dabt_svc) from [<808747bc>] (do_page_fault+0x84/0x3b8)
+[  242.567920] [<808747bc>] (do_page_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[  242.567926] [<801167fc>] (do_DataAbort) from [<80101934>] (__dabt_svc+0x54/0x80)
+[  242.567929] Exception stack(0xb9e413a8 to 0xb9e413f0)
+[  242.567934] 13a0:                   00000000 00000017 20000193 b9e40000 b9e41508 00000000
+[  242.567940] 13c0: 00000328 80874738 00000017 b9e41508 80da7758 b9e4144c b9e41450 b9e413f8
+[  242.567944] 13e0: 801167fc 808747bc 20000193 ffffffff
+[  242.567950] [<80101934>] (__dabt_svc) from [<808747bc>] (do_page_fault+0x84/0x3b8)
+[  242.567956] [<808747bc>] (do_page_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[  242.567962] [<801167fc>] (do_DataAbort) from [<80101934>] (__dabt_svc+0x54/0x80)
+[  242.567964] Exception stack(0xb9e41508 to 0xb9e41550)
+[  242.567969] 1500:                   00000000 00000017 20000193 b9e40000 b9e41668 00000000
+[  242.567975] 1520: 00000328 80874738 00000017 b9e41668 80da7758 b9e415ac b9e415b0 b9e41558
+[  242.567979] 1540: 801167fc 808747bc 20000193 ffffffff
+[  242.567985] [<80101934>] (__dabt_svc) from [<808747bc>] (do_page_fault+0x84/0x3b8)
+[  242.567991] [<808747bc>] (do_page_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[  242.567997] [<801167fc>] (do_DataAbort) from [<80101934>] (__dabt_svc+0x54/0x80)
+[  242.568000] Exception stack(0xb9e41668 to 0xb9e416b0)
+[  242.568005] 1660:                   00000000 00000017 20000193 b9e40000 b9e417c8 00000000
+[  242.568010] 1680: 00000328 80874738 00000017 b9e417c8 80da7758 b9e4170c b9e41710 b9e416b8
+[  242.568014] 16a0: 801167fc 808747bc 20000193 ffffffff
+[  242.568020] [<80101934>] (__dabt_svc) from [<808747bc>] (do_page_fault+0x84/0x3b8)
+[  242.568026] [<808747bc>] (do_page_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[  242.568032] [<801167fc>] (do_DataAbort) from [<80101934>] (__dabt_svc+0x54/0x80)
+[  242.568035] Exception stack(0xb9e417c8 to 0xb9e41810)
+[  242.568040] 17c0:                   00000000 00000017 20000193 b9e40000 b9e41928 00000000
+[  242.568046] 17e0: 00000328 80874738 00000017 b9e41928 80da7758 b9e4186c b9e41870 b9e41818
+[  242.568050] 1800: 801167fc 808747bc 20000193 ffffffff
+[  242.568056] [<80101934>] (__dabt_svc) from [<808747bc>] (do_page_fault+0x84/0x3b8)
+[  242.568061] [<808747bc>] (do_page_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[  242.568067] [<801167fc>] (do_DataAbort) from [<80101934>] (__dabt_svc+0x54/0x80)
+[  242.568071] Exception stack(0xb9e41928 to 0xb9e41970)
+[  242.568076] 1920:                   00000000 00000017 20000193 b9e40000 b9e41a88 00000000
+[  242.568081] 1940: 00000328 80874738 00000017 b9e41a88 80da7758 b9e419cc b9e419d0 b9e41978
+[  242.568085] 1960: 801167fc 808747bc 20000193 ffffffff
+[  242.568091] [<80101934>] (__dabt_svc) from [<808747bc>] (do_page_fault+0x84/0x3b8)
+[  242.568097] [<808747bc>] (do_page_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[  242.568103] [<801167fc>] (do_DataAbort) from [<80101934>] (__dabt_svc+0x54/0x80)
+[  242.568106] Exception stack(0xb9e41a88 to 0xb9e41ad0)
+[  242.568111] 1a80:                   00000000 00000017 20000193 b9e40000 b9e41be8 00000000
+[  242.568117] 1aa0: 00000328 80874738 00000017 b9e41be8 80da7758 b9e41b2c b9e41b30 b9e41ad8
+[  242.568121] 1ac0: 801167fc 808747bc 20000193 ffffffff
+[  242.568126] [<80101934>] (__dabt_svc) from [<808747bc>] (do_page_fault+0x84/0x3b8)
+[  242.568132] [<808747bc>] (do_page_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[  242.568139] [<801167fc>] (do_DataAbort) from [<80101934>] (__dabt_svc+0x54/0x80)
+[  242.568141] Exception stack(0xb9e41be8 to 0xb9e41c30)
+[  242.568147] 1be0:                   00000000 00000017 20000193 b9e40000 b9e41d48 00000000
+[  242.568152] 1c00: 00000328 80874738 00000017 b9e41d48 80da7758 b9e41c8c b9e41c90 b9e41c38
+[  242.568156] 1c20: 801167fc 808747bc 20000193 ffffffff
+[  242.568162] [<80101934>] (__dabt_svc) from [<808747bc>] (do_page_fault+0x84/0x3b8)
+[  242.568168] [<808747bc>] (do_page_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[  242.568174] [<801167fc>] (do_DataAbort) from [<80101934>] (__dabt_svc+0x54/0x80)
+[  242.568177] Exception stack(0xb9e41d48 to 0xb9e41d90)
+[  242.568182] 1d40:                   00000000 00000017 20000193 b9e40000 b9e41ea8 00000000
+[  242.568187] 1d60: 00000328 80874738 00000017 b9e41ea8 80da7758 b9e41dec b9e41df0 b9e41d98
+[  242.568192] 1d80: 801167fc 808747bc 20000193 ffffffff
+[  242.568198] [<80101934>] (__dabt_svc) from [<808747bc>] (do_page_fault+0x84/0x3b8)
+[  242.568204] [<808747bc>] (do_page_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[  242.568210] [<801167fc>] (do_DataAbort) from [<80101934>] (__dabt_svc+0x54/0x80)
+[  242.568212] Exception stack(0xb9e41ea8 to 0xb9e41ef0)
+[  242.568217] 1ea0:                   00000000 00000005 20000193 b9e40000 b9e42028 00000000
+[  242.568223] 1ec0: 206f7444 80874af0 00000005 b9e42028 80da7758 b9e41f4c b9e41f50 b9e41ef8
+[  242.568227] 1ee0: 80874bac 808747bc 20000193 ffffffff
+[  242.568233] [<80101934>] (__dabt_svc) from [<808747bc>] (do_page_fault+0x84/0x3b8)
+[  242.568239] [<808747bc>] (do_page_fault) from [<80874bac>] (do_translation_fault+0xbc/0xc0)
+[  242.568245] [<80874bac>] (do_translation_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[  242.568251] Code: e3c33d7f e3c3303f e3120080 e593500c (e5957328) 
+[  242.568256] ---[ end trace 7d4defdd905c119f ]---
+[  242.568259] ------------[ cut here ]------------
+[  242.568268] WARNING: CPU: 0 PID: 0 at kernel/exit.c:778 do_exit+0x6c/0xc14
+[  242.568270] Modules linked in:
+[  242.568276] CPU: 0 PID: 0 Comm: � Tainted: G      D           4.19.118-v7+ #1311
+[  242.568278] Hardware name: BCM2835
+[  242.568288] [<801120c8>] (unwind_backtrace) from [<8010d5fc>] (show_stack+0x20/0x24)
+[  242.568295] [<8010d5fc>] (show_stack) from [<80856da8>] (dump_stack+0xe0/0x124)
+[  242.568303] [<80856da8>] (dump_stack) from [<80120c8c>] (__warn+0x104/0x11c)
+[  242.568311] [<80120c8c>] (__warn) from [<80120ddc>] (warn_slowpath_null+0x50/0x58)
+[  242.568318] [<80120ddc>] (warn_slowpath_null) from [<80124f40>] (do_exit+0x6c/0xc14)
+[  242.568325] [<80124f40>] (do_exit) from [<8010d854>] (die+0x254/0x35c)
+[  242.568331] [<8010d854>] (die) from [<801169e4>] (__do_kernel_fault.part.0+0x74/0x84)
+[  242.568338] [<801169e4>] (__do_kernel_fault.part.0) from [<80874920>] (do_page_fault+0x1e8/0x3b8)
+[  242.568344] [<80874920>] (do_page_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[  242.568347] ---[ end trace 7d4defdd905c11a0 ]---
+[  242.568350] Kernel panic - not syncing: Attempted to kill the idle task!
+[  242.568359] CPU2: stopping
+[  242.568364] CPU: 2 PID: 560 Comm: mulX_bench Tainted: G      D W         4.19.118-v7+ #1311
+[  242.568366] Hardware name: BCM2835
+[  242.568376] [<801120c8>] (unwind_backtrace) from [<8010d5fc>] (show_stack+0x20/0x24)
+[  242.568382] [<8010d5fc>] (show_stack) from [<80856da8>] (dump_stack+0xe0/0x124)
+[  242.568390] [<80856da8>] (dump_stack) from [<801104e0>] (handle_IPI+0x388/0x3a8)
+[  242.568398] [<801104e0>] (handle_IPI) from [<801021f4>] (bcm2836_arm_irqchip_handle_irq+0xa0/0xa4)
+[  242.568405] [<801021f4>] (bcm2836_arm_irqchip_handle_irq) from [<80101d0c>] (__irq_usr+0x4c/0x60)
+[  242.568407] Exception stack(0xb415ffb0 to 0xb415fff8)
+[  242.568412] ffa0:                                     11786fd6 00000000 20865069 00000000
+[  242.568418] ffc0: 76f16968 75d56460 76f15530 00000152 7ecd8602 75d56460 00000000 75d55dc4
+[  242.568423] ffe0: 00000000 75d55db8 00000000 00011048 60000010 ffffffff
+[  242.568426] CPU1: stopping
+[  242.568431] CPU: 1 PID: 559 Comm: mulX_bench Tainted: G      D W         4.19.118-v7+ #1311
+[  242.568434] Hardware name: BCM2835
+[  242.568443] [<801120c8>] (unwind_backtrace) from [<8010d5fc>] (show_stack+0x20/0x24)
+[  242.568450] [<8010d5fc>] (show_stack) from [<80856da8>] (dump_stack+0xe0/0x124)
+[  242.568456] [<80856da8>] (dump_stack) from [<801104e0>] (handle_IPI+0x388/0x3a8)
+[  242.568464] [<801104e0>] (handle_IPI) from [<801021f4>] (bcm2836_arm_irqchip_handle_irq+0xa0/0xa4)
+[  242.568470] [<801021f4>] (bcm2836_arm_irqchip_handle_irq) from [<80101d0c>] (__irq_usr+0x4c/0x60)
+[  242.568473] Exception stack(0xb415dfb0 to 0xb415dff8)
+[  242.568478] dfa0:                                     175cbec6 02383882 175cbec6 02383882
+[  242.568484] dfc0: 76f16968 76557460 76f15530 00000152 7ecd8602 76557460 00000000 76556dc4
+[  242.568489] dfe0: 00000000 76556db8 00000000 00011028 60000010 ffffffff
+[  242.568492] CPU3: stopping
+[  242.568498] CPU: 3 PID: 561 Comm: mulX_bench Tainted: G      D W         4.19.118-v7+ #1311
+[  242.568500] Hardware name: BCM2835
+[  242.568509] [<801120c8>] (unwind_backtrace) from [<8010d5fc>] (show_stack+0x20/0x24)
+[  242.568515] [<8010d5fc>] (show_stack) from [<80856da8>] (dump_stack+0xe0/0x124)
+[  242.568522] [<80856da8>] (dump_stack) from [<801104e0>] (handle_IPI+0x388/0x3a8)
+[  242.568530] [<801104e0>] (handle_IPI) from [<801021f4>] (bcm2836_arm_irqchip_handle_irq+0xa0/0xa4)
+[  242.568536] [<801021f4>] (bcm2836_arm_irqchip_handle_irq) from [<80101d0c>] (__irq_usr+0x4c/0x60)
+[  242.568539] Exception stack(0xb4155fb0 to 0xb4155ff8)
+[  242.568544] 5fa0:                                     20865069 014ce630 175cbec6 02383882
+[  242.568550] 5fc0: 76f16968 75555460 76f15530 00000152 7ecd8602 75555460 00000000 75554dc4
+[  242.568555] 5fe0: 00000000 75554db8 00000000 00011014 60000010 ffffffff
+[  244.830261] ---[ end Kernel panic - not syncing: Attempted to kill the idle task! ]---
+[  244.841260] Unable to handle kernel paging request at virtual address 001281f4
+[  244.850098] pgd = 55463a65
+[  244.854362] [001281f4] *pgd=00000000
+[  244.859503] Internal error: Oops: 17 [#2] SMP ARM
+[  244.865757] Modules linked in:
+[  244.870299] CPU: 0 PID: 0 Comm: � Tainted: G      D W         4.19.118-v7+ #1311
+[  244.880757] Hardware name: BCM2835
+[  244.885611] PC is at account_system_index_time+0x3c/0xdc
+[  244.892366] LR is at account_system_time+0x7c/0xb0
+[  244.898538] pc : [<801522f8>]    lr : [<80152414>]    psr: 00000193
+[  244.906174] sp : b9e3fc38  ip : b9e3fc60  fp : b9e3fc5c
+[  244.912737] r10: 801ad2f4  r9 : 00000002  r8 : b9e3e008
+[  244.919280] r7 : 00000000  r6 : 00989680  r5 : 00000000  r4 : 00989680
+[  244.927120] r3 : 00128124  r2 : 00989680  r1 : b9e3e438  r0 : b9e3e008
+[  244.934949] Flags: nzcv  IRQs off  FIQs on  Mode SVC_32  ISA ARM  Segment user
+[  244.943472] Control: 10c5383d  Table: 3415006a  DAC: 00000055
+[  244.950491] Process � (pid: 0, stack limit = 0xcbc30418)
+[  244.957137] Stack: (0xb9e3fc38 to 0xb9e40008)
+[  244.962704] fc20:                                                       00989680 00000000
+[  244.973189] fc40: 013f2a29 00000039 ba353540 ba3535f0 b9e3fc84 b9e3fc60 80152414 801522c8
+[  244.983694] fc60: 00000002 8019fd38 b9e3e008 00000000 013f2a29 00000039 b9e3fc94 b9e3fc88
+[  244.994363] fc80: 80152774 801523a4 b9e3fcac b9e3fc98 8019a8d0 80152728 ba353840 b9e3fe28
+[  245.005134] fca0: b9e3fcbc b9e3fcb0 801ad0dc 8019a8a8 b9e3fce4 b9e3fcc0 801ad350 801ad084
+[  245.016039] fcc0: b9e3fce4 b9e3fcd0 ba353840 ba353580 ba353540 b9e3e000 b9e3fd3c b9e3fce8
+[  245.027095] fce0: 8019b464 801ad300 8019fdd4 80d04d48 013f26b4 00000039 00000000 80d04d70
+[  245.038272] fd00: 013f26b4 00000039 6d71991a ae1be17e 20000193 20000193 00000003 7fffffff
+[  245.049604] fd20: ffffffff ba353540 ba3535f0 ba3535c8 b9e3fd9c b9e3fd40 8019c084 8019b30c
+[  245.061004] fd40: 20000193 0000000f 013f26b4 00000039 b9e3fdbc ba353670 ba353690 ba353618
+[  245.072502] fd60: ba3536c0 ba35354c 013f26b4 00000039 80d04d70 b9c02dc0 00000000 b9cc0d00
+[  245.084149] fd80: 80d5d66c 000000a2 b9e3e000 b9e3e008 b9e3fdac b9e3fda0 806e798c 8019bf60
+[  245.095850] fda0: b9e3fdd4 b9e3fdb0 80185b8c 806e7958 80c94fa8 00000000 00000000 00000001
+[  245.107548] fdc0: b9c33000 b9e3e000 b9e3fde4 b9e3fdd8 8017fc6c 80185b10 b9e3fe0c b9e3fde8
+[  245.119247] fde0: 801803bc 8017fc44 b9e3fe28 00000000 40000113 ffffffff b9e3fe5c 00000000
+[  245.130950] fe00: b9e3fe24 b9e3fe10 801021b4 8018035c 00000000 80121010 b9e3feb4 b9e3fe28
+[  245.142642] fe20: 801019bc 80102160 8012100c 00000000 40000193 40000193 80da4738 80a7457c
+[  245.154344] fe40: 0000000b 00000000 00000000 80da4738 b9e3e008 b9e3feb4 80d0517c b9e3fe78
+[  245.166043] fe60: 00000000 80121010 40000113 ffffffff 8012100c b9e3e008 80124f40 0000030a
+[  245.177734] fe80: b9e3febc ae1be17e 00000017 b9e3e008 0000000b 0000000b b9e3e008 00000017
+[  245.189434] fea0: 80d09cb4 b9e3e008 b9e3ff04 b9e3fec8 801258a0 80120df4 80a7457c 00000001
+[  245.201136] fec0: b9e3e000 00000000 ae1be17e 80da4544 60000193 ae1be17e b9e3e008 80da4544
+[  245.212835] fee0: 60000193 0000000b b9e3e008 00000017 80d09cb4 b9e3e008 b9e3ff3c b9e3ff08
+[  245.224531] ff00: 8010d854 80124ee0 b9e3e218 0000000b 80a72874 00000328 00000017 b9e40068
+[  245.236230] ff20: 00000000 00000017 b9e40068 80da7758 b9e3ff54 b9e3ff40 801169e4 8010d60c
+[  245.247933] ff40: b9e40068 00000000 b9e3ffac b9e3ff58 80874920 8011697c b9e47459 00000000
+[  245.259626] ff60: b9eab7d8 b9e3ff6b 6e09416d 69667465 7265746c 00000000 00000000 00000000
+[  245.271332] ff80: 00000000 80d0a644 80d04d48 00000017 80874738 00000328 b9e40068 80da7758
+[  245.283034] ffa0: b9e40064 b9e3ffb0 801167fc 80874744 00000004 f00004c3 00000001 00000000
+[  245.294728] ffc0: 00000000 00000000 00000000 00000000 b9e3ff00 00000000 00000001 00000000
+[  245.306433] ffe0: 00000000 b9e3ffeb 6e068124 6f6c5f66 00000067 00000000 00000000 00000000
+[  245.318130] 0000: 00000002 00000000
+[  245.323334] [<801522f8>] (account_system_index_time) from [<80152414>] (account_system_time+0x7c/0xb0)
+[  245.336085] [<80152414>] (account_system_time) from [<80152774>] (account_process_tick+0x58/0xa4)
+[  245.348402] [<80152774>] (account_process_tick) from [<8019a8d0>] (update_process_times+0x34/0x6c)
+[  245.360806] [<8019a8d0>] (update_process_times) from [<801ad0dc>] (tick_sched_handle+0x64/0x70)
+[  245.372966] [<801ad0dc>] (tick_sched_handle) from [<801ad350>] (tick_sched_timer+0x5c/0xb8)
+[  245.384781] [<801ad350>] (tick_sched_timer) from [<8019b464>] (__hrtimer_run_queues+0x164/0x320)
+[  245.397040] [<8019b464>] (__hrtimer_run_queues) from [<8019c084>] (hrtimer_interrupt+0x130/0x2a4)
+[  245.409389] [<8019c084>] (hrtimer_interrupt) from [<806e798c>] (arch_timer_handler_phys+0x40/0x48)
+[  245.421845] [<806e798c>] (arch_timer_handler_phys) from [<80185b8c>] (handle_percpu_devid_irq+0x88/0x23c)
+[  245.434922] [<80185b8c>] (handle_percpu_devid_irq) from [<8017fc6c>] (generic_handle_irq+0x34/0x44)
+[  245.447517] [<8017fc6c>] (generic_handle_irq) from [<801803bc>] (__handle_domain_irq+0x6c/0xc4)
+[  245.459820] [<801803bc>] (__handle_domain_irq) from [<801021b4>] (bcm2836_arm_irqchip_handle_irq+0x60/0xa4)
+[  245.473186] [<801021b4>] (bcm2836_arm_irqchip_handle_irq) from [<801019bc>] (__irq_svc+0x5c/0x7c)
+[  245.485670] Exception stack(0xb9e3fe28 to 0xb9e3fe70)
+[  245.492509] fe20:                   8012100c 00000000 40000193 40000193 80da4738 80a7457c
+[  245.504200] fe40: 0000000b 00000000 00000000 80da4738 b9e3e008 b9e3feb4 80d0517c b9e3fe78
+[  245.515863] fe60: 00000000 80121010 40000113 ffffffff
+[  245.522636] [<801019bc>] (__irq_svc) from [<80121010>] (panic+0x22c/0x288)
+[  245.531248] [<80121010>] (panic) from [<801258a0>] (do_exit+0x9cc/0xc14)
+[  245.539659] [<801258a0>] (do_exit) from [<8010d854>] (die+0x254/0x35c)
+[  245.547869] [<8010d854>] (die) from [<801169e4>] (__do_kernel_fault.part.0+0x74/0x84)
+[  245.558951] [<801169e4>] (__do_kernel_fault.part.0) from [<80874920>] (do_page_fault+0x1e8/0x3b8)
+[  245.571095] [<80874920>] (do_page_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[  245.582007] Code: e0922006 e0a33007 e14120f8 e59034e0 (e5d320d0) 
+[  245.589732] ---[ end trace 7d4defdd905c11a1 ]---
+[  245.595942] Kernel panic - not syncing: Fatal exception in interrupt
+[  245.603893] ---[ end Kernel panic - not syncing: Fatal exception in interrupt ]---

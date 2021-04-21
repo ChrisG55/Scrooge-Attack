@@ -1,0 +1,63 @@
+[  796.316091] Bad mode in data abort handler detected
+[  796.322041] Internal error: Oops - bad mode: 0 [#1] SMP ARM
+[  796.328583] Modules linked in:
+[  796.332571] CPU: 1 PID: 557 Comm: mulX_bench Not tainted 4.19.118-v7+ #1311
+[  796.340532] Hardware name: BCM2835
+[  796.344939] PC is at dwc_otg_fiq_fsm+0x1b4/0x258
+[  796.350561] LR is at 0x11014
+[  796.354414] pc : [<8068fbbc>]    lr : [<00011014>]    psr: 600001d1
+[  796.361723] sp : b444dfb0  ip : 00000000  fp : 76626dc4
+[  796.368006] r10: 00000000  r9 : 76627460  r8 : 7ebe9602
+[  796.374310] r7 : f301080e  r6 : 00000008  r5 : 76627460  r4 : b9680400
+[  796.381951] r3 : 0062a1a6  r2 : 0000ae9b  r1 : 00000008  r0 : 00000001
+[  796.389610] Flags: nZCv  IRQs off  FIQs off  Mode FIQ_32  ISA ARM  Segment user
+[  796.398106] Control: 10c5383d  Table: 357d806a  DAC: 00000055
+[  796.405057] Process mulX_bench (pid: 557, stack limit = 0xdfc905b9)
+[  796.412573] Stack: (0xb444dfb0 to 0xb444e000)
+[  796.418149] dfa0:                                     00000001 00000008 0000ae9b 0062a1a6
+[  796.428762] dfc0: b9680400 76627460 00000008 f301080e 7ebe9602 76627460 00000000 76626dc4
+[  796.439484] dfe0: 00000000 b444dfb0 00011014 8068fbbc 600001d1 ffffffff 00000000 00000000
+[  796.450349] Code: 15823000 0a000023 e5943040 e2833001 (e5843040) 
+[  796.457840] ---[ end trace 4a0f92b613bc3cbc ]---
+[  796.465822] Bad mode in prefetch abort handler detected
+[  796.472405] Internal error: Oops - bad mode: 0 [#2] SMP ARM
+[  796.479343] Modules linked in:
+[  796.483744] CPU: 1 PID: 3391 Comm: VCHIQ completio Tainted: G      D           4.19.118-v7+ #1311
+[  796.495360] Hardware name: BCM2835
+[  796.500119] PC is at 0xb96b17c8
+[  796.504597] LR is at 0x76e2251c
+[  796.509048] pc : [<b96b17c8>]    lr : [<76e2251c>]    psr: 200001d1
+[  796.516647] sp : b9d31fb0  ip : 76f23240  fp : 76d51f9c
+[  796.523178] r10: 76f232b4  r9 : 76d51d74  r8 : 76f23308
+[  796.529683] r7 : 00000036  r6 : 76f5a4d0  r5 : 76f232ec  r4 : b96b17c8
+[  796.537484] r3 : 00000008  r2 : 76d51d74  r1 : 00000008  r0 : b9680400
+[  796.545262] Flags: nzCv  IRQs off  FIQs off  Mode FIQ_32  ISA ARM  Segment user
+[  796.553854] Control: 10c5383d  Table: 346f006a  DAC: 00000055
+[  796.560862] Process VCHIQ completio (pid: 3391, stack limit = 0xdc8bd97c)
+[  796.568905] Stack: (0xb9d31fb0 to 0xb9d32000)
+[  796.574475] 1fa0:                                     b9680400 00000008 76d51d74 00000008
+[  796.585019] 1fc0: b96b17c8 76f232ec 76f5a4d0 00000036 76f23308 76d51d74 76f232b4 76d51f9c
+[  796.595627] 1fe0: 76f23240 b9d31fb0 76e2251c b96b17c8 200001d1 ffffffff 00000000 00000000
+[  796.606354] Code: 00000000 b96b1604 b96b17cc ffff125c (8068fa14) 
+[  796.613771] ---[ end trace 4a0f92b613bc3cbd ]---
+[  797.585839] Bad mode in prefetch abort handler detected
+[  797.592403] Internal error: Oops - bad mode: 0 [#3] SMP ARM
+[  797.599324] Modules linked in:
+[  797.603736] CPU: 1 PID: 290 Comm: avahi-daemon Tainted: G      D           4.19.118-v7+ #1311
+[  797.615012] Hardware name: BCM2835
+[  797.619783] PC is at 0xb96b158c
+[  797.624270] LR is at 0x76d11c98
+[  797.628739] pc : [<b96b158c>]    lr : [<76d11c98>]    psr: 600001d1
+[  797.636350] sp : b67b1fb0  ip : 0000006c  fp : 00000000
+[  797.642897] r10: 010492f0  r9 : 0003a42c  r8 : 00000000
+[  797.649404] r7 : 000000a8  r6 : 76ed2158  r5 : 76a01c30  r4 : b96b158c
+[  797.657211] r3 : 00000000  r2 : 00007f79  r1 : 00000008  r0 : b9680400
+[  797.664995] Flags: nZCv  IRQs off  FIQs off  Mode FIQ_32  ISA ARM  Segment user
+[  797.673599] Control: 10c5383d  Table: 3670c06a  DAC: 00000055
+[  797.680613] Process avahi-daemon (pid: 290, stack limit = 0x731f2b64)
+[  797.688306] Stack: (0xb67b1fb0 to 0xb67b2000)
+[  797.693874] 1fa0:                                     b9680400 00000008 00007f79 00000000
+[  797.704413] 1fc0: b96b158c 76a01c30 76ed2158 000000a8 00000000 0003a42c 010492f0 00000000
+[  797.715010] 1fe0: 0000006c b67b1fb0 76d11c98 b96b158c 600001d1 ffffffff 00000000 00000000
+[  797.725723] Code: 00000000 00000000 00000000 00000000 (00000000) 
+[  797.733131] ---[ end trace 4a0f92b613bc3cbe ]---

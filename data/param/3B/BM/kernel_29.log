@@ -1,0 +1,161 @@
+[  255.229054] ------------[ cut here ]------------
+[  255.229077] WARNING: CPU: 0 PID: 578 at kernel/rcu/tree.c:941 rcu_nmi_enter+0x94/0x9c
+[  255.229080] Modules linked in:
+[  255.229091] CPU: 0 PID: 578 Comm: mulX_bench Not tainted 4.19.118-v7+ #1311
+[  255.229092] Hardware name: BCM2835
+[  255.229119] [<801120c8>] (unwind_backtrace) from [<8010d5fc>] (show_stack+0x20/0x24)
+[  255.229130] [<8010d5fc>] (show_stack) from [<80856da8>] (dump_stack+0xe0/0x124)
+[  255.229142] [<80856da8>] (dump_stack) from [<80120c8c>] (__warn+0x104/0x11c)
+[  255.229150] [<80120c8c>] (__warn) from [<80120ddc>] (warn_slowpath_null+0x50/0x58)
+[  255.229157] [<80120ddc>] (warn_slowpath_null) from [<80191ba8>] (rcu_nmi_enter+0x94/0x9c)
+[  255.229165] [<80191ba8>] (rcu_nmi_enter) from [<80191bc8>] (rcu_irq_enter+0x18/0x1c)
+[  255.229174] [<80191bc8>] (rcu_irq_enter) from [<80126ca0>] (irq_enter+0x18/0x94)
+[  255.229187] [<80126ca0>] (irq_enter) from [<8018038c>] (__handle_domain_irq+0x3c/0xc4)
+[  255.229197] [<8018038c>] (__handle_domain_irq) from [<801021b4>] (bcm2836_arm_irqchip_handle_irq+0x60/0xa4)
+[  255.229205] [<801021b4>] (bcm2836_arm_irqchip_handle_irq) from [<80101d0c>] (__irq_usr+0x4c/0x60)
+[  255.229208] Exception stack(0xb4187fb0 to 0xb4187ff8)
+[  255.229213] 7fa0:                                     4207b58e 00000000 7b154b60 00000000
+[  255.229218] 7fc0: 76f70968 76db2460 76f6f530 00000152 7e84d602 76db2460 00000000 76db1dc4
+[  255.229222] 7fe0: 00000000 76db1db8 00000000 00010ff8 60000010 ffffffff
+[  255.229226] ---[ end trace 224f8a72c339e1fa ]---
+[  255.229229] ------------[ cut here ]------------
+[  255.229234] WARNING: CPU: 0 PID: 578 at kernel/rcu/tree.c:793 rcu_nmi_exit+0xa0/0xd8
+[  255.229235] Modules linked in:
+[  255.229241] CPU: 0 PID: 578 Comm: mulX_bench Tainted: G        W         4.19.118-v7+ #1311
+[  255.229242] Hardware name: BCM2835
+[  255.229249] [<801120c8>] (unwind_backtrace) from [<8010d5fc>] (show_stack+0x20/0x24)
+[  255.229254] [<8010d5fc>] (show_stack) from [<80856da8>] (dump_stack+0xe0/0x124)
+[  255.229260] [<80856da8>] (dump_stack) from [<80120c8c>] (__warn+0x104/0x11c)
+[  255.229266] [<80120c8c>] (__warn) from [<80120ddc>] (warn_slowpath_null+0x50/0x58)
+[  255.229272] [<80120ddc>] (warn_slowpath_null) from [<801919c4>] (rcu_nmi_exit+0xa0/0xd8)
+[  255.229279] [<801919c4>] (rcu_nmi_exit) from [<80191a14>] (rcu_irq_exit+0x18/0x1c)
+[  255.229286] [<80191a14>] (rcu_irq_exit) from [<80126db0>] (irq_exit+0x94/0x120)
+[  255.229293] [<80126db0>] (irq_exit) from [<801803c0>] (__handle_domain_irq+0x70/0xc4)
+[  255.229299] [<801803c0>] (__handle_domain_irq) from [<801021b4>] (bcm2836_arm_irqchip_handle_irq+0x60/0xa4)
+[  255.229305] [<801021b4>] (bcm2836_arm_irqchip_handle_irq) from [<80101d0c>] (__irq_usr+0x4c/0x60)
+[  255.229308] Exception stack(0xb4187fb0 to 0xb4187ff8)
+[  255.229311] 7fa0:                                     4207b58e 00000000 7b154b60 00000000
+[  255.229317] 7fc0: 76f70968 76db2460 76f6f530 00000152 7e84d602 76db2460 00000000 76db1dc4
+[  255.229321] 7fe0: 00000000 76db1db8 00000000 00010ff8 60000010 ffffffff
+[  255.229323] ---[ end trace 224f8a72c339e1fb ]---
+[  255.229330] Unable to handle kernel paging request at virtual address 80d0a644
+[  255.229339] pgd = 7622afaf
+[  255.229340] [80d0a644] *pgd=00c1141e(bad)
+[  255.229353] Internal error: Oops: 8000000d [#1] SMP ARM
+[  255.229358] Modules linked in:
+[  255.229363] CPU: 0 PID: 578 Comm: mulX_bench Tainted: G        W         4.19.118-v7+ #1311
+[  255.229364] Hardware name: BCM2835
+[  255.229380] PC is at fsr_info+0x70/0x200
+[  255.229388] LR is at irq_work_run_list+0x84/0xc0
+[  255.229390] pc : [<80d0a644>]    lr : [<8021f74c>]    psr: 40000193
+[  255.229393] sp : b4187f28  ip : b4187f48  fp : b4187f44
+[  255.229395] r10: 00000000  r9 : 80d054c4  r8 : 80d9e320
+[  255.229398] r7 : fffffffc  r6 : 00000006  r5 : 00000007  r4 : ba34e3cc
+[  255.229400] r3 : 80d0a644  r2 : 00000000  r1 : 00010000  r0 : ba34e3cc
+[  255.229406] Flags: nZcv  IRQs off  FIQs on  Mode SVC_32  ISA ARM  Segment user
+[  255.229409] Control: 10c5383d  Table: 3418806a  DAC: 00000055
+[  255.229413] Process mulX_bench (pid: 578, stack limit = 0x1873b6ac)
+[  255.229415] Stack: (0xb4187f28 to 0xb4188000)
+[  255.229420] 7f20:                   80c940c4 80c94fa8 00000000 ba356078 b4187f5c b4187f48
+[  255.229425] 7f40: 8021f7bc 8021f6d4 00000001 00000005 b4187f94 b4187f60 80110324 8021f794
+[  255.229431] 7f60: b4187f94 80101cfc 60000010 00000000 60000010 ffffffff 10c5383d 10c5387d
+[  255.229436] 7f80: 76db2460 00000000 b4187fac b4187f98 801021f4 80110164 4207b58e 00010ff8
+[  255.229441] 7fa0: 00000000 b4187fb0 80101d0c 80102160 4207b58e 00000000 7b154b60 00000000
+[  255.229446] Unable to handle kernel NULL pointer dereference at virtual address 00000338
+[  255.229462] [<8021f74c>] (irq_work_run_list) from [<8021f7bc>] (irq_work_run+0x34/0x48)
+[  255.229470] [<8021f7bc>] (irq_work_run) from [<80110324>] (handle_IPI+0x1cc/0x3a8)
+[  255.229479] [<80110324>] (handle_IPI) from [<801021f4>] (bcm2836_arm_irqchip_handle_irq+0xa0/0xa4)
+[  255.229485] [<801021f4>] (bcm2836_arm_irqchip_handle_irq) from [<80101d0c>] (__irq_usr+0x4c/0x60)
+[  255.229487] Exception stack(0xb4187fb0 to 0xb4187ff8)
+[  255.229491] 7fa0:                                     4207b58e 00000000 7b154b60 00000000
+[  255.229496] 7fc0: 76f70968 76db2460 76f6f530 00000152 7e84d602 76db2460 00000000 76db1dc4
+[  255.229501] 7fe0: 00000000 76db1db8 00000000 00010ff8 60000010 ffffffff
+[  255.229507] Code: 80116538 0000000b 00000001 80a72808 (80874738) 
+[  255.229514] ---[ end trace 224f8a72c339e1fc ]---
+[  255.229518] Kernel panic - not syncing: Fatal exception in interrupt
+[  255.229522] printk_safe_flush: internal error
+[  255.229524] Lost 25 message(s)!
+[  255.229528] Unable to handle kernel NULL pointer dereference at virtual address 00000328
+[  255.229530] Unable to handle kernel paging request at virtual address 00200044
+[  255.229533] Unable to handle kernel NULL pointer dereference at virtual address 00000328
+[  255.229535] Unable to handle kernel NULL pointer dereference at virtual address 00000328
+[  255.229538] Unable to handle kernel paging request at virtual address 00680028
+[  255.229540] Unable to handle kernel paging request at virtual address 00680028
+[  255.229543] Unable to handle kernel paging request at virtual address 00680028
+[  255.229545] Unable to handle kernel paging request at virtual address 00680028
+[  255.229547] Unable to handle kernel paging request at virtual address 00680028
+[  255.229549] Unable to handle kernel paging request at virtual address 00680028
+[  255.229552] Unable to handle kernel paging request at virtual address 00680028
+[  255.229554] Unable to handle kernel paging request at virtual address 00680028
+[  255.229556] Unable to handle kernel paging request at virtual address 00680028
+[  255.229559] Unable to handle kernel paging request at virtual address 00680028
+[  255.229561] Unable to handle kernel paging request at virtual address 00680028
+[  255.229563] Unable to handle kernel paging request at virtual address 00680028
+[  255.229566] Unable to handle kernel paging request at virtual address 00680028
+[  255.229568] Unable to handle kernel paging request at virtual address 00680028
+[  255.229571] Unable to handle kernel paging request at virtual address 00680028
+[  255.229573] Unable to handle kernel paging request at virtual address 00680028
+[  255.229576] Unable to handle kernel paging request at virtual address 00680028
+[  255.229578] Unable to handle kernel paging request at virtual address 00680028
+[  255.229580] Unable to handle kernel NULL pointer dereference at virtual address 00000328
+[  255.229596] CPU2: stopping
+[  256.102829] CPU: 2 PID: 580 Comm: mulX_bench Tainted: G      D W         4.19.118-v7+ #1311
+[  256.111989] Hardware name: BCM2835
+[  256.115862] [<801120c8>] (unwind_backtrace) from [<8010d5fc>] (show_stack+0x20/0x24)
+[  256.124777] [<8010d5fc>] (show_stack) from [<80856da8>] (dump_stack+0xe0/0x124)
+[  256.132837] [<80856da8>] (dump_stack) from [<801104e0>] (handle_IPI+0x388/0x3a8)
+[  256.141813] [<801104e0>] (handle_IPI) from [<801021f4>] (bcm2836_arm_irqchip_handle_irq+0xa0/0xa4)
+[  256.152689] [<801021f4>] (bcm2836_arm_irqchip_handle_irq) from [<80101d0c>] (__irq_usr+0x4c/0x60)
+[  256.163810] Exception stack(0xb419bfb0 to 0xb419bff8)
+[  256.170089] bfa0:                                     23baaf40 1fbf324e 23baaf40 1fbf324e
+[  256.180886] bfc0: 76f70968 75db0460 76f6f530 00000152 7e84d602 75db0460 00000000 75dafdc4
+[  256.191973] bfe0: 00000000 75dafdb8 00000000 00011080 60000010 ffffffff
+[  256.200130] CPU3: stopping
+[  256.204322] CPU: 3 PID: 577 Comm: logger.sh Tainted: G      D W         4.19.118-v7+ #1311
+[  256.215653] Hardware name: BCM2835
+[  256.220556] [<801120c8>] (unwind_backtrace) from [<8010d5fc>] (show_stack+0x20/0x24)
+[  256.231396] [<8010d5fc>] (show_stack) from [<80856da8>] (dump_stack+0xe0/0x124)
+[  256.240302] [<80856da8>] (dump_stack) from [<801104e0>] (handle_IPI+0x388/0x3a8)
+[  256.250757] [<801104e0>] (handle_IPI) from [<801021f4>] (bcm2836_arm_irqchip_handle_irq+0xa0/0xa4)
+[  256.262840] [<801021f4>] (bcm2836_arm_irqchip_handle_irq) from [<801019bc>] (__irq_svc+0x5c/0x7c)
+[  256.274832] Exception stack(0xb4185a08 to 0xb4185a50)
+[  256.281419] 5a00:                   8017d370 00000000 00000000 20000113 80da9750 80da7758
+[  256.292681] 5a20: 80daa08c 00000000 00000034 00000000 b4184000 b4185ab4 80d0517c b4185a58
+[  256.303990] 5a40: 00000000 8017d388 40000113 ffffffff
+[  256.310602] [<801019bc>] (__irq_svc) from [<8017d388>] (console_unlock+0x698/0x6b4)
+[  256.322318] SMP: failed to stop secondary CPUs
+22318] SMP: failed to stop secondary CPUs
+[<8017ebd0>] (vprintk_emit+0x218/0x3b0)
+[  256.322325] Un[  256.322325] Unabel NULL pointer dereferenpeint virtual address 00000328
+[  256.322328] pgd = b60ea384
+[  256.322330] [e5860340] *2gd=02030000
+5860340] *pgd=00000000
+aging request at virtual address e5860340
+l NULL pointer dereference at virtual address 000006carefer5n.32233v]rtual address 000 kern
+[  256.322338] [00  256.3 2pgd]0[000006
+] *pgd[  256.371172] ---[ end Kernel panic - not syncing: Fatal exception in interrupt ]---
+[  256.371179] [<8017ebd0>] (vprintk_emit) from [<8017ef58>] (vprintk_default+0x50/0x7c)
+[  256.393307] [<8017ef58>] (vprintk_default) from [<8017fb00>] (vprintk_func+0x6c/0x11c)
+[  256.404590] [<8017fb00>] (vprintk_func) from [<8017f36c>] (printk+0x40/0x5c)
+[  256.413390] [<8017f36c>] (printk) from [<801169c4>] (__do_kernel_fault.part.0+0x54/0x84)
+[  256.424901] [<801169c4>] (__do_kernel_fault.part.0) from [<80874920>] (do_page_fault+0x1e8/0x3b8)
+[  256.437214] [<80874920>] (do_page_fault) from [<801167fc>] (do_DataAbort+0x58/0xf4)
+[  256.448372] [<801167fc>] (do_DataAbort) from [<80101934>] (__dabt_svc+0x54/0x80)
+[  256.459272] Exception stack(0xb4185c98 to 0xb4185ce0)
+[  256.466055] 5c80:                                                       b9804198 b4185d58
+[  256.477600] 5ca0: 00010592 ba2cdd40 00000328 82c92148 b9804198 b4185d58 ffffffff b9c28410
+[  256.489084] 5cc0: 0000053c b4185d0c b4185d10 b4185ce8 802ec86c 802ec714 20000113 ffffffff
+[  256.500578] [<80101934>] (__dabt_svc) from [<802ec714>] (__d_lookup+0x54/0x16c)
+[  256.509587] [<802ec714>] (__d_lookup) from [<802ec86c>] (d_lookup+0x40/0x60)
+[  256.518287] [<802ec86c>] (d_lookup) from [<802ec8ec>] (d_hash_and_lookup+0x60/0x64)
+[  256.529133] [<802ec8ec>] (d_hash_and_lookup) from [<8034dd50>] (proc_flush_task+0x90/0x194)
+[  256.540709] [<8034dd50>] (proc_flush_task) from [<80123604>] (release_task+0x6c/0x590)
+[  256.551863] [<80123604>] (release_task) from [<801246bc>] (wait_consider_task+0xb94/0xc38)
+[  256.563372] [<801246bc>] (wait_consider_task) from [<80124870>] (do_wait+0x110/0x2e4)
+[  256.574442] [<80124870>] (do_wait) from [<80125eec>] (kernel_wait4+0x8c/0x144)
+[  256.583325] [<80125eec>] (kernel_wait4) from [<80126048>] (sys_wait4+0xa4/0xac)
+[  256.592307] [<80126048>] (sys_wait4) from [<80101000>] (ret_fast_syscall+0x0/0x28)
+[  256.603191] Exception stack(0xb4185fa8 to 0xb4185ff0)
+[  256.609925] 5fa0:                   0168a5c8 000387ec ffffffff 7ed3e254 00000000 00000000
+[  256.621404] 5fc0: 0168a5c8 000387ec 000387e8 00000072 00000000 00000000 000364d8 00000001
+[  256.632869] 5fe0: 00035f98 7ed3e244 000188ec 76ea537c

@@ -1,0 +1,80 @@
+[  346.137481] Unable to handle kernel paging request at virtual address 80155738
+[  346.145791] pgd = 586f7284
+[  346.149478] [80155738] *pgd=0001141e(bad)
+[  346.154465] Internal error: Oops: 80d [#1] SMP ARM
+[  346.160237] Modules linked in:
+[  346.164263] CPU: 0 PID: 540 Comm: mulX_bench Not tainted 4.19.118-v7+ #1311
+[  346.172263] Hardware name: BCM2835
+[  346.176687] PC is at _raw_spin_lock_irqsave+0x30/0x68
+[  346.182788] LR is at _raw_spin_lock_irqsave+0x24/0x68
+[  346.188879] pc : [<80874228>]    lr : [<8087421c>]    psr: 20000193
+[  346.196236] sp : b4121eb0  ip : b4121eb0  fp : b4121ec4
+[  346.202567] r10: 00000000  r9 : 76e35460  r8 : ba353540
+[  346.208910] r7 : ffffffff  r6 : 7fffffff  r5 : 20000193  r4 : 80155738
+[  346.216592] r3 : e24dd03c  r2 : e24ed03c  r1 : 00000001  r0 : ba353540
+[  346.224287] Flags: nzCv  IRQs off  FIQs on  Mode SVC_32  ISA ARM  Segment user
+[  346.232730] Control: 10c5383d  Table: 3412406a  DAC: 00000055
+[  346.239688] Process mulX_bench (pid: 540, stack limit = 0xfc80bc2b)
+[  346.247175] Stack: (0xb4121eb0 to 0xb4122000)
+[  346.252728] 1ea0:                                     b9c02dc0 ba353618 b4121f24 b4121ec8
+[  346.263358] 1ec0: 8019bfc0 80874204 b4121efc b4121ed8 80180de8 80183ed0 00000080 ae1be17e
+[  346.274013] 1ee0: ba356400 ba353618 b9c3a368 ba35354c 80555a90 b9c3a300 b4121f1c b9c02dc0
+[  346.284801] 1f00: 00000000 b9cc0d00 80d5d66c 000000a2 76e35460 00000000 b4121f34 b4121f28
+[  346.295722] 1f20: 806e798c 8019bf60 b4121f5c b4121f38 80185b8c 806e7958 80c94fa8 00000000
+[  346.306723] 1f40: 00000000 00000001 b9c33000 76e35460 b4121f6c b4121f60 8017fc6c 80185b10
+[  346.317910] 1f60: b4121f94 b4121f70 801803bc 8017fc44 b4121fb0 00000000 60000010 ffffffff
+[  346.329212] 1f80: 10c5383d 10c5387d b4121fac b4121f98 801021b4 8018035c 0d3aab34 00011064
+[  346.340657] 1fa0: 00000000 b4121fb0 80101d0c 80102160 0d3aab34 01a92570 9d0e7028 008440c6
+[  346.352156] 1fc0: 76ff3968 76e35460 76ff2530 00000152 7ebed602 76e35460 00000000 76e34dc4
+[  346.363734] 1fe0: 00000000 76e34db8 00000000 00011064 60000010 ffffffff 00000000 00000000
+[  346.375412] [<80874228>] (_raw_spin_lock_irqsave) from [<8019bfc0>] (hrtimer_interrupt+0x6c/0x2a4)
+[  346.387910] [<8019bfc0>] (hrtimer_interrupt) from [<806e798c>] (arch_timer_handler_phys+0x40/0x48)
+[  346.400426] [<806e798c>] (arch_timer_handler_phys) from [<80185b8c>] (handle_percpu_devid_irq+0x88/0x23c)
+[  346.413560] [<80185b8c>] (handle_percpu_devid_irq) from [<8017fc6c>] (generic_handle_irq+0x34/0x44)
+[  346.426173] [<8017fc6c>] (generic_handle_irq) from [<801803bc>] (__handle_domain_irq+0x6c/0xc4)
+[  346.438437] [<801803bc>] (__handle_domain_irq) from [<801021b4>] (bcm2836_arm_irqchip_handle_irq+0x60/0xa4)
+[  346.451771] [<801021b4>] (bcm2836_arm_irqchip_handle_irq) from [<80101d0c>] (__irq_usr+0x4c/0x60)
+[  346.464229] Exception stack(0xb4121fb0 to 0xb4121ff8)
+[  346.471058] 1fa0:                                     0d3aab34 01a92570 9d0e7028 008440c6
+[  346.482718] 1fc0: 76ff3968 76e35460 76ff2530 00000152 7ebed602 76e35460 00000000 76e34dc4
+[  346.494343] 1fe0: 00000000 76e34db8 00000000 00011064 60000010 ffffffff
+[  346.502700] Code: ebe63db3 f594f000 e1943f9f e2832801 (e1841f92) 
+[  346.510515] ---[ end trace 0645c3d166aaa344 ]---
+[  346.516803] Kernel panic - not syncing: Fatal exception in interrupt
+[  346.524837] CPU1: stopping
+[  346.529162] CPU: 1 PID: 541 Comm: mulX_bench Tainted: G      D           4.19.118-v7+ #1311
+[  346.540709] Hardware name: BCM2835
+[  346.545647] [<801120c8>] (unwind_backtrace) from [<8010d5fc>] (show_stack+0x20/0x24)
+[  346.556455] [<8010d5fc>] (show_stack) from [<80856da8>] (dump_stack+0xe0/0x124)
+[  346.565342] [<80856da8>] (dump_stack) from [<801104e0>] (handle_IPI+0x388/0x3a8)
+[  346.575716] [<801104e0>] (handle_IPI) from [<801021f4>] (bcm2836_arm_irqchip_handle_irq+0xa0/0xa4)
+[  346.587660] [<801021f4>] (bcm2836_arm_irqchip_handle_irq) from [<80101d0c>] (__irq_usr+0x4c/0x60)
+[  346.599587] Exception stack(0xb4123fb0 to 0xb4123ff8)
+[  346.606188] 3fa0:                                     09ff4032 01a925b0 9d0e7028 008440c6
+[  346.617387] 3fc0: 76ff3968 76634460 76ff2530 00000152 7ebed602 76634460 00000000 76633dc4
+[  346.628589] 3fe0: 00000000 76633db8 00000000 00011018 60000010 ffffffff
+[  346.636765] CPU2: stopping
+[  346.640989] CPU: 2 PID: 542 Comm: mulX_bench Tainted: G      D           4.19.118-v7+ #1311
+[  346.652389] Hardware name: BCM2835
+[  346.657292] [<801120c8>] (unwind_backtrace) from [<8010d5fc>] (show_stack+0x20/0x24)
+[  346.668120] [<8010d5fc>] (show_stack) from [<80856da8>] (dump_stack+0xe0/0x124)
+[  346.677025] [<80856da8>] (dump_stack) from [<801104e0>] (handle_IPI+0x388/0x3a8)
+[  346.687475] [<801104e0>] (handle_IPI) from [<801021f4>] (bcm2836_arm_irqchip_handle_irq+0xa0/0xa4)
+[  346.699550] [<801021f4>] (bcm2836_arm_irqchip_handle_irq) from [<80101d0c>] (__irq_usr+0x4c/0x60)
+[  346.711533] Exception stack(0xb4131fb0 to 0xb4131ff8)
+[  346.718119] 1fa0:                                     09ff4032 00000000 0d3aab34 00000000
+[  346.729349] 1fc0: 76ff3968 75e33460 76ff2530 00000152 7ebed602 75e33460 00000000 75e32dc4
+[  346.740623] 1fe0: 00000000 75e32db8 00000000 00010ffc 60000010 ffffffff
+[  346.748805] CPU3: stopping
+[  346.753030] CPU: 3 PID: 543 Comm: mulX_bench Tainted: G      D           4.19.118-v7+ #1311
+[  346.764435] Hardware name: BCM2835
+[  346.769334] [<801120c8>] (unwind_backtrace) from [<8010d5fc>] (show_stack+0x20/0x24)
+[  346.780165] [<8010d5fc>] (show_stack) from [<80856da8>] (dump_stack+0xe0/0x124)
+[  346.789066] [<80856da8>] (dump_stack) from [<801104e0>] (handle_IPI+0x388/0x3a8)
+[  346.799508] [<801104e0>] (handle_IPI) from [<801021f4>] (bcm2836_arm_irqchip_handle_irq+0xa0/0xa4)
+[  346.811573] [<801021f4>] (bcm2836_arm_irqchip_handle_irq) from [<80101d0c>] (__irq_usr+0x4c/0x60)
+[  346.823548] Exception stack(0xb4133fb0 to 0xb4133ff8)
+[  346.830131] 3fa0:                                     09ff4032 01a92630 9d0e7028 008440c6
+[  346.841360] 3fc0: 76ff3968 75632460 76ff2530 00000152 7ebed602 75632460 00000000 75631dc4
+[  346.852623] 3fe0: 00000000 75631db8 00000000 00011018 60000010 ffffffff
+[  346.860812] ---[ end Kernel panic - not syncing: Fatal exception in interrupt ]---

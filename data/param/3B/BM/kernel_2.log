@@ -1,0 +1,105 @@
+[  288.129118] ------------[ cut here ]------------
+[  288.134714] kernel BUG at kernel/bpf/core.c:1395!
+[  288.140439] Internal error: Oops - BUG: 0 [#1] SMP ARM
+[  288.146534] Modules linked in:
+[  288.150539] CPU: 3 PID: 128 Comm: systemd-journal Not tainted 4.19.118-v7+ #1311
+[  288.159904] Hardware name: BCM2835
+[  288.164296] PC is at ___bpf_prog_run+0x1464/0x14e4
+[  288.170101] LR is at __irq_work_queue_local+0x3c/0x7c
+[  288.176184] pc : [<80221308>]    lr : [<8021f80c>]    psr: 60000013
+[  288.183539] sp : b79abd30  ip : b79abc40  fp : b79abd94
+[  288.189876] r10: 00000000  r9 : 8021fcd4  r8 : 8090846c
+[  288.196219] r7 : 80d04d48  r6 : b79abec8  r5 : b79abdb8  r4 : bbc961d0
+[  288.203897] r3 : ae1be17e  r2 : ae1be17e  r1 : ba37e3d0  r0 : 00000022
+[  288.211584] Flags: nZCv  IRQs on  FIQs on  Mode SVC_32  ISA ARM  Segment user
+[  288.219939] Control: 10c5383d  Table: 37a3c06a  DAC: 00000055
+[  288.226892] Process systemd-journal (pid: 128, stack limit = 0xabf200ed)
+[  288.234818] Stack: (0xb79abd30 to 0xb79ac000)
+[  288.240377] bd20:                                     b79abd70 80d04d48 b79abdac b79abd50
+[  288.251018] bd40: 802ee23c 802ee138 6083c197 00000000 2f6fa41f 00000800 00000001 ae1be17e
+[  288.261765] bd60: 6083c197 00000000 2f6fa41f 80d04d48 b79abe50 b79abec8 80d04d48 7fff0000
+[  288.272652] bd80: 000000fc 00000007 b79abe34 b79abd98 802222a4 8021feb0 b786a674 b79f7480
+[  288.283591] bda0: b79abdfc b79abdb0 802ee2f0 802ee1d4 6083c197 00000000 000000fc 00000000
+[  288.294661] bdc0: b79abe50 00000000 2f6fa41f 00000800 b79abe34 ae1be17e bab7a2a0 b7847780
+[  288.305875] bde0: 00000000 b786a674 b79abe50 00000000 00000000 00000000 80296880 802ee28c
+[  288.317195] be00: 00000200 b7847780 b79abdb8 00000000 b79abe9c b79abe20 8029b270 ae1be17e
+[  288.328652] be20: 801562d8 b97c2c80 b79abec4 b79abe38 801dff00 80222264 00000055 7ed2b5b8
+[  288.340180] be40: 00000018 ffffffff 0093f8c8 00000001 000000fc 40000028 76eb298c 00000000
+[  288.351764] be60: 00000007 00000000 7ed2b5b8 00000000 00000018 00000000 ffffffff 00000000
+[  288.363421] be80: 0093f8c8 00000000 00000001 00000000 b79abef4 ae1be17e 80874958 0093f8c8
+[  288.375122] bea0: 80d04d48 000000fc 00000000 801011c4 00000000 00000080 b79abf74 b79abec8
+[  288.386823] bec0: 801e03ac 801dfe9c 00000000 80d0a644 80d04d48 00000817 80874738 75a0e018
+[  288.398515] bee0: b79abfb0 0000000a b79abfac b79abef8 801167fc 80874744 00000004 ffffffec
+[  288.410218] bf00: b79abf3c 80191a14 80c95400 80d054c4 b79abf2c b79abf20 80191a14 80191930
+[  288.421921] bf20: b79abf3c b79abf30 80126db0 80191a08 b79abf5c b79abf40 8015018c 80126d28
+[  288.433620] bf40: 00000002 80c94fa8 00000003 ae1be17e 0093f8c8 00000001 b79abfb0 000000fc
+[  288.445320] bf60: 801011c4 b79aa000 b79abf84 b79abf78 801e0e00 801e036c b79abfa4 b79abf88
+[  288.457021] bf80: 8010b7b0 801e0dbc ffffffff 0093f8c8 00000001 ffffffff 00000000 b79abfa8
+[  288.468724] bfa0: 80101160 8010b6b8 0093f8c8 00000001 00000007 7ed2b5b8 00000018 ffffffff
+[  288.480421] bfc0: 0093f8c8 00000001 ffffffff 000000fc 00000018 7ed2b5b8 00000007 7ed2b80c
+[  288.492124] bfe0: 00000000 7ed2b598 0000006c 76eb298c 60000010 00000007 00000000 00000000
+[  288.503833] [<80221308>] (___bpf_prog_run) from [<802222a4>] (__bpf_prog_run32+0x4c/0x68)
+[  288.515536] [<802222a4>] (__bpf_prog_run32) from [<801dff00>] (seccomp_run_filters+0x70/0x16c)
+[  288.527692] [<801dff00>] (seccomp_run_filters) from [<801e03ac>] (__seccomp_filter+0x4c/0x27c)
+[  288.539857] [<801e03ac>] (__seccomp_filter) from [<801e0e00>] (__secure_computing+0x50/0x8c)
+[  288.551856] [<801e0e00>] (__secure_computing) from [<8010b7b0>] (syscall_trace_enter+0x104/0x190)
+[  288.564296] [<8010b7b0>] (syscall_trace_enter) from [<80101160>] (__sys_trace+0xc/0x40)
+[  288.575867] Exception stack(0xb79abfa8 to 0xb79abff0)
+[  288.582692] bfa0:                   0093f8c8 00000001 00000007 7ed2b5b8 00000018 ffffffff
+[  288.594359] bfc0: 0093f8c8 00000001 ffffffff 000000fc 00000018 7ed2b5b8 00000007 7ed2b80c
+[  288.606009] bfe0: 00000000 7ed2b598 0000006c 76eb298c
+[  288.612780] Code: e798f101 e30500dc e34800a8 ebfd7808 (e7f001f2) 
+[  288.620584] ---[ end trace dba8ef627d6244a8 ]---
+[  288.692177] systemd[1]: systemd-journald.service: Service has no hold-off time (RestartSec=0), scheduling restart.
+[  288.716675] systemd[1]: systemd-journald.service: Scheduled restart job, restart counter is at 1.
+[  288.730623] systemd[1]: systemd-journal-flush.service: Succeeded.
+[  288.738951] systemd[1]: Stopped Flush Journal to Persistent Storage.
+[  288.747060] systemd[1]: Stopping Flush Journal to Persistent Storage...
+[  288.755740] systemd[1]: Stopped Journal Service.
+[  288.762277] systemd[1]: Condition check resulted in Journal Audit Socket being skipped.
+[  288.778563] systemd[1]: Starting Journal Service...
+[  288.835560] systemd-journald[1417]: File /run/log/journal/cf639c59c939424fa334ee98c423561c/system.journal corrupted or uncleanly shut down, renaming and replacing.
+[  288.871357] systemd[1]: Started Journal Service.
+[  309.879592] Internal error: Oops - undefined instruction: 0 [#2] SMP ARM
+[  309.887837] Modules linked in:
+[  309.892335] CPU: 3 PID: 296 Comm: systemd-logind Tainted: G      D           4.19.118-v7+ #1311
+[  309.903949] Hardware name: BCM2835
+[  309.908792] PC is at notifier_call_chain+0x58/0x94
+[  309.915000] LR is at vfp_notifier+0x9c/0x144
+[  309.920641] pc : [<801445f0>]    lr : [<80104474>]    psr: 60000093
+[  309.928283] sp : b5c59d90  ip : b5c59d90  fp : b5c59db4
+[  309.934843] r10: 80d04d48  r9 : 00000000  r8 : 00000000
+[  309.941373] r7 : ffffffff  r6 : 00000002  r5 : b4172000  r4 : b4172018
+[  309.949209] r3 : 40000700  r2 : 00000000  r1 : 40000700  r0 : 00000000
+[  309.957037] Flags: nZCv  IRQs off  FIQs on  Mode SVC_32  ISA ARM  Segment user
+[  309.965594] Control: 10c5383d  Table: 3418006a  DAC: 00000055
+[  309.972671] Process systemd-logind (pid: 296, stack limit = 0x9c40efdf)
+[  309.980614] Stack: (0xb5c59d90 to 0xb5c5a000)
+[  309.986279] 9d80:                                     b4172018 b6470f00 b8f32e00 00000000
+[  309.997026] 9da0: ba386400 b6470f00 b5c59dcc b5c59db8 80144688 801445a4 00000000 80d04d48
+[  310.007763] 9dc0: b5c59e34 b5c59dd0 80101fec 80144668 7efca8d4 7efca8f0 b5c59e1c b5c59de8
+[  310.018564] 9de0: 80812dc8 80902410 396f1000 80c95400 8086ebdc ba386400 000000d4 8071c894
+[  310.029449] 9e00: 00000004 ae1be17e b5c59e34 b5c58000 00000000 b5c58000 7efcb8d8 00000000
+[  310.040475] 9e20: 00000000 b711fdac b5c59e4c b5c59e38 8086ebdc 8086e1ec ae1be17e 80d04d48
+[  310.051637] 9e40: b5c59ecc b5c59e50 80873260 8086eb98 00000000 80c93ad8 803213cc 80d04d48
+[  310.062914] 9e60: b711fd94 00000000 00000000 b711fdac b5c59e9c b5c59e80 80203680 80204884
+[  310.074359] 9e80: b711fd80 80874280 b67400c0 0000000e 7efcb8d8 00000001 b5c58000 80c93ad8
+[  310.085863] 9ea0: 80321e7c ae1be17e b711fd80 00000000 b5c58000 7efcb8d8 b67400c0 80d04d48
+[  310.097429] 9ec0: b5c59ee4 b5c59ed0 80873294 8087311c 00000000 00000001 b5c59f94 b5c59ee8
+[  310.109082] 9ee0: 80321e90 80873278 00000000 806e7890 b5c59f44 802f16d4 b5c59f14 ae1be17e
+[  310.120762] 9f00: 802f16d4 00000000 00000000 00000000 0000000e 00000000 b711fd94 b711fdac
+[  310.132448] 9f20: b67400c0 b67400c0 8071f454 8071e134 00000000 80530820 b5c59f6c 00000000
+[  310.144136] 9f40: 0000000e 7efcb8d8 00000000 ae1be17e 00000001 b6470f00 8014e96c b711fd98
+[  310.155820] 9f60: b711fd98 ae1be17e b5c59f84 01b844e0 00000001 ffffffff 000000fc 801011c4
+[  310.167503] 9f80: b5c58000 000000fc b5c59fa4 b5c59f98 80322ffc 80321a70 00000000 b5c59fa8
+[  310.179187] 9fa0: 801011a4 80322ff0 01b844e0 00000001 00000004 7efcb8d8 0000000e ffffffff
+[  310.190872] 9fc0: 01b844e0 00000001 ffffffff 000000fc 0000000e 7efcb8d8 00000004 7efcba8c
+[  310.202552] 9fe0: 00000000 7efcb8b8 0000006c 76f3a98c 60000010 00000004 00000000 00000000
+[  310.214249] [<801445f0>] (notifier_call_chain) from [<80144688>] (atomic_notifier_call_chain+0x2c/0x34)
+[  310.227176] [<80144688>] (atomic_notifier_call_chain) from [<80101fec>] (__switch_to+0x34/0x48)
+[  310.239402] Exception stack(0xb5c59dd0 to 0xb5c59e18)
+[  310.246203] 9dc0:                                     7efca8d4 7efca8f0 b5c59e1c b5c59de8
+[  310.257807] 9de0: 80812dc8 80902410 396f1000 80c95400 8086ebdc ba386400 000000d4 8071c894
+[  310.269368] 9e00: 00000004 ae1be17e b5c59e34 b5c58000 00000000 b5c58000
+[  310.277702] Code: e1a02005 e59c9004 e12fff33 e3580000 (15984000) 
+[  310.285482] ---[ end trace dba8ef627d6244a9 ]---

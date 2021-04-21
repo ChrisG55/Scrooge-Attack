@@ -1,0 +1,66 @@
+[  236.957003] Unable to handle kernel NULL pointer dereference at virtual address 00000002
+[  236.967015] pgd = 3777fef6
+[  236.970669] [00000002] *pgd=3410e835, *pte=00000000, *ppte=00000000
+[  236.977966] Internal error: Oops: 17 [#1] SMP ARM
+[  236.983707] Modules linked in:
+[  236.987776] CPU: 1 PID: 568 Comm: mulX_bench Not tainted 4.19.118-v7+ #1311
+[  236.995816] Hardware name: BCM2835
+[  237.000299] PC is at page_mapping+0x20/0xa4
+[  237.005589] LR is at __set_page_dirty_nobuffers+0x64/0x174
+[  237.012217] pc : [<80282498>]    lr : [<8026c5b0>]    psr: 20000193
+[  237.019673] sp : b41b7ccc  ip : b41b7cdc  fp : b41b7cd8
+[  237.026102] r10: 80dcaee0  r9 : 00000000  r8 : 80dcad80
+[  237.032533] r7 : a0000193  r6 : b70f9784  r5 : b70f9780  r4 : b6bfe940
+[  237.040302] r3 : ffffffff  r2 : 00000000  r1 : 00000000  r0 : fffffffe
+[  237.048093] Flags: nzCv  IRQs off  FIQs on  Mode SVC_32  ISA ARM  Segment user
+[  237.056594] Control: 10c5383d  Table: 341b006a  DAC: 00000055
+[  237.063609] Process mulX_bench (pid: 568, stack limit = 0x8f3eaa34)
+[  237.071157] Stack: (0xb41b7ccc to 0xb41b8000)
+[  237.076793] 7cc0:                            b41b7ddc b41b7cdc 8026c5b0 80282484 001184cd
+[  237.087569] 7ce0: 00000000 003b9aca 80dcad80 80dcadc8 b6bfe940 8019f30c 00000000 00000000
+[  237.098374] 7d00: 80d04e34 80d04d48 00000193 00000000 00000000 00000000 80dcad80 3b9aca00
+[  237.109287] 7d20: ffffffe0 00000020 0001f05f 00000000 00000000 003b9aca 0002ee00 00000000
+[  237.120307] 7d40: 392e0000 00989691 39ab23a7 00989691 7fff0600 00009896 3b9aca00 00009896
+[  237.131414] 7d60: 80dcad80 00009896 80dcad80 00000000 00000000 003b9aca b703fa00 00000400
+[  237.142652] 7d80: 80158850 801550ac b703fa00 ba366a00 e74d642b 000000a4 ba366480 00000000
+[  237.153994] 7da0: b41b7dec b41b7db0 801550ac ae1be17e ffffe760 80dcbaa8 80dcba18 2b521180
+[  237.165485] 7dc0: 00000037 0000113a 00000000 80d03d40 b41b7dec b41b7de0 8019fd48 8019eb64
+[  237.177035] 7de0: b41b7e24 b41b7df0 801ad1f0 8019fd38 b41b7e0c 80d03d44 806e78d8 ba363840
+[  237.188657] 7e00: b41b7fb0 2b5222ba 00000037 ba363540 ba3635f0 801ad2f4 b41b7e44 b41b7e28
+[  237.200341] 7e20: 801ad2f0 801ad0f4 00000037 ba363840 2b5222ba 00000037 b41b7e6c b41b7e48
+[  237.212053] 7e40: 801ad33c 801ad28c b41b7e6c b41b7e58 ba363840 ba363580 ba363540 b41b6000
+[  237.223766] 7e60: b41b7ec4 b41b7e70 8019b464 801ad300 8019fdd4 80d04d48 2b5218f6 00000037
+[  237.235471] 7e80: 00000006 80d04d70 2b5218f6 00000037 1968641c ae1be17e 20000193 20000193
+[  237.247190] 7ea0: 00000003 7fffffff ffffffff ba363540 ba3635f0 ba3635c8 b41b7f24 b41b7ec8
+[  237.258908] 7ec0: 8019c084 8019b30c 20000193 0000000f 2b5218f6 00000037 396d1000 ba363670
+[  237.270616] 7ee0: ba363690 ba363618 ba3636c0 ba36354c 2b5218f6 00000037 b53c0f00 b9c02dc0
+[  237.282326] 7f00: 00000000 b9cc0d00 80d5d66c 000000a2 7655b460 00000000 b41b7f34 b41b7f28
+[  237.294038] 7f20: 806e798c 8019bf60 b41b7f5c b41b7f38 80185b8c 806e7958 80c94fa8 00000000
+[  237.305748] 7f40: 00000000 00000001 b9c33000 7655b460 b41b7f6c b41b7f60 8017fc6c 80185b10
+[  237.317453] 7f60: b41b7f94 b41b7f70 801803bc 8017fc44 b41b7fb0 00000001 60000010 ffffffff
+[  237.329168] 7f80: 10c5383d 10c5387d b41b7fac b41b7f98 801021b4 8018035c 80dc99c8 00010fec
+[  237.340880] 7fa0: 00000000 b41b7fb0 80101d0c 80102160 80dc99c8 19d52208 80dc99c8 000230b0
+[  237.352581] 7fc0: 76f1a968 7655b460 76f19530 00000152 7ea40602 7655b460 00000000 7655adc4
+[  237.364296] 7fe0: 00000000 7655adb8 00000000 00010fec 60000010 ffffffff 00000000 00000000
+[  237.376017] [<80282498>] (page_mapping) from [<8026c5b0>] (__set_page_dirty_nobuffers+0x64/0x174)
+[  237.388439] [<8026c5b0>] (__set_page_dirty_nobuffers) from [<8019fd48>] (update_wall_time+0x1c/0x20)
+[  237.401139] [<8019fd48>] (update_wall_time) from [<801ad1f0>] (tick_do_update_jiffies64+0x108/0x198)
+[  237.413852] [<801ad1f0>] (tick_do_update_jiffies64) from [<801ad2f0>] (tick_sched_do_timer+0x70/0x74)
+[  237.426658] [<801ad2f0>] (tick_sched_do_timer) from [<801ad33c>] (tick_sched_timer+0x48/0xb8)
+[  237.438765] [<801ad33c>] (tick_sched_timer) from [<8019b464>] (__hrtimer_run_queues+0x164/0x320)
+[  237.451145] [<8019b464>] (__hrtimer_run_queues) from [<8019c084>] (hrtimer_interrupt+0x130/0x2a4)
+[  237.463626] [<8019c084>] (hrtimer_interrupt) from [<806e798c>] (arch_timer_handler_phys+0x40/0x48)
+[  237.476201] [<806e798c>] (arch_timer_handler_phys) from [<80185b8c>] (handle_percpu_devid_irq+0x88/0x23c)
+[  237.489394] [<80185b8c>] (handle_percpu_devid_irq) from [<8017fc6c>] (generic_handle_irq+0x34/0x44)
+[  237.502064] [<8017fc6c>] (generic_handle_irq) from [<801803bc>] (__handle_domain_irq+0x6c/0xc4)
+[  237.514391] [<801803bc>] (__handle_domain_irq) from [<801021b4>] (bcm2836_arm_irqchip_handle_irq+0x60/0xa4)
+[  237.527777] [<801021b4>] (bcm2836_arm_irqchip_handle_irq) from [<80101d0c>] (__irq_usr+0x4c/0x60)
+[  237.540281] Exception stack(0xb41b7fb0 to 0xb41b7ff8)
+[  237.547124] 7fa0:                                     80dc99c8 19d52208 80dc99c8 000230b0
+[  237.558810] 7fc0: 76f1a968 7655b460 76f19530 00000152 7ea40602 7655b460 00000000 7655adc4
+[  237.570443] 7fe0: 00000000 7655adb8 00000000 00010fec 60000010 ffffffff
+[  237.578810] Code: e8bd4000 e5903004 e3130001 12430001 (e5903004) 
+[  237.586625] ---[ end trace 2fda92692e47f984 ]---
+[  237.592915] Kernel panic - not syncing: Fatal exception in interrupt
+[  238.696564] SMP: failed to stop secondary CPUs
+[  238.702643] ---[ end Kernel panic - not syncing: Fatal exception in interrupt ]---

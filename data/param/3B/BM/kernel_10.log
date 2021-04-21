@@ -1,0 +1,44 @@
+[  197.337051] Kernel panic - not syncing: stack-protector: Kernel stack is corrupted in: run_posix_cpu_timers+0x688/0x6f8
+[  197.349867] CPU: 0 PID: 561 Comm: mulX_bench Not tainted 4.19.118-v7+ #1311
+[  197.357891] Hardware name: BCM2835
+[  197.362360] [<801120c8>] (unwind_backtrace) from [<8010d5fc>] (show_stack+0x20/0x24)
+[  197.372330] [<8010d5fc>] (show_stack) from [<80856da8>] (dump_stack+0xe0/0x124)
+[  197.380854] [<80856da8>] (dump_stack) from [<80120ee8>] (panic+0x104/0x288)
+[  197.389038] [<80120ee8>] (panic) from [<801209e8>] (print_tainted+0x0/0xa8)
+[  197.397261] CPU1: stopping
+[  197.401227] CPU: 1 PID: 562 Comm: mulX_bench Not tainted 4.19.118-v7+ #1311
+[  197.409534] Hardware name: BCM2835
+[  197.414284] [<801120c8>] (unwind_backtrace) from [<8010d5fc>] (show_stack+0x20/0x24)
+[  197.424866] [<8010d5fc>] (show_stack) from [<80856da8>] (dump_stack+0xe0/0x124)
+[  197.433727] [<80856da8>] (dump_stack) from [<801104e0>] (handle_IPI+0x388/0x3a8)
+[  197.444115] [<801104e0>] (handle_IPI) from [<801021f4>] (bcm2836_arm_irqchip_handle_irq+0xa0/0xa4)
+[  197.456186] [<801021f4>] (bcm2836_arm_irqchip_handle_irq) from [<80101d0c>] (__irq_usr+0x4c/0x60)
+[  197.468312] Exception stack(0xb4171fb0 to 0xb4171ff8)
+[  197.474972] 1fa0:                                     ce1bdafc 260f43c5 ce1bdafc 000230b0
+[  197.486309] 1fc0: 76f84968 765c5460 76f83530 00000152 7eace602 765c5460 00000000 765c4dc4
+[  197.497636] 1fe0: 00000000 765c4db8 00000000 00011038 60000010 ffffffff
+[  197.505839] CPU2: stopping
+[  197.510109] CPU: 2 PID: 563 Comm: mulX_bench Not tainted 4.19.118-v7+ #1311
+[  197.518683] Hardware name: BCM2835
+[  197.523657] [<801120c8>] (unwind_backtrace) from [<8010d5fc>] (show_stack+0x20/0x24)
+[  197.534585] [<8010d5fc>] (show_stack) from [<80856da8>] (dump_stack+0xe0/0x124)
+[  197.543549] [<80856da8>] (dump_stack) from [<801104e0>] (handle_IPI+0x388/0x3a8)
+[  197.554078] [<801104e0>] (handle_IPI) from [<801021f4>] (bcm2836_arm_irqchip_handle_irq+0xa0/0xa4)
+[  197.566269] [<801021f4>] (bcm2836_arm_irqchip_handle_irq) from [<80101d0c>] (__irq_usr+0x4c/0x60)
+[  197.578370] Exception stack(0xb4173fb0 to 0xb4173ff8)
+[  197.585012] 3fa0:                                     60da3044 0038f5f0 ce1bdafc 260f43c5
+[  197.596330] 3fc0: 76f84968 75dc4460 76f83530 00000152 7eace602 75dc4460 00000000 75dc3dc4
+[  197.607679] 3fe0: 00000000 75dc3db8 00000000 00011060 60000010 ffffffff
+[  197.615921] CPU3: stopping
+[  197.620196] CPU: 3 PID: 564 Comm: mulX_bench Not tainted 4.19.118-v7+ #1311
+[  197.628764] Hardware name: BCM2835
+[  197.633733] [<801120c8>] (unwind_backtrace) from [<8010d5fc>] (show_stack+0x20/0x24)
+[  197.644663] [<8010d5fc>] (show_stack) from [<80856da8>] (dump_stack+0xe0/0x124)
+[  197.653623] [<80856da8>] (dump_stack) from [<801104e0>] (handle_IPI+0x388/0x3a8)
+[  197.664155] [<801104e0>] (handle_IPI) from [<801021f4>] (bcm2836_arm_irqchip_handle_irq+0xa0/0xa4)
+[  197.676341] [<801021f4>] (bcm2836_arm_irqchip_handle_irq) from [<80101d0c>] (__irq_usr+0x4c/0x60)
+[  197.688440] Exception stack(0xb41b5fb0 to 0xb41b5ff8)
+[  197.695087] 5fa0:                                     60da3044 00000000 ce1bdafc 000230b0
+[  197.706393] 5fc0: 76f84968 755c3460 76f83530 00000152 7eace602 755c3460 00000000 755c2dc4
+[  197.717748] 5fe0: 00000000 755c2db8 00000000 00011040 60000010 ffffffff
+[  197.725999] ---[ end Kernel panic - not syncing: stack-protector: Kernel stack is corrupted in: run_posix_cpu_timers+0x688/0x6f8 ]---

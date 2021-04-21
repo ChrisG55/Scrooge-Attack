@@ -1,0 +1,96 @@
+[  241.497334] Unable to handle kernel paging request at virtual address 00989704
+[  241.505615] pgd = 419176a3
+[  241.509285] [00989704] *pgd=00000000
+[  241.513826] Internal error: Oops: 805 [#1] SMP ARM
+[  241.519592] Modules linked in:
+[  241.523614] CPU: 2 PID: 571 Comm: mulX_bench Not tainted 4.19.118-v7+ #1311
+[  241.531608] Hardware name: BCM2835
+[  241.536024] PC is at bacct_add_tsk+0x194/0x384
+[  241.541502] LR is at   (null)
+[  241.545497] pc : [<801e42ec>]    lr : [<00000000>]    psr: 60000193
+[  241.552864] sp : b4177d98  ip : b709b400  fp : b4177dc4
+[  241.559210] r10: 801ad2f4  r9 : 00000000  r8 : 00000000
+[  241.565567] r7 : 00000000  r6 : 0098967f  r5 : 00000000  r4 : 00989680
+[  241.573244] r3 : 0000002d  r2 : b7f7d200  r1 : 00000060  r0 : b5f414f0
+[  241.580923] Flags: nZCv  IRQs off  FIQs on  Mode SVC_32  ISA ARM  Segment user
+[  241.589355] Control: 10c5383d  Table: 3419c06a  DAC: 00000055
+[  241.596300] Process mulX_bench (pid: 571, stack limit = 0x29d25128)
+[  241.603775] Stack: (0xb4177d98 to 0xb4178000)
+[  241.609313] 7d80:                                                       00989680 00000000
+[  241.619861] 7da0: 00000000 00000000 20df4a00 0000002e 00989680 00000000 b4177de4 b4177dc8
+[  241.630416] 7dc0: 801e47a4 801e4068 00000000 00000000 00000000 b5f40f00 b4177e0c b4177de8
+[  241.641117] 7de0: 801521cc 801e4780 b5f40f00 00000001 39ed00a8 00000038 ba373540 ba3735f0
+[  241.651950] 7e00: b4177e1c b4177e10 801527bc 801520f0 b4177e34 b4177e20 8019a8d0 80152728
+[  241.662859] 7e20: ba373840 b4177fb0 b4177e44 b4177e38 801ad0dc 8019a8a8 b4177e6c b4177e48
+[  241.673928] 7e40: 801ad350 801ad084 b4177e6c b4177e58 ba373840 ba373580 ba373540 b4176000
+[  241.685119] 7e60: b4177ec4 b4177e70 8019b464 801ad300 8019fdd4 80d04d48 39ecfdcf 00000038
+[  241.696481] 7e80: 00000002 80d04d70 39ecfdcf 00000038 1af77294 ae1be17e 20000193 20000193
+[  241.707917] 7ea0: 00000003 7fffffff ffffffff ba373540 ba3735f0 ba3735c8 b4177f24 b4177ec8
+[  241.719425] 7ec0: 8019c084 8019b30c 20000193 0000000f 39ecfdcf 00000038 80c95ccc ba373670
+[  241.731079] 7ee0: ba373690 ba373618 ba3736c0 ba37354c 39ecfdcf 00000038 b5f40f00 b9c02dc0
+[  241.742774] 7f00: 00000000 b9cc0d00 80d5d66c 000000a2 75d82460 00000000 b4177f34 b4177f28
+[  241.754480] 7f20: 806e798c 8019bf60 b4177f5c b4177f38 80185b8c 806e7958 80c94fa8 00000000
+[  241.766183] 7f40: 00000000 00000001 b9c33000 75d82460 b4177f6c b4177f60 8017fc6c 80185b10
+[  241.777878] 7f60: b4177f94 b4177f70 801803bc 8017fc44 b4177fb0 00000002 60000010 ffffffff
+[  241.789583] 7f80: 10c5383d 10c5387d b4177fac b4177f98 801021b4 8018035c 20fc6892 00011014
+[  241.801287] 7fa0: 00000000 b4177fb0 80101d0c 80102160 20fc6892 0154d5f0 2cee2368 087a4252
+[  241.812987] 7fc0: 76f42968 75d82460 76f41530 00000152 7efae602 75d82460 00000000 75d81dc4
+[  241.824687] 7fe0: 00000000 75d81db8 00000000 00011014 60000010 ffffffff 00000000 00000000
+[  241.836398] [<801e42ec>] (bacct_add_tsk) from [<801e47a4>] (acct_account_cputime+0x30/0x38)
+[  241.848287] [<801e47a4>] (acct_account_cputime) from [<801521cc>] (account_user_time+0xe8/0xec)
+[  241.860523] [<801521cc>] (account_user_time) from [<801527bc>] (account_process_tick+0xa0/0xa4)
+[  241.872780] [<801527bc>] (account_process_tick) from [<8019a8d0>] (update_process_times+0x34/0x6c)
+[  241.885309] [<8019a8d0>] (update_process_times) from [<801ad0dc>] (tick_sched_handle+0x64/0x70)
+[  241.897580] [<801ad0dc>] (tick_sched_handle) from [<801ad350>] (tick_sched_timer+0x5c/0xb8)
+[  241.909499] [<801ad350>] (tick_sched_timer) from [<8019b464>] (__hrtimer_run_queues+0x164/0x320)
+[  241.921872] [<8019b464>] (__hrtimer_run_queues) from [<8019c084>] (hrtimer_interrupt+0x130/0x2a4)
+[  241.934346] [<8019c084>] (hrtimer_interrupt) from [<806e798c>] (arch_timer_handler_phys+0x40/0x48)
+[  241.946914] [<806e798c>] (arch_timer_handler_phys) from [<80185b8c>] (handle_percpu_devid_irq+0x88/0x23c)
+[  241.960101] [<80185b8c>] (handle_percpu_devid_irq) from [<8017fc6c>] (generic_handle_irq+0x34/0x44)
+[  241.972768] [<8017fc6c>] (generic_handle_irq) from [<801803bc>] (__handle_domain_irq+0x6c/0xc4)
+[  241.985086] [<801803bc>] (__handle_domain_irq) from [<801021b4>] (bcm2836_arm_irqchip_handle_irq+0x60/0xa4)
+[  241.998457] [<801021b4>] (bcm2836_arm_irqchip_handle_irq) from [<80101d0c>] (__irq_usr+0x4c/0x60)
+[  242.010932] Exception stack(0xb4177fb0 to 0xb4177ff8)
+[  242.017771] 7fa0:                                     20fc6892 0154d5f0 2cee2368 087a4252
+[  242.029440] 7fc0: 76f42968 75d82460 76f41530 00000152 7efae602 75d82460 00000000 75d81dc4
+[  242.041066] 7fe0: 00000000 75d81db8 00000000 00011014 60000010 ffffffff
+[  242.049425] Code: e59503b4 e1a0200a e3a01001 ebfd6f83 (e5840084) 
+[  242.057229] ---[ end trace b0e85165bdf978d1 ]---
+[  242.063518] Kernel panic - not syncing: Fatal exception in interrupt
+[  242.071547] CPU1: stopping
+[  242.075875] CPU: 1 PID: 570 Comm: mulX_bench Tainted: G      D           4.19.118-v7+ #1311
+[  242.087412] Hardware name: BCM2835
+[  242.092348] [<801120c8>] (unwind_backtrace) from [<8010d5fc>] (show_stack+0x20/0x24)
+[  242.103149] [<8010d5fc>] (show_stack) from [<80856da8>] (dump_stack+0xe0/0x124)
+[  242.112029] [<80856da8>] (dump_stack) from [<801104e0>] (handle_IPI+0x388/0x3a8)
+[  242.122393] [<801104e0>] (handle_IPI) from [<801021f4>] (bcm2836_arm_irqchip_handle_irq+0xa0/0xa4)
+[  242.134336] [<801021f4>] (bcm2836_arm_irqchip_handle_irq) from [<80101d0c>] (__irq_usr+0x4c/0x60)
+[  242.146248] Exception stack(0xb4173fb0 to 0xb4173ff8)
+[  242.152845] 3fa0:                                     41cb1c14 0154d5b0 2cee2368 087a4252
+[  242.164040] 3fc0: 76f42968 76583460 76f41530 00000152 7efae602 76583460 00000000 76582dc4
+[  242.175227] 3fe0: 00000000 76582db8 00000000 00011060 60000010 ffffffff
+[  242.183401] CPU0: stopping
+[  242.187618] CPU: 0 PID: 569 Comm: mulX_bench Tainted: G      D           4.19.118-v7+ #1311
+[  242.199017] Hardware name: BCM2835
+[  242.203908] [<801120c8>] (unwind_backtrace) from [<8010d5fc>] (show_stack+0x20/0x24)
+[  242.214736] [<8010d5fc>] (show_stack) from [<80856da8>] (dump_stack+0xe0/0x124)
+[  242.223632] [<80856da8>] (dump_stack) from [<801104e0>] (handle_IPI+0x388/0x3a8)
+[  242.234079] [<801104e0>] (handle_IPI) from [<801021f4>] (bcm2836_arm_irqchip_handle_irq+0xa0/0xa4)
+[  242.246143] [<801021f4>] (bcm2836_arm_irqchip_handle_irq) from [<80101d0c>] (__irq_usr+0x4c/0x60)
+[  242.258120] Exception stack(0xb5f69fb0 to 0xb5f69ff8)
+[  242.264705] 9fa0:                                     20fc6892 0154d570 2cee2368 087a4252
+[  242.275926] 9fc0: 76f42968 76d84460 76f41530 00000152 7efae602 76d84460 00000000 76d83dc4
+[  242.287201] 9fe0: 00000000 76d83db8 00000000 00011018 60000010 ffffffff
+[  242.295383] CPU3: stopping
+[  242.299609] CPU: 3 PID: 572 Comm: mulX_bench Tainted: G      D           4.19.118-v7+ #1311
+[  242.311007] Hardware name: BCM2835
+[  242.315909] [<801120c8>] (unwind_backtrace) from [<8010d5fc>] (show_stack+0x20/0x24)
+[  242.326730] [<8010d5fc>] (show_stack) from [<80856da8>] (dump_stack+0xe0/0x124)
+[  242.335631] [<80856da8>] (dump_stack) from [<801104e0>] (handle_IPI+0x388/0x3a8)
+[  242.346079] [<801104e0>] (handle_IPI) from [<801021f4>] (bcm2836_arm_irqchip_handle_irq+0xa0/0xa4)
+[  242.358146] [<801021f4>] (bcm2836_arm_irqchip_handle_irq) from [<80101d0c>] (__irq_usr+0x4c/0x60)
+[  242.370126] Exception stack(0xb41a5fb0 to 0xb41a5ff8)
+[  242.376712] 5fa0:                                     41cb1c14 0154d630 2cee2368 000230b0
+[  242.387939] 5fc0: 76f42968 75581460 76f41530 00000152 7efae602 75581460 00000000 75580dc4
+[  242.399208] 5fe0: 00000000 75580db8 00000000 00011068 60000010 ffffffff
+[  242.407392] ---[ end Kernel panic - not syncing: Fatal exception in interrupt ]---

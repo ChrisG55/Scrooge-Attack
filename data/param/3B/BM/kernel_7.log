@@ -1,0 +1,80 @@
+[  264.157467] Unhandled prefetch abort: unknown 1 (0x001) at 0x26e54ffe
+[  264.164908] Internal error: : 1 [#1] SMP ARM
+[  264.170128] Modules linked in:
+[  264.174117] CPU: 0 PID: 554 Comm: mulX_bench Not tainted 4.19.118-v7+ #1311
+[  264.182093] Hardware name: BCM2835
+[  264.186508] PC is at 0x26e54ffe
+[  264.190642] LR is at arch_timer_handler_phys+0x40/0x48
+[  264.196788] pc : [<26e54ffe>]    lr : [<806e798c>]    psr: 60000193
+[  264.204106] sp : b4595e78  ip : b4595ec8  fp : b4595ec4
+[  264.210409] r10: 80dcad80  r9 : ba3535f0  r8 : ba353540
+[  264.216725] r7 : ffffffff  r6 : 7fffffff  r5 : ba3536c0  r4 : 0000ce5c
+[  264.224379] r3 : 26e54ffe  r2 : 6cefee02  r1 : ba3535c8  r0 : ba3535c8
+[  264.232047] Flags: nZCv  IRQs off  FIQs on  Mode SVC_32  ISA ARM  Segment user
+[  264.240454] Control: 10c5383d  Table: 3455006a  DAC: 00000055
+[  264.247408] Process mulX_bench (pid: 554, stack limit = 0x4f14b155)
+[  264.254922] Stack: (0xb4595e78 to 0xb4596000)
+[  264.260501] 5e60:                                                       ba353618 ba3535f0
+[  264.271058] 5e80: ba3535c8 ba35354c b4595ed4 b4595e98 6cefee02 0000003d 20000193 20000193
+[  264.281716] 5ea0: ba3536c0 7fffffff ffffffff ba353540 ba3535f0 ba3535c8 b4595f24 b4595ec8
+[  264.292450] 5ec0: 8019bfe4 8019fd8c b4595efc b4595ed8 80180de8 80183ed0 00000080 ae1be17e
+[  264.303311] 5ee0: 00000001 ba353618 b9c3a368 ba35354c 80555a90 b9c3a300 b4595f1c b9c02dc0
+[  264.314262] 5f00: 00000000 b9cc0d00 80d5d66c 000000a2 76e21460 00000000 b4595f34 b4595f28
+[  264.325359] 5f20: 806e798c 8019bf60 b4595f5c b4595f38 80185b8c 806e7958 80c94fa8 00000000
+[  264.336566] 5f40: 00000000 00000001 b9c33000 76e21460 b4595f6c b4595f60 8017fc6c 80185b10
+[  264.347931] 5f60: b4595f94 b4595f70 801803bc 8017fc44 b4595fb0 00000000 60000010 ffffffff
+[  264.359356] 5f80: 10c5383d 10c5387d b4595fac b4595f98 801021b4 8018035c 4dbfd67c 00011058
+[  264.370866] 5fa0: 00000000 b4595fb0 80101d0c 80102160 4dbfd67c 08ca851a 33f885e4 08ca851a
+[  264.382516] 5fc0: 76fdf968 76e21460 76fde530 00000152 7ed36602 76e21460 00000000 76e20dc4
+[  264.394212] 5fe0: 00000000 76e20db8 00000000 00011058 60000010 ffffffff 00000000 00000000
+[  264.405923] [<806e798c>] (arch_timer_handler_phys) from [<8019bfe4>] (hrtimer_interrupt+0x90/0x2a4)
+[  264.418517] [<8019bfe4>] (hrtimer_interrupt) from [<806e798c>] (arch_timer_handler_phys+0x40/0x48)
+[  264.431032] [<806e798c>] (arch_timer_handler_phys) from [<80185b8c>] (handle_percpu_devid_irq+0x88/0x23c)
+[  264.444155] [<80185b8c>] (handle_percpu_devid_irq) from [<8017fc6c>] (generic_handle_irq+0x34/0x44)
+[  264.456770] [<8017fc6c>] (generic_handle_irq) from [<801803bc>] (__handle_domain_irq+0x6c/0xc4)
+[  264.469040] [<801803bc>] (__handle_domain_irq) from [<801021b4>] (bcm2836_arm_irqchip_handle_irq+0x60/0xa4)
+[  264.482376] [<801021b4>] (bcm2836_arm_irqchip_handle_irq) from [<80101d0c>] (__irq_usr+0x4c/0x60)
+[  264.494824] Exception stack(0xb4595fb0 to 0xb4595ff8)
+[  264.501653] 5fa0:                                     4dbfd67c 08ca851a 33f885e4 08ca851a
+[  264.513312] 5fc0: 76fdf968 76e21460 76fde530 00000152 7ed36602 76e21460 00000000 76e20dc4
+[  264.524924] 5fe0: 00000000 76e20db8 00000000 00011058 60000010 ffffffff
+[  264.533282] Code: bad PC value
+[  264.538012] ---[ end trace 970dd987ee3f3c23 ]---
+[  264.544284] Kernel panic - not syncing: Fatal exception in interrupt
+[  264.552299] CPU1: stopping
+[  264.556611] CPU: 1 PID: 555 Comm: mulX_bench Tainted: G      D           4.19.118-v7+ #1311
+[  264.568121] Hardware name: BCM2835
+[  264.573041] [<801120c8>] (unwind_backtrace) from [<8010d5fc>] (show_stack+0x20/0x24)
+[  264.583807] [<8010d5fc>] (show_stack) from [<80856da8>] (dump_stack+0xe0/0x124)
+[  264.592666] [<80856da8>] (dump_stack) from [<801104e0>] (handle_IPI+0x388/0x3a8)
+[  264.602999] [<801104e0>] (handle_IPI) from [<801021f4>] (bcm2836_arm_irqchip_handle_irq+0xa0/0xa4)
+[  264.614914] [<801021f4>] (bcm2836_arm_irqchip_handle_irq) from [<80101d0c>] (__irq_usr+0x4c/0x60)
+[  264.626786] Exception stack(0xb4597fb0 to 0xb4597ff8)
+[  264.633366] 7fa0:                                     33f885e4 08ca851a 33f885e4 08ca851a
+[  264.644524] 7fc0: 76fdf968 76620460 76fde530 00000152 7ed36602 76620460 00000000 7661fdc4
+[  264.655684] 7fe0: 00000000 7661fdb8 00000000 00011028 60000010 ffffffff
+[  264.663859] CPU2: stopping
+[  264.668079] CPU: 2 PID: 556 Comm: mulX_bench Tainted: G      D           4.19.118-v7+ #1311
+[  264.679477] Hardware name: BCM2835
+[  264.684375] [<801120c8>] (unwind_backtrace) from [<8010d5fc>] (show_stack+0x20/0x24)
+[  264.695201] [<8010d5fc>] (show_stack) from [<80856da8>] (dump_stack+0xe0/0x124)
+[  264.704103] [<80856da8>] (dump_stack) from [<801104e0>] (handle_IPI+0x388/0x3a8)
+[  264.714552] [<801104e0>] (handle_IPI) from [<801021f4>] (bcm2836_arm_irqchip_handle_irq+0xa0/0xa4)
+[  264.726613] [<801021f4>] (bcm2836_arm_irqchip_handle_irq) from [<80101d0c>] (__irq_usr+0x4c/0x60)
+[  264.738593] Exception stack(0xb4589fb0 to 0xb4589ff8)
+[  264.745177] 9fa0:                                     4dbfd67c 012c05f0 33f885e4 000230b0
+[  264.756409] 9fc0: 76fdf968 75e1f460 76fde530 00000152 7ed36602 75e1f460 00000000 75e1edc4
+[  264.767683] 9fe0: 00000000 75e1edb8 00000000 00011068 60000010 ffffffff
+[  264.775865] CPU3: stopping
+[  264.780092] CPU: 3 PID: 557 Comm: mulX_bench Tainted: G      D           4.19.118-v7+ #1311
+[  264.791497] Hardware name: BCM2835
+[  264.796401] [<801120c8>] (unwind_backtrace) from [<8010d5fc>] (show_stack+0x20/0x24)
+[  264.807235] [<8010d5fc>] (show_stack) from [<80856da8>] (dump_stack+0xe0/0x124)
+[  264.816138] [<80856da8>] (dump_stack) from [<801104e0>] (handle_IPI+0x388/0x3a8)
+[  264.826583] [<801104e0>] (handle_IPI) from [<801021f4>] (bcm2836_arm_irqchip_handle_irq+0xa0/0xa4)
+[  264.838659] [<801021f4>] (bcm2836_arm_irqchip_handle_irq) from [<80101d0c>] (__irq_usr+0x4c/0x60)
+[  264.850644] Exception stack(0xb458bfb0 to 0xb458bff8)
+[  264.857227] bfa0:                                     33f885e4 08ca851a 33f885e4 012c0630
+[  264.868458] bfc0: 76fdf968 7561e460 76fde530 00000152 7ed36602 7561e460 00000000 7561ddc4
+[  264.879732] bfe0: 00000000 7561ddb8 00000000 00011070 60000010 ffffffff
+[  264.887924] ---[ end Kernel panic - not syncing: Fatal exception in interrupt ]---

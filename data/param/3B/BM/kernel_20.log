@@ -1,0 +1,36 @@
+[  304.867294] Unable to handle kernel NULL pointer dereference at virtual address 00000002
+[  304.877350] pgd = 18870bc8
+[  304.881009] [00000002] *pgd=37ea4835, *pte=00000000, *ppte=00000000
+[  304.888301] Internal error: Oops: 17 [#1] SMP ARM
+[  304.894016] Modules linked in:
+[  304.898075] CPU: 2 PID: 561 Comm: mulX_bench Not tainted 4.19.118-v7+ #1311
+[  304.906106] Hardware name: BCM2835
+[  304.910585] PC is at _test_and_set_bit+0x0/0x4c
+[  304.916224] LR is at __schedule+0x32c/0x9ac
+[  304.921516] pc : [<808559f8>]    lr : [<8086e50c>]    psr: a0000193
+[  304.928958] sp : b44aff10  ip : ba376b80  fp : b44aff74
+[  304.935371] r10: 80d04d48  r9 : b5ff1e00  r8 : ba376400
+[  304.941787] r7 : 00000046  r6 : b5feec00  r5 : b5f4fe00  r4 : b5fbda00
+[  304.949528] r3 : b44ae000  r2 : 00000000  r1 : b5f4ffc0  r0 : 00000002
+[  304.957283] Flags: NzCv  IRQs off  FIQs on  Mode SVC_32  ISA ARM  Segment user
+[  304.965754] Control: 10c5383d  Table: 3457c06a  DAC: 00000055
+[  304.972737] Process mulX_bench (pid: 561, stack limit = 0x79060868)
+[  304.980251] Stack: (0xb44aff10 to 0xb44b0000)
+[  304.985854] ff00:                                     0000000a 80c94fc0 80d90098 80d04d70
+[  304.996542] ff20: 80c8d308 80902410 396e1000 80c95400 8086ebdc ba376400 80c94fa8 00000000
+[  305.007242] ff40: 00000000 ae1be17e 80191a14 b44ae000 b44ae010 00000000 b44affb0 00000000
+[  305.018054] ff60: b44ae000 00000000 b44aff8c b44aff78 8086ebdc 8086e1ec b44aff90 00000002
+[  305.028972] ff80: b44affac b44aff90 8010cc74 8086eb98 00011044 60000010 ffffffff 10c5383d
+[  305.039959] ffa0: 00000000 b44affb0 80101034 8010cc4c 5a9cf81f 00000000 36f08036 00000000
+[  305.051107] ffc0: 76f4b968 75d8b460 76f4a530 00000152 7e8ab602 75d8b460 00000000 75d8adc4
+[  305.062364] ffe0: 00000000 75d8adb8 00000000 00011044 60000010 ffffffff 00000000 00000000
+[  305.073785] [<808559f8>] (_test_and_set_bit) from [<8086e50c>] (__schedule+0x32c/0x9ac)
+[  305.085106] [<8086e50c>] (__schedule) from [<8086ebdc>] (schedule+0x50/0xa8)
+[  305.093878] [<8086ebdc>] (schedule) from [<8010cc74>] (do_work_pending+0x34/0xf4)
+[  305.104739] [<8010cc74>] (do_work_pending) from [<80101034>] (slow_work_pending+0xc/0x20)
+[  305.116392] Exception stack(0xb44affb0 to 0xb44afff8)
+[  305.123167] ffa0:                                     5a9cf81f 00000000 36f08036 00000000
+[  305.134730] ffc0: 76f4b968 75d8b460 76f4a530 00000152 7e8ab602 75d8b460 00000000 75d8adc4
+[  305.146258] ffe0: 00000000 75d8adb8 00000000 00011044 60000010 ffffffff
+[  305.154572] Code: f57ff05b e3500000 13a00001 e12fff1e (e211c003) 
+[  305.162338] ---[ end trace 4a1228ceee3e4bf8 ]---
