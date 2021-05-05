@@ -1,0 +1,27 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+* Scrooge Attack Dataset
+
+This repository contains the dataset and source code used to research energy requirements and reliability of ARM processors.
+Data was gathered on the latest Raspberry Pi models 3B, 3B+, and 4B.
+The results of this research were published and presented at ...
+
+** Building the code
+
+The code can be built on most Linux distributions.
+In order to build the code a C compiler with POSIX threads is required (/e.g./, GCC or LLVM).
+Makefiles are provided to build the programs as follows:
+
+#+BEGIN_SRC sh
+make
+#+END_SRC
+
+** License
+
+The data and documentation are provided under the [[https://creativecommons.org/licenses/by/4.0/][CC-BY]] license.
+The source code is provided under the [[https://www.gnu.org/licenses/gpl-3.0.txt][GNU GPLv3 or later]] license.
+By downloading it or using them, you agree to the terms of these licenses.
+
+** Acknowledgement
+
+This work has been supported by EU H2020 ICT project LEGaTO, contract #780681 .
