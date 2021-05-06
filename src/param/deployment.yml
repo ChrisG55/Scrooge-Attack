@@ -1,0 +1,22 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (C) 2021 Christian Göttel
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: param-deployment
+  labels:
+    app: param
+spec:
+  selector:
+    matchLabels:
+      app: param
+  template:
+    metadata:
+      labels:
+        app: param
+    spec:
+      containers:
+      - name: param
+        image: param:latest
+        imagePullPolicy: Never

@@ -41,6 +41,18 @@ Contains the source code, scripts and configurations to measure the guardband.
 - ~plot.sh~ :: a script to extract data needed for plotting
 - ~validate.sh~ :: a script to validate the guardband analysis results
 
+* param
+Contains source code and scripts to determine parameters for the detection method.
+
+- ~Dockerfile~ :: a Dockerfile to create a container for Kubernetes
+- ~Makefile~ :: a Makefile to compile the parameter determination source code
+- ~deployment.yml~ :: a deployment file for the parameter determination in Kubernetes
+- ~logger.sh~ :: a script to log a CPU temperature time series in the background
+- ~mulX_docker.c~ :: a variant of the multithreaded benchmark for Docker
+- ~param.sh~ :: a wrapper script to launch the parameter determination
+- ~param_k8s.sh~ :: a wrapper script to launch the parameter determination on Kubernetes
+- ~plot.sh~ :: a script to extract data needed for plotting
+
 * reliability
 Contains the scripts used to run the stress-ng[fn:3][fn:4] reliability benchmark.
 
