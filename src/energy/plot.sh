@@ -8,9 +8,9 @@
 LC_ALL=C
 export LC_ALL
 
+readonly TALPHA5="12.7062,4.3027,3.1824,2.7764,2.5706,2.4469,2.3646,2.3060,2.2622,2.2231,2.2010,2.1788,2.1604,2.1448,2.1314,2.1199,2.1098,2.1009,2.0930,2.0860,2.0796,2.0736,2.0687,2.0639,2.0595,2.0555,2.0518,2.0484,2.0452,2.0423,2.0395"
 readonly DATADIR="../../data/energy"
 readonly PTMP="/tmp/Power.csv"
-N=0
 
 # usage: append var value...
 append()
@@ -195,18 +195,29 @@ generate_averages()
 		info "generate_averages" "no average for stressor $stressor because of incomplete data in ${1}results.csv"
 		continue
 	    fi
+	    Eout=$(printf "$results\n" | cut -d , -f 4 | ../stats.m cln)
+	    Oout=$(printf "$results\n" | cut -d , -f 5 | ../stats.m cln)
+	    Opsout=$(printf "$results\n" | cut -d , -f 6 | ../stats.m cln)
+	    outliers=$(printf "$Eout\n$Oout\n$Opsout\n" | sed -e '/^$/d' | sort -bdu | sed -e 's/^\([[:digit:]]\+\)$/\1d/g' | sed -e ':a;N;$!ba;s/\n/;/g')
+	    [ -n "$outliers" ] && results=$(printf "$results\n" | sed -e $outliers)
 	    n=$(printf "$results\n" | wc -l)
-	    SE=$(printf "$results\n" | cut -d , -f 4 | sed -e ':a;N;$!ba;s/\n/+/g')
-	    Eavg=$(printf "scale=6; ($SE)/$n\n" | bc)
-	    SO=$(printf "$results\n" | cut -d , -f 5 | sed -e ':a;N;$!ba;s/\n/+/g')
-	    Oavg=$(printf "scale=2; ($SO)/$n\n" | bc)
-	    SOps=$(printf "$results\n" | cut -d , -f 6 | sed -e ':a;N;$!ba;s/\n/+/g')
-	    Opsavg=$(printf "scale=2; ($SOps)/$n\n" | bc)
+	    rv=$(printf "$results\n" | cut -d , -f 4 | ../stats.m sta 6)
+	    Eavg=${rv%%,*}
+	    Estd=${rv##*,}
+	    rv=$(printf "$results\n" | cut -d , -f 5 | ../stats.m sta 2)
+	    Oavg=${rv%%,*}
+	    Ostd=${rv##*,}
+	    rv=$(printf "$results\n" | cut -d , -f 6 | ../stats.m sta 2)
+	    Opsavg=${rv%%,*}
+	    Opsstd=${rv##*,}
 	    if [ "x$Oavg" = "x0" ] || [ "x$Oavg" = "x0.00" ]
 	    then
 		Epopavg=$Oavg
 	    else
 		Epopavg=$(printf "scale=9; $Eavg/$Oavg\n" | bc)
+		cov=$(printf "$results\n" | cut -d , -f 4,5 | ../stats.m cov)
+		Epopstd=$(awk -v E=$Eavg -v sE=$Estd -v O=$Oavg -v sO=$Ostd -v sEO=$cov 'BEGIN { print sqrt((1/O)^2*sE^2 + (-E/O^2)^2*sO^2 + 2*E/O^3*sEO) }')
+		Epopci=$(awk -v a="$TALPHA5" -v n=$n -v sEpO=$Epopstd 'BEGIN { split(a, z, ","); print z[n-1]*sEpO/sqrt(n) }')
 	    fi
 	    [ $recompute_average -eq 1 ] && sed -e "/^$stressor,/d" "$1"averages.csv >"$1"averages.csv
 	    # CSV format:
@@ -215,7 +226,8 @@ generate_averages()
 	    # 3) average number of operations [op]
 	    # 4) average throughput in operations per second [op/s]
 	    # 5) average consumed energy per operation [J/op]
-	    printf "$stressor,$Eavg,$Oavg,$Opsavg,$Epopavg\n" >>"$1"averages.csv
+	    # 6) absolute error of average consumed energy per operation [J/op]
+	    printf "$stressor,$Eavg,$Oavg,$Opsavg,$Epopavg,$Epopci\n" >>"$1"averages.csv
 	fi
     done
 }
