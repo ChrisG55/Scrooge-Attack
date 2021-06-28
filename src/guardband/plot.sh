@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # SPDX-License-Identifier: GPL-3.0-or-later
-# Copyright (C) 2020 Christian Göttel
+# Copyright (C) 2020-2021 Christian Göttel
 
 # Debug
 #set -x
@@ -62,9 +62,7 @@ parse_failed_measurements()
 # STDERR: debug output
 parse_regular_measurements()
 {
-    temperatures="0"
-    voltages="0"
-    n=0
+    N=0
     Tavg="${2}.0"
     Vavg="nan"
     # First test if there is a regular measurement
@@ -74,22 +72,37 @@ parse_regular_measurements()
 	for csv in "$1"benchmark_*.csv
 	do
 	    printf "csv='$csv'\n" >&2
-	    temperatures="${temperatures}+$(cut -d , -f 22 "$csv")"
-	    voltages="${voltages}+$(cut -d , -f 21 "$csv")"
-	    n=$((n+1))
+	    temperatures="${temperatures}
+$(cut -d , -f 22 "$csv")"
+	    voltages="${voltages}
+$(cut -d , -f 21 "$csv")"
+	    N=$((N+1))
 	done
-	Tavg=$(printf "scale=1; ($temperatures)/$n\n" | bc)
-	Vavg=$(printf "scale=4; ($voltages)/$n\n" | bc)
+	Tout=$(printf "$temperatures\n" | sed -e '/^$/d' | ../stats.m cln)
+	Vout=$(printf "$voltages\n" | sed -e '/^$/d' | ../stats.m cln)
+	outliers=$(printf "$Tout\n$Vout\n" | sed -e '/^$/d' | sort -bdu | sed -e 's/^\([[:digit:]]\+\)$/\1d/g' | sed -e ':a;N;$!ba;s/\n/;/g' | sed -e 's/^/-e /')
+	temperatures=$(printf "$temperatures\n" | sed -e '/^$/d' $outliers)
+	voltages=$(printf "$voltages\n" | sed -e '/^$/d' $outliers)
+	n=$(printf "$temperatures\n" | wc -l)
+	rv=$(printf "$temperatures\n" | ../stats.m sta 1)
+	Tavg=${rv%%,*}
+	Tstd=${rv##*,}
+	rv=$(printf "$voltages\n" | ../stats.m sta 4)
+	Vavg=${rv%%,*}
+	Vstd=${rv##*,}
 	printf "reg: " >&2
 	printf "T_avg=$Tavg\t" >&2
+	printf "T_std=$Tstd\t" >&2
 	printf "V_avg=$Vavg\t" >&2
+	printf "V_std=$Vstd\t" >&2
 	printf "n=$n\n" >&2
     fi
-    # Append first two elements of the point tuple. The third element
+    # Append first five elements of the point tuple. The sixth element
     # (percentage) is appended in the calling function generate_csv().
-    # Print a tuple with the average temperature, the average voltage and the
+    # Print a tuple with the average temperature, the temperature standard
+    # deviation, the average voltage, the voltage standard deviation and the
     # number of regular measurements in the specified directory.
-    printf "$Tavg,$Vavg,$n\n"
+    printf "$Tavg,$Tstd,$Vavg,$Vstd,$N\n"
 }
 
 # usage: print_points model
