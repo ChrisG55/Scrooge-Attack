@@ -135,17 +135,33 @@ generate_average_results()
     [ -s "$DIR"../averages.csv ] && grep -q -e ^$f, "$DIR"../averages.csv
     if [ $? -eq 1 ] || [ $recompute_average -eq 1 ]
     then
-	SE=$(printf "$results\n" | cut -d , -f 3 | sed -e ':a;N;$!ba;s/\n/+/g')
-	SDt=$(printf "$results\n" | cut -d , -f 4 | sed -e ':a;N;$!ba;s/\n/+/g')
-	n=$(printf "$results\n" | wc -l)
-	Epopavg=$(printf "scale=9; ($SE)/$n/1000000000\n" | bc)
-	opptavg=$(printf "scale=3; 1000000000/($SDt)*$n\n" | bc)
+	Eout=$(printf "$results\n" | cut -d , -f 5 | ../stats.m cln)
+	Opsout=$(printf "$results\n" | cut -d , -f 7 | ../stats.m cln)
+	outliers=$(printf "$Eout\n$Opsout\n" | sed -e '/^$/d' | sort -bdu | sed -e 's/^\([[:digit:]]\+\)$/\1d/g' | sed -e ':a;N;$!ba;s/\n/;/g' | sed -e 's/^/-e /')
+	E=$(printf "$results\n" | cut -d , -f 5 | sed -e '/^$/d' $outliers)
+	Op=$(printf "$results\n" | head -n 1 | cut -d , -f 6)
+	Ops=$(printf "$results\n" | cut -d , -f 7 | sed -e '/^$/d' $outliers)
+	n=$(printf "$E\n" | wc -l)
+	rv=$(printf "$E\n" | ../stats.m sta 2)
+	Eavg=${rv%%,*}
+	Estd=${rv##*,}
+	rv=$(printf "$Ops\n" | ../stats.m sta 2)
+	Opsavg=${rv%%,*}
+	Opsstd=${rv##*,}
+	Epopavg=$(awk -v E=$Eavg -v O=$Op 'BEGIN { printf("%.11f\n", E/O) }')
+	#Epopstd=$(awk -v sE=$Estd -v O=$Op 'BEGIN { printf("%.13f\n", sE/O) }')
+	#Epopci=$(awk -v a="$TALPHA5" -v n=$n -v sEpop=$Epopstd 'BEGIN { split(a, z, ","); printf("%.11f\n", z[n-1]*sEpop/sqrt(n)) }')
+	ETRavg=$(awk -v Epop=$Epopavg -v Ops=$Opsavg 'BEGIN { printf("%.18f\n", Epop/Ops) }')
+	cov=$(printf "$results\n" | sed -e '/^$/d' $outliers | awk 'BEGIN { FS="," }; { printf("%.11f,%.2f\n", $5/$6, $7) }' | ../stats.m cov)
+	ETRstd=$(awk -v Epop=$Epopavg -v sEpop=$Epopstd -v O=$Opsavg -v sO=$Opsstd -v sEpO=$cov 'BEGIN { ci = Epop / O * sqrt((sEpop/Epop)^2 + (sO/O)^2 - 2 * sEpO/(Epop*O)); printf("%.22f\n", ci) }')
+	ETRci=$(awk -v a="$TALPHA5" -v n=$n -v sETR=$ETRstd 'BEGIN { split(a, z, ","); printf("%.22f\n", z[n-1]*sETR/sqrt(n)) }')
+	Opsci=$(awk -v a="$TALPHA5" -v n=$n -v sOps=$Opsstd 'BEGIN { split(a, z, ","); print z[n-1]*sOps/sqrt(n) }')
 	[ -s "$DIR"../averages.csv ] && [ $recompute_average -eq 1 ] && sed -e "/^$f,/d" "$DIR"../averages.csv >/tmp/averages.csv && mv /tmp/averages.csv "$DIR"../averages.csv
 	# CSV format:
 	# 1) CPU frequency in MHz
 	# 2) average throughput in op/s
 	# 3) average energy per operation in J/op
-	printf "$f,$opptavg,$Epopavg\n" >>"$DIR"../averages.csv
+	printf "$f,$Opsavg,$Opsci,$ETRavg,$ETRci\n" >>"$DIR"../averages.csv
     fi
 }
 
@@ -191,3 +207,5 @@ fi
 traverse_measurements "$DATADIR"
 [ $? -ne 0 ] && fail "traverse_measurements" "failure"
 # plot()
+# How to obtain final values, e.g. for 3B:
+# join -t , -o 1.1,1.2,1.3,1.4,1.5,2.2,2.3,2.4,2.5 -1 1 -2 1 ../../data/etr2/3B/dU0/averages.csv ../../data/etr2/3B/dU-75/averages.csv | awk -v opscov=113433095302465.765625 'BEGIN { FS="," }; { ops = ($2 + $6) / 2; rETR = $8 / $4; sops = sqrt($3^2+$4^2+2*opscov); sops = sops/2; opsci = 2.4469 * sops / sqrt(7); ETRci = 2.4469 * (rETR * sqrt(($5/$4)^2+($9/$8)^2))/sqrt(7); printf("%d,%.2f,%.2f,%.4f,%f\n", $1, ops, opsci, rETR, ETRci) }'
