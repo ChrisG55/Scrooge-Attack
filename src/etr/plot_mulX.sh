@@ -9,7 +9,8 @@
 LC_ALL=C
 export LC_ALL
 
-readonly DATADIR="../../data/etr2"
+readonly TALPHA5="12.7062,4.3027,3.1824,2.7764,2.5706,2.4469,2.3646,2.3060,2.2622,2.2231,2.2010,2.1788,2.1604,2.1448,2.1314,2.1199,2.1098,2.1009,2.0930,2.0860,2.0796,2.0736,2.0687,2.0639,2.0595,2.0555,2.0518,2.0484,2.0452,2.0423,2.0395"
+readonly DATADIR="../../data/etr"
 readonly PSTMP="/tmp/PowerSpy.csv"
 
 # Compute the results for one measurement.
